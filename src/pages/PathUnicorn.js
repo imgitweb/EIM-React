@@ -131,8 +131,7 @@ const PathToUnicorn = () => {
                         <li className="breadcrumb-item">
                           <a
                             className="text-muted text-decoration-none"
-                            href="../dark/index.html"
-                          >
+                            href="../dark/index.html">
                             Home
                           </a>
                         </li>
@@ -161,8 +160,7 @@ const PathToUnicorn = () => {
         id="milestoneModal"
         tabIndex="-1"
         aria-labelledby="milestoneModalLabel"
-        aria-hidden="true"
-      >
+        aria-hidden="true">
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
@@ -173,8 +171,7 @@ const PathToUnicorn = () => {
                 type="button"
                 className="btn-close"
                 data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
+                aria-label="Close"></button>
             </div>
             <div className="modal-body">
               {activeMilestone ? (

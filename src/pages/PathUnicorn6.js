@@ -30,8 +30,7 @@ const PathUnicorn6 = () => {
                           <li className="breadcrumb-item">
                             <a
                               className="text-muted text-decoration-none"
-                              href="../dark/index.html"
-                            >
+                              href="../dark/index.html">
                               Home
                             </a>
                           </li>
@@ -53,33 +52,38 @@ const PathUnicorn6 = () => {
                   </div>
                 </div>
               </div>
-              <div style={styles.container}>
-                {/* Title Section */}
-                <h1 style={styles.title}>
-                  SALES <span style={styles.marketing}> & MARKETING </span>{" "}
-                  FUNNEL
-                </h1>
+              <div className="card">
+                <div style={styles.container}>
+                  {/* Title Section */}
+                  <h1 style={styles.title}>
+                    SALES <span style={styles.marketing}> & MARKETING </span>{" "}
+                    FUNNEL
+                  </h1>
 
-                {/* Steps Section */}
-                <div style={styles.stepsContainer}>
-                  {[
-                    { number: 1, label: "PRODUCT LISTING", color: "#FFA726" },
-                    { number: 2, label: "CLIENT PERSONA", color: "#66BB6A" },
-                    { number: 3, label: "MARKETING FUNNEL", color: "#42A5F5" },
-                    { number: 4, label: "SALES FUNNEL", color: "#EF5350" },
-                  ].map((step) => (
-                    <div key={step.number} style={styles.step}>
-                      <div
-                        style={{
-                          ...styles.circle,
-                          borderColor: step.color,
-                        }}
-                      >
-                        {step.number}
+                  {/* Steps Section */}
+                  <div style={styles.stepsContainer}>
+                    {[
+                      { number: 1, label: "PRODUCT LISTING", color: "#FFA726" },
+                      { number: 2, label: "CLIENT PERSONA", color: "#66BB6A" },
+                      {
+                        number: 3,
+                        label: "MARKETING FUNNEL",
+                        color: "#42A5F5",
+                      },
+                      { number: 4, label: "SALES FUNNEL", color: "#EF5350" },
+                    ].map((step) => (
+                      <div key={step.number} style={styles.step}>
+                        <div
+                          style={{
+                            ...styles.circle,
+                            borderColor: step.color,
+                          }}>
+                          {step.number}
+                        </div>
+                        <p style={styles.stepLabel}>{step.label}</p>
                       </div>
-                      <p style={styles.stepLabel}>{step.label}</p>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
@@ -94,13 +98,12 @@ const PathUnicorn6 = () => {
 
 const styles = {
   container: {
-    backgroundColor: "#2B0B41",
     color: "#FFFFFF",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    height: "100vh",
+    height: "60vh",
     padding: "20px",
   },
   title: {

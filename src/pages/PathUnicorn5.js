@@ -42,8 +42,7 @@ const PathUnicorn5 = () => {
                           <li className="breadcrumb-item">
                             <a
                               className="text-muted text-decoration-none"
-                              href="../dark/index.html"
-                            >
+                              href="../dark/index.html">
                               Home
                             </a>
                           </li>
@@ -65,70 +64,70 @@ const PathUnicorn5 = () => {
                   </div>
                 </div>
               </div>
-              <div style={styles.container}>
-                {/* Metrics Section */}
-                <div style={styles.metricsContainer}>
-                  {metrics.map((metric) => (
-                    <div key={metric} style={styles.metricCard}>
-                      <div style={styles.metricTitle}>{metric}</div>
-                      <div style={styles.metricActions}>
-                        {/* Plus Icon: Open Form */}
-                        <button
-                          style={styles.actionButton}
-                          onClick={() => setActiveMetric(metric)}
-                        >
-                          +
-                        </button>
-                        {/* Three-Line Icon: Toggle List */}
-                        <button
-                          style={styles.actionButton}
-                          onClick={() =>
-                            setListOpenMetric(
-                              listOpenMetric === metric ? null : metric
-                            )
-                          }
-                        >
-                          ≡
-                        </button>
-                      </div>
-
-                      {/* Form */}
-                      {activeMetric === metric && (
-                        <form style={styles.form} onSubmit={handleFormSubmit}>
-                          <input
-                            type="text"
-                            value={formData}
-                            onChange={(e) => setFormData(e.target.value)}
-                            placeholder={`Enter value for ${metric}`}
-                            style={styles.input}
-                          />
-                          <button type="submit" style={styles.submitButton}>
-                            Submit
+              <div className="card">
+                <div style={styles.container}>
+                  {/* Metrics Section */}
+                  <div style={styles.metricsContainer}>
+                    {metrics.map((metric) => (
+                      <div key={metric} style={styles.metricCard}>
+                        <div style={styles.metricTitle}>{metric}</div>
+                        <div style={styles.metricActions}>
+                          {/* Plus Icon: Open Form */}
+                          <button
+                            style={styles.actionButton}
+                            onClick={() => setActiveMetric(metric)}>
+                            +
                           </button>
-                        </form>
-                      )}
+                          {/* Three-Line Icon: Toggle List */}
+                          <button
+                            style={styles.actionButton}
+                            onClick={() =>
+                              setListOpenMetric(
+                                listOpenMetric === metric ? null : metric
+                              )
+                            }>
+                            ≡
+                          </button>
+                        </div>
 
-                      {/* List */}
-                      {listOpenMetric === metric && (
-                        <ul style={styles.list}>
-                          <li>Sample Item 1</li>
-                          <li>Sample Item 2</li>
-                          <li>Sample Item 3</li>
-                        </ul>
-                      )}
-                    </div>
-                  ))}
-                </div>
+                        {/* Form */}
+                        {activeMetric === metric && (
+                          <form style={styles.form} onSubmit={handleFormSubmit}>
+                            <input
+                              type="text"
+                              value={formData}
+                              onChange={(e) => setFormData(e.target.value)}
+                              placeholder={`Enter value for ${metric}`}
+                              style={styles.input}
+                            />
+                            <button type="submit" style={styles.submitButton}>
+                              Submit
+                            </button>
+                          </form>
+                        )}
 
-                {/* Projection Section */}
-                <div style={styles.projectionContainer}>
-                  <h3 style={styles.projectionTitle}>
-                    Projection you next 5 Years
-                  </h3>
-                  <div style={styles.pieChart}>
-                    <div style={styles.pieChartValue}>2069.06</div>
+                        {/* List */}
+                        {listOpenMetric === metric && (
+                          <ul style={styles.list}>
+                            <li>Sample Item 1</li>
+                            <li>Sample Item 2</li>
+                            <li>Sample Item 3</li>
+                          </ul>
+                        )}
+                      </div>
+                    ))}
                   </div>
-                  <button style={styles.reportButton}>Get Full Report</button>
+
+                  {/* Projection Section */}
+                  <div style={styles.projectionContainer}>
+                    <h3 style={styles.projectionTitle}>
+                      Projection you next 5 Years
+                    </h3>
+                    <div style={styles.pieChart}>
+                      <div style={styles.pieChartValue}>2069.06</div>
+                    </div>
+                    <button style={styles.reportButton}>Get Full Report</button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -147,8 +146,7 @@ const styles = {
     flexDirection: "row",
     justifyContent: "space-between",
     padding: "20px",
-    backgroundColor: "#2B0B41",
-    height: "100vh",
+    // height: "80vh",
     color: "#FFFFFF",
   },
   metricsContainer: {

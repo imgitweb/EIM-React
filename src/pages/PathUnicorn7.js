@@ -62,8 +62,7 @@ const PathUnicorn7 = () => {
                           <li className="breadcrumb-item">
                             <a
                               className="text-muted text-decoration-none"
-                              href="../dark/index.html"
-                            >
+                              href="../dark/index.html">
                               Home
                             </a>
                           </li>
@@ -85,99 +84,102 @@ const PathUnicorn7 = () => {
                   </div>
                 </div>
               </div>
-              <div style={styles.container}>
-                {/* Sidebar */}
-                <div style={styles.sidebar}>
-                  <h3 style={styles.sidebarTitle}>Sales Funnel</h3>
-                  <ul style={styles.menu}>
-                    {[
-                      "Product Listing",
-                      "Product Pricing",
-                      "Client Persona",
-                      "Marketing Funnel",
-                      "Sales Funnel",
-                    ].map((item, index) => (
-                      <li key={index} style={styles.menuItem}>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Main Content */}
-                <div style={styles.mainContent}>
-                  <h1 style={styles.title}>
-                    <span style={styles.highlight}>PRODUCT</span> LISTING
-                  </h1>
-
-                  {/* Input Form */}
-                  <div style={styles.form}>
-                    <input
-                      type="text"
-                      name="name"
-                      placeholder="Product Name"
-                      value={form.name}
-                      onChange={handleInputChange}
-                      style={styles.inputField}
-                    />
-                    <input
-                      type="text"
-                      name="category"
-                      placeholder="Product Category"
-                      value={form.category}
-                      onChange={handleInputChange}
-                      style={styles.inputField}
-                    />
-                    <input
-                      type="text"
-                      name="price"
-                      placeholder="Product Price (Approx)"
-                      value={form.price}
-                      onChange={handleInputChange}
-                      style={styles.inputField}
-                    />
-                    <button onClick={addProduct} style={styles.saveButton}>
-                      Save
-                    </button>
+              <div className="card">
+                <div style={styles.container}>
+                  {/* Sidebar */}
+                  <div style={styles.sidebar}>
+                    <h3 style={styles.sidebarTitle}>Sales Funnel</h3>
+                    <ul style={styles.menu}>
+                      {[
+                        "Product Listing",
+                        "Product Pricing",
+                        "Client Persona",
+                        "Marketing Funnel",
+                        "Sales Funnel",
+                      ].map((item, index) => (
+                        <li key={index} style={styles.menuItem}>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
 
-                  {/* Table */}
-                  <div style={styles.tableContainer}>
-                    <table style={styles.table}>
-                      <thead>
-                        <tr>
-                          {[
-                            "S.No.",
-                            "Product Name",
-                            "Category",
-                            "Price",
-                            "Action",
-                          ].map((header, index) => (
-                            <th key={index} style={styles.tableHeader}>
-                              {header}
-                            </th>
-                          ))}
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {products.map((product, index) => (
-                          <tr key={product.id}>
-                            <td style={styles.tableData}>{index + 1}</td>
-                            <td style={styles.tableData}>{product.name}</td>
-                            <td style={styles.tableData}>{product.category}</td>
-                            <td style={styles.tableData}>{product.price}</td>
-                            <td style={styles.tableData}>
-                              <button
-                                onClick={() => deleteProduct(product.id)}
-                                style={styles.deleteButton}
-                              >
-                                Delete
-                              </button>
-                            </td>
+                  {/* Main Content */}
+                  <div style={styles.mainContent}>
+                    <h1 style={styles.title}>
+                      <span style={styles.highlight}>PRODUCT</span> LISTING
+                    </h1>
+
+                    {/* Input Form */}
+                    <div style={styles.form}>
+                      <input
+                        type="text"
+                        name="name"
+                        placeholder="Product Name"
+                        value={form.name}
+                        onChange={handleInputChange}
+                        style={styles.inputField}
+                      />
+                      <input
+                        type="text"
+                        name="category"
+                        placeholder="Product Category"
+                        value={form.category}
+                        onChange={handleInputChange}
+                        style={styles.inputField}
+                      />
+                      <input
+                        type="text"
+                        name="price"
+                        placeholder="Product Price (Approx)"
+                        value={form.price}
+                        onChange={handleInputChange}
+                        style={styles.inputField}
+                      />
+                      <button onClick={addProduct} style={styles.saveButton}>
+                        Save
+                      </button>
+                    </div>
+
+                    {/* Table */}
+                    <div style={styles.tableContainer}>
+                      <table style={styles.table}>
+                        <thead>
+                          <tr>
+                            {[
+                              "S.No.",
+                              "Product Name",
+                              "Category",
+                              "Price",
+                              "Action",
+                            ].map((header, index) => (
+                              <th key={index} style={styles.tableHeader}>
+                                {header}
+                              </th>
+                            ))}
                           </tr>
-                        ))}
-                      </tbody>
-                    </table>
+                        </thead>
+                        <tbody>
+                          {products.map((product, index) => (
+                            <tr key={product.id}>
+                              <td style={styles.tableData}>{index + 1}</td>
+                              <td style={styles.tableData}>{product.name}</td>
+                              <td style={styles.tableData}>
+                                {product.category}
+                              </td>
+                              <td style={styles.tableData}>{product.price}</td>
+                              <td style={styles.tableData}>
+                                <button
+                                  onClick={() => deleteProduct(product.id)}
+                                  style={styles.deleteButton}>
+                                  Delete
+                                </button>
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -194,8 +196,7 @@ const PathUnicorn7 = () => {
 const styles = {
   container: {
     display: "flex",
-    height: "100vh",
-    backgroundColor: "#2B0B41",
+    height: "60vh",
     color: "#FFFFFF",
   },
   sidebar: {
@@ -237,7 +238,7 @@ const styles = {
     padding: "10px",
     borderRadius: "5px",
     border: "none",
-    backgroundColor: "#3D2058",
+    backgroundColor: "#223662",
     color: "#FFFFFF",
   },
   saveButton: {
@@ -249,7 +250,7 @@ const styles = {
     fontWeight: "bold",
   },
   tableContainer: {
-    backgroundColor: "#3D2058",
+    backgroundColor: "#223662",
     padding: "20px",
     borderRadius: "10px",
   },

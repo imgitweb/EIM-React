@@ -66,8 +66,7 @@ function PathUnicorn2() {
                           <li className="breadcrumb-item">
                             <a
                               className="text-muted text-decoration-none"
-                              href="../dark/index.html"
-                            >
+                              href="../dark/index.html">
                               Home
                             </a>
                           </li>
@@ -91,12 +90,11 @@ function PathUnicorn2() {
               </div>
               <div
                 style={{
-                  backgroundColor: "#2D0E41",
+                  // backgroundColor: "#2D0E41",
                   color: "#FFFFFF",
                   // height: "100vh",
                   padding: "20px",
-                }}
-              >
+                }}>
                 {/* Header */}
                 <div
                   style={{
@@ -104,8 +102,7 @@ function PathUnicorn2() {
                     justifyContent: "space-between",
                     alignItems: "center",
                     marginBottom: "20px",
-                  }}
-                >
+                  }}>
                   <h1 style={{ fontSize: "24px", fontWeight: "bold" }}>
                     Unicorn Path
                   </h1>
@@ -113,11 +110,10 @@ function PathUnicorn2() {
                     <div
                       style={{
                         height: "8px",
-                        backgroundColor: "#4B1D6E",
+                        // backgroundColor: "#4B1D6E",
                         borderRadius: "4px",
                         position: "relative",
-                      }}
-                    >
+                      }}>
                       <div
                         style={{
                           width: `${progress}%`,
@@ -137,8 +133,7 @@ function PathUnicorn2() {
                     display: "flex",
                     gap: "10px",
                     marginBottom: "20px",
-                  }}
-                >
+                  }}>
                   {["All", ...Array(10).fill("M1(10)")].map((tab, index) => (
                     <button
                       key={index}
@@ -152,8 +147,7 @@ function PathUnicorn2() {
                         cursor: "pointer",
                         padding: "5px 10px",
                         borderRadius: "5px",
-                      }}
-                    >
+                      }}>
                       {tab}
                     </button>
                   ))}
@@ -167,15 +161,13 @@ function PathUnicorn2() {
                       width: "200px",
                       borderRight: "1px solid #4B1D6E",
                       padding: "10px",
-                    }}
-                  >
+                    }}>
                     <p
                       style={{
                         fontWeight: "bold",
                         fontSize: "18px",
                         marginBottom: "10px",
-                      }}
-                    >
+                      }}>
                       Path
                     </p>
                     <ul style={{ listStyle: "none", padding: "0" }}>
@@ -187,8 +179,7 @@ function PathUnicorn2() {
                             marginBottom: "10px",
                             color: activeTab === topic ? "#FFE84E" : "#FFF",
                             cursor: "pointer",
-                          }}
-                        >
+                          }}>
                           {topic}
                         </li>
                       ))}
@@ -205,7 +196,7 @@ function PathUnicorn2() {
                         key={index}
                         onClick={() => handleCardClick(card)}
                         style={{
-                          backgroundColor: "#3B205B",
+                          backgroundColor: "#223662",
                           padding: "15px",
                           borderRadius: "8px",
                           marginBottom: "15px",
@@ -214,8 +205,7 @@ function PathUnicorn2() {
                           alignItems: "center",
                           cursor: "pointer",
                           transition: "transform 0.2s",
-                        }}
-                      >
+                        }}>
                         <div>
                           <p style={{ fontSize: "18px", marginBottom: "5px" }}>
                             {card.title}
@@ -231,8 +221,7 @@ function PathUnicorn2() {
                             fontSize: "18px",
                             color: "#FFF",
                             cursor: "pointer",
-                          }}
-                        >
+                          }}>
                           ...
                         </button>
                       </div>

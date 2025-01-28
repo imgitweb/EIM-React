@@ -1,88 +1,70 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr" data-bs-theme="dark" data-color-theme="Blue_Theme" data-layout="vertical">
 
-<head>
-    <!-- Required meta tags -->
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Favicon icon-->
-    <link rel="shortcut icon" type="image/png" href="./assets/assets/images/logos/favicon.png" />
-    <!-- Core Css -->
-    <link rel="stylesheet" href="./assets/assets/css/styles.css" />
-    <title>Modernize Bootstrap Admin</title>
-    <!-- Owl Carousel  -->
-    <link rel="stylesheet" href="./assets/assets/libs/owl.carousel/dist/assets/owl.carousel.min.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <head>
+        <!-- Meta Tags -->
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="./assets/assets/css/pitch.css">
+        <!-- Favicon -->
+        <link rel="shortcut icon" type="image/png" href="./assets/assets/images/logos/favicon.png" />
 
-    <style>
-        .timeline-graph {
-            margin: 20px 0;
+        <!-- Core CSS -->
+        <link rel="stylesheet" href="./assets/assets/css/styles.css" />
 
-            border-radius: 8px;
-            height: 300px;
+        <!-- Owl Carousel -->
+        <link rel="stylesheet" href="./assets/assets/libs/owl.carousel/dist/assets/owl.carousel.min.css" />
 
-        }
+        <!-- Bootstrap Icons -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" />
 
-        .details-container {
-            margin-top: 20px;
-        }
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="./assets/assets/css/milestones.css" />
+        <link rel="stylesheet" href="./assets/assets/css/pitch.css" />
 
-        .details {
-            background: #f1f1f1;
-            padding: 10px;
-            border-radius: 5px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+        <title>Modernize Bootstrap Admin</title>
+    </head>
 
-        .detail-item {
-            font-size: 14px;
-            color: #333;
-            margin: 5px 0;
-        }
-    </style>
+    <body>
+        <!-- Root Element for Dynamic Content -->
+        <div id="root"></div>
 
-</head>
+        <!-- Vendor Scripts -->
+        <script src="./assets/assets/js/vendor.min.js"></script>
 
-<body>
-    <div id="root"></div>
+        <!-- Bootstrap -->
+        <script src="./assets/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Vendor Scripts -->
-    <script src="./assets/assets/js/vendor.min.js"></script>
+        <!-- Simplebar (Custom Scrollbars) -->
+        <script src="./assets/assets/libs/simplebar/dist/simplebar.min.js"></script>
 
-    <!-- Bootstrap -->
-    <script src="./assets/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- App Initialization -->
+        <script src="./assets/assets/js/theme/app.dark.init.js"></script>
+        <script src="./assets/assets/js/theme/theme.js"></script>
+        <script src="./assets/assets/js/theme/app.min.js"></script>
+        <script src="./assets/assets/js/theme/sidebarmenu.js"></script>
 
-    <!-- Simplebar -->
-    <script src="./assets/assets/libs/simplebar/dist/simplebar.min.js"></script>
+        <!-- Iconify Icons -->
+        <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
 
-    <!-- App Initialization -->
-    <script src="./assets/assets/js/theme/app.dark.init.js"></script>
-    <script src="./assets/assets/js/theme/theme.js"></script>
-    <script src="./assets/assets/js/theme/app.min.js"></script>
-    <script src="./assets/assets/js/theme/sidebarmenu.js"></script>
+        <!-- Owl Carousel -->
+        <script src="./assets/assets/libs/owl.carousel/dist/owl.carousel.min.js"></script>
 
-    <!-- Iconify Icons -->
-    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+        <!-- Apex Charts -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/4.2.0/apexcharts.min.js"></script>
+        <script src="./assets/assets/js/apex-chart/apex.line.init.js"></script>
+        <script src="./assets/assets/js/dashboards/dashboard.js"></script>
+        <script src="./assets/assets/js/dashboards/dashboard2.js"></script>
 
-    <!-- Owl Carousel -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script> -->
-    <script src="./assets/assets/libs/owl.carousel/dist/owl.carousel.min.js"></script>
+        <!-- Calendar -->
+        <script src="./assets/assets/libs/fullcalendar/index.global.min.js"></script>
+        <script src="./assets/assets/js/apps/calendar-init.js"></script>
 
-    <!-- Apex Charts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/4.2.0/apexcharts.min.js"></script>
-    <script src="./assets/assets/js/apex-chart/apex.line.init.js"></script>
-    <script src="./assets/assets/js/dashboards/dashboard.js"></script>
-    <script src="./assets/assets/js/dashboards/dashboard2.js"></script>
-
-    <!-- Calendar -->
-    <script src="./assets/assets/libs/fullcalendar/index.global.min.js"></script>
-    <script src="./assets/assets/js/apps/calendar-init.js"></script>
-
-    <script src="./assets/assets/js/apps/invoice.js"></script>
-    <script src="./assets/assets/js/apps/jquery.PrintArea.js"></script>
-</body>
+        <!-- Custom Scripts -->
+        <script src="./assets/assets/js/apps/invoice.js"></script>
+        <script src="./assets/assets/js/milistone.js"></script>
+        <script src="./assets/assets/js/apps/jquery.PrintArea.js"></script>
+    </body>
 
 </html>
