@@ -10,8 +10,6 @@ import PathUnicorn from "./pages/PathUnicorn"; // Import PathUnicorn1
 import PathUnicorn2 from "./pages/PathUnicorn2"; // Import PathUnicorn2
 import PathUnicorn3 from "./pages/PathUnicorn3"; // Import PathUnicorn3
 import PathUnicorn4 from "./pages/PathUnicorn4"; // Import PathUnicorn4
-import PathUnicorn5 from "./pages/PathUnicorn5"; // Import PathUnicorn5
-import PathUnicorn6 from "./pages/PathUnicorn6"; // Import PathUnicorn6
 import PathUnicorn7 from "./pages/PathUnicorn7"; // Import PathUnicorn7
 import PathUnicorn8 from "./pages/PathUnicorn8"; // Import PathUnicorn8
 import PathUnicorn9 from "./pages/PathUnicorn9"; // Import PathUnicorn9
@@ -20,7 +18,6 @@ import PathUnicorn11 from "./pages/PathUnicorn11"; // Import PathUnicorn11
 import RevenuTrac from "./pages/RevenuTrac";
 import SalesFunnel from "./pages/SalesFunnel";
 import UpgradeBeta from "./pages/UpgradeBeta";
-import VetalMetrics from "./pages/VetalMetrics";
 import MyTask from "./pages/MyTask";
 import RivarlyInsight from "./pages/RivarlyInsight";
 import NotFund from "./pages/NotFund";
@@ -55,8 +52,6 @@ function App() {
                 <Route path="/path-unicorn2" element={<PathUnicorn2 />} />
                 <Route path="/path-unicorn3" element={<PathUnicorn3 />} />
                 <Route path="/path-unicorn4" element={<PathUnicorn4 />} />
-                <Route path="/path-unicorn5" element={<PathUnicorn5 />} />
-                <Route path="/path-unicorn6" element={<PathUnicorn6 />} />
                 <Route path="/path-unicorn7" element={<PathUnicorn7 />} />
                 <Route path="/path-unicorn8" element={<PathUnicorn8 />} />
                 <Route path="/path-unicorn9" element={<PathUnicorn9 />} />
@@ -65,7 +60,6 @@ function App() {
                 <Route path="/revenu-trac" element={<RevenuTrac />} />
                 <Route path="/sales-funnel" element={<SalesFunnel />} />
                 <Route path="/upgrade-beta" element={<UpgradeBeta />} />
-                <Route path="/vetal-metrics" element={<VetalMetrics />} />
                 <Route path="/my-task" element={<MyTask />} />
                 <Route path="/rivarly-insights" element={<RivarlyInsight />} />
                 <Route path="/projection" element={<Projection />} />
