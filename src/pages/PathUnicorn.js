@@ -1,131 +1,15 @@
-<<<<<<< HEAD
-import React, { useEffect, useState } from "react";
-import * as joint from "jointjs";
-=======
 import React, { useState } from "react";
->>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
 import LeftSidebar from "../componant/LeftSidebar";
 import Navigation from "../componant/Navigation";
 import SearchBar from "../componant/SearchBar";
 
-<<<<<<< HEAD
-const milestones = [
-  {
-    id: 1,
-    title: "Market Research and Validation",
-    duration: "3 months",
-    startDate: "Feb 2025",
-    endDate: "Apr 2025",
-    details: [
-      "Conduct market research on the most in-demand tech courses.",
-      "Identify target audience and refine the product offering.",
-    ],
-  },
-  {
-    id: 2,
-    title: "Develop MVP",
-    duration: "3 months",
-    startDate: "May 2025",
-    endDate: "Jul 2025",
-    details: [
-      "Develop the Minimum Viable Product (MVP) with core features.",
-      "Begin beta testing with early users.",
-    ],
-  },
-];
-
 const PathToUnicorn = () => {
   const [isActive, setIsActive] = useState(false);
-  const [activeMilestone, setActiveMilestone] = useState(null);
-=======
-const PathToUnicorn = () => {
-  const [isActive, setIsActive] = useState(false);
->>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
 
   const ToggleEvent = () => {
     setIsActive(!isActive);
   };
 
-<<<<<<< HEAD
-  useEffect(() => {
-    const graph = new joint.dia.Graph();
-    const paper = new joint.dia.Paper({
-      el: document.getElementById("timeline-graph"),
-      model: graph,
-      width: 1200,
-      height: 300,
-      gridSize: 10,
-    });
-
-    const nodes = milestones.map((milestone, index) => {
-      const x = 50 + index * 80; // Adjust X position
-      const y = 150;
-
-      const node = new joint.shapes.standard.Circle();
-      node.position(x, y);
-      node.resize(60, 60);
-      node.attr({
-        body: {
-          fill: "#6c63ff",
-          stroke: "#fff",
-          strokeWidth: 2,
-          cursor: "pointer", // Make it look clickable
-        },
-        label: {
-          text: `M${milestone.id}`,
-          fill: "#fff",
-          fontSize: 12,
-        },
-      });
-
-      node.addTo(graph);
-
-      return node;
-    });
-
-    paper.on("element:pointerclick", (elementView) => {
-      const node = elementView.model;
-
-      // Find the corresponding milestone based on the node label
-      const nodeLabel = node.attr("label/text");
-      const milestoneId = parseInt(nodeLabel.replace("M", ""), 10); // Extract milestone ID from label
-      const milestone = milestones.find((m) => m.id === milestoneId);
-
-      if (milestone) {
-        setActiveMilestone(milestone); // Set the active milestone for the modal
-
-        // Show Bootstrap Modal
-        const modal = new window.bootstrap.Modal(
-          document.getElementById("milestoneModal")
-        );
-        modal.show();
-      }
-    });
-
-    milestones.forEach((_, index) => {
-      if (index < milestones.length - 1) {
-        const link = new joint.shapes.standard.Link();
-        link.source(nodes[index]);
-        link.target(nodes[index + 1]);
-        link.attr({
-          line: {
-            stroke: "#6c63ff",
-            strokeWidth: 2,
-            targetMarker: {
-              type: "path",
-              fill: "#6c63ff",
-              stroke: "#6c63ff",
-              d: "M 10 -5 0 0 10 5 Z",
-            },
-          },
-        });
-        link.addTo(graph);
-      }
-    });
-  }, []);
-
-=======
->>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
   return (
     <div id="main-wrapper" className={isActive ? "show-sidebar" : ""}>
       <LeftSidebar onButtonClick={ToggleEvent} />
@@ -143,12 +27,8 @@ const PathToUnicorn = () => {
                         <li className="breadcrumb-item">
                           <a
                             className="text-muted text-decoration-none"
-<<<<<<< HEAD
                             href="../dark/index.html"
                           >
-=======
-                            href="../dark/index.html">
->>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
                             Home
                           </a>
                         </li>
@@ -161,12 +41,6 @@ const PathToUnicorn = () => {
                 </div>
               </div>
             </div>
-<<<<<<< HEAD
-
-            {/* Timeline */}
-            <div className="container body">
-              <div id="timeline-graph" className="timeline-graph"></div>
-=======
             <div className="card path">
               <p>
                 <svg
@@ -181,14 +55,16 @@ const PathToUnicorn = () => {
                   y="0px"
                   viewBox="0 0 1290.79 595.28"
                   style={{ enableBackground: "new 0 0 1290.79 595.28" }}
-                  xmlSpace="preserve">
+                  xmlSpace="preserve"
+                >
                   <switch>
                     <foreignObject
                       requiredExtensions="&ns_ai;"
                       x={0}
                       y={0}
                       width={1}
-                      height={1}>
+                      height={1}
+                    >
                       <aipgfref xlinkHref="#adobe_illustrator_pgf"></aipgfref>
                     </foreignObject>
                     <g extraneous="self">
@@ -644,112 +520,148 @@ const PathToUnicorn = () => {
                       <g>
                         <polygon
                           className="st6"
-                          points="187.81,285.75 182.8,290.76 156.57,290.76 161.58,285.75 156.57,280.74 182.8,280.74 			"></polygon>
+                          points="187.81,285.75 182.8,290.76 156.57,290.76 161.58,285.75 156.57,280.74 182.8,280.74 			"
+                        ></polygon>
                         <polygon
                           className="st6"
-                          points="217.1,285.75 212.09,290.76 185.86,290.76 190.87,285.75 185.86,280.74 212.09,280.74 			"></polygon>
+                          points="217.1,285.75 212.09,290.76 185.86,290.76 190.87,285.75 185.86,280.74 212.09,280.74 			"
+                        ></polygon>
                         <polygon
                           className="st6"
-                          points="246.4,285.75 241.39,290.76 215.16,290.76 220.17,285.75 215.16,280.74 241.39,280.74 			"></polygon>
+                          points="246.4,285.75 241.39,290.76 215.16,290.76 220.17,285.75 215.16,280.74 241.39,280.74 			"
+                        ></polygon>
                         <polygon
                           className="st6"
-                          points="275.69,285.75 270.68,290.76 244.45,290.76 249.46,285.75 244.45,280.74 270.68,280.74 			"></polygon>
+                          points="275.69,285.75 270.68,290.76 244.45,290.76 249.46,285.75 244.45,280.74 270.68,280.74 			"
+                        ></polygon>
                         <polygon
                           className="st6"
-                          points="304.98,285.75 299.97,290.76 273.74,290.76 278.75,285.75 273.74,280.74 299.97,280.74 			"></polygon>
+                          points="304.98,285.75 299.97,290.76 273.74,290.76 278.75,285.75 273.74,280.74 299.97,280.74 			"
+                        ></polygon>
                         <polygon
                           className="st6"
-                          points="334.28,285.75 329.27,290.76 303.04,290.76 308.05,285.75 303.04,280.74 329.27,280.74 			"></polygon>
+                          points="334.28,285.75 329.27,290.76 303.04,290.76 308.05,285.75 303.04,280.74 329.27,280.74 			"
+                        ></polygon>
                         <polygon
                           className="st6"
-                          points="363.57,285.75 358.56,290.76 332.33,290.76 337.34,285.75 332.33,280.74 358.56,280.74 			"></polygon>
+                          points="363.57,285.75 358.56,290.76 332.33,290.76 337.34,285.75 332.33,280.74 358.56,280.74 			"
+                        ></polygon>
                         <polygon
                           className="st6"
-                          points="392.87,285.75 387.86,290.76 361.63,290.76 366.64,285.75 361.63,280.74 387.86,280.74 			"></polygon>
+                          points="392.87,285.75 387.86,290.76 361.63,290.76 366.64,285.75 361.63,280.74 387.86,280.74 			"
+                        ></polygon>
                         <polygon
                           className="st6"
-                          points="422.16,285.75 417.15,290.76 390.92,290.76 395.93,285.75 390.92,280.74 417.15,280.74 			"></polygon>
+                          points="422.16,285.75 417.15,290.76 390.92,290.76 395.93,285.75 390.92,280.74 417.15,280.74 			"
+                        ></polygon>
                         <polygon
                           className="st6"
-                          points="451.45,285.75 446.44,290.76 420.21,290.76 425.22,285.75 420.21,280.74 446.44,280.74 			"></polygon>
+                          points="451.45,285.75 446.44,290.76 420.21,290.76 425.22,285.75 420.21,280.74 446.44,280.74 			"
+                        ></polygon>
                         <polygon
                           className="st6"
-                          points="480.75,285.75 475.74,290.76 449.51,290.76 454.52,285.75 449.51,280.74 475.74,280.74 			"></polygon>
+                          points="480.75,285.75 475.74,290.76 449.51,290.76 454.52,285.75 449.51,280.74 475.74,280.74 			"
+                        ></polygon>
                         <polygon
                           className="st6"
-                          points="510.04,285.75 505.03,290.76 478.8,290.76 483.81,285.75 478.8,280.74 505.03,280.74 			"></polygon>
+                          points="510.04,285.75 505.03,290.76 478.8,290.76 483.81,285.75 478.8,280.74 505.03,280.74 			"
+                        ></polygon>
                         <polygon
                           className="st6"
-                          points="539.34,285.75 534.33,290.76 508.1,290.76 513.11,285.75 508.1,280.74 534.33,280.74 			"></polygon>
+                          points="539.34,285.75 534.33,290.76 508.1,290.76 513.11,285.75 508.1,280.74 534.33,280.74 			"
+                        ></polygon>
                         <polygon
                           className="st6"
-                          points="568.63,285.75 563.62,290.76 537.39,290.76 542.4,285.75 537.39,280.74 563.62,280.74 			"></polygon>
+                          points="568.63,285.75 563.62,290.76 537.39,290.76 542.4,285.75 537.39,280.74 563.62,280.74 			"
+                        ></polygon>
                         <polygon
                           className="st6"
-                          points="597.92,285.75 592.91,290.76 566.68,290.76 571.69,285.75 566.68,280.74 592.91,280.74 			"></polygon>
+                          points="597.92,285.75 592.91,290.76 566.68,290.76 571.69,285.75 566.68,280.74 592.91,280.74 			"
+                        ></polygon>
                         <polygon
                           className="st6"
-                          points="627.22,285.75 622.21,290.76 595.98,290.76 600.99,285.75 595.98,280.74 622.21,280.74 			"></polygon>
+                          points="627.22,285.75 622.21,290.76 595.98,290.76 600.99,285.75 595.98,280.74 622.21,280.74 			"
+                        ></polygon>
                         <polygon
                           className="st6"
-                          points="656.51,285.75 651.5,290.76 625.27,290.76 630.28,285.75 625.27,280.74 651.5,280.74 			"></polygon>
+                          points="656.51,285.75 651.5,290.76 625.27,290.76 630.28,285.75 625.27,280.74 651.5,280.74 			"
+                        ></polygon>
                         <polygon
                           className="st6"
-                          points="685.81,285.75 680.8,290.76 654.57,290.76 659.58,285.75 654.57,280.74 680.8,280.74 			"></polygon>
+                          points="685.81,285.75 680.8,290.76 654.57,290.76 659.58,285.75 654.57,280.74 680.8,280.74 			"
+                        ></polygon>
                         <polygon
                           className="st6"
-                          points="715.1,285.75 710.09,290.76 683.86,290.76 688.87,285.75 683.86,280.74 710.09,280.74 			"></polygon>
+                          points="715.1,285.75 710.09,290.76 683.86,290.76 688.87,285.75 683.86,280.74 710.09,280.74 			"
+                        ></polygon>
                         <polygon
                           className="st6"
-                          points="744.4,285.75 739.39,290.76 713.16,290.76 718.17,285.75 713.16,280.74 739.39,280.74 			"></polygon>
+                          points="744.4,285.75 739.39,290.76 713.16,290.76 718.17,285.75 713.16,280.74 739.39,280.74 			"
+                        ></polygon>
                         <polygon
                           className="st6"
-                          points="773.69,285.75 768.68,290.76 742.45,290.76 747.46,285.75 742.45,280.74 768.68,280.74 			"></polygon>
+                          points="773.69,285.75 768.68,290.76 742.45,290.76 747.46,285.75 742.45,280.74 768.68,280.74 			"
+                        ></polygon>
                         <polygon
                           className="st6"
-                          points="802.98,285.75 797.97,290.76 771.74,290.76 776.75,285.75 771.74,280.74 797.97,280.74 			"></polygon>
+                          points="802.98,285.75 797.97,290.76 771.74,290.76 776.75,285.75 771.74,280.74 797.97,280.74 			"
+                        ></polygon>
                         <polygon
                           className="st6"
-                          points="832.28,285.75 827.27,290.76 801.04,290.76 806.05,285.75 801.04,280.74 827.27,280.74 			"></polygon>
+                          points="832.28,285.75 827.27,290.76 801.04,290.76 806.05,285.75 801.04,280.74 827.27,280.74 			"
+                        ></polygon>
                         <polygon
                           className="st6"
-                          points="861.57,285.75 856.56,290.76 830.33,290.76 835.34,285.75 830.33,280.74 856.56,280.74 			"></polygon>
+                          points="861.57,285.75 856.56,290.76 830.33,290.76 835.34,285.75 830.33,280.74 856.56,280.74 			"
+                        ></polygon>
                         <polygon
                           className="st6"
-                          points="890.87,285.75 885.86,290.76 859.63,290.76 864.64,285.75 859.63,280.74 885.86,280.74 			"></polygon>
+                          points="890.87,285.75 885.86,290.76 859.63,290.76 864.64,285.75 859.63,280.74 885.86,280.74 			"
+                        ></polygon>
                         <polygon
                           className="st6"
-                          points="920.16,285.75 915.15,290.76 888.92,290.76 893.93,285.75 888.92,280.74 915.15,280.74 			"></polygon>
+                          points="920.16,285.75 915.15,290.76 888.92,290.76 893.93,285.75 888.92,280.74 915.15,280.74 			"
+                        ></polygon>
                         <polygon
                           className="st6"
-                          points="949.45,285.75 944.44,290.76 918.21,290.76 923.22,285.75 918.21,280.74 944.44,280.74 			"></polygon>
+                          points="949.45,285.75 944.44,290.76 918.21,290.76 923.22,285.75 918.21,280.74 944.44,280.74 			"
+                        ></polygon>
                         <polygon
                           className="st6"
-                          points="978.75,285.75 973.74,290.76 947.51,290.76 952.52,285.75 947.51,280.74 973.74,280.74 			"></polygon>
+                          points="978.75,285.75 973.74,290.76 947.51,290.76 952.52,285.75 947.51,280.74 973.74,280.74 			"
+                        ></polygon>
                         <polygon
                           className="st6"
-                          points="1008.04,285.75 1003.03,290.76 976.8,290.76 981.81,285.75 976.8,280.74 1003.03,280.74 			"></polygon>
+                          points="1008.04,285.75 1003.03,290.76 976.8,290.76 981.81,285.75 976.8,280.74 1003.03,280.74 			"
+                        ></polygon>
                         <polygon
                           className="st6"
-                          points="1037.34,285.75 1032.33,290.76 1006.1,290.76 1011.11,285.75 1006.1,280.74 1032.33,280.74 			"></polygon>
+                          points="1037.34,285.75 1032.33,290.76 1006.1,290.76 1011.11,285.75 1006.1,280.74 1032.33,280.74 			"
+                        ></polygon>
                         <polygon
                           className="st6"
-                          points="1066.63,285.75 1061.62,290.76 1035.39,290.76 1040.4,285.75 1035.39,280.74 1061.62,280.74 			"></polygon>
+                          points="1066.63,285.75 1061.62,290.76 1035.39,290.76 1040.4,285.75 1035.39,280.74 1061.62,280.74 			"
+                        ></polygon>
                         <polygon
                           className="st6"
-                          points="1095.92,285.75 1090.91,290.76 1064.68,290.76 1069.69,285.75 1064.68,280.74 1090.91,280.74 			"></polygon>
+                          points="1095.92,285.75 1090.91,290.76 1064.68,290.76 1069.69,285.75 1064.68,280.74 1090.91,280.74 			"
+                        ></polygon>
                         <polygon
                           className="st6"
-                          points="1125.22,285.75 1120.21,290.76 1093.98,290.76 1098.99,285.75 1093.98,280.74 1120.21,280.74 			"></polygon>
+                          points="1125.22,285.75 1120.21,290.76 1093.98,290.76 1098.99,285.75 1093.98,280.74 1120.21,280.74 			"
+                        ></polygon>
                         <polygon
                           className="st6"
-                          points="1154.51,285.75 1149.5,290.76 1123.27,290.76 1128.28,285.75 1123.27,280.74 1149.5,280.74 			"></polygon>
+                          points="1154.51,285.75 1149.5,290.76 1123.27,290.76 1128.28,285.75 1123.27,280.74 1149.5,280.74 			"
+                        ></polygon>
                         <polygon
                           className="st6"
-                          points="1183.81,285.75 1178.8,290.76 1152.57,290.76 1157.58,285.75 1152.57,280.74 1178.8,280.74 			"></polygon>
+                          points="1183.81,285.75 1178.8,290.76 1152.57,290.76 1157.58,285.75 1152.57,280.74 1178.8,280.74 			"
+                        ></polygon>
                         <polygon
                           className="st6"
-                          points="1213.1,285.75 1208.09,290.76 1181.86,290.76 1186.87,285.75 1181.86,280.74 1208.09,280.74 			"></polygon>
+                          points="1213.1,285.75 1208.09,290.76 1181.86,290.76 1186.87,285.75 1181.86,280.74 1208.09,280.74 			"
+                        ></polygon>
                       </g>
                       <circle
                         className="st8"
@@ -1025,7 +937,8 @@ const PathToUnicorn = () => {
                         />
                         <text
                           transform="matrix(1 0 0 1 236.7483 124.9287)"
-                          className="st17 st18 st19">
+                          className="st17 st18 st19"
+                        >
                           2010
                         </text>
                         <rect
@@ -1037,7 +950,8 @@ const PathToUnicorn = () => {
                         />
                         <text
                           transform="matrix(1 0 0 1 390.912 179.7229)"
-                          className="st17 st18 st19">
+                          className="st17 st18 st19"
+                        >
                           2012
                         </text>
                         <rect
@@ -1049,7 +963,8 @@ const PathToUnicorn = () => {
                         />
                         <text
                           transform="matrix(1 0 0 1 483.8891 99.1707)"
-                          className="st20">
+                          className="st20"
+                        >
                           <tspan x={0} y={0} className="st21 st18 st19">
                             The Big Fork
                           </tspan>
@@ -1066,7 +981,8 @@ const PathToUnicorn = () => {
                         />
                         <text
                           transform="matrix(1 0 0 1 644.6787 154.0667)"
-                          className="st20">
+                          className="st20"
+                        >
                           <tspan x={0} y={0} className="st21 st18 st19">
                             Version 6.0
                           </tspan>
@@ -1083,7 +999,8 @@ const PathToUnicorn = () => {
                         />
                         <text
                           transform="matrix(1 0 0 1 763.3125 99.6558)"
-                          className="st20">
+                          className="st20"
+                        >
                           <tspan x={0} y={0} className="st21 st18 st19">
                             v10.0 and v11.0
                           </tspan>
@@ -1100,7 +1017,8 @@ const PathToUnicorn = () => {
                         />
                         <text
                           transform="matrix(1 0 0 1 921.6452 153.8248)"
-                          className="st20">
+                          className="st20"
+                        >
                           <tspan x={0} y={0} className="st21 st18 st19">
                             v14.0 and v15.0
                           </tspan>
@@ -1117,7 +1035,8 @@ const PathToUnicorn = () => {
                         />
                         <text
                           transform="matrix(1 0 0 1 1093.515 98.9289)"
-                          className="st20">
+                          className="st20"
+                        >
                           <tspan x={0} y={0} className="st21 st18 st19">
                             Version 18.0
                           </tspan>
@@ -1134,7 +1053,8 @@ const PathToUnicorn = () => {
                         />
                         <text
                           transform="matrix(1 0 0 1 1079.4626 406.4154)"
-                          className="st20">
+                          className="st20"
+                        >
                           <tspan x={0} y={0} className="st21 st18 st19">
                             2021
                           </tspan>
@@ -1151,7 +1071,8 @@ const PathToUnicorn = () => {
                         />
                         <text
                           transform="matrix(1 0 0 1 930.0772 453.3566)"
-                          className="st20">
+                          className="st20"
+                        >
                           <tspan x={0} y={0} className="st21 st18 st19">
                             2019
                           </tspan>
@@ -1168,7 +1089,8 @@ const PathToUnicorn = () => {
                         />
                         <text
                           transform="matrix(1 0 0 1 776.1421 399.1305)"
-                          className="st20">
+                          className="st20"
+                        >
                           <tspan x={0} y={0} className="st21 st18 st19">
                             2017
                           </tspan>
@@ -1185,7 +1107,8 @@ const PathToUnicorn = () => {
                         />
                         <text
                           transform="matrix(1 0 0 1 622.1296 453.3566)"
-                          className="st20">
+                          className="st20"
+                        >
                           <tspan x={0} y={0} className="st21 st18 st19">
                             2015
                           </tspan>
@@ -1202,7 +1125,8 @@ const PathToUnicorn = () => {
                         />
                         <text
                           transform="matrix(1 0 0 1 467.9085 399.13)"
-                          className="st17 st18 st19">
+                          className="st17 st18 st19"
+                        >
                           2013
                         </text>
                         <rect
@@ -1214,7 +1138,8 @@ const PathToUnicorn = () => {
                         />
                         <text
                           transform="matrix(1 0 0 1 315.9743 455.0857)"
-                          className="st20">
+                          className="st20"
+                        >
                           <tspan x={0} y={0} className="st21 st18 st19">
                             2011
                           </tspan>
@@ -1231,7 +1156,8 @@ const PathToUnicorn = () => {
                         />
                         <text
                           transform="matrix(1 0 0 1 162.2597 400.8596)"
-                          className="st20">
+                          className="st20"
+                        >
                           <tspan x={0} y={0} className="st21 st18 st19">
                             2009
                           </tspan>
@@ -1248,7 +1174,8 @@ const PathToUnicorn = () => {
                         />
                         <text
                           transform="matrix(1 0 0 1 333.7426 115.458)"
-                          className="st20">
+                          className="st20"
+                        >
                           <tspan x={0} y={0} className="st6 st18 st22">
                             Adoption continues{" "}
                           </tspan>
@@ -1265,7 +1192,8 @@ const PathToUnicorn = () => {
                         />
                         <text
                           transform="matrix(1 0 0 1 208.1888 60.3625)"
-                          className="st20">
+                          className="st20"
+                        >
                           <tspan x={0} y={0} className="st6 st18 st22">
                             Espress is born{" "}
                           </tspan>
@@ -1282,7 +1210,8 @@ const PathToUnicorn = () => {
                         />
                         <text
                           transform="matrix(1 0 0 1 486.4684 36.3997)"
-                          className="st20">
+                          className="st20"
+                        >
                           <tspan x={0} y={0} className="st6 st18 st22">
                             IO.js a major fork of{" "}
                           </tspan>
@@ -1305,7 +1234,8 @@ const PathToUnicorn = () => {
                         />
                         <text
                           transform="matrix(1 0 0 1 635.4081 89.444)"
-                          className="st20">
+                          className="st20"
+                        >
                           <tspan x={0} y={0} className="st6 st18 st22">
                             The leftpad incident{" "}
                           </tspan>
@@ -1328,7 +1258,8 @@ const PathToUnicorn = () => {
                         />
                         <text
                           transform="matrix(1 0 0 1 815.8528 60.5028)"
-                          className="st20">
+                          className="st20"
+                        >
                           <tspan x={0} y={0} className="st6 st18 st22">
                             ES modules mjs
                           </tspan>
@@ -1345,7 +1276,8 @@ const PathToUnicorn = () => {
                         />
                         <text
                           transform="matrix(1 0 0 1 1144.3197 72.9958)"
-                          className="st23 st18 st22">
+                          className="st23 st18 st22"
+                        >
                           Active LTS
                         </text>
                         <rect
@@ -1357,7 +1289,8 @@ const PathToUnicorn = () => {
                         />
                         <text
                           transform="matrix(1 0 0 1 94.6845 446.189)"
-                          className="st20">
+                          className="st20"
+                        >
                           <tspan x={0} y={0} className="st6 st18 st22">
                             The first form of npm
                           </tspan>
@@ -1374,7 +1307,8 @@ const PathToUnicorn = () => {
                         />
                         <text
                           transform="matrix(1 0 0 1 237.9938 501.2478)"
-                          className="st20">
+                          className="st20"
+                        >
                           <tspan x={0} y={0} className="st6 st18 st22">
                             Larger companies start{" "}
                           </tspan>
@@ -1397,7 +1331,8 @@ const PathToUnicorn = () => {
                         />
                         <text
                           transform="matrix(1 0 0 1 390.3021 446.2859)"
-                          className="st20">
+                          className="st20"
+                        >
                           <tspan x={0} y={0} className="st6 st18 st22">
                             First blogging platform
                           </tspan>
@@ -1417,7 +1352,8 @@ const PathToUnicorn = () => {
                         />
                         <text
                           transform="matrix(1 0 0 1 600.1357 501.5233)"
-                          className="st20">
+                          className="st20"
+                        >
                           <tspan x={0} y={0} className="st6 st18 st22">
                             The NOde.js
                           </tspan>
@@ -1446,7 +1382,8 @@ const PathToUnicorn = () => {
                         />
                         <text
                           transform="matrix(1 0 0 1 704.5768 446.2854)"
-                          className="st20">
+                          className="st20"
+                        >
                           <tspan x={0} y={0} className="st6 st18 st22">
                             NPM focuses more on{" "}
                           </tspan>
@@ -1491,7 +1428,8 @@ const PathToUnicorn = () => {
                       />
                       <text
                         transform="matrix(1 0 0 1 1224.244 290.051)"
-                        className="st6 st18 st25">
+                        className="st6 st18 st25"
+                      >
                         present
                       </text>
                       <rect
@@ -1565,7 +1503,8 @@ const PathToUnicorn = () => {
                   <aipgf
                     id="adobe_illustrator_pgf"
                     pgfencoding="zstd/base64"
-                    pgfversion={24}>
+                    pgfversion={24}
+                  >
                     KLUv/QBYnL8D7jnEjQ0kkETE+e/xOlybX3BPk1N3d13cAlO6SUpFz5Kwv2oVAFgXAQAQTA2tDYgN
                     pPl17ux6VfKBwaQiVNwgW+8YVBwQbgHvqHcMGom8r/r9xK8A+MM9Opa8UY4Psiw7GTr8w3dH6b/D
                     h2N3w9ZcEN/248evO89cmqbp+LbnF9bO4LCm6ZEsHa8Mx6/XhV9YS890HbdcbdwK69h1yy9cewe/
@@ -2650,66 +2589,11 @@ const PathToUnicorn = () => {
                   {/* Code injected by live-server */}
                 </svg>
               </p>
->>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
             </div>
           </div>
         </div>
       </div>
       <SearchBar />
-<<<<<<< HEAD
-
-      {/* Modal */}
-      <div
-        className="modal fade"
-        id="milestoneModal"
-        tabIndex="-1"
-        aria-labelledby="milestoneModalLabel"
-        aria-hidden="true"
-      >
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title" id="milestoneModalLabel">
-                {activeMilestone ? activeMilestone.title : "Milestone Details"}
-              </h5>
-              <button
-                type="button"
-                className="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div className="modal-body">
-              {activeMilestone ? (
-                <div>
-                  <h6>Title:</h6>
-                  <p>{activeMilestone.title}</p>
-
-                  <h6>Duration:</h6>
-                  <p>{activeMilestone.duration}</p>
-
-                  <h6>Start Date:</h6>
-                  <p>{activeMilestone.startDate}</p>
-
-                  <h6>End Date:</h6>
-                  <p>{activeMilestone.endDate}</p>
-
-                  <h6>Details:</h6>
-                  <ul>
-                    {activeMilestone.details.map((detail, index) => (
-                      <li key={index}>{detail}</li>
-                    ))}
-                  </ul>
-                </div>
-              ) : (
-                <p>No details available.</p>
-              )}
-            </div>
-          </div>
-        </div>
-      </div>
-=======
->>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
     </div>
   );
 };

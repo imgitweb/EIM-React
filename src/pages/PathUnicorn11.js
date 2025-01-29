@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-import React from "react";
-
-const PathUnicorn11 = () => {
-  return <div></div>;
-};
-=======
 import React, { useState } from "react";
 import LeftSidebar from "../componant/LeftSidebar";
 import Navigation from "../componant/Navigation";
@@ -94,7 +87,8 @@ function PathUnicorn11() {
                           <li className="breadcrumb-item">
                             <a
                               className="text-muted text-decoration-none"
-                              href="../dark/index.html">
+                              href="../dark/index.html"
+                            >
                               Home
                             </a>
                           </li>
@@ -123,7 +117,8 @@ function PathUnicorn11() {
                     // backgroundColor: "#1a001a",
                     color: "#fff",
                     fontFamily: "Arial, sans-serif",
-                  }}>
+                  }}
+                >
                   {/* Sidebar */}
                   <div
                     style={{
@@ -132,12 +127,14 @@ function PathUnicorn11() {
                       padding: "20px",
                       display: "flex",
                       alignItems: "center",
-                    }}>
+                    }}
+                  >
                     <h2
                       style={{
                         color: "#fff",
                         textAlign: "center",
-                      }}>
+                      }}
+                    >
                       Sales Funnel
                     </h2>
                   </div>
@@ -150,19 +147,22 @@ function PathUnicorn11() {
                       display: "flex",
                       justifyContent: "center",
                       alignItems: "center",
-                    }}>
+                    }}
+                  >
                     <div
                       style={{
                         width: "800px",
                         borderRadius: "8px",
                         padding: "20px",
-                      }}>
+                      }}
+                    >
                       <h1
                         style={{
                           color: "#ff9900",
                           textAlign: "center",
                           marginBottom: "20px",
-                        }}>
+                        }}
+                      >
                         SALES <span style={{ color: "#fff" }}>FUNNEL</span>
                       </h1>
 
@@ -252,7 +252,8 @@ function PathUnicorn11() {
                               marginTop: "5px",
                               borderRadius: "5px",
                               border: "none",
-                            }}>
+                            }}
+                          >
                             <option value="">Select</option>
                             <option value="demo">Request a Demo</option>
                             <option value="pricing">Learn about pricing</option>
@@ -280,7 +281,8 @@ function PathUnicorn11() {
                               marginTop: "5px",
                               borderRadius: "5px",
                               border: "none",
-                            }}>
+                            }}
+                          >
                             <option value="">Select</option>
                             <option value="under-500">Under $500</option>
                             <option value="500-1000">$500 - $1000</option>
@@ -308,7 +310,8 @@ function PathUnicorn11() {
                               marginTop: "5px",
                               borderRadius: "5px",
                               border: "none",
-                            }}></textarea>
+                            }}
+                          ></textarea>
                         </div>
 
                         {/* Save Button */}
@@ -324,7 +327,8 @@ function PathUnicorn11() {
                             fontWeight: "bold",
                             display: "block",
                             margin: "0 auto",
-                          }}>
+                          }}
+                        >
                           Save
                         </button>
                       </form>
@@ -341,6 +345,5 @@ function PathUnicorn11() {
     </>
   );
 }
->>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
 
 export default PathUnicorn11;

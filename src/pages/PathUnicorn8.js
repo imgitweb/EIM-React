@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-import React from "react";
-
-const PathUnicorn8 = () => {
-  return <div></div>;
-};
-=======
 import React, { useState } from "react";
 import LeftSidebar from "../componant/LeftSidebar";
 import Navigation from "../componant/Navigation";
@@ -93,7 +86,8 @@ function PathUnicorn8() {
                           <li className="breadcrumb-item">
                             <a
                               className="text-muted text-decoration-none"
-                              href="../dark/index.html">
+                              href="../dark/index.html"
+                            >
                               Home
                             </a>
                           </li>
@@ -245,7 +239,8 @@ function PathUnicorn8() {
                           <select
                             name="preferredPlatform"
                             value={formData.preferredPlatform}
-                            onChange={handleInputChange}>
+                            onChange={handleInputChange}
+                          >
                             <option value="">Select</option>
                             <option value="Social Media">Social Media</option>
                             <option value="Web Apps">Web Apps</option>
@@ -260,7 +255,8 @@ function PathUnicorn8() {
                           <select
                             name="techSavviness"
                             value={formData.techSavviness}
-                            onChange={handleInputChange}>
+                            onChange={handleInputChange}
+                          >
                             <option value="">Select</option>
                             <option value="Beginner">Beginner</option>
                             <option value="Intermediate">Intermediate</option>
@@ -275,7 +271,8 @@ function PathUnicorn8() {
                           <select
                             name="contentPreference"
                             value={formData.contentPreference}
-                            onChange={handleInputChange}>
+                            onChange={handleInputChange}
+                          >
                             <option value="">Select</option>
                             <option value="Text">Text</option>
                             <option value="Video">Video</option>
@@ -306,6 +303,5 @@ function PathUnicorn8() {
     </>
   );
 }
->>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
 
 export default PathUnicorn8;

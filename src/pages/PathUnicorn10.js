@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-import React from "react";
-
-const PathUnicorn10 = () => {
-  return <div></div>;
-};
-=======
 import React, { useState } from "react";
 import LeftSidebar from "../componant/LeftSidebar";
 import Navigation from "../componant/Navigation";
@@ -65,7 +58,8 @@ function PathUnicorn10() {
                           <li className="breadcrumb-item">
                             <a
                               className="text-muted text-decoration-none"
-                              href="../dark/index.html">
+                              href="../dark/index.html"
+                            >
                               Home
                             </a>
                           </li>
@@ -91,7 +85,8 @@ function PathUnicorn10() {
                 <div className="marketing-budget-container">
                   <div
                     className="sidebar body3"
-                    style={{ backgroundColor: "#000" }}>
+                    style={{ backgroundColor: "#000" }}
+                  >
                     <h2>Sales Funnel</h2>
                   </div>
                   <div className="form-container">
@@ -136,7 +131,8 @@ function PathUnicorn10() {
                             name="purpose"
                             value={formData.purpose}
                             onChange={handleInputChange}
-                            required>
+                            required
+                          >
                             <option value="">Select Purpose</option>
                             <option value="Subscribe to Newsletter">
                               Subscribe to Newsletter
@@ -158,7 +154,8 @@ function PathUnicorn10() {
                             name="message"
                             placeholder="Enter your message"
                             value={formData.message}
-                            onChange={handleInputChange}></textarea>
+                            onChange={handleInputChange}
+                          ></textarea>
                         </div>
                       </div>
                       <div className="form-row">
@@ -179,6 +176,5 @@ function PathUnicorn10() {
     </>
   );
 }
->>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
 
 export default PathUnicorn10;

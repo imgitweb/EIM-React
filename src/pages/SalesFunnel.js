@@ -1,11 +1,6 @@
 import React, { useState } from "react";
-<<<<<<< HEAD
-import { Bar } from "react-chartjs-2";
-import API_BASE_URL from "./../componant/config";
-=======
 import { Link } from "react-router-dom";
 import { Bar } from "react-chartjs-2";
->>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -38,98 +33,11 @@ const funnelSteps = [
 
 const SalesFunnel = () => {
   const [isActive, setActive] = useState(false);
-<<<<<<< HEAD
-  const [currentStep, setCurrentStep] = useState(0);
-=======
->>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
 
   const ToggleEvent = () => {
     setActive((prevState) => !prevState);
   };
 
-<<<<<<< HEAD
-  const handleNextStep = () => {
-    if (currentStep < funnelSteps.length - 1) {
-      setCurrentStep(currentStep + 1);
-    } else {
-      alert("You've reached the end of the funnel!");
-    }
-  };
-
-  const currentFunnelStep = funnelSteps[currentStep];
-
-  const chartData = {
-    labels: funnelSteps.map((step) => step.title),
-    datasets: [
-      {
-        label: "Funnel Progress",
-        data: funnelSteps.map((step) => step.count),
-        backgroundColor: [
-          "rgba(255, 99, 132, 0.6)",
-          "rgba(54, 162, 235, 0.6)",
-          "rgba(255, 206, 86, 0.6)",
-          "rgba(75, 192, 192, 0.6)",
-        ],
-        borderColor: [
-          "rgba(255, 99, 132, 1)",
-          "rgba(54, 162, 235, 1)",
-          "rgba(255, 206, 86, 1)",
-          "rgba(75, 192, 192, 1)",
-        ],
-        borderWidth: 1,
-      },
-    ],
-  };
-
-  const [formData, setFormData] = useState({
-    personName: "",
-    email: "",
-    mobileNumber: "",
-    source: "Google",
-    interestedForService: "",
-  });
-
-  const [message, setMessage] = useState(null);
-
-  // Handle input changes
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
-
-  // Handle form submission
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await fetch(`${API_BASE_URL}/api/leads`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-
-      const result = await response.json();
-      if (response.ok) {
-        setMessage({ type: "success", text: result.message });
-        setFormData({
-          personName: "",
-          email: "",
-          mobileNumber: "",
-          source: "Google",
-          interestedForService: "",
-        });
-      } else {
-        setMessage({ type: "error", text: result.message });
-      }
-    } catch (error) {
-      setMessage({ type: "error", text: "Failed to submit the form." });
-    }
-  };
-
-=======
->>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
   return (
     <>
       <div id="main-wrapper" className={isActive ? "show-sidebar" : ""}>
@@ -150,12 +58,8 @@ const SalesFunnel = () => {
                           <li className="breadcrumb-item">
                             <a
                               className="text-muted text-decoration-none"
-<<<<<<< HEAD
                               href="../dark/index.html"
                             >
-=======
-                              href="../dark/index.html">
->>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
                               Home
                             </a>
                           </li>
@@ -177,107 +81,6 @@ const SalesFunnel = () => {
                   </div>
                 </div>
               </div>
-<<<<<<< HEAD
-              <div className="row">
-                <div className="col-md-6">
-                  <h1>Lead Form</h1>
-                  {message && (
-                    <div
-                      className={`alert ${
-                        message.type === "success"
-                          ? "alert-success"
-                          : "alert-danger"
-                      }`}
-                    >
-                      {message.text}
-                    </div>
-                  )}
-                  <form onSubmit={handleSubmit}>
-                    <div className="mb-3">
-                      <label className="form-label">Person Name</label>
-                      <input
-                        type="text"
-                        className="form-control"
-                        name="personName"
-                        value={formData.personName}
-                        onChange={handleChange}
-                        required
-                      />
-                    </div>
-                    <div className="mb-3">
-                      <label className="form-label">Email</label>
-                      <input
-                        type="email"
-                        className="form-control"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                      />
-                    </div>
-                    <div className="mb-3">
-                      <label className="form-label">Mobile Number</label>
-                      <input
-                        type="text"
-                        className="form-control"
-                        name="mobileNumber"
-                        value={formData.mobileNumber}
-                        onChange={handleChange}
-                        required
-                      />
-                    </div>
-                    <div className="mb-3">
-                      <label className="form-label">Source</label>
-                      <select
-                        className="form-select"
-                        name="source"
-                        value={formData.source}
-                        onChange={handleChange}
-                        required
-                      >
-                        <option value="Google">Google</option>
-                        <option value="Social Media">Social Media</option>
-                        <option value="News Paper">News Paper</option>
-                        <option value="Other Source">Other Source</option>
-                      </select>
-                    </div>
-                    <div className="mb-3">
-                      <label className="form-label">
-                        Interested for the Service
-                      </label>
-                      <textarea
-                        className="form-control"
-                        name="interestedForService"
-                        value={formData.interestedForService}
-                        onChange={handleChange}
-                        required
-                      ></textarea>
-                    </div>
-                    <button type="submit" className="btn btn-primary">
-                      Submit
-                    </button>
-                  </form>
-                </div>
-              </div>
-              <div className="container ">
-                <div className="card p-4">
-                  <h4 className="text-center">Sales Funnel Overview</h4>
-                  <Bar
-                    data={chartData}
-                    options={{
-                      responsive: true,
-                      plugins: {
-                        legend: {
-                          position: "top",
-                        },
-                        title: {
-                          display: true,
-                          text: "Sales Funnel",
-                        },
-                      },
-                    }}
-                  />
-=======
               <div className="card">
                 <div style={styles.container}>
                   {/* Title Section */}
@@ -319,7 +122,8 @@ const SalesFunnel = () => {
                           style={{
                             ...styles.circle,
                             borderColor: step.color,
-                          }}>
+                          }}
+                        >
                           {step.number}
                         </div>
                         <p style={styles.stepLabel}>
@@ -328,7 +132,6 @@ const SalesFunnel = () => {
                       </div>
                     ))}
                   </div>
->>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
                 </div>
               </div>
             </div>
@@ -340,8 +143,6 @@ const SalesFunnel = () => {
     </>
   );
 };
-<<<<<<< HEAD
-=======
 const styles = {
   container: {
     color: "#FFFFFF",
@@ -393,6 +194,5 @@ const styles = {
     fontWeight: "bold",
   },
 };
->>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
 
 export default SalesFunnel;

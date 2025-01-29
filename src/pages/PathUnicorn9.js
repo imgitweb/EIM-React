@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-import React from "react";
-
-const PathUnicorn9 = () => {
-  return <div></div>;
-=======
 import React, { useState } from "react";
 import LeftSidebar from "../componant/LeftSidebar";
 import Navigation from "../componant/Navigation";
@@ -38,7 +32,8 @@ function PathUnicorn9() {
                           <li className="breadcrumb-item">
                             <a
                               className="text-muted text-decoration-none"
-                              href="../dark/index.html">
+                              href="../dark/index.html"
+                            >
                               Home
                             </a>
                           </li>
@@ -67,7 +62,8 @@ function PathUnicorn9() {
                     display: "flex",
                     height: "60vh",
                     fontFamily: "Arial, sans-serif",
-                  }}>
+                  }}
+                >
                   {/* Left Sidebar */}
                   <div
                     style={{
@@ -80,7 +76,8 @@ function PathUnicorn9() {
                       textAlign: "center",
                       padding: "20px",
                       fontWeight: "bold",
-                    }}>
+                    }}
+                  >
                     Sales Funnel
                   </div>
 
@@ -91,14 +88,16 @@ function PathUnicorn9() {
                       display: "flex",
                       justifyContent: "center",
                       alignItems: "center",
-                    }}>
+                    }}
+                  >
                     <div style={{ width: "80%", maxWidth: "900px" }}>
                       <h1
                         style={{
                           color: "#ffcc00",
                           textAlign: "left",
                           marginBottom: "20px",
-                        }}>
+                        }}
+                      >
                         MARKETING <span style={{ color: "white" }}>FUNNEL</span>
                       </h1>
                       <div
@@ -110,7 +109,8 @@ function PathUnicorn9() {
                           marginBottom: "30px",
                           borderRadius: "10px",
                           boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.3)",
-                        }}>
+                        }}
+                      >
                         <form style={{ width: "45%" }}>
                           <div style={{ marginBottom: "15px" }}>
                             <input
@@ -151,9 +151,11 @@ function PathUnicorn9() {
                             style={{
                               ...inputStyle,
                               height: "200px",
-                            }}></textarea>
+                            }}
+                          ></textarea>
                           <div
-                            style={{ textAlign: "right", marginTop: "20px" }}>
+                            style={{ textAlign: "right", marginTop: "20px" }}
+                          >
                             <button
                               type="submit"
                               style={{
@@ -164,7 +166,8 @@ function PathUnicorn9() {
                                 borderRadius: "5px",
                                 fontWeight: "bold",
                                 cursor: "pointer",
-                              }}>
+                              }}
+                            >
                               Save
                             </button>
                           </div>
@@ -190,7 +193,6 @@ const inputStyle = {
   borderRadius: "5px",
   border: "1px solid #ddd",
   fontSize: "14px",
->>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
 };
 
 export default PathUnicorn9;

@@ -87,12 +87,8 @@ const RevenuTrac = () => {
                           <li className="breadcrumb-item">
                             <a
                               className="text-muted text-decoration-none"
-<<<<<<< HEAD
                               href="../dark/index.html"
                             >
-=======
-                              href="../dark/index.html">
->>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
                               Home
                             </a>
                           </li>
