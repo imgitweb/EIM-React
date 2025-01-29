@@ -66,8 +66,12 @@ function PathUnicorn2() {
                           <li className="breadcrumb-item">
                             <a
                               className="text-muted text-decoration-none"
+<<<<<<< HEAD
                               href="../dark/index.html"
                             >
+=======
+                              href="../dark/index.html">
+>>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
                               Home
                             </a>
                           </li>
@@ -91,12 +95,20 @@ function PathUnicorn2() {
               </div>
               <div
                 style={{
+<<<<<<< HEAD
                   backgroundColor: "#2D0E41",
                   color: "#FFFFFF",
                   // height: "100vh",
                   padding: "20px",
                 }}
               >
+=======
+                  // backgroundColor: "#2D0E41",
+                  color: "#FFFFFF",
+                  // height: "100vh",
+                  padding: "20px",
+                }}>
+>>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
                 {/* Header */}
                 <div
                   style={{
@@ -104,8 +116,12 @@ function PathUnicorn2() {
                     justifyContent: "space-between",
                     alignItems: "center",
                     marginBottom: "20px",
+<<<<<<< HEAD
                   }}
                 >
+=======
+                  }}>
+>>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
                   <h1 style={{ fontSize: "24px", fontWeight: "bold" }}>
                     Unicorn Path
                   </h1>
@@ -113,11 +129,18 @@ function PathUnicorn2() {
                     <div
                       style={{
                         height: "8px",
+<<<<<<< HEAD
                         backgroundColor: "#4B1D6E",
                         borderRadius: "4px",
                         position: "relative",
                       }}
                     >
+=======
+                        // backgroundColor: "#4B1D6E",
+                        borderRadius: "4px",
+                        position: "relative",
+                      }}>
+>>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
                       <div
                         style={{
                           width: `${progress}%`,
@@ -137,8 +160,12 @@ function PathUnicorn2() {
                     display: "flex",
                     gap: "10px",
                     marginBottom: "20px",
+<<<<<<< HEAD
                   }}
                 >
+=======
+                  }}>
+>>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
                   {["All", ...Array(10).fill("M1(10)")].map((tab, index) => (
                     <button
                       key={index}
@@ -152,8 +179,12 @@ function PathUnicorn2() {
                         cursor: "pointer",
                         padding: "5px 10px",
                         borderRadius: "5px",
+<<<<<<< HEAD
                       }}
                     >
+=======
+                      }}>
+>>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
                       {tab}
                     </button>
                   ))}
@@ -167,15 +198,23 @@ function PathUnicorn2() {
                       width: "200px",
                       borderRight: "1px solid #4B1D6E",
                       padding: "10px",
+<<<<<<< HEAD
                     }}
                   >
+=======
+                    }}>
+>>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
                     <p
                       style={{
                         fontWeight: "bold",
                         fontSize: "18px",
                         marginBottom: "10px",
+<<<<<<< HEAD
                       }}
                     >
+=======
+                      }}>
+>>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
                       Path
                     </p>
                     <ul style={{ listStyle: "none", padding: "0" }}>
@@ -187,8 +226,12 @@ function PathUnicorn2() {
                             marginBottom: "10px",
                             color: activeTab === topic ? "#FFE84E" : "#FFF",
                             cursor: "pointer",
+<<<<<<< HEAD
                           }}
                         >
+=======
+                          }}>
+>>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
                           {topic}
                         </li>
                       ))}
@@ -205,7 +248,11 @@ function PathUnicorn2() {
                         key={index}
                         onClick={() => handleCardClick(card)}
                         style={{
+<<<<<<< HEAD
                           backgroundColor: "#3B205B",
+=======
+                          backgroundColor: "#223662",
+>>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
                           padding: "15px",
                           borderRadius: "8px",
                           marginBottom: "15px",
@@ -214,8 +261,12 @@ function PathUnicorn2() {
                           alignItems: "center",
                           cursor: "pointer",
                           transition: "transform 0.2s",
+<<<<<<< HEAD
                         }}
                       >
+=======
+                        }}>
+>>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
                         <div>
                           <p style={{ fontSize: "18px", marginBottom: "5px" }}>
                             {card.title}
@@ -231,8 +282,12 @@ function PathUnicorn2() {
                             fontSize: "18px",
                             color: "#FFF",
                             cursor: "pointer",
+<<<<<<< HEAD
                           }}
                         >
+=======
+                          }}>
+>>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
                           ...
                         </button>
                       </div>

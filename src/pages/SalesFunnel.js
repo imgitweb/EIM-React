@@ -1,6 +1,11 @@
 import React, { useState } from "react";
+<<<<<<< HEAD
 import { Bar } from "react-chartjs-2";
 import API_BASE_URL from "./../componant/config";
+=======
+import { Link } from "react-router-dom";
+import { Bar } from "react-chartjs-2";
+>>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -33,12 +38,16 @@ const funnelSteps = [
 
 const SalesFunnel = () => {
   const [isActive, setActive] = useState(false);
+<<<<<<< HEAD
   const [currentStep, setCurrentStep] = useState(0);
+=======
+>>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
 
   const ToggleEvent = () => {
     setActive((prevState) => !prevState);
   };
 
+<<<<<<< HEAD
   const handleNextStep = () => {
     if (currentStep < funnelSteps.length - 1) {
       setCurrentStep(currentStep + 1);
@@ -119,6 +128,8 @@ const SalesFunnel = () => {
     }
   };
 
+=======
+>>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
   return (
     <>
       <div id="main-wrapper" className={isActive ? "show-sidebar" : ""}>
@@ -139,8 +150,12 @@ const SalesFunnel = () => {
                           <li className="breadcrumb-item">
                             <a
                               className="text-muted text-decoration-none"
+<<<<<<< HEAD
                               href="../dark/index.html"
                             >
+=======
+                              href="../dark/index.html">
+>>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
                               Home
                             </a>
                           </li>
@@ -162,6 +177,7 @@ const SalesFunnel = () => {
                   </div>
                 </div>
               </div>
+<<<<<<< HEAD
               <div className="row">
                 <div className="col-md-6">
                   <h1>Lead Form</h1>
@@ -261,6 +277,58 @@ const SalesFunnel = () => {
                       },
                     }}
                   />
+=======
+              <div className="card">
+                <div style={styles.container}>
+                  {/* Title Section */}
+                  <h1 style={styles.title}>
+                    SALES <span style={styles.marketing}> & MARKETING </span>{" "}
+                    FUNNEL
+                  </h1>
+
+                  {/* Steps Section */}
+                  <div style={styles.stepsContainer}>
+                    {[
+                      {
+                        number: 1,
+                        label: "PRODUCT LISTING",
+                        color: "#FFA726",
+                        to: "/path-unicorn7",
+                      },
+                      {
+                        number: 2,
+                        label: "CLIENT PERSONA",
+                        color: "#66BB6A",
+                        to: "/path-unicorn8",
+                      },
+                      {
+                        number: 3,
+                        label: "MARKETING FUNNEL",
+                        color: "#42A5F5",
+                        to: "/path-unicorn9",
+                      },
+                      {
+                        number: 4,
+                        label: "SALES FUNNEL",
+                        color: "#EF5350",
+                        to: "/path-unicorn11",
+                      },
+                    ].map((step) => (
+                      <div key={step.number} style={styles.step}>
+                        <div
+                          style={{
+                            ...styles.circle,
+                            borderColor: step.color,
+                          }}>
+                          {step.number}
+                        </div>
+                        <p style={styles.stepLabel}>
+                          <Link to={step.to}>{step.label}</Link>
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+>>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
                 </div>
               </div>
             </div>
@@ -272,5 +340,59 @@ const SalesFunnel = () => {
     </>
   );
 };
+<<<<<<< HEAD
+=======
+const styles = {
+  container: {
+    color: "#FFFFFF",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    height: "60vh",
+    padding: "20px",
+  },
+  title: {
+    fontSize: "36px",
+    fontWeight: "bold",
+    marginBottom: "40px",
+    textAlign: "center",
+  },
+  marketing: {
+    color: "#66BB6A",
+  },
+  stepsContainer: {
+    display: "flex",
+    justifyContent: "space-between",
+    gap: "20px",
+    width: "100%",
+    maxWidth: "800px",
+  },
+  step: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    textAlign: "center",
+  },
+  circle: {
+    width: "80px",
+    height: "80px",
+    borderRadius: "50%",
+    border: "5px solid",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    fontSize: "24px",
+    fontWeight: "bold",
+    backgroundColor: "#FFFFFF",
+    color: "#000000",
+  },
+  stepLabel: {
+    marginTop: "10px",
+    fontSize: "14px",
+    fontWeight: "bold",
+  },
+};
+>>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
 
 export default SalesFunnel;

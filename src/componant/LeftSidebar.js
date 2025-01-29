@@ -28,8 +28,12 @@ const LeftSidebar = ({ onButtonClick }) => {
           <Link
             to="#0"
             onClick={onButtonClick}
+<<<<<<< HEAD
             className="sidebartoggler ms-auto text-decoration-none fs-5 d-block d-xl-none"
           >
+=======
+            className="sidebartoggler ms-auto text-decoration-none fs-5 d-block d-xl-none">
+>>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
             <i className="ti ti-x" />
           </Link>
         </div>
@@ -48,6 +52,7 @@ const LeftSidebar = ({ onButtonClick }) => {
             <li className="sidebar-item">
               <Link
                 className="sidebar-link"
+<<<<<<< HEAD
                 to="/vetal-metrics"
                 id="get-url"
                 aria-expanded="false"
@@ -56,14 +61,27 @@ const LeftSidebar = ({ onButtonClick }) => {
                   <i className="ti ti-aperture" />
                 </span>
                 <span className="hide-menu">Vital Metrics</span>
+=======
+                to="/dashboard"
+                id="get-url"
+                aria-expanded="false">
+                <span>
+                  <i className="ti ti-aperture" />
+                </span>
+                <span className="hide-menu"> Dashboard</span>
+>>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
               </Link>
             </li>
             <li className="sidebar-item">
               <Link
                 className="sidebar-link"
                 to="/revenu-trac"
+<<<<<<< HEAD
                 aria-expanded="false"
               >
+=======
+                aria-expanded="false">
+>>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
                 <span>
                   <i className="ti ti-currency-rupee" />
                 </span>
@@ -74,8 +92,12 @@ const LeftSidebar = ({ onButtonClick }) => {
               <Link
                 className="sidebar-link"
                 to="/sales-funnel"
+<<<<<<< HEAD
                 aria-expanded="false"
               >
+=======
+                aria-expanded="false">
+>>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
                 <span>
                   <i className="ti ti-currency-dollar" />
                 </span>
@@ -86,8 +108,12 @@ const LeftSidebar = ({ onButtonClick }) => {
               <Link
                 className="sidebar-link"
                 to="/my-mentor"
+<<<<<<< HEAD
                 aria-expanded="false"
               >
+=======
+                aria-expanded="false">
+>>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
                 <span>
                   <i className="ti ti-user" />
                 </span>
@@ -98,26 +124,42 @@ const LeftSidebar = ({ onButtonClick }) => {
               <Link
                 className="sidebar-link"
                 to="/path-unicorn"
+<<<<<<< HEAD
                 aria-expanded="false"
               >
+=======
+                aria-expanded="false">
+>>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
                 <span>
                   <i className="ti ti-map" />
                 </span>
                 <span className="hide-menu">Path to Unicorn</span>
               </Link>
             </li>
+<<<<<<< HEAD
             <li className="sidebar-item">
               <Link
                 className="sidebar-link"
                 to="/immentor"
                 aria-expanded="false"
               >
+=======
+            {/* <li className="sidebar-item">
+              <Link
+                className="sidebar-link"
+                to="/immentor"
+                aria-expanded="false">
+>>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
                 <span>
                   <i className="ti ti-playlist" />
                 </span>
                 <span className="hide-menu">IM Mentor Club</span>
               </Link>
+<<<<<<< HEAD
             </li>
+=======
+            </li> */}
+>>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
             {/* ---------------------------------- */}
             {/* Frontend page */}
             {/* ---------------------------------- */}
@@ -126,8 +168,12 @@ const LeftSidebar = ({ onButtonClick }) => {
                 className="sidebar-link has-arrow"
                 to="#0"
                 aria-expanded={isDropdownOpen}
+<<<<<<< HEAD
                 onClick={toggleDropdown}
               >
+=======
+                onClick={toggleDropdown}>
+>>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
                 <span className="d-flex">
                   <i className="ti ti-layout-grid" />
                 </span>
@@ -137,8 +183,12 @@ const LeftSidebar = ({ onButtonClick }) => {
                 className={`first-level ${
                   isDropdownOpen ? "show" : "collapse"
                 }`}
+<<<<<<< HEAD
                 aria-expanded={isDropdownOpen}
               >
+=======
+                aria-expanded={isDropdownOpen}>
+>>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
                 <li className="sidebar-item">
                   <Link to="/tools" className="sidebar-link">
                     <div className="round-16 d-flex align-items-center justify-content-center">
@@ -170,8 +220,12 @@ const LeftSidebar = ({ onButtonClick }) => {
               <Link
                 className="sidebar-link"
                 to="/invester-pool"
+<<<<<<< HEAD
                 aria-expanded="false"
               >
+=======
+                aria-expanded="false">
+>>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
                 <span>
                   <i className="ti ti-users" />
                 </span>
@@ -182,8 +236,12 @@ const LeftSidebar = ({ onButtonClick }) => {
               <Link
                 className="sidebar-link"
                 to="/hiring-assist"
+<<<<<<< HEAD
                 aria-expanded="false"
               >
+=======
+                aria-expanded="false">
+>>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
                 <span>
                   <i className="ti ti-user-plus" />
                 </span>
@@ -194,8 +252,12 @@ const LeftSidebar = ({ onButtonClick }) => {
               <Link
                 className="sidebar-link"
                 to="/meta-verse"
+<<<<<<< HEAD
                 aria-expanded="false"
               >
+=======
+                aria-expanded="false">
+>>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
                 <span>
                   <i className="ti ti-user-plus" />
                 </span>
@@ -206,8 +268,12 @@ const LeftSidebar = ({ onButtonClick }) => {
               <Link
                 className="sidebar-link"
                 to="/Upgrade-Beta"
+<<<<<<< HEAD
                 aria-expanded="false"
               >
+=======
+                aria-expanded="false">
+>>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
                 <span>
                   <i className="ti ti-arrow-up-right" />
                 </span>
@@ -242,8 +308,12 @@ const LeftSidebar = ({ onButtonClick }) => {
               aria-label="logout"
               data-bs-toggle="tooltip"
               data-bs-placement="top"
+<<<<<<< HEAD
               data-bs-title="logout"
             >
+=======
+              data-bs-title="logout">
+>>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
               <i className="ti ti-power fs-6" />
             </button>
           </div>

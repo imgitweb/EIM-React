@@ -63,8 +63,12 @@ const InvesterPool = () => {
                           <li className="breadcrumb-item">
                             <a
                               href="../dark/index.html"
+<<<<<<< HEAD
                               className="text-muted text-decoration-none"
                             >
+=======
+                              className="text-muted text-decoration-none">
+>>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
                               Home
                             </a>
                           </li>
@@ -213,16 +217,24 @@ const InvesterPool = () => {
                                 />
                                 <label
                                   className="form-check-label"
+<<<<<<< HEAD
                                   htmlFor="flexCheckDefault"
                                 >
+=======
+                                  htmlFor="flexCheckDefault">
+>>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
                                   Remember me
                                 </label>
                               </div>
                               <div className="ms-auto mt-3 mt-md-0">
                                 <button
                                   type="submit"
+<<<<<<< HEAD
                                   className="btn btn-primary hstack gap-6"
                                 >
+=======
+                                  className="btn btn-primary hstack gap-6">
+>>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
                                   <i className="ti ti-send fs-4"></i>
                                   Submit
                                 </button>

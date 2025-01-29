@@ -3,15 +3,21 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./componant/Login";
 import Dashboard from "./pages/Dashboard";
 import HiringAssist from "./pages/HiringAssist";
+<<<<<<< HEAD
 import ImMentor from "./pages/ImMentor";
+=======
+>>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
 import InvesterPool from "./pages/InvesterPool";
 import MyMentor from "./pages/MyMentor";
 import PathUnicorn from "./pages/PathUnicorn"; // Import PathUnicorn1
 import PathUnicorn2 from "./pages/PathUnicorn2"; // Import PathUnicorn2
 import PathUnicorn3 from "./pages/PathUnicorn3"; // Import PathUnicorn3
 import PathUnicorn4 from "./pages/PathUnicorn4"; // Import PathUnicorn4
+<<<<<<< HEAD
 import PathUnicorn5 from "./pages/PathUnicorn5"; // Import PathUnicorn5
 import PathUnicorn6 from "./pages/PathUnicorn6"; // Import PathUnicorn6
+=======
+>>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
 import PathUnicorn7 from "./pages/PathUnicorn7"; // Import PathUnicorn7
 import PathUnicorn8 from "./pages/PathUnicorn8"; // Import PathUnicorn8
 import PathUnicorn9 from "./pages/PathUnicorn9"; // Import PathUnicorn9
@@ -20,7 +26,10 @@ import PathUnicorn11 from "./pages/PathUnicorn11"; // Import PathUnicorn11
 import RevenuTrac from "./pages/RevenuTrac";
 import SalesFunnel from "./pages/SalesFunnel";
 import UpgradeBeta from "./pages/UpgradeBeta";
+<<<<<<< HEAD
 import VetalMetrics from "./pages/VetalMetrics";
+=======
+>>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
 import MyTask from "./pages/MyTask";
 import RivarlyInsight from "./pages/RivarlyInsight";
 import NotFund from "./pages/NotFund";
@@ -48,15 +57,21 @@ function App() {
               <Routes>
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/hiring-assist" element={<HiringAssist />} />
+<<<<<<< HEAD
                 <Route path="/immentor" element={<ImMentor />} />
+=======
+>>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
                 <Route path="/invester-pool" element={<InvesterPool />} />
                 <Route path="/my-mentor" element={<MyMentor />} />
                 <Route path="/path-unicorn" element={<PathUnicorn />} />
                 <Route path="/path-unicorn2" element={<PathUnicorn2 />} />
                 <Route path="/path-unicorn3" element={<PathUnicorn3 />} />
                 <Route path="/path-unicorn4" element={<PathUnicorn4 />} />
+<<<<<<< HEAD
                 <Route path="/path-unicorn5" element={<PathUnicorn5 />} />
                 <Route path="/path-unicorn6" element={<PathUnicorn6 />} />
+=======
+>>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
                 <Route path="/path-unicorn7" element={<PathUnicorn7 />} />
                 <Route path="/path-unicorn8" element={<PathUnicorn8 />} />
                 <Route path="/path-unicorn9" element={<PathUnicorn9 />} />
@@ -65,11 +80,17 @@ function App() {
                 <Route path="/revenu-trac" element={<RevenuTrac />} />
                 <Route path="/sales-funnel" element={<SalesFunnel />} />
                 <Route path="/upgrade-beta" element={<UpgradeBeta />} />
+<<<<<<< HEAD
                 <Route path="/vetal-metrics" element={<VetalMetrics />} />
                 <Route path="/my-task" element={<MyTask />} />
                 <Route path="/rivarly-insights" element={<RivarlyInsight />} />
                 <Route path="/projection" element={<Projection />} />
 
+=======
+                <Route path="/my-task" element={<MyTask />} />
+                <Route path="/rivarly-insights" element={<RivarlyInsight />} />
+                <Route path="/projection" element={<Projection />} />
+>>>>>>> 513afd4a3097ace48954c68ce9120b3eafa45fc1
                 <Route path="/app-profile" element={<AppProfile />} />
                 <Route path="/business" element={<BusinessModel />} />
                 <Route path="/pitch-deck" element={<PitchDeck />} />
