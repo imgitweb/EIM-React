@@ -63,8 +63,7 @@ const InvesterPool = () => {
                           <li className="breadcrumb-item">
                             <a
                               href="../dark/index.html"
-                              className="text-muted text-decoration-none"
-                            >
+                              className="text-muted text-decoration-none">
                               Home
                             </a>
                           </li>
@@ -213,16 +212,14 @@ const InvesterPool = () => {
                                 />
                                 <label
                                   className="form-check-label"
-                                  htmlFor="flexCheckDefault"
-                                >
+                                  htmlFor="flexCheckDefault">
                                   Remember me
                                 </label>
                               </div>
                               <div className="ms-auto mt-3 mt-md-0">
                                 <button
                                   type="submit"
-                                  className="btn btn-primary hstack gap-6"
-                                >
+                                  className="btn btn-primary hstack gap-6">
                                   <i className="ti ti-send fs-4"></i>
                                   Submit
                                 </button>
