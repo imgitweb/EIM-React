@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./componant/Login";
 import Dashboard from "./pages/Dashboard";
 import HiringAssist from "./pages/HiringAssist";
-import ImMentor from "./pages/ImMentor";
 import InvesterPool from "./pages/InvesterPool";
 import MyMentor from "./pages/MyMentor";
 import PathUnicorn from "./pages/PathUnicorn"; // Import PathUnicorn1
@@ -45,7 +44,6 @@ function App() {
               <Routes>
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/hiring-assist" element={<HiringAssist />} />
-                <Route path="/immentor" element={<ImMentor />} />
                 <Route path="/invester-pool" element={<InvesterPool />} />
                 <Route path="/my-mentor" element={<MyMentor />} />
                 <Route path="/path-unicorn" element={<PathUnicorn />} />
@@ -63,7 +61,6 @@ function App() {
                 <Route path="/my-task" element={<MyTask />} />
                 <Route path="/rivarly-insights" element={<RivarlyInsight />} />
                 <Route path="/projection" element={<Projection />} />
-
                 <Route path="/app-profile" element={<AppProfile />} />
                 <Route path="/business" element={<BusinessModel />} />
                 <Route path="/pitch-deck" element={<PitchDeck />} />

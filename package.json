@@ -30,6 +30,7 @@
     "react-scripts": "^5.0.1",
     "react-spring": "^9.7.5",
     "react-unity-webgl": "^9.7.0",
+    "react-vertical-timeline-component": "^3.5.3",
     "web-vitals": "^4.2.4",
     "webpack-cli": "^4.10.0"
   },

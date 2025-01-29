@@ -1,6 +1,6 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { Bar } from "react-chartjs-2";
-import API_BASE_URL from "./../componant/config";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -91,14 +91,30 @@ const SalesFunnel = () => {
                   {/* Steps Section */}
                   <div style={styles.stepsContainer}>
                     {[
-                      { number: 1, label: "PRODUCT LISTING", color: "#FFA726" },
-                      { number: 2, label: "CLIENT PERSONA", color: "#66BB6A" },
+                      {
+                        number: 1,
+                        label: "PRODUCT LISTING",
+                        color: "#FFA726",
+                        to: "/path-unicorn7",
+                      },
+                      {
+                        number: 2,
+                        label: "CLIENT PERSONA",
+                        color: "#66BB6A",
+                        to: "/path-unicorn8",
+                      },
                       {
                         number: 3,
                         label: "MARKETING FUNNEL",
                         color: "#42A5F5",
+                        to: "/path-unicorn9",
                       },
-                      { number: 4, label: "SALES FUNNEL", color: "#EF5350" },
+                      {
+                        number: 4,
+                        label: "SALES FUNNEL",
+                        color: "#EF5350",
+                        to: "/path-unicorn11",
+                      },
                     ].map((step) => (
                       <div key={step.number} style={styles.step}>
                         <div
@@ -108,7 +124,9 @@ const SalesFunnel = () => {
                           }}>
                           {step.number}
                         </div>
-                        <p style={styles.stepLabel}>{step.label}</p>
+                        <p style={styles.stepLabel}>
+                          <Link to={step.to}>{step.label}</Link>
+                        </p>
                       </div>
                     ))}
                   </div>

@@ -100,7 +100,7 @@ const LeftSidebar = ({ onButtonClick }) => {
                 <span className="hide-menu">Path to Unicorn</span>
               </Link>
             </li>
-            <li className="sidebar-item">
+            {/* <li className="sidebar-item">
               <Link
                 className="sidebar-link"
                 to="/immentor"
@@ -110,7 +110,7 @@ const LeftSidebar = ({ onButtonClick }) => {
                 </span>
                 <span className="hide-menu">IM Mentor Club</span>
               </Link>
-            </li>
+            </li> */}
             {/* ---------------------------------- */}
             {/* Frontend page */}
             {/* ---------------------------------- */}
