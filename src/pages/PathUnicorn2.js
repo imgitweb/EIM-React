@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import LeftSidebar from "../componant/LeftSidebar";
 import Navigation from "../componant/Navigation";
 import SerchBar from "../componant/SearchBar";
@@ -11,7 +12,12 @@ function PathUnicorn2() {
   };
   // States
   const [progress, setProgress] = useState(50);
-  const [activeTab, setActiveTab] = useState("All");
+  const location = useLocation();
+  const activeMilestoneFromProps = location.state?.activeMilestone || "All"; // Default to "M1" if not provided
+  const [activeTab, setActiveTab] = useState(activeMilestoneFromProps);
+  useEffect(() => {
+    setActiveTab(activeMilestoneFromProps); // Update state when props change
+  }, [activeMilestoneFromProps]);
   const [topics] = useState(["All", "Topics", "Build Brand"]);
   const [cards] = useState([
     {
@@ -60,19 +66,18 @@ function PathUnicorn2() {
                 <div className="card-body px-4 py-3">
                   <div className="row align-items-center">
                     <div className="col-9">
-                      <h4 className="fw-semibold mb-8">IM Mentor Club</h4>
+                      <h4 className="fw-semibold mb-8">Unicorn Path</h4>
                       <nav aria-label="breadcrumb">
                         <ol className="breadcrumb">
                           <li className="breadcrumb-item">
                             <a
                               className="text-muted text-decoration-none"
-                              href="../dark/index.html"
-                            >
+                              href="../dark/index.html">
                               Home
                             </a>
                           </li>
                           <li className="breadcrumb-item" aria-current="page">
-                            IM Mentor Club
+                            Unicorn Path
                           </li>
                         </ol>
                       </nav>
@@ -95,8 +100,7 @@ function PathUnicorn2() {
                   color: "#FFFFFF",
                   // height: "100vh",
                   padding: "20px",
-                }}
-              >
+                }}>
                 {/* Header */}
                 <div
                   style={{
@@ -104,8 +108,7 @@ function PathUnicorn2() {
                     justifyContent: "space-between",
                     alignItems: "center",
                     marginBottom: "20px",
-                  }}
-                >
+                  }}>
                   <h1 style={{ fontSize: "24px", fontWeight: "bold" }}>
                     Unicorn Path
                   </h1>
@@ -116,13 +119,12 @@ function PathUnicorn2() {
                         // backgroundColor: "#4B1D6E",
                         borderRadius: "4px",
                         position: "relative",
-                      }}
-                    >
+                      }}>
                       <div
                         style={{
                           width: `${progress}%`,
                           height: "100%",
-                          backgroundColor: "#FFE84E",
+                          backgroundColor: "#223662",
                           borderRadius: "4px",
                           transition: "width 0.3s",
                         }}
@@ -137,23 +139,27 @@ function PathUnicorn2() {
                     display: "flex",
                     gap: "10px",
                     marginBottom: "20px",
-                  }}
-                >
-                  {["All", ...Array(10).fill("M1(10)")].map((tab, index) => (
+                  }}>
+                  {/* Dynamically create tabs M1 to M14 */}
+                  {[
+                    "All",
+                    ...Array(14)
+                      .fill()
+                      .map((_, index) => `M${index + 1}`),
+                  ].map((tab, index) => (
                     <button
                       key={index}
                       onClick={() => handleTabClick(tab)}
                       style={{
                         backgroundColor:
-                          activeTab === tab ? "#FFE84E" : "transparent",
-                        color: activeTab === tab ? "#2D0E41" : "#FFF",
+                          activeTab === tab ? "#223662" : "transparent",
+                        color: activeTab === tab ? "#FFFFDF" : "#FFF",
                         border: "none",
                         fontSize: "16px",
                         cursor: "pointer",
                         padding: "5px 10px",
                         borderRadius: "5px",
-                      }}
-                    >
+                      }}>
                       {tab}
                     </button>
                   ))}
@@ -167,15 +173,13 @@ function PathUnicorn2() {
                       width: "200px",
                       borderRight: "1px solid #4B1D6E",
                       padding: "10px",
-                    }}
-                  >
+                    }}>
                     <p
                       style={{
                         fontWeight: "bold",
                         fontSize: "18px",
                         marginBottom: "10px",
-                      }}
-                    >
+                      }}>
                       Path
                     </p>
                     <ul style={{ listStyle: "none", padding: "0" }}>
@@ -185,10 +189,9 @@ function PathUnicorn2() {
                           onClick={() => handleTabClick(topic)}
                           style={{
                             marginBottom: "10px",
-                            color: activeTab === topic ? "#FFE84E" : "#FFF",
+                            color: activeTab === topic ? "#5D6BC9" : "#FFF",
                             cursor: "pointer",
-                          }}
-                        >
+                          }}>
                           {topic}
                         </li>
                       ))}
@@ -214,8 +217,7 @@ function PathUnicorn2() {
                           alignItems: "center",
                           cursor: "pointer",
                           transition: "transform 0.2s",
-                        }}
-                      >
+                        }}>
                         <div>
                           <p style={{ fontSize: "18px", marginBottom: "5px" }}>
                             {card.title}
@@ -231,8 +233,7 @@ function PathUnicorn2() {
                             fontSize: "18px",
                             color: "#FFF",
                             cursor: "pointer",
-                          }}
-                        >
+                          }}>
                           ...
                         </button>
                       </div>
