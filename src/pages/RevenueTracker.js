@@ -54,14 +54,13 @@ const RevenueTracker = () => {
               </div>
               <div className="container-fluid">
                 <div className="card">
-                  <div className="card-header">Test</div>
+                  <div className="card-header">Revenue Tracker</div>
                   <div className="card-body">
-                    <div className="row">
-                      <div className="col-5">
-                        <RevenueChart />
-                      </div>
-                      <div className="col-5">{/* <RevenueChart1 /> */}</div>
-                    </div>
+                    <RevenueChart />
+                    <RevenueChart1 />
+
+                    {/* <RevenueChart1 /> */}
+                    <div className="col-5">{/* <RevenueChart1 />sc */}</div>
                   </div>
                   <div className="card-footer"></div>
                 </div>

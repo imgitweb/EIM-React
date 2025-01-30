@@ -163,6 +163,7 @@ function PathUnicorn2() {
                       {tab}
                     </button>
                   ))}
+                  <div className="text-end"></div>
                 </div>
 
                 {/* Content */}
@@ -182,6 +183,7 @@ function PathUnicorn2() {
                       }}>
                       Path
                     </p>
+
                     <ul style={{ listStyle: "none", padding: "0" }}>
                       {topics.map((topic, index) => (
                         <li

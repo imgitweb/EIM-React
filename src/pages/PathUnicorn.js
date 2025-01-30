@@ -786,10 +786,7 @@ const PathToUnicorn = () => {
                     height="48.2"
                   />
                   <text transform="matrix(1 0 0 1 60.1586 280.6347)">
-                    <tspan x={0} y={0} className="st21 st18 st19">
-                      Node.js
-                    </tspan>
-                    <tspan x="-14.5" y="21.6" className="st21 st18 st19">
+                    <tspan x="-6.5" y="10.6" className="st21 st18 st19">
                       Milestones
                     </tspan>
                   </text>

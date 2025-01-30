@@ -6,77 +6,23 @@ import dayjs from "dayjs";
 const RevenueChart1 = () => {
   useEffect(() => {
     var options = {
-      series: [
+      series: [44, 55, 41, 17, 15],
+      chart: {
+        type: "donut",
+      },
+      responsive: [
         {
-          name: "sales",
-          data: [
-            {
-              x: "2019/01/01",
-              y: 400,
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200,
             },
-            {
-              x: "2019/04/01",
-              y: 430,
+            legend: {
+              position: "bottom",
             },
-            {
-              x: "2019/07/01",
-              y: 448,
-            },
-            {
-              x: "2019/10/01",
-              y: 470,
-            },
-            {
-              x: "2020/01/01",
-              y: 540,
-            },
-            {
-              x: "2020/04/01",
-              y: 580,
-            },
-            {
-              x: "2020/07/01",
-              y: 690,
-            },
-            {
-              x: "2020/10/01",
-              y: 690,
-            },
-          ],
+          },
         },
       ],
-      chart: {
-        type: "bar",
-        height: 380,
-      },
-      xaxis: {
-        type: "category",
-        labels: {
-          formatter: function (val) {
-            return "Q" + dayjs(val).quarter();
-          },
-        },
-        group: {
-          style: {
-            fontSize: "10px",
-            fontWeight: 700,
-          },
-          groups: [
-            { title: "2019", cols: 4 },
-            { title: "2020", cols: 4 },
-          ],
-        },
-      },
-      title: {
-        text: "Grouped Labels on the X-axis",
-      },
-      tooltip: {
-        x: {
-          formatter: function (val) {
-            return "Q" + dayjs(val).quarter() + " " + dayjs(val).format("YYYY");
-          },
-        },
-      },
     };
 
     var chart = new ApexCharts(document.querySelector("#chart"), options);
@@ -89,7 +35,18 @@ const RevenueChart1 = () => {
 
   return (
     <>
-      <div id="chart"></div>
+      <div className="container">
+        <div className="row">
+          <div
+            className="col"
+            style={{ height: "500px", width: "500px", color: "white" }}
+            id="chart"></div>
+          <div
+            className="col"
+            style={{ height: "500px", width: "500px", color: "white" }}
+            id="chart"></div>
+        </div>
+      </div>
     </>
   );
 };

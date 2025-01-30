@@ -217,8 +217,7 @@ const BusinessModel = () => {
                       <button
                         type="submit"
                         className="btn btn-primary"
-                        disabled={loading}
-                      >
+                        disabled={loading}>
                         {loading ? "Generating..." : "Generate Business Model"}
                       </button>
                     </form>
@@ -268,8 +267,7 @@ const BusinessModel = () => {
                             </div>
                             <button
                               onClick={generateImage}
-                              className="btn btn-info mt-2 "
-                            >
+                              className="btn btn-info mt-2 ">
                               Download Business Model
                             </button>
                           </>
