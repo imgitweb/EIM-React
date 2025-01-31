@@ -29,8 +29,7 @@ const RivarlyInsight = () => {
                           <li className="breadcrumb-item">
                             <a
                               className="text-muted text-decoration-none"
-                              href="#0"
-                            >
+                              href="#0">
                               Home
                             </a>
                           </li>
@@ -55,9 +54,112 @@ const RivarlyInsight = () => {
             </div>
             <div className="container-fluid">
               <div className="card">
-                <div className="card-header"></div>
+                <div className="card-header">
+                  Competitive Analysis Framework
+                </div>
                 <div className="card-body">
-                  <h1 className="text-center">Comming Soon...</h1>
+                  <div className="container my-5">
+                    <div className=" shadow-lg">
+                      <h1 className="text-center mb-4">
+                        Competitive Analysis Framework
+                      </h1>
+                      <div className="table-responsive">
+                        <table className="table table-bordered ">
+                          <thead className="">
+                            <tr>
+                              <th scope="col">Category</th>
+                              <th scope="col">Your Company</th>
+                              <th scope="col">Competitor 1</th>
+                              <th scope="col">Competitor 2</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {[
+                              {
+                                category: "Product/service",
+                                values: [
+                                  "SEO",
+                                  "SEO/Paid ads",
+                                  "SEO/Website design",
+                                ],
+                              },
+                              {
+                                category: "Market share",
+                                values: ["25%", "40%", "35%"],
+                              },
+                              {
+                                category: "Growth",
+                                values: ["6%", "12%", "8%"],
+                              },
+                              {
+                                category: "Target audience",
+                                values: ["Dentists", "Dentists", "Dentists"],
+                              },
+                              {
+                                category: "Price structure",
+                                values: [
+                                  "Monthly fee",
+                                  "Hourly",
+                                  "Project-based",
+                                ],
+                              },
+                              {
+                                category: "Marketing strategies",
+                                values: [
+                                  "Email/Blog",
+                                  "Email/Blog/Social media",
+                                  "Social media/Email/Paid ads",
+                                ],
+                              },
+                              {
+                                category: "Customer satisfaction",
+                                values: ["⭐⭐⭐✰✰", "⭐⭐⭐⭐✰", "⭐⭐⭐⭐⭐"],
+                              },
+                              {
+                                category: "Strengths",
+                                values: [
+                                  "All-inclusive/one fee",
+                                  "Brand visibility",
+                                  "Package deals",
+                                ],
+                              },
+                              {
+                                category: "Weaknesses",
+                                values: [
+                                  "Startup with less resources",
+                                  "Expensive",
+                                  "Questionable customer service",
+                                ],
+                              },
+                              {
+                                category: "Key advantage",
+                                values: [
+                                  "Strong values and mission",
+                                  "Industry leader",
+                                  "Highly skilled team",
+                                ],
+                              },
+                            ].map((row, index) => (
+                              <tr
+                                key={index}
+                                className={index % 2 === 0 ? "" : ""}>
+                                <th scope="row">{row.category}</th>
+                                {row.values.map((value, i) => (
+                                  <td
+                                    key={i}
+                                    className={
+                                      i === 0 ? "table-danger fw-bold" : ""
+                                    }>
+                                    {value}
+                                  </td>
+                                ))}
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 <div className="card-footer"></div>
               </div>
