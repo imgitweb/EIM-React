@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import LeftSidebar from "../componant/LeftSidebar";
 import Navigation from "../componant/Navigation";
 import SerchBar from "../componant/SearchBar";
@@ -6,13 +6,32 @@ import AddTeam from "../Team/AddTeam";
 import TeamDetails from "../Team/TeamDetails";
 import IncorporationDetails from "../Incorporation/IncorporationDetails";
 import StartupDocument from "../startup_document/StartupDocument";
-
+import axios from "axios";
+import API_BASE_URL from "./../componant/config";
 const AppProfile = () => {
+  const [profile, setProfile] = useState(false);
   const [isActive, setActive] = useState(false);
 
   const ToggleEvent = () => {
     setActive((prevState) => !prevState);
   };
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const startup_id = localStorage.getItem("token"); // Retrieve startup_id from localStorage
+        const response = await axios.get(
+          `${API_BASE_URL}/api/startup/getStartupInfo/${startup_id}`
+        );
+        // Ensure the response is an array
+        const profileData = Array.isArray(response.data) ? response.data : [];
+        setProfile(profileData);
+      } catch (error) {
+        console.error("Error while fetching data:", error);
+        setProfile([]); // Fallback to an empty array in case of an error
+      }
+    };
+    fetchData();
+  }, []);
   return (
     <>
       <div id="main-wrapper" className={isActive ? "show-sidebar" : ""}>
@@ -67,19 +86,8 @@ const AppProfile = () => {
                     <div className="col-lg-4 order-lg-1 order-2">
                       <div className="d-flex align-items-center justify-content-around m-4">
                         <div className="text-center">
-                          <i className="ti ti-file-description fs-6 d-block mb-2" />
-                          <h4 className="mb-0 lh-1">938</h4>
-                          <p className="mb-0 ">Posts</p>
-                        </div>
-                        <div className="text-center">
-                          <i className="ti ti-user-circle fs-6 d-block mb-2" />
-                          <h4 className="mb-0 lh-1">3,586</h4>
-                          <p className="mb-0 ">Followers</p>
-                        </div>
-                        <div className="text-center">
-                          <i className="ti ti-user-check fs-6 d-block mb-2" />
-                          <h4 className="mb-0 lh-1">2,659</h4>
-                          <p className="mb-0 ">Following</p>
+                          <h4 className="mb-0 lh-1">Alpha</h4>
+                          <p className="mb-0 ">Current Plan</p>
                         </div>
                       </div>
                     </div>
@@ -98,7 +106,7 @@ const AppProfile = () => {
                         </div>
                         <div className="text-center">
                           <h5 className="mb-0">Mathew Anderson</h5>
-                          <p className="mb-0">Designer</p>
+                          <p className="mb-0">Founder</p>
                         </div>
                       </div>
                     </div>
@@ -116,23 +124,23 @@ const AppProfile = () => {
                         </li>
                         <li>
                           <a
-                            className="btn btn-secondary d-flex align-items-center justify-content-center p-2 fs-4 rounded-circle"
+                            className="btn btn-primary d-flex align-items-center justify-content-center p-2 fs-4 rounded-circle"
                             href="#"
                           >
-                            <i className="ti ti-brand-dribbble" />
+                            <i className="ti ti-brand-linkedin" />
                           </a>
                         </li>
                         <li>
                           <a
-                            className="btn btn-danger d-flex align-items-center justify-content-center p-2 fs-4 rounded-circle"
+                            className="btn btn-primary d-flex align-items-center justify-content-center p-2 fs-4 rounded-circle"
                             href="#"
                           >
-                            <i className="ti ti-brand-youtube" />
+                            <i className="ti ti-brand-twitter" />
                           </a>
                         </li>
                         <li>
                           <button className="btn btn-primary text-nowrap">
-                            Add To Story
+                            Upgrade Now
                           </button>
                         </li>
                       </ul>
@@ -266,205 +274,41 @@ const AppProfile = () => {
                                 <div className="card w-100 border position-relative overflow-hidden">
                                   <div className="card-body p-4">
                                     <h4 className="card-title">
-                                      Change Password
+                                      Profile Details
                                     </h4>
-                                    <p className="card-subtitle mb-4">
-                                      To change your password please confirm
-                                      here
-                                    </p>
-                                    <form>
-                                      <div className="mb-3">
-                                        <label
-                                          htmlFor="exampleInputPassword1"
-                                          className="form-label"
-                                        >
-                                          Current Password
-                                        </label>
-                                        <input
-                                          type="password"
-                                          className="form-control"
-                                          id="exampleInputPassword1"
-                                          defaultValue={12345678910}
-                                        />
-                                      </div>
-                                      <div className="mb-3">
-                                        <label
-                                          htmlFor="exampleInputPassword2"
-                                          className="form-label"
-                                        >
-                                          New Password
-                                        </label>
-                                        <input
-                                          type="password"
-                                          className="form-control"
-                                          id="exampleInputPassword2"
-                                          defaultValue={12345678910}
-                                        />
-                                      </div>
-                                      <div>
-                                        <label
-                                          htmlFor="exampleInputPassword3"
-                                          className="form-label"
-                                        >
-                                          Confirm Password
-                                        </label>
-                                        <input
-                                          type="password"
-                                          className="form-control"
-                                          id="exampleInputPassword3"
-                                          defaultValue={12345678910}
-                                        />
-                                      </div>
-                                    </form>
-                                  </div>
-                                </div>
-                              </div>
-                              <div className="col-12">
-                                <div className="card w-100 border position-relative overflow-hidden mb-0">
-                                  <div className="card-body p-4">
-                                    <h4 className="card-title">
-                                      Personal Details
-                                    </h4>
-                                    <p className="card-subtitle mb-4">
-                                      To change your personal detail , edit and
-                                      save from here
-                                    </p>
-                                    <form>
-                                      <div className="row">
-                                        <div className="col-lg-6">
-                                          <div className="mb-3">
-                                            <label
-                                              htmlFor="exampleInputtext"
-                                              className="form-label"
-                                            >
-                                              Your Name
-                                            </label>
-                                            <input
-                                              type="text"
-                                              className="form-control"
-                                              id="exampleInputtext"
-                                              placeholder="Mathew Anderson"
-                                            />
-                                          </div>
-                                          <div className="mb-3">
-                                            <label className="form-label">
-                                              Location
-                                            </label>
-                                            <select
-                                              className="form-select"
-                                              aria-label="Default select example"
-                                            >
-                                              <option selected="">
-                                                United Kingdom
-                                              </option>
-                                              <option value={1}>
-                                                United States
-                                              </option>
-                                              <option value={2}>
-                                                United Kingdom
-                                              </option>
-                                              <option value={3}>India</option>
-                                              <option value={3}>Russia</option>
-                                            </select>
-                                          </div>
-                                          <div className="mb-3">
-                                            <label
-                                              htmlFor="exampleInputtext1"
-                                              className="form-label"
-                                            >
-                                              Email
-                                            </label>
-                                            <input
-                                              type="email"
-                                              className="form-control"
-                                              id="exampleInputtext1"
-                                              placeholder="info@modernize.com"
-                                            />
-                                          </div>
-                                        </div>
-                                        <div className="col-lg-6">
-                                          <div className="mb-3">
-                                            <label
-                                              htmlFor="exampleInputtext2"
-                                              className="form-label"
-                                            >
-                                              Store Name
-                                            </label>
-                                            <input
-                                              type="text"
-                                              className="form-control"
-                                              id="exampleInputtext2"
-                                              placeholder="Maxima Studio"
-                                            />
-                                          </div>
-                                          <div className="mb-3">
-                                            <label className="form-label">
-                                              Currency
-                                            </label>
-                                            <select
-                                              className="form-select"
-                                              aria-label="Default select example"
-                                            >
-                                              <option selected="">
-                                                India (INR)
-                                              </option>
-                                              <option value={1}>
-                                                US Dollar ($)
-                                              </option>
-                                              <option value={2}>
-                                                United Kingdom (Pound)
-                                              </option>
-                                              <option value={3}>
-                                                India (INR)
-                                              </option>
-                                              <option value={3}>
-                                                Russia (Ruble)
-                                              </option>
-                                            </select>
-                                          </div>
-                                          <div className="mb-3">
-                                            <label
-                                              htmlFor="exampleInputtext3"
-                                              className="form-label"
-                                            >
-                                              Phone
-                                            </label>
-                                            <input
-                                              type="text"
-                                              className="form-control"
-                                              id="exampleInputtext3"
-                                              placeholder="+91 12345 65478"
-                                            />
-                                          </div>
-                                        </div>
-                                        <div className="col-12">
-                                          <div>
-                                            <label
-                                              htmlFor="exampleInputtext4"
-                                              className="form-label"
-                                            >
-                                              Address
-                                            </label>
-                                            <input
-                                              type="text"
-                                              className="form-control"
-                                              id="exampleInputtext4"
-                                              placeholder="814 Howard Street, 120065, India"
-                                            />
-                                          </div>
-                                        </div>
-                                        <div className="col-12">
-                                          <div className="d-flex align-items-center justify-content-end mt-4 gap-6">
-                                            <button className="btn btn-primary">
-                                              Save
-                                            </button>
-                                            <button className="btn bg-danger-subtle text-danger">
-                                              Cancel
-                                            </button>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </form>
+                                    {Array.isArray(profile) &&
+                                      profile.map((info, index) => (
+                                        <table key={index}>
+                                          <tr>
+                                            <td>Startup Name</td>
+                                            <td>{info.startup_name}</td>
+                                          </tr>
+                                          <tr>
+                                            <td>Email</td>
+                                            <td> </td>
+                                          </tr>
+                                          <tr>
+                                            <td>Mobile</td>
+                                            <td> </td>
+                                          </tr>
+                                          <tr>
+                                            <td>Country</td>
+                                            <td> </td>
+                                          </tr>
+                                          <tr>
+                                            <td>Industry</td>
+                                            <td> </td>
+                                          </tr>
+                                          <tr>
+                                            <td>Stage</td>
+                                            <td> </td>
+                                          </tr>
+                                          <tr>
+                                            <td>Startup Idea</td>
+                                            <td> </td>
+                                          </tr>
+                                        </table>
+                                      ))}
                                   </div>
                                 </div>
                               </div>

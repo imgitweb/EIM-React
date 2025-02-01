@@ -358,7 +358,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="nav-item dropdown">
                     <Link
                       className="nav-link pe-0"
-                      href="/#"
+                      href="/app-profile"
                       id="drop1"
                       aria-expanded="false"
                     >
@@ -374,42 +374,6 @@ const Navigation = ({ onButtonClick }) => {
                         </div>
                       </div>
                     </Link>
-                    <div
-                      className="dropdown-menu content-dd dropdown-menu-end dropdown-menu-animate-up"
-                      aria-labelledby="drop1"
-                    >
-                      <div
-                        className="profile-dropdown position-relative"
-                        data-simplebar=""
-                      >
-                        <div className="py-3 px-7 pb-0"></div>
-                        <div className="d-flex align-items-center py-9 mx-7 border-bottom"></div>
-                        <div className="message-body"></div>
-                        <div className="d-grid py-4 px-7 pt-8">
-                          <div className="upgrade-plan bg-primary-subtle position-relative overflow-hidden rounded-4 p-4 mb-9">
-                            <div className="row">
-                              <div className="col-md-12 text-center">
-                                <h2>Financial Year </h2>
-                                <select className="form-control">
-                                  <option value="">
-                                    Select Financial Year
-                                  </option>
-                                  <option value="" selected>
-                                    2023-24
-                                  </option>
-                                </select>
-                              </div>
-                            </div>
-                          </div>
-                          <Link
-                            to="../dark/authentication-login.html"
-                            className="btn btn-outline-primary"
-                          >
-                            Log Out
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
                   </li>
                   {/* ------------------------------- */}
                   {/* end profile Dropdown */}
