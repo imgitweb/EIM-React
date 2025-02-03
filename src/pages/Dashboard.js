@@ -19,6 +19,7 @@ const Dashboard = () => {
     const storedToken = localStorage.getItem("token");
     if (storedToken) {
       setToken(storedToken);
+      console.log(token);
     }
   }, []);
   return (
@@ -166,8 +167,7 @@ const Dashboard = () => {
                         <select
                           value={selectedValue}
                           onChange={handleChange}
-                          className="form-select w-auto"
-                        >
+                          className="form-select w-auto">
                           <option value="option1">SEP 2024</option>
                           <option value="option2">OCT 2024</option>
                           <option value="option3">NOV 2024</option>
@@ -425,8 +425,7 @@ const Dashboard = () => {
                         </ul>
                         <a
                           href="/#"
-                          className="text-bg-light rounded py-1 px-8 d-flex align-items-center text-decoration-none"
-                        >
+                          className="text-bg-light rounded py-1 px-8 d-flex align-items-center text-decoration-none">
                           <i className="ti ti-message-2 fs-6 text-primary" />
                         </a>
                       </div>
@@ -518,8 +517,7 @@ const Dashboard = () => {
                           <select
                             value={selectedValue}
                             onChange={handleChange}
-                            className="form-select"
-                          >
+                            className="form-select">
                             <option value="option1">March 2024</option>
                             <option value="option2">April 2024</option>
                             <option value="option3">May 2024</option>

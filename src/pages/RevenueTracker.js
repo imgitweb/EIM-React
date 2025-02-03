@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import LeftSidebar from "../componant/LeftSidebar";
 import Navigation from "../componant/Navigation";
 import SerchBar from "../componant/SearchBar";
+import RevenueChart from "./RevenueChart";
+import RevenueCharts1 from "./RevenueCharts1";
 
 const RevenueTracker = () => {
   const [isActive, setActive] = useState(false);
@@ -51,7 +53,7 @@ const RevenueTracker = () => {
                   </div>
                 </div>
               </div>
-              <div className="container py-5">
+              <div className="container-fuilde card py-5">
                 <div className="text-center mb-5">
                   <h1 className="fw-bold">Revenue Tracker</h1>
                   <h2 className="text-muted">FY 2024-25</h2>
@@ -64,7 +66,9 @@ const RevenueTracker = () => {
                       <div className="card-header text-center fw-semibold">
                         Gross Revenue
                       </div>
-                      <div className="card-body text-center">
+                      <div
+                        className="card-body text-center"
+                        style={{ backgroundColor: "#262D47" }}>
                         <h3 className="fw-bold text-primary">2.5M</h3>
                         <p className="text-muted">Total Revenue</p>
                         <div className="row mt-3">
@@ -80,14 +84,15 @@ const RevenueTracker = () => {
                       </div>
                     </div>
                   </div>
-
                   {/* Operating Profit */}
                   <div className="col-md-4">
                     <div className="card h-100">
                       <div className="card-header text-center fw-semibold">
                         Operating Profit
                       </div>
-                      <div className="card-body text-center">
+                      <div
+                        className="card-body text-center"
+                        style={{ backgroundColor: "#262D47" }}>
                         <h3 className="fw-bold text-success">3.5%</h3>
                         <p className="text-muted">Operating Margin</p>
                         <p className="mt-3">
@@ -96,105 +101,35 @@ const RevenueTracker = () => {
                       </div>
                     </div>
                   </div>
-
                   {/* EBITDA */}
                   <div className="col-md-4">
                     <div className="card h-100">
                       <div className="card-header text-center fw-semibold">
                         EBITDA
                       </div>
-                      <div className="card-body text-center">
+                      <div
+                        className="card-body text-center"
+                        style={{ backgroundColor: "#262D47" }}>
                         <h3 className="fw-bold text-warning">234</h3>
                         <p className="text-muted">Earnings Before Tax</p>
                       </div>
                     </div>
                   </div>
-
+                  <div className="col-md-12">
+                    <div className=" ">
+                      <div className="card-header text-center fw-semibold">
+                        Monthly Revenue Expanse
+                      </div>
+                      <RevenueCharts1 />
+                    </div>
+                  </div>
                   {/* Distribution Report */}
-                  <div className="col-md-8">
-                    <div className="card h-100">
+                  <div className="col-md-12">
+                    <div className="">
                       <div className="card-header text-center fw-semibold">
                         Distribution Report
                       </div>
-                      <div className="card-body">
-                        <div className="mb-3">
-                          <div className="d-flex justify-content-between">
-                            <p>Region A</p>
-                            <p>50%</p>
-                          </div>
-                          <div className="progress">
-                            <div
-                              className="progress-bar bg-primary"
-                              role="progressbar"
-                              style={{ width: "50%" }}
-                              aria-valuenow="50"
-                              aria-valuemin="0"
-                              aria-valuemax="100"></div>
-                          </div>
-                        </div>
-                        <div className="mb-3">
-                          <div className="d-flex justify-content-between">
-                            <p>Region B</p>
-                            <p>30%</p>
-                          </div>
-                          <div className="progress">
-                            <div
-                              className="progress-bar bg-success"
-                              role="progressbar"
-                              style={{ width: "30%" }}
-                              aria-valuenow="30"
-                              aria-valuemin="0"
-                              aria-valuemax="100"></div>
-                          </div>
-                        </div>
-                        <div>
-                          <div className="d-flex justify-content-between">
-                            <p>Region C</p>
-                            <p>20%</p>
-                          </div>
-                          <div className="progress">
-                            <div
-                              className="progress-bar bg-warning"
-                              role="progressbar"
-                              style={{ width: "20%" }}
-                              aria-valuenow="20"
-                              aria-valuemin="0"
-                              aria-valuemax="100"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Download Report */}
-                  <div className="col-md-4">
-                    <div className="card h-100">
-                      <div className="card-header text-center fw-semibold">
-                        Download Report
-                      </div>
-                      <div className="card-body text-center">
-                        <div className="row mb-3">
-                          <div className="col">
-                            <p className="fw-bold">Q1</p>
-                            <p>3.8%</p>
-                          </div>
-                          <div className="col">
-                            <p className="fw-bold">Q2</p>
-                            <p>1.5%</p>
-                          </div>
-                          <div className="col">
-                            <p className="fw-bold">Q3</p>
-                            <p>9.5%</p>
-                          </div>
-                          <div className="col">
-                            <p className="fw-bold">Q4</p>
-                            <p>4.4%</p>
-                          </div>
-                        </div>
-                        <button className="btn btn-primary">
-                          Download PDF
-                        </button>
-                      </div>
+                      <RevenueChart />
                     </div>
                   </div>
                 </div>

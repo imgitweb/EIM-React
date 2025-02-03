@@ -22,8 +22,7 @@ const Navigation = ({ onButtonClick }) => {
                   className="nav-link sidebartoggler"
                   id="headerCollapse"
                   href="#0"
-                  onClick={onButtonClick}
-                >
+                  onClick={onButtonClick}>
                   <i className="ti ti-menu-2" />
                 </Link>
               </li>
@@ -32,8 +31,7 @@ const Navigation = ({ onButtonClick }) => {
                   className="nav-link"
                   href="/#"
                   data-bs-toggle="modal"
-                  data-bs-target="#exampleModal"
-                >
+                  data-bs-target="#exampleModal">
                   <i className="ti ti-search" />
                 </Link>
               </li>
@@ -65,16 +63,6 @@ const Navigation = ({ onButtonClick }) => {
               <li className="nav-item dropdown-hover d-none d-lg-block">
                 <Link className="nav-link" to="/projection">
                   Projections
-                </Link>
-              </li>
-              {/* <li className="nav-item dropdown-hover d-none d-lg-block">
-                <Link className="nav-link" to="/app-email">
-                  Progressbar Tracker
-                </Link>
-              </li> */}
-              <li className="nav-item dropdown-hover d-none d-lg-block">
-                <Link className="nav-link" to="/my-task">
-                  My Task
                 </Link>
               </li>
               <li className="nav-item dropdown-hover d-none d-lg-block">
@@ -110,14 +98,12 @@ const Navigation = ({ onButtonClick }) => {
               data-bs-target="#navbarNav"
               aria-controls="navbarNav"
               aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
+              aria-label="Toggle navigation">
               <i className="ti ti-dots fs-7" />
             </Link>
             <div
               className="collapse navbar-collapse justify-content-end"
-              id="navbarNav"
-            >
+              id="navbarNav">
               <div className="d-flex align-items-center justify-content-between">
                 <Link
                   href="/#"
@@ -125,8 +111,7 @@ const Navigation = ({ onButtonClick }) => {
                   type="button"
                   data-bs-toggle="offcanvas"
                   data-bs-target="#mobilenavbar"
-                  aria-controls="offcanvasWithBothOptions"
-                >
+                  aria-controls="offcanvasWithBothOptions">
                   <i className="ti ti-align-justified fs-7" />
                 </Link>
                 <ul className="navbar-nav flex-row ms-auto align-items-center justify-content-center">
@@ -139,8 +124,7 @@ const Navigation = ({ onButtonClick }) => {
                       className="nav-link"
                       href="/#"
                       id="drop2"
-                      aria-expanded="false"
-                    >
+                      aria-expanded="false">
                       <img
                         src="./assets/assets/images/svgs/icon-flag-en.svg"
                         alt="modernize-img"
@@ -151,13 +135,11 @@ const Navigation = ({ onButtonClick }) => {
                     </Link>
                     <div
                       className="dropdown-menu dropdown-menu-end dropdown-menu-animate-up"
-                      aria-labelledby="drop2"
-                    >
+                      aria-labelledby="drop2">
                       <div className="message-body">
                         <Link
                           href="/#"
-                          className="d-flex align-items-center gap-2 py-3 px-4 dropdown-item"
-                        >
+                          className="d-flex align-items-center gap-2 py-3 px-4 dropdown-item">
                           <div className="position-relative">
                             <img
                               src="./assets/assets/images/svgs/icon-flag-en.svg"
@@ -171,8 +153,7 @@ const Navigation = ({ onButtonClick }) => {
                         </Link>
                         <Link
                           href="/#"
-                          className="d-flex align-items-center gap-2 py-3 px-4 dropdown-item"
-                        >
+                          className="d-flex align-items-center gap-2 py-3 px-4 dropdown-item">
                           <div className="position-relative">
                             <img
                               src="./assets/assets/images/svgs/india-flag.svg"
@@ -193,15 +174,13 @@ const Navigation = ({ onButtonClick }) => {
                       className="nav-link position-relative"
                       href="/#"
                       id="drop2"
-                      aria-expanded="false"
-                    >
+                      aria-expanded="false">
                       <i className="ti ti-bell-ringing" />
                       <div className="notification bg-primary rounded-circle" />
                     </Link>
                     <div
                       className="dropdown-menu content-dd dropdown-menu-end dropdown-menu-animate-up"
-                      aria-labelledby="drop2"
-                    >
+                      aria-labelledby="drop2">
                       <div className="d-flex align-items-center justify-content-between py-3 px-7">
                         <h5 className="mb-0 fs-5 fw-semibold">Notifications</h5>
                         <span className="badge text-bg-primary rounded-4 px-3 py-1 lh-sm">
@@ -211,8 +190,7 @@ const Navigation = ({ onButtonClick }) => {
                       <div className="message-body" data-simplebar="">
                         <Link
                           href="/#"
-                          className="py-6 px-7 d-flex align-items-center dropdown-item"
-                        >
+                          className="py-6 px-7 d-flex align-items-center dropdown-item">
                           <span className="me-3">
                             <img
                               src="./assets/assets/images/profile/user-2.jpg"
@@ -233,8 +211,7 @@ const Navigation = ({ onButtonClick }) => {
                         </Link>
                         <Link
                           href="/#"
-                          className="py-6 px-7 d-flex align-items-center dropdown-item"
-                        >
+                          className="py-6 px-7 d-flex align-items-center dropdown-item">
                           <span className="me-3">
                             <img
                               src="./assets/assets/images/profile/user-3.jpg"
@@ -255,8 +232,7 @@ const Navigation = ({ onButtonClick }) => {
                         </Link>
                         <Link
                           href="/#"
-                          className="py-6 px-7 d-flex align-items-center dropdown-item"
-                        >
+                          className="py-6 px-7 d-flex align-items-center dropdown-item">
                           <span className="me-3">
                             <img
                               src="./assets/assets/images/profile/user-4.jpg"
@@ -277,8 +253,7 @@ const Navigation = ({ onButtonClick }) => {
                         </Link>
                         <Link
                           href="/#"
-                          className="py-6 px-7 d-flex align-items-center dropdown-item"
-                        >
+                          className="py-6 px-7 d-flex align-items-center dropdown-item">
                           <span className="me-3">
                             <img
                               src="./assets/assets/images/profile/user-5.jpg"
@@ -299,8 +274,7 @@ const Navigation = ({ onButtonClick }) => {
                         </Link>
                         <Link
                           href="/#"
-                          className="py-6 px-7 d-flex align-items-center dropdown-item"
-                        >
+                          className="py-6 px-7 d-flex align-items-center dropdown-item">
                           <span className="me-3">
                             <img
                               src="./assets/assets/images/profile/user-6.jpg"
@@ -321,8 +295,7 @@ const Navigation = ({ onButtonClick }) => {
                         </Link>
                         <Link
                           href="/#"
-                          className="py-6 px-7 d-flex align-items-center dropdown-item"
-                        >
+                          className="py-6 px-7 d-flex align-items-center dropdown-item">
                           <span className="me-3">
                             <img
                               src="./assets/assets/images/profile/user-7.jpg"
@@ -360,8 +333,7 @@ const Navigation = ({ onButtonClick }) => {
                       className="nav-link pe-0"
                       href="/#"
                       id="drop1"
-                      aria-expanded="false"
-                    >
+                      aria-expanded="false">
                       <div className="d-flex align-items-center">
                         <div className="user-profile-img">
                           <img
@@ -376,12 +348,10 @@ const Navigation = ({ onButtonClick }) => {
                     </Link>
                     <div
                       className="dropdown-menu content-dd dropdown-menu-end dropdown-menu-animate-up"
-                      aria-labelledby="drop1"
-                    >
+                      aria-labelledby="drop1">
                       <div
                         className="profile-dropdown position-relative"
-                        data-simplebar=""
-                      >
+                        data-simplebar="">
                         <div className="py-3 px-7 pb-0"></div>
                         <div className="d-flex align-items-center py-9 mx-7 border-bottom"></div>
                         <div className="message-body"></div>
@@ -403,8 +373,7 @@ const Navigation = ({ onButtonClick }) => {
                           </div>
                           <Link
                             to="../dark/authentication-login.html"
-                            className="btn btn-outline-primary"
-                          >
+                            className="btn btn-outline-primary">
                             Log Out
                           </Link>
                         </div>
@@ -430,14 +399,14 @@ const Navigation = ({ onButtonClick }) => {
             data-bs-scroll="true"
             tabIndex={-1}
             id="mobilenavbar"
-            aria-labelledby="offcanvasWithBothOptionsLabel"
-          >
+            aria-labelledby="offcanvasWithBothOptionsLabel">
             <nav className="sidebar-nav scroll-sidebar">
               <div className="offcanvas-header justify-content-between">
                 <img
-                  src="./assets/assets/images/logos/favicon.ico"
-                  alt="modernize-img"
-                  className="img-fluid"
+                  src="./assets/logo/logo-light.png"
+                  className="dark-logo"
+                  alt="Logo-Dark"
+                  width="50px"
                 />
                 <button
                   type="button"
@@ -449,112 +418,73 @@ const Navigation = ({ onButtonClick }) => {
               {/* Mobile Menu */}
               <div className="offcanvas-body h-n80" data-simplebar="">
                 <ul id="sidebarnav">
-                  {/* My Profile Dropdown */}
+                  {/* My Profile */}
                   <li className="sidebar-item">
-                    <Link
-                      className="sidebar-link has-arrow"
-                      to="#"
-                      aria-expanded={isDropdownOpen}
-                      onClick={toggleDropdown}
-                    >
+                    <Link className="sidebar-link" to="/app-profile">
                       <span>
-                        <i className="ti ti-apps" />
+                        <i className="ti ti-user" />
                       </span>
                       <span className="hide-menu">My Profile</span>
                     </Link>
-                    <ul
-                      className={`collapse first-level my-3 ${
-                        isDropdownOpen ? "show" : ""
-                      }`}
-                      aria-expanded={isDropdownOpen}
-                    >
-                      <li className="sidebar-item py-2">
-                        <Link
-                          to="/chat-app"
-                          className="d-flex align-items-center"
-                        >
-                          <div className="text-bg-light rounded-1 me-3 p-6 d-flex align-items-center justify-content-center">
-                            <img
-                              src="./assets/assets/images/svgs/icon-dd-chat.svg"
-                              alt="modernize-img"
-                              className="img-fluid"
-                              width={24}
-                              height={24}
-                            />
-                          </div>
-                          <div>
-                            <h6 className="mb-1 bg-hover-primary">
-                              Chat Application
-                            </h6>
-                            <span className="fs-2 d-block text-muted">
-                              New messages arrived
-                            </span>
-                          </div>
-                        </Link>
-                      </li>
-                      <li className="sidebar-item py-2">
-                        <Link
-                          to="/app-invoice"
-                          className="d-flex align-items-center"
-                        >
-                          <div className="text-bg-light rounded-1 me-3 p-6 d-flex align-items-center justify-content-center">
-                            <img
-                              src="./assets/assets/images/svgs/icon-dd-invoice.svg"
-                              alt="modernize-img"
-                              className="img-fluid"
-                              width={24}
-                              height={24}
-                            />
-                          </div>
-                          <div>
-                            <h6 className="mb-1 bg-hover-primary">
-                              Invoice App
-                            </h6>
-                            <span className="fs-2 d-block text-muted">
-                              Get latest invoice
-                            </span>
-                          </div>
-                        </Link>
-                      </li>
-                      {/* Add remaining dropdown items here */}
-                    </ul>
                   </li>
 
-                  {/* Additional Sidebar Items */}
+                  {/* Rivalry Insight */}
                   <li className="sidebar-item">
-                    <Link
-                      className="sidebar-link"
-                      to="/chat-app"
-                      aria-expanded="false"
-                    >
+                    <Link className="sidebar-link" to="/rivarly-insights">
                       <span>
-                        <i className="ti ti-message-dots" />
+                        <i className="ti ti-insight" />
                       </span>
-                      <span className="hide-menu">Chat</span>
+                      <span className="hide-menu">Rivalry Insight</span>
                     </Link>
                   </li>
+
+                  {/* Projections */}
                   <li className="sidebar-item">
-                    <Link
-                      className="sidebar-link"
-                      to="/calendar"
-                      aria-expanded="false"
-                    >
+                    <Link className="sidebar-link" to="/projection">
                       <span>
-                        <i className="ti ti-calendar" />
+                        <i className="ti ti-chart-line" />
                       </span>
-                      <span className="hide-menu">Calendar</span>
+                      <span className="hide-menu">Projections</span>
                     </Link>
                   </li>
+
+                  {/* My Task */}
                   <li className="sidebar-item">
-                    <Link
-                      className="sidebar-link"
-                      to="/app-email"
-                      aria-expanded="false"
-                    >
+                    <Link className="sidebar-link" to="/my-task">
                       <span>
-                        <i className="ti ti-mail" />
+                        <i className="ti ti-checklist" />
                       </span>
-                      <span className="hide-menu">Email</span>
+                      <span className="hide-menu">My Task</span>
+                    </Link>
+                  </li>
+
+                  {/* Business Model */}
+                  <li className="sidebar-item">
+                    <Link className="sidebar-link" to="/business">
+                      <span>
+                        <i className="ti ti-briefcase" />
+                      </span>
+                      <span className="hide-menu">Business Model</span>
+                    </Link>
+                  </li>
+
+                  {/* Pitch Deck */}
+                  <li className="sidebar-item">
+                    <Link className="sidebar-link" to="/pitch-deck">
+                      <span>
+                        <i className="ti ti-presentation" />
+                      </span>
+                      <span className="hide-menu">Pitch Deck</span>
+                    </Link>
+                  </li>
+
+                  {/* Idea Validation */}
+                  <li className="sidebar-item">
+                    <Link className="sidebar-link" to="/idea-validation">
+                      <span>
+                        <i className="ti ti-lightbulb" />
+                      </span>
+                      <span className="hide-menu">Idea Validation</span>
                     </Link>
                   </li>
                 </ul>
@@ -569,8 +499,7 @@ const Navigation = ({ onButtonClick }) => {
                 <Link
                   className="nav-link sidebartoggler"
                   id="sidebarCollapse"
-                  href="#0"
-                >
+                  href="#0">
                   asda
                   <i className="ti ti-menu-2" />
                 </Link>
@@ -596,8 +525,7 @@ const Navigation = ({ onButtonClick }) => {
                   className="nav-link"
                   href="/#"
                   data-bs-toggle="modal"
-                  data-bs-target="#exampleModal"
-                >
+                  data-bs-target="#exampleModal">
                   <i className="ti ti-search" />
                 </Link>
               </li>
@@ -625,8 +553,7 @@ const Navigation = ({ onButtonClick }) => {
                                 <div className="position-relative">
                                   <Link
                                     to="/chat-app"
-                                    className="d-flex align-items-center pb-9 position-relative"
-                                  >
+                                    className="d-flex align-items-center pb-9 position-relative">
                                     <div className="text-bg-light rounded-1 me-3 p-6 d-flex align-items-center justify-content-center">
                                       <img
                                         src="./assets/assets/images/svgs/icon-dd-chat.svg"
@@ -647,8 +574,7 @@ const Navigation = ({ onButtonClick }) => {
                                   </Link>
                                   <Link
                                     to="/app-invoice"
-                                    className="d-flex align-items-center pb-9 position-relative"
-                                  >
+                                    className="d-flex align-items-center pb-9 position-relative">
                                     <div className="text-bg-light rounded-1 me-3 p-6 d-flex align-items-center justify-content-center">
                                       <img
                                         src="./assets/assets/images/svgs/icon-dd-invoice.svg"
@@ -669,8 +595,7 @@ const Navigation = ({ onButtonClick }) => {
                                   </Link>
                                   <Link
                                     to="/app-contact2"
-                                    className="d-flex align-items-center pb-9 position-relative"
-                                  >
+                                    className="d-flex align-items-center pb-9 position-relative">
                                     <div className="text-bg-light rounded-1 me-3 p-6 d-flex align-items-center justify-content-center">
                                       <img
                                         src="./assets/assets/images/svgs/icon-dd-mobile.svg"
@@ -691,8 +616,7 @@ const Navigation = ({ onButtonClick }) => {
                                   </Link>
                                   <Link
                                     to="/app-email"
-                                    className="d-flex align-items-center pb-9 position-relative"
-                                  >
+                                    className="d-flex align-items-center pb-9 position-relative">
                                     <div className="text-bg-light rounded-1 me-3 p-6 d-flex align-items-center justify-content-center">
                                       <img
                                         src="./assets/assets/images/svgs/icon-dd-message-box.svg"
@@ -717,8 +641,7 @@ const Navigation = ({ onButtonClick }) => {
                                 <div className="position-relative">
                                   <Link
                                     to="#"
-                                    className="d-flex align-items-center pb-9 position-relative"
-                                  >
+                                    className="d-flex align-items-center pb-9 position-relative">
                                     <div className="text-bg-light rounded-1 me-3 p-6 d-flex align-items-center justify-content-center">
                                       <img
                                         src="./assets/assets/images/svgs/icon-dd-cart.svg"
@@ -739,8 +662,7 @@ const Navigation = ({ onButtonClick }) => {
                                   </Link>
                                   <Link
                                     to="/calendar"
-                                    className="d-flex align-items-center pb-9 position-relative"
-                                  >
+                                    className="d-flex align-items-center pb-9 position-relative">
                                     <div className="text-bg-light rounded-1 me-3 p-6 d-flex align-items-center justify-content-center">
                                       <img
                                         src="./assets/assets/images/svgs/icon-dd-date.svg"
@@ -761,8 +683,7 @@ const Navigation = ({ onButtonClick }) => {
                                   </Link>
                                   <Link
                                     to="/app-contact"
-                                    className="d-flex align-items-center pb-9 position-relative"
-                                  >
+                                    className="d-flex align-items-center pb-9 position-relative">
                                     <div className="text-bg-light rounded-1 me-3 p-6 d-flex align-items-center justify-content-center">
                                       <img
                                         src="./assets/assets/images/svgs/icon-dd-lifebuoy.svg"
@@ -783,8 +704,7 @@ const Navigation = ({ onButtonClick }) => {
                                   </Link>
                                   <Link
                                     to="/my-task"
-                                    className="d-flex align-items-center pb-9 position-relative"
-                                  >
+                                    className="d-flex align-items-center pb-9 position-relative">
                                     <div className="text-bg-light rounded-1 me-3 p-6 d-flex align-items-center justify-content-center">
                                       <img
                                         src="./assets/assets/images/svgs/icon-dd-application.svg"
@@ -811,8 +731,7 @@ const Navigation = ({ onButtonClick }) => {
                             <div className="col-8">
                               <Link
                                 className="fw-semibold d-flex align-items-center lh-1"
-                                href="/#"
-                              >
+                                href="/#">
                                 <i className="ti ti-help fs-6 me-2" />
                                 Frequently Asked Questions
                               </Link>
@@ -834,56 +753,49 @@ const Navigation = ({ onButtonClick }) => {
                             <li className="mb-3">
                               <Link
                                 className="fw-semibold bg-hover-primary"
-                                to="../dark/page-pricing.html"
-                              >
+                                to="../dark/page-pricing.html">
                                 Pricing Page
                               </Link>
                             </li>
                             <li className="mb-3">
                               <Link
                                 className="fw-semibold bg-hover-primary"
-                                to="../dark/authentication-login.html"
-                              >
+                                to="../dark/authentication-login.html">
                                 Authentication Design
                               </Link>
                             </li>
                             <li className="mb-3">
                               <Link
                                 className="fw-semibold bg-hover-primary"
-                                to="../dark/authentication-register.html"
-                              >
+                                to="../dark/authentication-register.html">
                                 Register Now
                               </Link>
                             </li>
                             <li className="mb-3">
                               <Link
                                 className="fw-semibold bg-hover-primary"
-                                to="../dark/authentication-error.html"
-                              >
+                                to="../dark/authentication-error.html">
                                 404 Error Page
                               </Link>
                             </li>
                             <li className="mb-3">
                               <Link
                                 className="fw-semibold bg-hover-primary"
-                                to="/my-task"
-                              >
+                                to="/my-task">
                                 Notes App
                               </Link>
                             </li>
                             <li className="mb-3">
                               <Link
                                 className="fw-semibold bg-hover-primary"
-                                to="#"
-                              >
+                                to="#">
                                 User Application
                               </Link>
                             </li>
                             <li className="mb-3">
                               <Link
                                 className="fw-semibold bg-hover-primary"
-                                to="../dark/page-account-settings.html"
-                              >
+                                to="../dark/page-account-settings.html">
                                 Account Settings
                               </Link>
                             </li>
@@ -929,16 +841,14 @@ const Navigation = ({ onButtonClick }) => {
               data-bs-target="#navbarNav"
               aria-controls="navbarNav"
               aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
+              aria-label="Toggle navigation">
               <span className="p-2">
                 <i className="ti ti-dots fs-7" />
               </span>
             </Link>
             <div
               className="collapse navbar-collapse justify-content-end"
-              id="navbarNav"
-            >
+              id="navbarNav">
               <div className="d-flex align-items-center justify-content-between px-0 px-xl-8">
                 <Link
                   href="/#"
@@ -946,8 +856,7 @@ const Navigation = ({ onButtonClick }) => {
                   type="button"
                   data-bs-toggle="offcanvas"
                   data-bs-target="#mobilenavbar"
-                  aria-controls="offcanvasWithBothOptions"
-                >
+                  aria-controls="offcanvasWithBothOptions">
                   <i className="ti ti-align-justified fs-7" />
                 </Link>
                 <ul className="navbar-nav flex-row ms-auto align-items-center justify-content-center">
@@ -967,8 +876,7 @@ const Navigation = ({ onButtonClick }) => {
                       className="nav-link"
                       href="/#"
                       id="drop2"
-                      aria-expanded="false"
-                    >
+                      aria-expanded="false">
                       <img
                         src="./assets/assets/images/svgs/icon-flag-en.svg"
                         alt="modernize-img"
@@ -979,13 +887,11 @@ const Navigation = ({ onButtonClick }) => {
                     </Link>
                     <div
                       className="dropdown-menu dropdown-menu-end dropdown-menu-animate-up"
-                      aria-labelledby="drop2"
-                    >
+                      aria-labelledby="drop2">
                       <div className="message-body">
                         <Link
                           href="/#"
-                          className="d-flex align-items-center gap-2 py-3 px-4 dropdown-item"
-                        >
+                          className="d-flex align-items-center gap-2 py-3 px-4 dropdown-item">
                           <div className="position-relative">
                             <img
                               src="./assets/assets/images/svgs/icon-flag-en.svg"
@@ -999,8 +905,7 @@ const Navigation = ({ onButtonClick }) => {
                         </Link>
                         <Link
                           href="/#"
-                          className="d-flex align-items-center gap-2 py-3 px-4 dropdown-item"
-                        >
+                          className="d-flex align-items-center gap-2 py-3 px-4 dropdown-item">
                           <div className="position-relative">
                             <img
                               src="./assets/assets/images/svgs/icon-flag-cn.svg"
@@ -1014,8 +919,7 @@ const Navigation = ({ onButtonClick }) => {
                         </Link>
                         <Link
                           href="/#"
-                          className="d-flex align-items-center gap-2 py-3 px-4 dropdown-item"
-                        >
+                          className="d-flex align-items-center gap-2 py-3 px-4 dropdown-item">
                           <div className="position-relative">
                             <img
                               src="./assets/assets/images/svgs/icon-flag-fr.svg"
@@ -1029,8 +933,7 @@ const Navigation = ({ onButtonClick }) => {
                         </Link>
                         <Link
                           href="/#"
-                          className="d-flex align-items-center gap-2 py-3 px-4 dropdown-item"
-                        >
+                          className="d-flex align-items-center gap-2 py-3 px-4 dropdown-item">
                           <div className="position-relative">
                             <img
                               src="./assets/assets/images/svgs/icon-flag-sa.svg"
@@ -1057,8 +960,7 @@ const Navigation = ({ onButtonClick }) => {
                       href="/#"
                       data-bs-toggle="offcanvas"
                       data-bs-target="#offcanvasRight"
-                      aria-controls="offcanvasRight"
-                    >
+                      aria-controls="offcanvasRight">
                       <i className="ti ti-basket" />
                       <span className="popup-badge rounded-pill bg-danger text-white fs-2">
                         2
@@ -1076,15 +978,13 @@ const Navigation = ({ onButtonClick }) => {
                       className="nav-link position-relative"
                       href="/#"
                       id="drop2"
-                      aria-expanded="false"
-                    >
+                      aria-expanded="false">
                       <i className="ti ti-bell-ringing" />
                       <div className="notification bg-primary rounded-circle" />
                     </Link>
                     <div
                       className="dropdown-menu content-dd dropdown-menu-end dropdown-menu-animate-up"
-                      aria-labelledby="drop2"
-                    >
+                      aria-labelledby="drop2">
                       <div className="d-flex align-items-center justify-content-between py-3 px-7">
                         <h5 className="mb-0 fs-5 fw-semibold">Notifications</h5>
                         <span className="badge text-bg-primary rounded-4 px-3 py-1 lh-sm">
@@ -1094,8 +994,7 @@ const Navigation = ({ onButtonClick }) => {
                       <div className="message-body" data-simplebar="">
                         <Link
                           href="/#"
-                          className="py-6 px-7 d-flex align-items-center dropdown-item"
-                        >
+                          className="py-6 px-7 d-flex align-items-center dropdown-item">
                           <span className="me-3">
                             <img
                               src="./assets/assets/images/profile/user-2.jpg"
@@ -1116,8 +1015,7 @@ const Navigation = ({ onButtonClick }) => {
                         </Link>
                         <Link
                           href="/#"
-                          className="py-6 px-7 d-flex align-items-center dropdown-item"
-                        >
+                          className="py-6 px-7 d-flex align-items-center dropdown-item">
                           <span className="me-3">
                             <img
                               src="./assets/assets/images/profile/user-3.jpg"
@@ -1138,8 +1036,7 @@ const Navigation = ({ onButtonClick }) => {
                         </Link>
                         <Link
                           href="/#"
-                          className="py-6 px-7 d-flex align-items-center dropdown-item"
-                        >
+                          className="py-6 px-7 d-flex align-items-center dropdown-item">
                           <span className="me-3">
                             <img
                               src="./assets/assets/images/profile/user-4.jpg"
@@ -1160,8 +1057,7 @@ const Navigation = ({ onButtonClick }) => {
                         </Link>
                         <Link
                           href="/#"
-                          className="py-6 px-7 d-flex align-items-center dropdown-item"
-                        >
+                          className="py-6 px-7 d-flex align-items-center dropdown-item">
                           <span className="me-3">
                             <img
                               src="./assets/assets/images/profile/user-5.jpg"
@@ -1182,8 +1078,7 @@ const Navigation = ({ onButtonClick }) => {
                         </Link>
                         <Link
                           href="/#"
-                          className="py-6 px-7 d-flex align-items-center dropdown-item"
-                        >
+                          className="py-6 px-7 d-flex align-items-center dropdown-item">
                           <span className="me-3">
                             <img
                               src="./assets/assets/images/profile/user-6.jpg"
@@ -1204,8 +1099,7 @@ const Navigation = ({ onButtonClick }) => {
                         </Link>
                         <Link
                           href="/#"
-                          className="py-6 px-7 d-flex align-items-center dropdown-item"
-                        >
+                          className="py-6 px-7 d-flex align-items-center dropdown-item">
                           <span className="me-3">
                             <img
                               src="./assets/assets/images/profile/user-7.jpg"
@@ -1243,8 +1137,7 @@ const Navigation = ({ onButtonClick }) => {
                       className="nav-link pe-0"
                       href="/#"
                       id="drop1"
-                      aria-expanded="false"
-                    >
+                      aria-expanded="false">
                       <div className="d-flex align-items-center">
                         <div className="user-profile-img">
                           <img
@@ -1259,19 +1152,16 @@ const Navigation = ({ onButtonClick }) => {
                     </Link>
                     <div
                       className="dropdown-menu content-dd dropdown-menu-end dropdown-menu-animate-up"
-                      aria-labelledby="drop1"
-                    >
+                      aria-labelledby="drop1">
                       <div
                         className="profile-dropdown position-relative"
-                        data-simplebar=""
-                      >
+                        data-simplebar="">
                         <div className="py-3 px-7 pb-0"></div>
                         <div className="d-flex align-items-center py-9 mx-7 border-bottom"></div>
                         <div className="message-body">
                           <Link
                             to="#"
-                            className="py-8 px-7 mt-8 d-flex align-items-center"
-                          >
+                            className="py-8 px-7 mt-8 d-flex align-items-center">
                             <span className="d-flex align-items-center justify-content-center text-bg-light rounded-1 p-6">
                               <img
                                 src="./assets/logo/logo-light.png"
@@ -1291,8 +1181,7 @@ const Navigation = ({ onButtonClick }) => {
                           </Link>
                           <Link
                             to="/app-email"
-                            className="py-8 px-7 d-flex align-items-center"
-                          >
+                            className="py-8 px-7 d-flex align-items-center">
                             <span className="d-flex align-items-center justify-content-center text-bg-light rounded-1 p-6">
                               <img
                                 src="./assets/assets/images/svgs/icon-inbox.svg"
@@ -1312,8 +1201,7 @@ const Navigation = ({ onButtonClick }) => {
                           </Link>
                           <Link
                             to="/my-task"
-                            className="py-8 px-7 d-flex align-items-center"
-                          >
+                            className="py-8 px-7 d-flex align-items-center">
                             <span className="d-flex align-items-center justify-content-center text-bg-light rounded-1 p-6">
                               <img
                                 src="./assets/assets/images/svgs/icon-tasks.svg"
@@ -1338,8 +1226,7 @@ const Navigation = ({ onButtonClick }) => {
                           </div>
                           <Link
                             to="../dark/authentication-login.html"
-                            className="btn btn-outline-primary"
-                          >
+                            className="btn btn-outline-primary">
                             Log Out
                           </Link>
                         </div>
@@ -1362,8 +1249,7 @@ const Navigation = ({ onButtonClick }) => {
           {/* Sidebar navigation*/}
           <nav
             id="sidebarnavh"
-            className="sidebar-nav scroll-sidebar container-fluid"
-          >
+            className="sidebar-nav scroll-sidebar container-fluid">
             <ul id="sidebarnav">
               {/* ============================= */}
               {/* Home */}
@@ -1379,8 +1265,7 @@ const Navigation = ({ onButtonClick }) => {
                 <Link
                   className="sidebar-link has-arrow"
                   href="/#"
-                  aria-expanded="false"
-                >
+                  aria-expanded="false">
                   <span>
                     <i className="ti ti-home-2" />
                   </span>
@@ -1436,8 +1321,7 @@ const Navigation = ({ onButtonClick }) => {
                 <Link
                   className="sidebar-link two-column has-arrow"
                   href="/#"
-                  aria-expanded="false"
-                >
+                  aria-expanded="false">
                   <span>
                     <i className="ti ti-archive" />
                   </span>
@@ -1466,8 +1350,7 @@ const Navigation = ({ onButtonClick }) => {
                     <Link
                       className="sidebar-link"
                       to="/app-email"
-                      aria-expanded="false"
-                    >
+                      aria-expanded="false">
                       <span>
                         <i className="ti ti-mail" />
                       </span>
@@ -1513,8 +1396,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       to="../dark/blog-detail.html"
-                      className="sidebar-link"
-                    >
+                      className="sidebar-link">
                       <i className="ti ti-details" />
                       <span className="hide-menu">Detail</span>
                     </Link>
@@ -1528,8 +1410,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       to="../dark/eco-shop-detail.html"
-                      className="sidebar-link"
-                    >
+                      className="sidebar-link">
                       <i className="ti ti-basket" />
                       <span className="hide-menu">Shop Detail</span>
                     </Link>
@@ -1537,8 +1418,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       to="../dark/eco-product-list.html"
-                      className="sidebar-link"
-                    >
+                      className="sidebar-link">
                       <i className="ti ti-list-check" />
                       <span className="hide-menu">List</span>
                     </Link>
@@ -1546,8 +1426,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       to="../dark/eco-checkout.html"
-                      className="sidebar-link"
-                    >
+                      className="sidebar-link">
                       <i className="ti ti-brand-shopee" />
                       <span className="hide-menu">Checkout</span>
                     </Link>
@@ -1555,8 +1434,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       className="sidebar-link"
-                      to="../dark/eco-add-product.html"
-                    >
+                      to="../dark/eco-add-product.html">
                       <i className="ti ti-file-plus" />
                       <span className="hide-menu">Add Product</span>
                     </Link>
@@ -1564,8 +1442,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       className="sidebar-link"
-                      to="../dark/eco-edit-product.html"
-                    >
+                      to="../dark/eco-edit-product.html">
                       <i className="ti ti-file-pencil" />
                       <span className="hide-menu">Edit Product</span>
                     </Link>
@@ -1586,8 +1463,7 @@ const Navigation = ({ onButtonClick }) => {
                 <Link
                   className="sidebar-link has-arrow"
                   href="/#"
-                  aria-expanded="false"
-                >
+                  aria-expanded="false">
                   <span className="rounded-3">
                     <i className="ti ti-app-window" />
                   </span>
@@ -1597,8 +1473,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       to="../dark/frontend-landingpage.html"
-                      className="sidebar-link"
-                    >
+                      className="sidebar-link">
                       <i className="ti ti-circle" />
                       <span className="hide-menu">Homepage</span>
                     </Link>
@@ -1606,8 +1481,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       to="../dark/frontend-aboutpage.html"
-                      className="sidebar-link"
-                    >
+                      className="sidebar-link">
                       <i className="ti ti-circle" />
                       <span className="hide-menu">About Us</span>
                     </Link>
@@ -1615,8 +1489,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       to="../dark/frontend-contactpage.html"
-                      className="sidebar-link"
-                    >
+                      className="sidebar-link">
                       <i className="ti ti-circle" />
                       <span className="hide-menu">Contact Us</span>
                     </Link>
@@ -1624,8 +1497,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       to="../dark/frontend-blogpage.html"
-                      className="sidebar-link"
-                    >
+                      className="sidebar-link">
                       <i className="ti ti-circle" />
                       <span className="hide-menu">Blog</span>
                     </Link>
@@ -1633,8 +1505,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       to="../dark/frontend-blogdetailpage.html"
-                      className="sidebar-link"
-                    >
+                      className="sidebar-link">
                       <i className="ti ti-circle" />
                       <span className="hide-menu">Blog Details</span>
                     </Link>
@@ -1652,8 +1523,7 @@ const Navigation = ({ onButtonClick }) => {
                 <Link
                   className="sidebar-link has-arrow"
                   href="/#"
-                  aria-expanded="false"
-                >
+                  aria-expanded="false">
                   <span>
                     <i className="ti ti-notebook" />
                   </span>
@@ -1669,8 +1539,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       to="../dark/page-account-settings.html"
-                      className="sidebar-link"
-                    >
+                      className="sidebar-link">
                       <i className="ti ti-user-circle" />
                       <span className="hide-menu">Account Setting</span>
                     </Link>
@@ -1678,8 +1547,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       to="../dark/page-pricing.html"
-                      className="sidebar-link"
-                    >
+                      className="sidebar-link">
                       <i className="ti ti-currency-dollar" />
                       <span className="hide-menu">Pricing</span>
                     </Link>
@@ -1687,8 +1555,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       to="../dark/widgets-cards.html"
-                      className="sidebar-link"
-                    >
+                      className="sidebar-link">
                       <i className="ti ti-cards" />
                       <span className="hide-menu">Card</span>
                     </Link>
@@ -1696,8 +1563,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       to="../dark/widgets-banners.html"
-                      className="sidebar-link"
-                    >
+                      className="sidebar-link">
                       <i className="ti ti-ad" />
                       <span className="hide-menu">Banner</span>
                     </Link>
@@ -1705,8 +1571,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       to="../dark/widgets-charts.html"
-                      className="sidebar-link"
-                    >
+                      className="sidebar-link">
                       <i className="ti ti-chart-bar" />
                       <span className="hide-menu">Charts</span>
                     </Link>
@@ -1733,8 +1598,7 @@ const Navigation = ({ onButtonClick }) => {
                 <Link
                   className="sidebar-link has-arrow"
                   href="/#"
-                  aria-expanded="false"
-                >
+                  aria-expanded="false">
                   <span className="rounded-3">
                     <i className="ti ti-layout-grid" />
                   </span>
@@ -1744,8 +1608,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       to="../dark/ui-accordian.html"
-                      className="sidebar-link"
-                    >
+                      className="sidebar-link">
                       <i className="ti ti-circle" />
                       <span className="hide-menu">Accordian</span>
                     </Link>
@@ -1765,8 +1628,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       to="../dark/ui-dropdowns.html"
-                      className="sidebar-link"
-                    >
+                      className="sidebar-link">
                       <i className="ti ti-circle" />
                       <span className="hide-menu">Dropdowns</span>
                     </Link>
@@ -1786,8 +1648,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       to="../dark/ui-tooltip-popover.html"
-                      className="sidebar-link"
-                    >
+                      className="sidebar-link">
                       <i className="ti ti-circle" />
                       <span className="hide-menu">Tooltip &amp; Popover</span>
                     </Link>
@@ -1795,8 +1656,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       to="../dark/ui-notification.html"
-                      className="sidebar-link"
-                    >
+                      className="sidebar-link">
                       <i className="ti ti-circle" />
                       <span className="hide-menu">Alerts</span>
                     </Link>
@@ -1804,8 +1664,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       to="../dark/ui-progressbar.html"
-                      className="sidebar-link"
-                    >
+                      className="sidebar-link">
                       <i className="ti ti-circle" />
                       <span className="hide-menu">Progressbar</span>
                     </Link>
@@ -1813,8 +1672,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       to="../dark/ui-pagination.html"
-                      className="sidebar-link"
-                    >
+                      className="sidebar-link">
                       <i className="ti ti-circle" />
                       <span className="hide-menu">Pagination</span>
                     </Link>
@@ -1822,8 +1680,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       to="../dark/ui-typography.html"
-                      className="sidebar-link"
-                    >
+                      className="sidebar-link">
                       <i className="ti ti-circle" />
                       <span className="hide-menu">Typography</span>
                     </Link>
@@ -1831,8 +1688,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       to="../dark/ui-bootstrap-ui.html"
-                      className="sidebar-link"
-                    >
+                      className="sidebar-link">
                       <i className="ti ti-circle" />
                       <span className="hide-menu">Bootstrap UI</span>
                     </Link>
@@ -1840,8 +1696,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       to="../dark/ui-breadcrumb.html"
-                      className="sidebar-link"
-                    >
+                      className="sidebar-link">
                       <i className="ti ti-circle" />
                       <span className="hide-menu">Breadcrumb</span>
                     </Link>
@@ -1849,8 +1704,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       to="../dark/ui-offcanvas.html"
-                      className="sidebar-link"
-                    >
+                      className="sidebar-link">
                       <i className="ti ti-circle" />
                       <span className="hide-menu">Offcanvas</span>
                     </Link>
@@ -1870,8 +1724,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       to="../dark/ui-carousel.html"
-                      className="sidebar-link"
-                    >
+                      className="sidebar-link">
                       <i className="ti ti-circle" />
                       <span className="hide-menu">Carousel</span>
                     </Link>
@@ -1879,8 +1732,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       to="../dark/ui-scrollspy.html"
-                      className="sidebar-link"
-                    >
+                      className="sidebar-link">
                       <i className="ti ti-circle" />
                       <span className="hide-menu">Scrollspy</span>
                     </Link>
@@ -1913,8 +1765,7 @@ const Navigation = ({ onButtonClick }) => {
                 <Link
                   className="sidebar-link two-column has-arrow"
                   href="/#"
-                  aria-expanded="false"
-                >
+                  aria-expanded="false">
                   <span className="rounded-3">
                     <i className="ti ti-file-text" />
                   </span>
@@ -1925,8 +1776,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       to="../dark/form-inputs.html"
-                      className="sidebar-link"
-                    >
+                      className="sidebar-link">
                       <i className="ti ti-circle" />
                       <span className="hide-menu">Forms Input</span>
                     </Link>
@@ -1934,8 +1784,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       to="../dark/form-input-groups.html"
-                      className="sidebar-link"
-                    >
+                      className="sidebar-link">
                       <i className="ti ti-circle" />
                       <span className="hide-menu">Input Groups</span>
                     </Link>
@@ -1943,8 +1792,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       to="../dark/form-input-grid.html"
-                      className="sidebar-link"
-                    >
+                      className="sidebar-link">
                       <i className="ti ti-circle" />
                       <span className="hide-menu">Input Grid</span>
                     </Link>
@@ -1952,8 +1800,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       to="../dark/form-checkbox-radio.html"
-                      className="sidebar-link"
-                    >
+                      className="sidebar-link">
                       <i className="ti ti-circle" />
                       <span className="hide-menu">Checkbox &amp; Radios</span>
                     </Link>
@@ -1961,8 +1808,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       to="../dark/form-bootstrap-switch.html"
-                      className="sidebar-link"
-                    >
+                      className="sidebar-link">
                       <i className="ti ti-circle" />
                       <span className="hide-menu">Bootstrap Switch</span>
                     </Link>
@@ -1970,8 +1816,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       to="../dark/form-select2.html"
-                      className="sidebar-link"
-                    >
+                      className="sidebar-link">
                       <i className="ti ti-circle" />
                       <span className="hide-menu">Select2</span>
                     </Link>
@@ -1986,8 +1831,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       to="../dark/form-vertical.html"
-                      className="sidebar-link"
-                    >
+                      className="sidebar-link">
                       <i className="ti ti-circle" />
                       <span className="hide-menu">Form Vertical</span>
                     </Link>
@@ -1995,8 +1839,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       to="../dark/form-horizontal.html"
-                      className="sidebar-link"
-                    >
+                      className="sidebar-link">
                       <i className="ti ti-circle" />
                       <span className="hide-menu">Form Horizontal</span>
                     </Link>
@@ -2004,8 +1847,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       to="../dark/form-actions.html"
-                      className="sidebar-link"
-                    >
+                      className="sidebar-link">
                       <i className="ti ti-circle" />
                       <span className="hide-menu">Form Actions</span>
                     </Link>
@@ -2013,8 +1855,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       to="../dark/form-row-separator.html"
-                      className="sidebar-link"
-                    >
+                      className="sidebar-link">
                       <i className="ti ti-circle" />
                       <span className="hide-menu">Row Separator</span>
                     </Link>
@@ -2022,8 +1863,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       to="../dark/form-bordered.html"
-                      className="sidebar-link"
-                    >
+                      className="sidebar-link">
                       <i className="ti ti-circle" />
                       <span className="hide-menu">Form Bordered</span>
                     </Link>
@@ -2031,8 +1871,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       to="../dark/form-detail.html"
-                      className="sidebar-link"
-                    >
+                      className="sidebar-link">
                       <i className="ti ti-circle" />
                       <span className="hide-menu">Form Detail</span>
                     </Link>
@@ -2041,8 +1880,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       to="../dark/form-wizard.html"
-                      className="sidebar-link"
-                    >
+                      className="sidebar-link">
                       <i className="ti ti-circle" />
                       <span className="hide-menu">Form Wizard</span>
                     </Link>
@@ -2051,8 +1889,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       to="../dark/form-editor-quill.html"
-                      className="sidebar-link"
-                    >
+                      className="sidebar-link">
                       <i className="ti ti-circle" />
                       <span className="hide-menu">Quill Editor</span>
                     </Link>
@@ -2073,8 +1910,7 @@ const Navigation = ({ onButtonClick }) => {
                 <Link
                   className="sidebar-link has-arrow"
                   href="/#"
-                  aria-expanded="false"
-                >
+                  aria-expanded="false">
                   <span className="rounded-3">
                     <i className="ti ti-layout-sidebar" />
                   </span>
@@ -2084,8 +1920,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       to="../dark/table-basic.html"
-                      className="sidebar-link"
-                    >
+                      className="sidebar-link">
                       <i className="ti ti-circle" />
                       <span className="hide-menu">Basic Table</span>
                     </Link>
@@ -2093,8 +1928,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       to="../dark/table-dark-basic.html"
-                      className="sidebar-link"
-                    >
+                      className="sidebar-link">
                       <i className="ti ti-circle" />
                       <span className="hide-menu">Dark Basic Table</span>
                     </Link>
@@ -2102,8 +1936,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       to="../dark/table-sizing.html"
-                      className="sidebar-link"
-                    >
+                      className="sidebar-link">
                       <i className="ti ti-circle" />
                       <span className="hide-menu">Sizing Table</span>
                     </Link>
@@ -2111,8 +1944,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       to="../dark/table-layout-coloured.html"
-                      className="sidebar-link"
-                    >
+                      className="sidebar-link">
                       <i className="ti ti-circle" />
                       <span className="hide-menu">Coloured Table</span>
                     </Link>
@@ -2120,8 +1952,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       to="../dark/table-datatable-basic.html"
-                      className="sidebar-link"
-                    >
+                      className="sidebar-link">
                       <i className="ti ti-circle" />
                       <span className="hide-menu">Basic Initialisation</span>
                     </Link>
@@ -2129,8 +1960,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       to="../dark/table-datatable-api.html"
-                      className="sidebar-link"
-                    >
+                      className="sidebar-link">
                       <i className="ti ti-circle" />
                       <span className="hide-menu">API</span>
                     </Link>
@@ -2138,8 +1968,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       to="../dark/table-datatable-advanced.html"
-                      className="sidebar-link"
-                    >
+                      className="sidebar-link">
                       <i className="ti ti-circle" />
                       <span className="hide-menu">Advanced Initialisation</span>
                     </Link>
@@ -2160,8 +1989,7 @@ const Navigation = ({ onButtonClick }) => {
                 <Link
                   className="sidebar-link has-arrow"
                   href="/#"
-                  aria-expanded="false"
-                >
+                  aria-expanded="false">
                   <span className="rounded-3">
                     <i className="ti ti-chart-pie" />
                   </span>
@@ -2171,8 +1999,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       to="../dark/chart-apex-line.html"
-                      className="sidebar-link"
-                    >
+                      className="sidebar-link">
                       <i className="ti ti-circle" />
                       <span className="hide-menu">Line Chart</span>
                     </Link>
@@ -2180,8 +2007,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       to="../dark/chart-apex-area.html"
-                      className="sidebar-link"
-                    >
+                      className="sidebar-link">
                       <i className="ti ti-circle" />
                       <span className="hide-menu">Area Chart</span>
                     </Link>
@@ -2189,8 +2015,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       to="../dark/chart-apex-bar.html"
-                      className="sidebar-link"
-                    >
+                      className="sidebar-link">
                       <i className="ti ti-circle" />
                       <span className="hide-menu">Bar Chart</span>
                     </Link>
@@ -2198,8 +2023,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       to="../dark/chart-apex-pie.html"
-                      className="sidebar-link"
-                    >
+                      className="sidebar-link">
                       <i className="ti ti-circle" />
                       <span className="hide-menu">Pie Chart</span>
                     </Link>
@@ -2207,8 +2031,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       to="../dark/chart-apex-radial.html"
-                      className="sidebar-link"
-                    >
+                      className="sidebar-link">
                       <i className="ti ti-circle" />
                       <span className="hide-menu">Radial Chart</span>
                     </Link>
@@ -2216,8 +2039,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       to="../dark/chart-apex-radar.html"
-                      className="sidebar-link"
-                    >
+                      className="sidebar-link">
                       <i className="ti ti-circle" />
                       <span className="hide-menu">Radar Chart</span>
                     </Link>
@@ -2238,8 +2060,7 @@ const Navigation = ({ onButtonClick }) => {
                 <Link
                   className="sidebar-link has-arrow"
                   href="/#"
-                  aria-expanded="false"
-                >
+                  aria-expanded="false">
                   <span className="rounded-3">
                     <i className="ti ti-archive" />
                   </span>
@@ -2249,8 +2070,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       to="../dark/icon-tabler.html"
-                      className="sidebar-link"
-                    >
+                      className="sidebar-link">
                       <i className="ti ti-circle" />
                       <span className="hide-menu">Tabler Icon</span>
                     </Link>
@@ -2268,8 +2088,7 @@ const Navigation = ({ onButtonClick }) => {
                 <Link
                   className="sidebar-link has-arrow"
                   href="/#"
-                  aria-expanded="false"
-                >
+                  aria-expanded="false">
                   <span className="rounded-3">
                     <iconify-icon
                       icon="solar:airbuds-case-minimalistic-line-duotone"

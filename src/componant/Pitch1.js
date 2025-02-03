@@ -1,6 +1,11 @@
 import React from "react";
 
-function Pitch1(props) {
+function Pitch1(startupName) {
+  console.log("Received startupName:", startupName); // Debugging line
+
+  // if (!startupName || typeof startupName !== "string") {
+  //   return <p>Error: Invalid startup name</p>; // Fallback UI
+  // }
   return (
     <div style={{ backgroundColor: "#f0f0f0", width: "100%", height: "100%" }}>
       <svg
@@ -48,7 +53,7 @@ function Pitch1(props) {
                 className="st1"
                 style={{ fontFamily: '"Poppins-Regular"', fontSize: 17 }}
                 transform="matrix(1.0012 0 0 1 530.482 249.924)">
-                {props.Problem}
+                {startupName.startupName}
               </text>
               <path d="M530.48 154.51h301.39v78.48H530.48z" className="st0" />
               <text

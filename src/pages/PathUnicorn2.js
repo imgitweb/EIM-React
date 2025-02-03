@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import LeftSidebar from "../componant/LeftSidebar";
 import Navigation from "../componant/Navigation";
 import SerchBar from "../componant/SearchBar";
@@ -94,152 +94,163 @@ function PathUnicorn2() {
                   </div>
                 </div>
               </div>
-              <div
-                style={{
-                  // backgroundColor: "#2D0E41",
-                  color: "#FFFFFF",
-                  // height: "100vh",
-                  padding: "20px",
-                }}>
-                {/* Header */}
+              <div className="card">
                 <div
                   style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    marginBottom: "20px",
+                    color: "#FFFFFF",
+                    padding: "20px",
                   }}>
-                  <h1 style={{ fontSize: "24px", fontWeight: "bold" }}>
-                    Unicorn Path
-                  </h1>
-                  <div style={{ flexGrow: 1, marginLeft: "20px" }}>
-                    <div
-                      style={{
-                        height: "8px",
-                        // backgroundColor: "#4B1D6E",
-                        borderRadius: "4px",
-                        position: "relative",
-                      }}>
-                      <div
-                        style={{
-                          width: `${progress}%`,
-                          height: "100%",
-                          backgroundColor: "#223662",
-                          borderRadius: "4px",
-                          transition: "width 0.3s",
-                        }}
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Navigation Tabs */}
-                <div
-                  style={{
-                    display: "flex",
-                    gap: "10px",
-                    marginBottom: "20px",
-                  }}>
-                  {/* Dynamically create tabs M1 to M14 */}
-                  {[
-                    "All",
-                    ...Array(14)
-                      .fill()
-                      .map((_, index) => `M${index + 1}`),
-                  ].map((tab, index) => (
-                    <button
-                      key={index}
-                      onClick={() => handleTabClick(tab)}
-                      style={{
-                        backgroundColor:
-                          activeTab === tab ? "#223662" : "transparent",
-                        color: activeTab === tab ? "#FFFFDF" : "#FFF",
-                        border: "none",
-                        fontSize: "16px",
-                        cursor: "pointer",
-                        padding: "5px 10px",
-                        borderRadius: "5px",
-                      }}>
-                      {tab}
-                    </button>
-                  ))}
-                  <div className="text-end"></div>
-                </div>
-
-                {/* Content */}
-                <div style={{ display: "flex", height: "calc(100% - 120px)" }}>
-                  {/* Sidebar */}
+                  {/* Header */}
                   <div
                     style={{
-                      width: "200px",
-                      borderRight: "1px solid #4B1D6E",
-                      padding: "10px",
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      marginBottom: "20px",
                     }}>
-                    <p
-                      style={{
-                        fontWeight: "bold",
-                        fontSize: "18px",
-                        marginBottom: "10px",
-                      }}>
-                      Path
-                    </p>
-
-                    <ul style={{ listStyle: "none", padding: "0" }}>
-                      {topics.map((topic, index) => (
-                        <li
-                          key={index}
-                          onClick={() => handleTabClick(topic)}
+                    <h1 style={{ fontSize: "24px", fontWeight: "bold" }}>
+                      Unicorn Path
+                    </h1>
+                    <div style={{ flexGrow: 1, marginLeft: "20px" }}>
+                      <div
+                        style={{
+                          height: "8px",
+                          borderRadius: "4px",
+                          position: "relative",
+                        }}>
+                        <div
                           style={{
-                            marginBottom: "10px",
-                            color: activeTab === topic ? "#5D6BC9" : "#FFF",
-                            cursor: "pointer",
-                          }}>
-                          {topic}
-                        </li>
-                      ))}
-                    </ul>
+                            width: `${progress}%`,
+                            height: "100%",
+                            backgroundColor: "#223662",
+                            borderRadius: "4px",
+                            transition: "width 0.3s",
+                          }}
+                        />
+                      </div>
+                    </div>
+                    <Link
+                      to="/path-unicorn"
+                      className="text-end btn btn-lg bg-default"
+                      style={{ backgroundColor: "#223662", color: "white" }}>
+                      ← Back
+                    </Link>
                   </div>
 
-                  {/* Main Content */}
-                  <div style={{ flex: 1, padding: "20px", overflowY: "auto" }}>
-                    <h2 style={{ fontSize: "20px", marginBottom: "20px" }}>
-                      {activeTab}
-                    </h2>
-                    {cards.map((card, index) => (
-                      <div
+                  {/* Navigation Tabs */}
+                  <div
+                    className="overflow-x-auto whitespace-nowrap"
+                    style={{
+                      display: "flex",
+                      gap: "10px",
+                      marginBottom: "20px",
+                    }}>
+                    {/* Dynamically create tabs M1 to M14 */}
+                    {[
+                      "All",
+                      ...Array(14)
+                        .fill()
+                        .map((_, index) => `M${index + 1}`),
+                    ].map((tab, index) => (
+                      <button
                         key={index}
-                        onClick={() => handleCardClick(card)}
+                        onClick={() => handleTabClick(tab)}
                         style={{
-                          backgroundColor: "#223662",
-                          padding: "15px",
-                          borderRadius: "8px",
-                          marginBottom: "15px",
-                          display: "flex",
-                          justifyContent: "space-between",
-                          alignItems: "center",
+                          backgroundColor:
+                            activeTab === tab ? "#223662" : "transparent",
+                          color: activeTab === tab ? "#FFFFDF" : "#FFF",
+                          border: "none",
+                          fontSize: "16px",
                           cursor: "pointer",
-                          transition: "transform 0.2s",
+                          padding: "5px 10px",
+                          borderRadius: "5px",
+                          whiteSpace: "nowrap", // Ensure tabs stay in one line
                         }}>
-                        <div>
-                          <p style={{ fontSize: "18px", marginBottom: "5px" }}>
-                            {card.title}
-                          </p>
-                          <p style={{ fontSize: "14px", color: "#A7A4B1" }}>
-                            {card.description}
-                          </p>
-                        </div>
-                        <button
-                          style={{
-                            backgroundColor: "transparent",
-                            border: "none",
-                            fontSize: "18px",
-                            color: "#FFF",
-                            cursor: "pointer",
-                          }}>
-                          ...
-                        </button>
-                      </div>
+                        {tab}
+                      </button>
                     ))}
+                  </div>
+
+                  {/* Content */}
+                  <div
+                    style={{ display: "flex", height: "calc(100% - 120px)" }}
+                    className="row">
+                    {/* Sidebar */}
+                    <div
+                      className="col-12 col-sm-2"
+                      style={{
+                        borderRight: "1px solid #4B1D6E",
+                        padding: "10px",
+                      }}>
+                      <div>
+                        <p
+                          style={{
+                            fontWeight: "bold",
+                            fontSize: "18px",
+                            marginBottom: "10px",
+                          }}>
+                          Path
+                        </p>
+
+                        <ul style={{ listStyle: "none", padding: "0" }}>
+                          {topics.map((topic, index) => (
+                            <li
+                              key={index}
+                              onClick={() => handleTabClick(topic)}
+                              style={{
+                                marginBottom: "10px",
+                                color: activeTab === topic ? "#5D6BC9" : "#FFF",
+                                cursor: "pointer",
+                              }}>
+                              {topic}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                    {/* Main Content */}
+                    <div
+                      style={{ flex: 1, padding: "20px", overflowY: "auto" }}>
+                      <h2 style={{ fontSize: "20px", marginBottom: "20px" }}>
+                        {activeTab}
+                      </h2>
+                      {cards.map((card, index) => (
+                        <div
+                          key={index}
+                          onClick={() => handleCardClick(card)}
+                          style={{
+                            backgroundColor: "#223662",
+                            padding: "15px",
+                            borderRadius: "8px",
+                            marginBottom: "15px",
+                            display: "flex",
+                            justifyContent: "space-between",
+                            alignItems: "center",
+                            cursor: "pointer",
+                            transition: "transform 0.2s",
+                          }}>
+                          <div>
+                            <p
+                              style={{ fontSize: "18px", marginBottom: "5px" }}>
+                              {card.title}
+                            </p>
+                            <p style={{ fontSize: "14px", color: "#A7A4B1" }}>
+                              {card.description}
+                            </p>
+                          </div>
+                          <button
+                            style={{
+                              backgroundColor: "transparent",
+                              border: "none",
+                              fontSize: "18px",
+                              color: "#FFF",
+                              cursor: "pointer",
+                            }}>
+                            ...
+                          </button>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>

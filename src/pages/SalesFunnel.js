@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Bar } from "react-chartjs-2";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -89,7 +88,9 @@ const SalesFunnel = () => {
                   </h1>
 
                   {/* Steps Section */}
-                  <div style={styles.stepsContainer}>
+                  <div
+                    style={styles.stepsContainer}
+                    className="overflow-x-auto whitespace-nowrap">
                     {[
                       {
                         number: 1,

@@ -56,7 +56,7 @@ const IdeaValidation = () => {
             <div className="container-fluid">
               <div className="card">
                 <div className="card-header">Idea Validation</div>
-                <div className="card-body">
+                <div className="">
                   <div className="container p-4">
                     {/* Title */}
                     <h1 className="display-4 text-center mb-2 text-white">
@@ -86,7 +86,7 @@ const IdeaValidation = () => {
                           <Heart style={{ width: "40px", height: "40px" }} />
                         </div>
                         <div className="text-center text-white">
-                          <h5>Desirability</h5>
+                          <h5>Solution viability</h5>
                           <p className="small">
                             Do customers / users want this?
                           </p>
@@ -112,7 +112,7 @@ const IdeaValidation = () => {
                           />
                         </div>
                         <div className="text-center text-white">
-                          <h5>Feasibility</h5>
+                          <h5>Evidence gathering</h5>
                           <p className="small">Can we do this?</p>
                         </div>
                       </div>
@@ -136,7 +136,7 @@ const IdeaValidation = () => {
                           />
                         </div>
                         <div className="text-center text-white">
-                          <h5>Viability</h5>
+                          <h5>Level of demand</h5>
                           <p className="small">Can this survive and thrive?</p>
                         </div>
                       </div>
@@ -158,7 +158,7 @@ const IdeaValidation = () => {
                           <Star style={{ width: "40px", height: "40px" }} />
                         </div>
                         <div className="text-center text-white">
-                          <h5>Innovation</h5>
+                          <h5>Efficiency, Client focus</h5>
                           <p className="small">
                             How new and innovative is the idea?
                           </p>
@@ -172,7 +172,7 @@ const IdeaValidation = () => {
                           style={{
                             width: "100px",
                             height: "100px",
-                            backgroundColor: "#FF7043",
+                            backgroundColor: "#223662",
                             borderRadius: "50%",
                             display: "flex",
                             justifyContent: "center",
@@ -182,7 +182,7 @@ const IdeaValidation = () => {
                           <Target style={{ width: "40px", height: "40px" }} />
                         </div>
                         <div className="text-center text-white">
-                          <h5>Target Market</h5>
+                          <h5>Team alignment</h5>
                           <p className="small">Who is the target audience?</p>
                         </div>
                       </div>
@@ -198,7 +198,7 @@ const IdeaValidation = () => {
                           </h3>
                           <div
                             className="bg-pink-100 p-2 mb-4"
-                            style={{ backgroundColor: "#FBB6CE" }}>
+                            style={{ backgroundColor: "#223662" }}>
                             "Do people want this?"{" "}
                           </div>
                           <p className="font-weight-bold mb-2">Focus</p>
@@ -222,7 +222,7 @@ const IdeaValidation = () => {
                           </h3>
                           <div
                             className="bg-cyan-100 p-2 mb-4"
-                            style={{ backgroundColor: "#A0F5D7" }}>
+                            style={{ backgroundColor: "#223662" }}>
                             {" "}
                             "Can we make this profitable?"{" "}
                           </div>
@@ -251,7 +251,7 @@ const IdeaValidation = () => {
                           </h3>
                           <div
                             className="bg-green-100 p-2 mb-4"
-                            style={{ backgroundColor: "#A2D8E7" }}>
+                            style={{ backgroundColor: "#223662" }}>
                             {" "}
                             "Can we actually build and deliver this?"{" "}
                           </div>
@@ -276,28 +276,28 @@ const IdeaValidation = () => {
                     {/* Scoring Table */}
                     <div
                       border="1 1px soiled black"
-                      className="border p-3"
+                      className="border table-responsive p-3"
                       style={{ color: "#D3D3D3" }}>
                       <h3 className="font-weight-bold mb-4 text-white">
                         Sample Scoring
                       </h3>
-                      <table className="table table-dark">
+                      <table className="table table table-bordered">
                         <thead>
                           <tr>
-                            <th></th>
+                            <th>Ideas</th>
                             <th
                               className="p-2"
-                              style={{ backgroundColor: "#FBB6CE" }}>
+                              style={{ backgroundColor: "#223662" }}>
                               Desirability
                             </th>
                             <th
                               className="p-2"
-                              style={{ backgroundColor: "#A0F5D7" }}>
+                              style={{ backgroundColor: "#223662" }}>
                               Viability
                             </th>
                             <th
                               className="p-2"
-                              style={{ backgroundColor: "#A2D8E7" }}>
+                              style={{ backgroundColor: "#223662" }}>
                               Feasibility
                             </th>
                             <th>Total</th>

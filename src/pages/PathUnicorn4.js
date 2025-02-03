@@ -75,8 +75,7 @@ function PathUnicorn4() {
                           <li className="breadcrumb-item">
                             <a
                               className="text-muted text-decoration-none"
-                              href="../dark/index.html"
-                            >
+                              href="../dark/index.html">
                               Home
                             </a>
                           </li>
@@ -105,8 +104,7 @@ function PathUnicorn4() {
                     color: "#FFF",
                     minHeight: "100vh",
                     padding: "20px",
-                  }}
-                >
+                  }}>
                   {/* Header Section */}
                   <div
                     style={{
@@ -114,8 +112,7 @@ function PathUnicorn4() {
                       justifyContent: "space-between",
                       alignItems: "center",
                       marginBottom: "20px",
-                    }}
-                  >
+                    }}>
                     <h1 style={{ fontSize: "24px" }}>
                       Agile Business Analysis: From Strategic Planning to
                       Delivering Value
@@ -129,30 +126,35 @@ function PathUnicorn4() {
                         borderRadius: "5px",
                         cursor: "pointer",
                       }}
-                      onClick={() => alert("Exiting Course")}
-                    >
+                      onClick={() => alert("Exiting Course")}>
                       Exit Course
                     </button>
                   </div>
 
-                  {/* Main Content */}
-                  <div style={{ display: "flex", gap: "20px" }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      gap: "20px",
+                      flexDirection: "row", // Default layout for larger screens
+                      flexWrap: "wrap", // Allow elements to wrap on smaller screens
+                    }}
+                    className="row">
                     {/* Left Section - Video Player */}
-                    <div style={{ flex: 2 }}>
+                    <div
+                      style={{ flex: 2, minWidth: "300px" }}
+                      className="col-md-6 col-12">
                       <div
                         style={{
                           backgroundColor: "#000",
                           borderRadius: "8px",
                           overflow: "hidden",
                           marginBottom: "10px",
-                        }}
-                      >
+                        }}>
                         <video
                           style={{ width: "100%", height: "auto" }}
                           controls
                           autoPlay={isAutoplay}
-                          poster="https://via.placeholder.com/800x400?text=Video+Thumbnail"
-                        >
+                          poster="https://via.placeholder.com/800x400?text=Video+Thumbnail">
                           <source
                             src={
                               selectedVideo
@@ -169,8 +171,7 @@ function PathUnicorn4() {
                           textAlign: "right",
                           fontSize: "14px",
                           marginBottom: "20px",
-                        }}
-                      >
+                        }}>
                         {selectedVideo
                           ? selectedVideo.title
                           : "No video selected"}
@@ -184,15 +185,15 @@ function PathUnicorn4() {
                         backgroundColor: "#223662",
                         borderRadius: "8px",
                         padding: "20px",
+                        minWidth: "300px", // Ensuring both columns take full width on smaller screens
                       }}
-                    >
+                      className="col-md-6 col-12">
                       <div
                         style={{
                           display: "flex",
                           justifyContent: "space-between",
                           marginBottom: "20px",
-                        }}
-                      >
+                        }}>
                         {["Table of Contents", "Transcript"].map((tab) => (
                           <button
                             key={tab}
@@ -206,8 +207,7 @@ function PathUnicorn4() {
                               cursor: "pointer",
                               padding: "10px 20px",
                               borderRadius: "5px",
-                            }}
-                          >
+                            }}>
                             {tab}
                           </button>
                         ))}
@@ -226,8 +226,7 @@ function PathUnicorn4() {
                                 borderBottom: "1px solid #4B1D6E",
                                 cursor: "pointer",
                               }}
-                              onClick={() => handleVideoSelect(item)}
-                            >
+                              onClick={() => handleVideoSelect(item)}>
                               <span>{item.title}</span>
                               <span>{item.duration}</span>
                             </div>
@@ -249,26 +248,30 @@ function PathUnicorn4() {
                   {/* Bottom Section */}
                   <div style={{ marginTop: "40px" }}>
                     {/* Brand Building Section */}
-                    <div style={{ display: "flex", gap: "20px" }}>
+                    <div
+                      style={{ display: "flex", gap: "20px" }}
+                      className="row">
                       {/* Left Content */}
-                      <div
-                        style={{
-                          flex: 1,
-                          backgroundColor: "#223662",
-                          borderRadius: "8px",
-                          padding: "20px",
-                        }}
-                      >
-                        <h2 style={{ fontSize: "20px", marginBottom: "10px" }}>
-                          Brand Building
-                        </h2>
-                        <p style={{ lineHeight: "1.6" }}>
-                          Lorem Ipsum is simply dummy text of the printing and
-                          typesetting industry. Lorem Ipsum has been the
-                          industry's standard dummy text ever since the 1500s,
-                          when an unknown printer took a galley of type and
-                          scrambled it to make a type specimen book.
-                        </p>
+                      <div className="col-md-6 col-12 ">
+                        <div
+                          style={{
+                            flex: 1,
+                            backgroundColor: "#223662",
+                            borderRadius: "8px",
+                            padding: "25px",
+                          }}>
+                          <h2
+                            style={{ fontSize: "20px", marginBottom: "20px" }}>
+                            Brand Building
+                          </h2>
+                          <p style={{ lineHeight: "1.6" }}>
+                            Lorem Ipsum is simply dummy text of the printing and
+                            typesetting industry. Lorem Ipsum has been the
+                            industry's standard dummy text ever since the 1500s,
+                            when an unknown printer took a galley of type and
+                            scrambled it to make a type specimen book.
+                          </p>
+                        </div>
                       </div>
                       {/* Right Content - Graph */}
                       <div
@@ -278,8 +281,8 @@ function PathUnicorn4() {
                           borderRadius: "8px",
                           padding: "20px",
                         }}
-                      >
-                        <h3 style={{ fontSize: "20px", marginBottom: "15px" }}>
+                        className="col-12 col-md-6">
+                        <h3 style={{ fontSize: "20px", marginBottom: "10px" }}>
                           Graph Placeholder
                         </h3>
                         <div
@@ -287,14 +290,13 @@ function PathUnicorn4() {
                             width: "100%",
                             height: "150px",
                             background:
-                              "linear-gradient(45deg, #FFE84E, #FF9E3E)",
+                              "linear-gradient(45deg, #223662,rgb(238, 240, 241))",
                             borderRadius: "8px",
                             display: "flex",
                             alignItems: "center",
                             justifyContent: "center",
                             color: "#2D0E41",
-                          }}
-                        >
+                          }}>
                           Graph Visualization
                         </div>
                       </div>
@@ -306,8 +308,7 @@ function PathUnicorn4() {
                         marginTop: "20px",
                         display: "flex",
                         alignItems: "center",
-                      }}
-                    >
+                      }}>
                       <label style={{ marginRight: "10px", fontSize: "16px" }}>
                         Autoplay
                       </label>
