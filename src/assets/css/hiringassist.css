@@ -282,3 +282,69 @@
     font-size: 14px;
     line-height: 1.6;
   }
+
+  /* Responsive Styles */
+@media (max-width: 1200px) {
+  .co-founder-card {
+    width: calc(50% - 20px); /* 2 cards per row on medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .co-founder-card {
+    width: 100%; /* 1 card per row on small screens */
+  }
+
+  .filter-content,
+  .quick-view-content {
+    width: 95%; /* Increase width for smaller screens */
+    padding: 15px; /* Reduce padding for smaller screens */
+  }
+
+  .filter-section h3,
+  .quick-view-content h2 {
+    font-size: 20px; /* Reduce font size for headings */
+  }
+
+  .filter-section label,
+  .quick-view-content .details p {
+    font-size: 14px; /* Reduce font size for text */
+  }
+
+  .filter-actions,
+  .toggle-buttons {
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 10px;
+  }
+
+  .filter-actions button,
+  .toggle-btn {
+    width: 100%; /* Full-width buttons on small screens */
+  }
+
+  .quick-view-content .toggle-content {
+    padding: 15px; /* Reduce padding for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .co-founder-card .profile h3 {
+    font-size: 18px; /* Reduce font size for co-founder names */
+  }
+
+  .co-founder-card .skills,
+  .co-founder-card .location,
+  .co-founder-card .idea {
+    font-size: 12px; /* Reduce font size for details */
+  }
+
+  .filter-content,
+  .quick-view-content {
+    width: 100%; /* Full width on very small screens */
+    border-radius: 0; /* Remove border radius for full-width dialogs */
+  }
+
+  .filter-section input[type="text"] {
+    font-size: 12px; /* Reduce font size for input fields */
+  }
+}
