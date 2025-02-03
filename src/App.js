@@ -31,7 +31,12 @@ import Template from "./startup_resources/template";
 import TrainingVideos from "./startup_resources/training-videos";
 import Projection from "./pages/Projection";
 import IdeaValidation from "./pages/IdeaValidation";
-
+import Market_Research from "./componant/Market-Research/MarketResearch";
+import Pitching_And_Fundraising from "./startup_resources/TemplateComponent/Pitching_Fund_Rasing";
+import Compliance_Document from "./startup_resources/TemplateComponent/Compliance_Document";
+import Banking_Template from "./startup_resources/TemplateComponent/Banking_Template";
+import Hr_Employee_agreements from "./startup_resources/TemplateComponent/Hr_Employee_Agreement";
+import Accounting_Document from "./startup_resources/TemplateComponent/Accounting_Document";
 function App() {
   return (
     <Router>
@@ -70,6 +75,12 @@ function App() {
               <Route path="/template" element={<Template />} />
               <Route path="/training-videos" element={<TrainingVideos />} />
               <Route path="/idea-validation" element={<IdeaValidation />} />
+              <Route path="/market-research" element = {<Market_Research/>} />
+              <Route path="/pitching-and-fund-rasing" element={<Pitching_And_Fundraising/>} />
+              <Route path="/legal-and-compliance-doc" element={<Compliance_Document/>} />
+              <Route path="/formation-and-banking-temp" element={<Banking_Template/>} />
+              <Route path="/hr-and-employee-agreement" element={<Hr_Employee_agreements/>} />
+              <Route path="/financial-and-accounting-docs" element={<Accounting_Document/>} />
               <Route path="*" element={<NotFund />} />
             </Routes>
             // </PrivateRoute>

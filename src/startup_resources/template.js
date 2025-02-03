@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import LeftSidebar from "../componant/LeftSidebar";
 import Navigation from "../componant/Navigation";
 import SerchBar from "../componant/SearchBar";
+import { Link } from "react-router-dom";
 
 const Template = () => {
   const [isActive, setActive] = useState(false);
@@ -14,7 +15,7 @@ const Template = () => {
       <div id="main-wrapper" className={isActive ? "show-sidebar" : ""}>
         {/* Sidebar Start */}
         <LeftSidebar onButtonClick={ToggleEvent} />
-        {/*  Sidebar End */}
+        {/* Sidebar End */}
         <div className="page-wrapper">
           <Navigation onButtonClick={ToggleEvent} />
           <div className="body-wrapper">
@@ -35,7 +36,7 @@ const Template = () => {
                             </a>
                           </li>
                           <li className="breadcrumb-item" aria-current="page">
-                            Blank Page
+                            Template
                           </li>
                         </ol>
                       </nav>
@@ -54,18 +55,109 @@ const Template = () => {
               </div>
             </div>
             <div className="container-fluid">
-              <div className="card">
-                <div className="card-header"></div>
-                <div className="card-body">
-                  <h1 className="text-center">Comming Soon...</h1>
+              <div className="row justify-content-center">
+                <div className="col-md-4 col-sm-8 mb-5">
+                  <div className="card">
+                    <Link to={"/pitching-and-fund-rasing"}>
+                      <div className="card-body">
+                        <img
+                          src="./assets/assets/images/template/1.png"
+                          alt="modernize-img"
+                          className="img-fluid mb-n4"
+                          style={{
+                            display: "flex",
+                            margin: "0 auto",
+                            borderRadius: "15px",
+                            aspectRatio: "1/1",
+                          }}
+                        />
+                      </div>
+                    </Link>
+                  </div>
                 </div>
-                <div className="card-footer"></div>
+                <div className="col-md-4 col-sm-8 mb-5">
+                  <div className="card">
+                    <Link to={"/legal-and-compliance-doc"}>
+                      <div className="card-body">
+                        <img
+                          src="./assets/assets/images/template/2.png"
+                          alt="modernize-img"
+                          className="img-fluid mb-n4"
+                          style={{
+                            display: "flex",
+                            margin: "0 auto",
+                            borderRadius: "15px",
+                          }}
+                        />
+                      </div>
+                    </Link>
+                  </div>
+                </div>
+                <div className="col-md-4 col-sm-8 mb-5">
+                  <div className="card">
+                    <Link to={"/formation-and-banking-temp"}>
+                      <div className="card-body">
+                        <img
+                          src="./assets/assets/images/template/3.png"
+                          alt="modernize-img"
+                          className="img-fluid mb-n4"
+                          style={{
+                            display: "flex",
+                            margin: "0 auto",
+                            borderRadius: "15px",
+                            aspectRatio: "1/1",
+                          }}
+                        />
+                      </div>
+                    </Link>
+                  </div>
+                </div>
+                <div className="col-md-4 col-sm-8 mb-5">
+                  <div className="card">
+                    <Link to={"/hr-and-employee-agreement"}>
+                      <div className="card-body">
+                        <img
+                          src="./assets/assets/images/template/4.png"
+                          alt="modernize-img"
+                          className="img-fluid mb-n4"
+                          style={{
+                            display: "flex",
+                            margin: "0 auto",
+                            borderRadius: "15px",
+                            aspectRatio: "1/1",
+                          }}
+                        />
+                      </div>
+                    </Link>
+                  </div>
+                </div>
+                <div className="col-md-4 col-sm-8 mb-5">
+                  <div className="card">
+                    <Link to={"/financial-and-accounting-docs"}>
+                      <div className="card-body">
+                        <img
+                          src="./assets/assets/images/template/5.png"
+                          alt="modernize-img"
+                          className="img-fluid mb-n4"
+                          style={{
+                            display: "flex",
+                            margin: "0 auto",
+                            borderRadius: "15px",
+                            aspectRatio: "1/1",
+                          }}
+                        />
+                      </div>
+                    </Link>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
+
         <SerchBar />
       </div>
+
       <div className="dark-transparent sidebartoggler" />
     </>
   );
