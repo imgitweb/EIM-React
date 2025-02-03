@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import LeftSidebar from "../componant/LeftSidebar";
 import Navigation from "../componant/Navigation";
 import SerchBar from "../componant/SearchBar";
@@ -58,8 +59,7 @@ function PathUnicorn10() {
                           <li className="breadcrumb-item">
                             <a
                               className="text-muted text-decoration-none"
-                              href="../dark/index.html"
-                            >
+                              href="../dark/index.html">
                               Home
                             </a>
                           </li>
@@ -81,16 +81,42 @@ function PathUnicorn10() {
                   </div>
                 </div>
               </div>
-              <div className="card">
+              <div className="card body3">
                 <div className="marketing-budget-container">
-                  <div
-                    className="sidebar body3"
-                    style={{ backgroundColor: "#000" }}
-                  >
+                  <div className="sidebar ">
                     <h2>Sales Funnel</h2>
                   </div>
                   <div className="form-container">
-                    <h1 className="form-title">MARKETING BUDGET PLAN</h1>
+                    <h1
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between", // Pushes elements to both ends
+                        alignItems: "center", // Aligns items vertically
+                        fontSize: "28px",
+                        marginBottom: "20px",
+                        width: "100%", // Ensures full width
+                      }}>
+                      <span
+                        style={{
+                          fontWeight: "bold", // Highlighted text styling
+                          // color: "#223662", // Adjust the color as needed
+                        }}>
+                        MARKETING BUDGET PLAN
+                      </span>
+                      <Link
+                        to="/path-unicorn"
+                        className="text-end btn btn-lg bg-default"
+                        style={{
+                          backgroundColor: "#223662",
+                          color: "white",
+                          padding: "10px 20px",
+                          borderRadius: "5px",
+                          textDecoration: "none",
+                          fontSize: "16px",
+                        }}>
+                        ← Back
+                      </Link>
+                    </h1>
                     <form onSubmit={handleSubmit} className="form-content">
                       <div className="form-row">
                         <div className="form-group">
@@ -131,8 +157,7 @@ function PathUnicorn10() {
                             name="purpose"
                             value={formData.purpose}
                             onChange={handleInputChange}
-                            required
-                          >
+                            required>
                             <option value="">Select Purpose</option>
                             <option value="Subscribe to Newsletter">
                               Subscribe to Newsletter
@@ -154,8 +179,7 @@ function PathUnicorn10() {
                             name="message"
                             placeholder="Enter your message"
                             value={formData.message}
-                            onChange={handleInputChange}
-                          ></textarea>
+                            onChange={handleInputChange}></textarea>
                         </div>
                       </div>
                       <div className="form-row">

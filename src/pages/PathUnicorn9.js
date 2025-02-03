@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import LeftSidebar from "../componant/LeftSidebar";
 import Navigation from "../componant/Navigation";
 import SerchBar from "../componant/SearchBar";
@@ -32,8 +33,7 @@ function PathUnicorn9() {
                           <li className="breadcrumb-item">
                             <a
                               className="text-muted text-decoration-none"
-                              href="../dark/index.html"
-                            >
+                              href="../dark/index.html">
                               Home
                             </a>
                           </li>
@@ -55,7 +55,7 @@ function PathUnicorn9() {
                   </div>
                 </div>
               </div>
-              <div className="card">
+              <div className=" card-body">
                 <div
                   style={{
                     color: "#fff",
@@ -63,113 +63,133 @@ function PathUnicorn9() {
                     height: "60vh",
                     fontFamily: "Arial, sans-serif",
                   }}
-                >
+                  className="row">
                   {/* Left Sidebar */}
-                  <div
-                    style={{
-                      backgroundColor: "#000",
-                      color: "#fff",
-                      width: "200px",
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      textAlign: "center",
-                      padding: "20px",
-                      fontWeight: "bold",
-                    }}
-                  >
-                    Sales Funnel
+                  <div className="col-md-3 col-12">
+                    <div
+                      style={{
+                        backgroundColor: "#223662",
+                        color: "#fff",
+                        width: "100%",
+                        height: "100%",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        textAlign: "center",
+                        padding: "20px",
+                        fontWeight: "bold",
+                        borderRadius: "5px",
+                      }}>
+                      Sales Funnel
+                    </div>
                   </div>
-
                   {/* Main Content */}
-                  <div
-                    style={{
-                      flex: 1,
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                    }}
-                  >
-                    <div style={{ width: "80%", maxWidth: "900px" }}>
-                      <h1
-                        style={{
-                          color: "#ffcc00",
-                          textAlign: "left",
-                          marginBottom: "20px",
-                        }}
-                      >
-                        MARKETING <span style={{ color: "white" }}>FUNNEL</span>
-                      </h1>
-                      <div
-                        style={{
-                          display: "flex",
-                          justifyContent: "space-between",
-                          // backgroundColor: "#3b024d",
-                          padding: "30px",
-                          marginBottom: "30px",
-                          borderRadius: "10px",
-                          boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.3)",
-                        }}
-                      >
-                        <form style={{ width: "45%" }}>
-                          <div style={{ marginBottom: "15px" }}>
-                            <input
-                              type="text"
-                              placeholder="Full Name"
-                              style={inputStyle}
-                            />
-                          </div>
-                          <div style={{ marginBottom: "15px" }}>
-                            <input
-                              type="email"
-                              placeholder="Email"
-                              style={inputStyle}
-                            />
-                          </div>
-                          <div style={{ marginBottom: "15px" }}>
-                            <input
-                              type="tel"
-                              placeholder="Phone Number"
-                              style={inputStyle}
-                            />
-                          </div>
-                          <div style={{ marginBottom: "15px" }}>
-                            <select style={{ ...inputStyle, padding: "10px" }}>
-                              <option value="">Purpose</option>
-                              <option value="newsletter">
-                                Subscribe to Newsletter
-                              </option>
-                              <option value="demo">Request a Demo</option>
-                              <option value="inquiry">General Inquiry</option>
-                              <option value="social">Social Media</option>
-                            </select>
-                          </div>
-                        </form>
-                        <div style={{ width: "45%" }}>
-                          <textarea
-                            placeholder="Message"
+                  <div className="col-md-8 col-12">
+                    <div
+                      style={{
+                        flex: 1,
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                      }}>
+                      <div style={{ width: "100%", maxWidth: "900px" }}>
+                        <h1
+                          style={{
+                            display: "flex",
+                            justifyContent: "space-between", // Pushes elements to both ends
+                            alignItems: "center", // Aligns items vertically
+                            fontSize: "28px",
+                            marginBottom: "20px",
+                            width: "100%", // Ensures full width
+                          }}>
+                          <span
                             style={{
-                              ...inputStyle,
-                              height: "200px",
-                            }}
-                          ></textarea>
-                          <div
-                            style={{ textAlign: "right", marginTop: "20px" }}
-                          >
-                            <button
-                              type="submit"
+                              fontWeight: "bold", // Highlighted text styling
+                              // color: "#223662", // Adjust the color as needed
+                            }}>
+                            MARKETING FUNNEL
+                          </span>
+                          <Link
+                            to="/path-unicorn"
+                            className="text-end btn btn-lg bg-default"
+                            style={{
+                              backgroundColor: "#223662",
+                              color: "white",
+                              padding: "10px 20px",
+                              borderRadius: "5px",
+                              textDecoration: "none",
+                              fontSize: "16px",
+                            }}>
+                            ← Back
+                          </Link>
+                        </h1>
+                        <div
+                          style={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                            padding: "30px",
+                            marginBottom: "30px",
+                            borderRadius: "10px",
+                            boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.3)",
+                          }}>
+                          <form style={{ width: "45%" }}>
+                            <div style={{ marginBottom: "15px" }}>
+                              <input
+                                type="text"
+                                placeholder="Full Name"
+                                style={inputStyle}
+                              />
+                            </div>
+                            <div style={{ marginBottom: "15px" }}>
+                              <input
+                                type="email"
+                                placeholder="Email"
+                                style={inputStyle}
+                              />
+                            </div>
+                            <div style={{ marginBottom: "15px" }}>
+                              <input
+                                type="tel"
+                                placeholder="Phone Number"
+                                style={inputStyle}
+                              />
+                            </div>
+                            <div style={{ marginBottom: "15px" }}>
+                              <select
+                                style={{ ...inputStyle, padding: "10px" }}>
+                                <option value="">Purpose</option>
+                                <option value="newsletter">
+                                  Subscribe to Newsletter
+                                </option>
+                                <option value="demo">Request a Demo</option>
+                                <option value="inquiry">General Inquiry</option>
+                                <option value="social">Social Media</option>
+                              </select>
+                            </div>
+                          </form>
+                          <div style={{ width: "45%" }}>
+                            <textarea
+                              placeholder="Message"
                               style={{
-                                backgroundColor: "#ffcc00",
-                                border: "none",
-                                color: "#4a0b5e",
-                                padding: "10px 20px",
-                                borderRadius: "5px",
-                                fontWeight: "bold",
-                                cursor: "pointer",
-                              }}
-                            >
-                              Save
-                            </button>
+                                ...inputStyle,
+                                height: "200px",
+                              }}></textarea>
+                            <div
+                              style={{ textAlign: "right", marginTop: "20px" }}>
+                              <button
+                                type="submit"
+                                style={{
+                                  backgroundColor: "#4F73D9",
+                                  border: "none",
+                                  color: "#EAEFF4",
+                                  padding: "10px 20px",
+                                  borderRadius: "5px",
+                                  fontWeight: "bold",
+                                  cursor: "pointer",
+                                }}>
+                                Save
+                              </button>
+                            </div>
                           </div>
                         </div>
                       </div>

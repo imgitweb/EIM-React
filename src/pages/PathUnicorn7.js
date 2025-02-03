@@ -1,21 +1,29 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import LeftSidebar from "../componant/LeftSidebar";
 import Navigation from "../componant/Navigation";
 import SerchBar from "../componant/SearchBar";
 
 const PathUnicorn7 = () => {
   const [isActive, setActive] = useState(false);
+  const [selectedSection, setSelectedSection] = useState("Product Listing");
 
-  const ToggleEvent = () => {
-    setActive((prevState) => !prevState);
-  };
-  // State to manage products and form inputs
-  const [products, setProducts] = useState([]);
+  // Different states for each section
+  const [productListing, setProductListing] = useState([]);
+  const [productPricing, setProductPricing] = useState([]);
+  const [clientPersona, setClientPersona] = useState([]);
+  const [marketingFunnel, setMarketingFunnel] = useState([]);
+  const [salesFunnel, setSalesFunnel] = useState([]);
+
   const [form, setForm] = useState({
     name: "",
     category: "",
     price: "",
   });
+
+  const ToggleEvent = () => {
+    setActive((prevState) => !prevState);
+  };
 
   // Handle input change
   const handleInputChange = (e) => {
@@ -23,35 +31,94 @@ const PathUnicorn7 = () => {
     setForm({ ...form, [name]: value });
   };
 
-  // Add product to the table
-  const addProduct = () => {
+  // Function to add data to respective section
+  const addData = () => {
     if (form.name && form.category && form.price) {
-      setProducts([
-        ...products,
-        { ...form, id: products.length + 1 }, // Auto-generate ID
-      ]);
-      setForm({ name: "", category: "", price: "" }); // Reset form
+      const newEntry = { ...form, id: Date.now() };
+
+      switch (selectedSection) {
+        case "Product Listing":
+          setProductListing([...productListing, newEntry]);
+          break;
+        case "Product Pricing":
+          setProductPricing([...productPricing, newEntry]);
+          break;
+        case "Client Persona":
+          setClientPersona([...clientPersona, newEntry]);
+          break;
+        case "Marketing Funnel":
+          setMarketingFunnel([...marketingFunnel, newEntry]);
+          break;
+        case "Sales Funnel":
+          setSalesFunnel([...salesFunnel, newEntry]);
+          break;
+        default:
+          break;
+      }
+
+      setForm({ name: "", category: "", price: "" });
     } else {
       alert("Please fill all fields!");
     }
   };
 
-  // Delete a product from the list
-  const deleteProduct = (id) => {
-    setProducts(products.filter((product) => product.id !== id));
+  // Function to delete data from respective section
+  const deleteData = (id) => {
+    switch (selectedSection) {
+      case "Product Listing":
+        setProductListing(productListing.filter((item) => item.id !== id));
+        break;
+      case "Product Pricing":
+        setProductPricing(productPricing.filter((item) => item.id !== id));
+        break;
+      case "Client Persona":
+        setClientPersona(clientPersona.filter((item) => item.id !== id));
+        break;
+      case "Marketing Funnel":
+        setMarketingFunnel(marketingFunnel.filter((item) => item.id !== id));
+        break;
+      case "Sales Funnel":
+        setSalesFunnel(salesFunnel.filter((item) => item.id !== id));
+        break;
+      default:
+        break;
+    }
+  };
+
+  const menuItems = [
+    "Product Listing",
+    "Product Pricing",
+    "Client Persona",
+    "Marketing Funnel",
+    "Sales Funnel",
+  ];
+
+  // Get the correct data array for the selected section
+  const getCurrentData = () => {
+    switch (selectedSection) {
+      case "Product Listing":
+        return productListing;
+      case "Product Pricing":
+        return productPricing;
+      case "Client Persona":
+        return clientPersona;
+      case "Marketing Funnel":
+        return marketingFunnel;
+      case "Sales Funnel":
+        return salesFunnel;
+      default:
+        return [];
+    }
   };
 
   return (
     <>
       <div id="main-wrapper" className={isActive ? "show-sidebar" : ""}>
-        {/* Sidebar Start */}
         <LeftSidebar onButtonClick={ToggleEvent} />
-        {/*  Sidebar End */}
         <div className="page-wrapper">
           <Navigation onButtonClick={ToggleEvent} />
           <div className="body-wrapper">
             <div className="container-fluid">
-              {/* Header */}
               <div className="card bg-info-subtle shadow-none position-relative overflow-hidden mb-4">
                 <div className="card-body px-4 py-3">
                   <div className="row align-items-center">
@@ -62,8 +129,7 @@ const PathUnicorn7 = () => {
                           <li className="breadcrumb-item">
                             <a
                               className="text-muted text-decoration-none"
-                              href="../dark/index.html"
-                            >
+                              href="../dark/index.html">
                               Home
                             </a>
                           </li>
@@ -86,70 +152,90 @@ const PathUnicorn7 = () => {
                 </div>
               </div>
               <div className="card">
-                <div style={styles.container}>
-                  {/* Sidebar */}
-                  <div style={styles.sidebar}>
-                    <h3 style={styles.sidebarTitle}>Sales Funnel</h3>
-                    <ul style={styles.menu}>
-                      {[
-                        "Product Listing",
-                        "Product Pricing",
-                        "Client Persona",
-                        "Marketing Funnel",
-                        "Sales Funnel",
-                      ].map((item, index) => (
-                        <li key={index} style={styles.menuItem}>
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
+                <div className="row">
+                  <div style={styles.container} className="col-md-2 col-12">
+                    {/* Sidebar */}
+                    <div style={styles.sidebar}>
+                      <h3 style={styles.sidebarTitle}>Sales Funnel</h3>
+                      <ul style={styles.menu}>
+                        {menuItems.map((item, index) => (
+                          <li
+                            key={index}
+                            style={{
+                              ...styles.menuItem,
+                              fontWeight:
+                                selectedSection === item ? "bold" : "normal",
+                              textDecoration:
+                                selectedSection === item ? "underline" : "none",
+                            }}
+                            onClick={() => setSelectedSection(item)}>
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
-
-                  {/* Main Content */}
-                  <div style={styles.mainContent}>
+                  {/* Main Content - Each Section has its own form & table */}
+                  <div
+                    style={styles.mainContent}
+                    className="overflow-x-auto whitespace-nowrap">
                     <h1 style={styles.title}>
-                      <span style={styles.highlight}>PRODUCT</span> LISTING
+                      <span style={styles.highlight}>
+                        {selectedSection.toUpperCase()}
+                      </span>
+                      <Link
+                        to="/path-unicorn"
+                        className="text-end btn btn-lg bg-default"
+                        style={{
+                          backgroundColor: "#223662",
+                          color: "white",
+                        }}>
+                        ← Back
+                      </Link>
                     </h1>
 
                     {/* Input Form */}
-                    <div style={styles.form}>
-                      <input
-                        type="text"
-                        name="name"
-                        placeholder="Product Name"
-                        value={form.name}
-                        onChange={handleInputChange}
-                        style={styles.inputField}
-                      />
-                      <input
-                        type="text"
-                        name="category"
-                        placeholder="Product Category"
-                        value={form.category}
-                        onChange={handleInputChange}
-                        style={styles.inputField}
-                      />
-                      <input
-                        type="text"
-                        name="price"
-                        placeholder="Product Price (Approx)"
-                        value={form.price}
-                        onChange={handleInputChange}
-                        style={styles.inputField}
-                      />
-                      <button onClick={addProduct} style={styles.saveButton}>
-                        Save
-                      </button>
+                    <div className="overflow-x-auto whitespace-nowrap">
+                      <form style={styles.form}>
+                        <input
+                          type="text"
+                          name="name"
+                          placeholder="Name"
+                          value={form.name}
+                          onChange={handleInputChange}
+                          style={styles.inputField}
+                        />
+                        <input
+                          type="text"
+                          name="category"
+                          placeholder="Category"
+                          value={form.category}
+                          onChange={handleInputChange}
+                          style={styles.inputField}
+                        />
+                        <input
+                          type="text"
+                          name="price"
+                          placeholder="Price"
+                          value={form.price}
+                          onChange={handleInputChange}
+                          style={styles.inputField}
+                        />
+                        <button onClick={addData} style={styles.saveButton}>
+                          Save
+                        </button>
+                      </form>
                     </div>
-
                     {/* Table */}
-                    <div style={styles.tableContainer}>
+                    <div
+                      style={styles.tableContainer}
+                      className="table-responsive">
                       <table style={styles.table}>
                         <thead>
                           <tr>
                             {[
                               "S.No.",
-                              "Product Name",
+                              "Name",
                               "Category",
                               "Price",
                               "Action",
@@ -161,19 +247,16 @@ const PathUnicorn7 = () => {
                           </tr>
                         </thead>
                         <tbody>
-                          {products.map((product, index) => (
-                            <tr key={product.id}>
+                          {getCurrentData().map((item, index) => (
+                            <tr key={item.id}>
                               <td style={styles.tableData}>{index + 1}</td>
-                              <td style={styles.tableData}>{product.name}</td>
-                              <td style={styles.tableData}>
-                                {product.category}
-                              </td>
-                              <td style={styles.tableData}>{product.price}</td>
+                              <td style={styles.tableData}>{item.name}</td>
+                              <td style={styles.tableData}>{item.category}</td>
+                              <td style={styles.tableData}>{item.price}</td>
                               <td style={styles.tableData}>
                                 <button
-                                  onClick={() => deleteProduct(product.id)}
-                                  style={styles.deleteButton}
-                                >
+                                  onClick={() => deleteData(item.id)}
+                                  style={styles.deleteButton}>
                                   Delete
                                 </button>
                               </td>
@@ -202,9 +285,10 @@ const styles = {
     color: "#FFFFFF",
   },
   sidebar: {
-    width: "250px",
-    backgroundColor: "#000000",
+    width: "100%",
+    backgroundColor: "#223662",
     padding: "20px",
+    borderRadius: "5px",
   },
   sidebarTitle: {
     fontSize: "20px",
@@ -216,7 +300,7 @@ const styles = {
   },
   menuItem: {
     marginBottom: "10px",
-    color: "#FFD700",
+    color: "#FFFFFF",
     cursor: "pointer",
   },
   mainContent: {
@@ -224,11 +308,15 @@ const styles = {
     padding: "20px",
   },
   title: {
+    display: "flex",
+    justifyContent: "space-between", // Pushes elements to both ends
+    alignItems: "center", // Aligns items vertically
     fontSize: "28px",
     marginBottom: "20px",
+    width: "100%", // Ensures full width
   },
   highlight: {
-    color: "#FFA500",
+    fontWeight: "bold",
   },
   form: {
     display: "flex",
@@ -245,7 +333,7 @@ const styles = {
   },
   saveButton: {
     padding: "10px 20px",
-    backgroundColor: "#FFD700",
+    backgroundColor: "#4F73D9",
     border: "none",
     borderRadius: "5px",
     cursor: "pointer",

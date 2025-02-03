@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import LeftSidebar from "../componant/LeftSidebar";
 import Navigation from "../componant/Navigation";
 import SerchBar from "../componant/SearchBar";
@@ -86,8 +87,7 @@ function PathUnicorn8() {
                           <li className="breadcrumb-item">
                             <a
                               className="text-muted text-decoration-none"
-                              href="../dark/index.html"
-                            >
+                              href="../dark/index.html">
                               Home
                             </a>
                           </li>
@@ -109,14 +109,44 @@ function PathUnicorn8() {
                   </div>
                 </div>
               </div>
-              <div className="card">
-                <div className="client-persona-container  ">
-                  <div className="sidebar" style={{ backgroundColor: "#000" }}>
+              <div className="body2 card">
+                <div className="client-persona-container ">
+                  <div className="sidebar">
                     <h2>CLIENT PERSONA</h2>
                   </div>
                   <div className="form-container">
-                    <h1 className="form-title">CLIENT PERSONA</h1>
-                    <form onSubmit={handleSubmit} className="form-content card">
+                    <h1
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between", // Pushes elements to both ends
+                        alignItems: "center", // Aligns items vertically
+                        fontSize: "28px",
+                        marginBottom: "20px",
+                        width: "100%", // Ensures full width
+                      }}>
+                      <span
+                        style={{
+                          fontWeight: "bold", // Highlighted text styling
+                          // color: "#223662", // Adjust the color as needed
+                        }}>
+                        CLIENT PERSONA
+                      </span>
+                      <Link
+                        to="/path-unicorn"
+                        className="text-end btn btn-lg bg-default"
+                        style={{
+                          backgroundColor: "#223662",
+                          color: "white",
+                          padding: "10px 20px",
+                          borderRadius: "5px",
+                          textDecoration: "none",
+                          fontSize: "16px",
+                        }}>
+                        ← Back
+                      </Link>
+                    </h1>
+
+                    <form onSubmit={handleSubmit} className="form-content ">
                       {/* Name & Role Section */}
                       <div className="form-row">
                         <div className="form-group">
@@ -239,8 +269,7 @@ function PathUnicorn8() {
                           <select
                             name="preferredPlatform"
                             value={formData.preferredPlatform}
-                            onChange={handleInputChange}
-                          >
+                            onChange={handleInputChange}>
                             <option value="">Select</option>
                             <option value="Social Media">Social Media</option>
                             <option value="Web Apps">Web Apps</option>
@@ -255,8 +284,7 @@ function PathUnicorn8() {
                           <select
                             name="techSavviness"
                             value={formData.techSavviness}
-                            onChange={handleInputChange}
-                          >
+                            onChange={handleInputChange}>
                             <option value="">Select</option>
                             <option value="Beginner">Beginner</option>
                             <option value="Intermediate">Intermediate</option>
@@ -271,8 +299,7 @@ function PathUnicorn8() {
                           <select
                             name="contentPreference"
                             value={formData.contentPreference}
-                            onChange={handleInputChange}
-                          >
+                            onChange={handleInputChange}>
                             <option value="">Select</option>
                             <option value="Text">Text</option>
                             <option value="Video">Video</option>
