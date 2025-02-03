@@ -8,30 +8,81 @@ import IncorporationDetails from "../Incorporation/IncorporationDetails";
 import StartupDocument from "../startup_document/StartupDocument";
 import axios from "axios";
 import API_BASE_URL from "./../componant/config";
+const sections = [
+  {
+    title: "Week 1 - Introduction to Entrepreneurship",
+    content: [
+      "Understanding the startup ecosystem",
+      "Identifying market needs",
+      "Define problem statement and potential market size in your country and globally",
+      "Idea Ranking and chances of success meter (ESM Score out of 100)",
+      "Introduction to EIM and EIM Network",
+    ],
+  },
+  {
+    title: "Week 2 - Business Idea Validation",
+    content: [
+      "Techniques for validating ideas",
+      "Customer interviews and feedback",
+      "Identify potential sales and distribution channels",
+      "List out similar businesses, their success and failure patterns",
+      "List out potential impediments such as founders' knowledge, resources, money, and technology exposure",
+    ],
+  },
+  {
+    title: "Week 3 - First Cut of Business Model",
+    content: [
+      "Introduction to business model canvas",
+      "List out potential competitors and prepare a matrix",
+      "Examples of successful and failed business models",
+      "List 10 potential customers who would pay for your services and create customer personas",
+      "Fine-tune the revenue model for your idea",
+      "List required budget and resources for MLP and full-fledged product development",
+    ],
+  },
+  {
+    title: "Week 4 - Finalizing Numbers and Decision Making",
+    content: [
+      "Recalculate ESM",
+      "Create a viable plan to arrange the required budget and resources",
+      "Create a potential roadmap to ₹100 Crore revenue and positive EBITDA",
+      "Decision time – pursue the idea further or drop it",
+    ],
+  },
+];
 const AppProfile = () => {
   const [profile, setProfile] = useState(false);
   const [isActive, setActive] = useState(false);
-
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [previewURL, setPreviewURL] = useState(null);
+  const [uploadedLogoPath, setUploadedLogoPath] = useState(null);
+  const startup_id = localStorage.getItem("token");
   const ToggleEvent = () => {
     setActive((prevState) => !prevState);
   };
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const startup_id = localStorage.getItem("token"); // Retrieve startup_id from localStorage
+        // Retrieve startup_id from localStorage
         const response = await axios.get(
           `${API_BASE_URL}/api/startup/getStartupInfo/${startup_id}`
         );
-        // Ensure the response is an array
-        const profileData = Array.isArray(response.data) ? response.data : [];
-        setProfile(profileData);
+
+        // Extract only the 'startup' data from the response
+        const startupData = response.data?.startup || null; // Use optional chaining to avoid errors if 'startup' doesn't exist
+
+        console.log("Fetched Startup Data:", startupData); // Log the fetched startup data
+
+        setProfile(startupData); // Set the startup data to state
       } catch (error) {
         console.error("Error while fetching data:", error);
-        setProfile([]); // Fallback to an empty array in case of an error
+        setProfile(null); // Set null in case of an error
       }
     };
+
     fetchData();
   }, []);
+
   return (
     <>
       <div id="main-wrapper" className={isActive ? "show-sidebar" : ""}>
@@ -105,8 +156,11 @@ const AppProfile = () => {
                           </div>
                         </div>
                         <div className="text-center">
-                          <h5 className="mb-0">Mathew Anderson</h5>
-                          <p className="mb-0">Founder</p>
+                          {profile ? (
+                            <h5>{profile.startup_name}</h5>
+                          ) : (
+                            <p>No Name</p>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -147,7 +201,7 @@ const AppProfile = () => {
                     </div>
                   </div>
                   <ul
-                    className="nav nav-pills user-profile-tab justify-content-end mt-2 bg-primary-subtle rounded-2 rounded-top-0"
+                    className="nav nav-pills user-profile-tab justify-content-center mt-2 bg-primary-subtle rounded-2 rounded-top-0"
                     id="pills-tab"
                     role="tablist"
                   >
@@ -213,6 +267,21 @@ const AppProfile = () => {
                         <span className="d-none d-md-block">Documents</span>
                       </button>
                     </li>
+                    <li className="nav-item" role="presentation">
+                      <button
+                        className="nav-link hstack gap-2 rounded-0 py-6"
+                        id="pills-gallery-tab"
+                        data-bs-toggle="pill"
+                        data-bs-target="#stage-task"
+                        type="button"
+                        role="tab"
+                        aria-controls="pills-gallery"
+                        aria-selected="false"
+                      >
+                        <i className="ti ti-list fs-5" />
+                        <span className="d-none d-md-block">Stage Task</span>
+                      </button>
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -276,39 +345,50 @@ const AppProfile = () => {
                                     <h4 className="card-title">
                                       Profile Details
                                     </h4>
-                                    {Array.isArray(profile) &&
-                                      profile.map((info, index) => (
-                                        <table key={index}>
+                                    {profile ? (
+                                      <table className="table">
+                                        <tbody>
                                           <tr>
                                             <td>Startup Name</td>
-                                            <td>{info.startup_name}</td>
+                                            <td>
+                                              {profile.startup_name || "N/A"}
+                                            </td>
                                           </tr>
                                           <tr>
                                             <td>Email</td>
-                                            <td> </td>
+                                            <td>{profile.email_id || "N/A"}</td>
                                           </tr>
                                           <tr>
                                             <td>Mobile</td>
-                                            <td> </td>
+                                            <td>
+                                              {profile.mobile_no || "N/A"}
+                                            </td>
                                           </tr>
                                           <tr>
                                             <td>Country</td>
-                                            <td> </td>
+                                            <td>
+                                              {profile.country_name || "N/A"}
+                                            </td>
                                           </tr>
                                           <tr>
                                             <td>Industry</td>
-                                            <td> </td>
+                                            <td>{profile.industry || "N/A"}</td>
                                           </tr>
                                           <tr>
                                             <td>Stage</td>
-                                            <td> </td>
+                                            <td>{profile.stage || "N/A"}</td>
                                           </tr>
                                           <tr>
                                             <td>Startup Idea</td>
-                                            <td> </td>
+                                            <td>
+                                              {profile.startup_idea || "N/A"}
+                                            </td>
                                           </tr>
-                                        </table>
-                                      ))}
+                                        </tbody>
+                                      </table>
+                                    ) : (
+                                      <p>No startup information found.</p>
+                                    )}
                                   </div>
                                 </div>
                               </div>
@@ -970,6 +1050,65 @@ const AppProfile = () => {
                   </div>
                   <TeamDetails />
                 </div>
+                <div
+                  className="tab-pane fade"
+                  id="stage-task"
+                  role="tabpanel"
+                  aria-labelledby="pills-followers-tab"
+                  tabIndex={0}
+                >
+                  <div className="row">
+                    <div className="card w-100">
+                      <div className="card-body">
+                        <div className="mb-4">
+                          <h4 className="card-title mb-0 text-center">
+                            Entrepreneurship Course Outline
+                          </h4>
+                        </div>
+                        <div
+                          className="accordion accordion-flush"
+                          id="accordionFlushExample"
+                        >
+                          {sections.map((section, index) => (
+                            <div className="accordion-item" key={index}>
+                              <h2
+                                className="accordion-header"
+                                id={`flush-heading${index}`}
+                              >
+                                <button
+                                  className="accordion-button collapsed"
+                                  type="button"
+                                  data-bs-toggle="collapse"
+                                  data-bs-target={`#flush-collapse${index}`}
+                                  aria-expanded="false"
+                                  aria-controls={`flush-collapse${index}`}
+                                >
+                                  {section.title}
+                                </button>
+                              </h2>
+                              <div
+                                id={`flush-collapse${index}`}
+                                className="accordion-collapse collapse"
+                                aria-labelledby={`flush-heading${index}`}
+                                data-bs-parent="#accordionFlushExample"
+                              >
+                                <div className="accordion-body">
+                                  <ul>
+                                    {section.content.map((item, idx) => (
+                                      <li key={idx}>{item}</li>
+                                    ))}
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  {/* Stage Task */}
+                </div>
+
                 {/* Incorportation Details */}
                 <IncorporationDetails />
                 {/* Document Details */}

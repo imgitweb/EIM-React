@@ -62,11 +62,11 @@ const Navigation = ({ onButtonClick }) => {
                   Calendar
                 </Link>
               </li> */}
-              <li className="nav-item dropdown-hover d-none d-lg-block">
+              {/* <li className="nav-item dropdown-hover d-none d-lg-block">
                 <Link className="nav-link" to="/projection">
                   Projections
                 </Link>
-              </li>
+              </li> */}
               <li className="nav-item dropdown-hover d-none d-lg-block">
                 <Link className="nav-link" to="/business">
                   Business Model
