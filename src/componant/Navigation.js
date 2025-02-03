@@ -82,6 +82,11 @@ const Navigation = ({ onButtonClick }) => {
                   Idea Validation
                 </Link>
               </li>
+              <li className="nav-item dropdown-hover d-none d-lg-block">
+                <Link className="nav-link" to="/market-research">
+                  Market Research
+                </Link>
+              </li>
             </ul>
             <div className="d-block d-lg-none py-4">
               <Link href="#0" className="text-nowrap logo-img">
