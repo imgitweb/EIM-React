@@ -57,8 +57,8 @@ const RivarlyInsight = () => {
                 <div className="card-header">
                   Competitive Analysis Framework
                 </div>
-                <div className="card-body">
-                  <div className="container my-5">
+                <div className="">
+                  <div className="container ">
                     <div className=" shadow-lg">
                       <h1 className="text-center mb-4">
                         Competitive Analysis Framework

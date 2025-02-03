@@ -1,6 +1,7 @@
 import React from "react";
 
-function Pitch2(props) {
+function Pitch2(whoWeAre) {
+  console.log("Received startupName:", whoWeAre); // Debugging line
   return (
     <div style={{ backgroundColor: "#f0f0f0", width: "100%", height: "100%" }}>
       <svg
@@ -42,8 +43,7 @@ function Pitch2(props) {
                 className="st11 st12"
                 style={{ fontSize: 15 }}
                 transform="matrix(1.0012 0 0 1 325.765 391.175)">
-                &lt;&lt;{props.whoWeAre}
-                &gt;&gt;
+                {whoWeAre.whoWeAre}
               </text>
               <path d="M325.76 418.91h395.29v23.69H325.76z" className="st10" />
               <text

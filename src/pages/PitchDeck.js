@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import LeftSidebar from "../componant/LeftSidebar";
 import Navigation from "../componant/Navigation";
-import SearchBar from "../componant/SearchBar";
+import SerchBar from "../componant/SearchBar";
 import Pitch1 from "../componant/Pitch1";
 import { OpenAI } from "openai";
-import PptxGenJS from "pptxgenjs";
+// import PptxGenJS from "pptxgenjs";
 import Pitch2 from "../componant/Pitch2";
 import Pitch3 from "../componant/Pitch3";
 import Pitch4 from "../componant/Pitch4";
@@ -81,6 +81,7 @@ const PitchDeck = () => {
 
       Return the result in a JSON format with the following keys:
       - StartupName
+      - Who_We_are
       - Problem
       - Solution
       - Market
@@ -118,20 +119,20 @@ const PitchDeck = () => {
   const downloadPDF = async () => {
     const pdf = new jsPDF();
     const pitchDeckIds = [
-      "Pitch1",
-      "Pitch2",
-      "Pitch3",
-      "Pitch4",
-      "Pitch5",
-      "Pitch6",
-      "Pitch7",
-      "Pitch8",
-      "Pitch9",
-      "Pitch10",
-      "Pitch11",
-      "Pitch12",
-      "Pitch13",
-      "Pitch14",
+      "pitch1",
+      "pitch2",
+      "pitch3",
+      "pitch4",
+      "pitch5",
+      "pitch6",
+      "pitch7",
+      "pitch8",
+      "pitch9",
+      "pitch10",
+      "pitch11",
+      "pitch12",
+      "pitch13",
+      "pitch14",
     ];
 
     for (let i = 0; i < pitchDeckIds.length; i++) {
@@ -139,6 +140,7 @@ const PitchDeck = () => {
       const element = document.getElementById(pitchId);
 
       if (element) {
+        await new Promise((resolve) => setTimeout(resolve, 500)); // Add a delay
         const canvas = await html2canvas(element);
         const imgData = canvas.toDataURL("image/png");
         const imgProps = pdf.getImageProperties(imgData);
@@ -156,6 +158,7 @@ const PitchDeck = () => {
 
     pdf.save("PitchDeck.pdf");
   };
+
   return (
     <>
       <div id="main-wrapper" className={isActive ? "show-sidebar" : ""}>
@@ -224,8 +227,7 @@ const PitchDeck = () => {
                         <div className="mb-3">
                           <label
                             htmlFor="targetLocation"
-                            className="form-label"
-                          >
+                            className="form-label">
                             Target Location
                           </label>
                           <input
@@ -332,8 +334,7 @@ const PitchDeck = () => {
                           <button
                             type="submit"
                             className="btn btn-primary w-100"
-                            disabled={loading}
-                          >
+                            disabled={loading}>
                             {loading ? "Generating..." : "Generate Pitch Deck"}
                           </button>
                         </div>
@@ -436,8 +437,7 @@ const PitchDeck = () => {
 
                             <button
                               className="btn btn-success mt-4"
-                              onClick={downloadPDF}
-                            >
+                              onClick={downloadPDF}>
                               Download Pitch Deck
                             </button>
                           </>
@@ -449,6 +449,7 @@ const PitchDeck = () => {
               </div>
             </div>
           </div>
+          <SerchBar />
         </div>
       </div>
     </>

@@ -67,16 +67,6 @@ const Navigation = ({ onButtonClick }) => {
                   Projections
                 </Link>
               </li>
-              {/* <li className="nav-item dropdown-hover d-none d-lg-block">
-                <Link className="nav-link" to="/app-email">
-                  Progressbar Tracker
-                </Link>
-              </li> */}
-              <li className="nav-item dropdown-hover d-none d-lg-block">
-                <Link className="nav-link" to="/my-task">
-                  My Task
-                </Link>
-              </li>
               <li className="nav-item dropdown-hover d-none d-lg-block">
                 <Link className="nav-link" to="/business">
                   Business Model
@@ -374,6 +364,42 @@ const Navigation = ({ onButtonClick }) => {
                         </div>
                       </div>
                     </Link>
+                    <div
+                      className="dropdown-menu content-dd dropdown-menu-end dropdown-menu-animate-up"
+                      aria-labelledby="drop1"
+                    >
+                      <div
+                        className="profile-dropdown position-relative"
+                        data-simplebar=""
+                      >
+                        <div className="py-3 px-7 pb-0"></div>
+                        <div className="d-flex align-items-center py-9 mx-7 border-bottom"></div>
+                        <div className="message-body"></div>
+                        <div className="d-grid py-4 px-7 pt-8">
+                          <div className="upgrade-plan bg-primary-subtle position-relative overflow-hidden rounded-4 p-4 mb-9">
+                            <div className="row">
+                              <div className="col-md-12 text-center">
+                                <h2>Financial Year </h2>
+                                <select className="form-control">
+                                  <option value="">
+                                    Select Financial Year
+                                  </option>
+                                  <option value="" selected>
+                                    2023-24
+                                  </option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                          <Link
+                            to="../dark/authentication-login.html"
+                            className="btn btn-outline-primary"
+                          >
+                            Log Out
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
                   </li>
                   {/* ------------------------------- */}
                   {/* end profile Dropdown */}
@@ -399,9 +425,10 @@ const Navigation = ({ onButtonClick }) => {
             <nav className="sidebar-nav scroll-sidebar">
               <div className="offcanvas-header justify-content-between">
                 <img
-                  src="./assets/assets/images/logos/favicon.ico"
-                  alt="modernize-img"
-                  className="img-fluid"
+                  src="./assets/logo/logo-light.png"
+                  className="dark-logo"
+                  alt="Logo-Dark"
+                  width="50px"
                 />
                 <button
                   type="button"
@@ -413,112 +440,73 @@ const Navigation = ({ onButtonClick }) => {
               {/* Mobile Menu */}
               <div className="offcanvas-body h-n80" data-simplebar="">
                 <ul id="sidebarnav">
-                  {/* My Profile Dropdown */}
+                  {/* My Profile */}
                   <li className="sidebar-item">
-                    <Link
-                      className="sidebar-link has-arrow"
-                      to="#"
-                      aria-expanded={isDropdownOpen}
-                      onClick={toggleDropdown}
-                    >
+                    <Link className="sidebar-link" to="/app-profile">
                       <span>
-                        <i className="ti ti-apps" />
+                        <i className="ti ti-user" />
                       </span>
                       <span className="hide-menu">My Profile</span>
                     </Link>
-                    <ul
-                      className={`collapse first-level my-3 ${
-                        isDropdownOpen ? "show" : ""
-                      }`}
-                      aria-expanded={isDropdownOpen}
-                    >
-                      <li className="sidebar-item py-2">
-                        <Link
-                          to="/chat-app"
-                          className="d-flex align-items-center"
-                        >
-                          <div className="text-bg-light rounded-1 me-3 p-6 d-flex align-items-center justify-content-center">
-                            <img
-                              src="./assets/assets/images/svgs/icon-dd-chat.svg"
-                              alt="modernize-img"
-                              className="img-fluid"
-                              width={24}
-                              height={24}
-                            />
-                          </div>
-                          <div>
-                            <h6 className="mb-1 bg-hover-primary">
-                              Chat Application
-                            </h6>
-                            <span className="fs-2 d-block text-muted">
-                              New messages arrived
-                            </span>
-                          </div>
-                        </Link>
-                      </li>
-                      <li className="sidebar-item py-2">
-                        <Link
-                          to="/app-invoice"
-                          className="d-flex align-items-center"
-                        >
-                          <div className="text-bg-light rounded-1 me-3 p-6 d-flex align-items-center justify-content-center">
-                            <img
-                              src="./assets/assets/images/svgs/icon-dd-invoice.svg"
-                              alt="modernize-img"
-                              className="img-fluid"
-                              width={24}
-                              height={24}
-                            />
-                          </div>
-                          <div>
-                            <h6 className="mb-1 bg-hover-primary">
-                              Invoice App
-                            </h6>
-                            <span className="fs-2 d-block text-muted">
-                              Get latest invoice
-                            </span>
-                          </div>
-                        </Link>
-                      </li>
-                      {/* Add remaining dropdown items here */}
-                    </ul>
                   </li>
 
-                  {/* Additional Sidebar Items */}
+                  {/* Rivalry Insight */}
                   <li className="sidebar-item">
-                    <Link
-                      className="sidebar-link"
-                      to="/chat-app"
-                      aria-expanded="false"
-                    >
+                    <Link className="sidebar-link" to="/rivarly-insights">
                       <span>
-                        <i className="ti ti-message-dots" />
+                        <i className="ti ti-insight" />
                       </span>
-                      <span className="hide-menu">Chat</span>
+                      <span className="hide-menu">Rivalry Insight</span>
                     </Link>
                   </li>
+
+                  {/* Projections */}
                   <li className="sidebar-item">
-                    <Link
-                      className="sidebar-link"
-                      to="/calendar"
-                      aria-expanded="false"
-                    >
+                    <Link className="sidebar-link" to="/projection">
                       <span>
-                        <i className="ti ti-calendar" />
+                        <i className="ti ti-chart-line" />
                       </span>
-                      <span className="hide-menu">Calendar</span>
+                      <span className="hide-menu">Projections</span>
                     </Link>
                   </li>
+
+                  {/* My Task */}
                   <li className="sidebar-item">
-                    <Link
-                      className="sidebar-link"
-                      to="/app-email"
-                      aria-expanded="false"
-                    >
+                    <Link className="sidebar-link" to="/my-task">
                       <span>
-                        <i className="ti ti-mail" />
+                        <i className="ti ti-checklist" />
                       </span>
-                      <span className="hide-menu">Email</span>
+                      <span className="hide-menu">My Task</span>
+                    </Link>
+                  </li>
+
+                  {/* Business Model */}
+                  <li className="sidebar-item">
+                    <Link className="sidebar-link" to="/business">
+                      <span>
+                        <i className="ti ti-briefcase" />
+                      </span>
+                      <span className="hide-menu">Business Model</span>
+                    </Link>
+                  </li>
+
+                  {/* Pitch Deck */}
+                  <li className="sidebar-item">
+                    <Link className="sidebar-link" to="/pitch-deck">
+                      <span>
+                        <i className="ti ti-presentation" />
+                      </span>
+                      <span className="hide-menu">Pitch Deck</span>
+                    </Link>
+                  </li>
+
+                  {/* Idea Validation */}
+                  <li className="sidebar-item">
+                    <Link className="sidebar-link" to="/idea-validation">
+                      <span>
+                        <i className="ti ti-lightbulb" />
+                      </span>
+                      <span className="hide-menu">Idea Validation</span>
                     </Link>
                   </li>
                 </ul>
