@@ -24,7 +24,7 @@ const Template = () => {
                 <div className="card-body px-4 py-3">
                   <div className="row align-items-center">
                     <div className="col-9">
-                      <h4 className="fw-semibold mb-8">Notes</h4>
+                      <h4 className="fw-semibold mb-8">Template</h4>
                       <nav aria-label="breadcrumb">
                         <ol className="breadcrumb">
                           <li className="breadcrumb-item">
@@ -56,96 +56,138 @@ const Template = () => {
             </div>
             <div className="container-fluid">
               <div className="row justify-content-center">
-                <div className="col-md-4 col-sm-8 mb-5">
-                  <div className="card">
+                <div class="col-sm-8 col-xl-4">
+                  <div class="card bg-primary-subtle shadow-none">
                     <Link to={"/pitching-and-fund-rasing"}>
-                      <div className="card-body">
-                        <img
-                          src="./assets/assets/images/template/1.png"
-                          alt="modernize-img"
-                          className="img-fluid mb-n4"
-                          style={{
-                            display: "flex",
-                            margin: "0 auto",
-                            borderRadius: "15px",
-                            aspectRatio: "1/1",
-                          }}
-                        />
+                      <div class="card-body p-4">
+                        <div class="d-flex align-items-center">
+                          <div class="round rounded text-bg-primary align-items-center justify-content-center">
+                            <img
+                              src="./assets/assets/images/template/1.png"
+                              alt="modernize-img"
+                              className="img-fluid mb-n4"
+                            />
+                          </div>
+                          <h6 class="mb-0 ms-3">Pitch And Funds Rasing</h6>
+                          {/* <div class="ms-auto text-primary d-flex align-items-center">
+                            <i class="ti ti-trending-up text-primary fs-6 me-1"></i>
+                            <span class="fs-2 fw-bold">+ 2.30%</span>
+                          </div> */}
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between mt-4">
+                          <h3 class="mb-0 fw-semibold fs-7">28</h3>
+                          {/* <span class="fw-bold">$1,015.00</span> */}
+                        </div>
                       </div>
                     </Link>
                   </div>
                 </div>
-                <div className="col-md-4 col-sm-8 mb-5">
-                  <div className="card">
+                <div class="col-sm-8 col-xl-4">
+                  <div class="card bg-primary-subtle shadow-none">
                     <Link to={"/legal-and-compliance-doc"}>
-                      <div className="card-body">
-                        <img
-                          src="./assets/assets/images/template/2.png"
-                          alt="modernize-img"
-                          className="img-fluid mb-n4"
-                          style={{
-                            display: "flex",
-                            margin: "0 auto",
-                            borderRadius: "15px",
-                          }}
-                        />
+                      <div class="card-body p-4">
+                        <div class="d-flex align-items-center">
+                          <div class="round rounded text-bg-primary align-items-center justify-content-center">
+                            <img
+                              src="./assets/assets/images/template/2.png"
+                              alt="modernize-img"
+                              className="img-fluid mb-n4"
+                            />
+                          </div>
+                          <h6 class="mb-0 ms-3">
+                            Legal And Compliance Document
+                          </h6>
+                          {/* <div class="ms-auto text-primary d-flex align-items-center">
+                            <i class="ti ti-trending-up text-primary fs-6 me-1"></i>
+                            <span class="fs-2 fw-bold">+ 2.30%</span>
+                          </div> */}
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between mt-4">
+                          <h3 class="mb-0 fw-semibold fs-7">33</h3>
+                          {/* <span class="fw-bold">$1,015.00</span> */}
+                        </div>
                       </div>
                     </Link>
                   </div>
                 </div>
-                <div className="col-md-4 col-sm-8 mb-5">
-                  <div className="card">
+                <div class="col-sm-8 col-xl-4">
+                  <div class="card bg-primary-subtle shadow-none">
                     <Link to={"/formation-and-banking-temp"}>
-                      <div className="card-body">
-                        <img
-                          src="./assets/assets/images/template/3.png"
-                          alt="modernize-img"
-                          className="img-fluid mb-n4"
-                          style={{
-                            display: "flex",
-                            margin: "0 auto",
-                            borderRadius: "15px",
-                            aspectRatio: "1/1",
-                          }}
-                        />
+                      <div class="card-body p-4">
+                        <div class="d-flex align-items-center">
+                          <div class="round rounded text-bg-primary align-items-center justify-content-center">
+                            <img
+                              src="./assets/assets/images/template/3.png"
+                              alt="modernize-img"
+                              className="img-fluid mb-n4"
+                            />
+                          </div>
+                          <h6 class="mb-0 ms-3">
+                            Formation And Banking Templates
+                          </h6>
+                          {/* <div class="ms-auto text-primary d-flex align-items-center">
+                            <i class="ti ti-trending-up text-primary fs-6 me-1"></i>
+                            <span class="fs-2 fw-bold">+ 2.30%</span>
+                          </div> */}
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between mt-4">
+                          <h3 class="mb-0 fw-semibold fs-7">19</h3>
+                          {/* <span class="fw-bold">$1,015.00</span> */}
+                        </div>
                       </div>
                     </Link>
                   </div>
                 </div>
-                <div className="col-md-4 col-sm-8 mb-5">
-                  <div className="card">
+                <div class="col-sm-8 col-xl-4">
+                  <div class="card bg-primary-subtle shadow-none">
                     <Link to={"/hr-and-employee-agreement"}>
-                      <div className="card-body">
-                        <img
-                          src="./assets/assets/images/template/4.png"
-                          alt="modernize-img"
-                          className="img-fluid mb-n4"
-                          style={{
-                            display: "flex",
-                            margin: "0 auto",
-                            borderRadius: "15px",
-                            aspectRatio: "1/1",
-                          }}
-                        />
+                      <div class="card-body p-4">
+                        <div class="d-flex align-items-center">
+                          <div class="round rounded text-bg-primary align-items-center justify-content-center">
+                            <img
+                              src="./assets/assets/images/template/4.png"
+                              alt="modernize-img"
+                              className="img-fluid mb-n4"
+                            />
+                          </div>
+                          <h6 class="mb-0 ms-3">HR And Employee Agreement</h6>
+                          {/* <div class="ms-auto text-primary d-flex align-items-center">
+                          <i class="ti ti-trending-up text-primary fs-6 me-1"></i>
+                          <span class="fs-2 fw-bold">+ 2.30%</span>
+                        </div> */}
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between mt-4">
+                          <h3 class="mb-0 fw-semibold fs-7">41</h3>
+                          {/* <span class="fw-bold">$1,015.00</span> */}
+                        </div>
                       </div>
                     </Link>
                   </div>
                 </div>
-                <div className="col-md-4 col-sm-8 mb-5">
-                  <div className="card">
+                <div class="col-sm-8 col-xl-4">
+                  <div class="card bg-primary-subtle shadow-none">
                     <Link to={"/financial-and-accounting-docs"}>
-                      <div className="card-body">
-                        <img
-                          src="./assets/assets/images/template/5.png"
-                          alt="modernize-img"
-                          className="img-fluid mb-n4"
-                          style={{
-                            display: "flex",
-                            margin: "0 auto",
-                            borderRadius: "15px",
-                            aspectRatio: "1/1",
-                          }}
-                        />
+                      <div class="card-body p-4">
+                        <div class="d-flex align-items-center">
+                          <div class="round rounded text-bg-primary align-items-center justify-content-center">
+                            <img
+                              src="./assets/assets/images/template/5.png"
+                              alt="modernize-img"
+                              className="img-fluid mb-n4"
+                            />
+                          </div>
+                          <h6 class="mb-0 ms-3">
+                            Financial And Accounting Documents
+                          </h6>
+                          {/* <div class="ms-auto text-primary d-flex align-items-center">
+                            <i class="ti ti-trending-up text-primary fs-6 me-1"></i>
+                            <span class="fs-2 fw-bold">+ 2.30%</span>
+                          </div> */}
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between mt-4">
+                          <h3 class="mb-0 fw-semibold fs-7">40</h3>
+                          {/* <span class="fw-bold">$1,015.00</span> */}
+                        </div>
                       </div>
                     </Link>
                   </div>
