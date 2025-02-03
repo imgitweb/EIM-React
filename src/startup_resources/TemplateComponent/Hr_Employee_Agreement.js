@@ -22,7 +22,7 @@ const Hr_Employee_agreements = () => {
               <div className="card-body px-4 py-3">
                 <div className="row align-items-center">
                   <div className="col-9">
-                    <h4 className="fw-semibold mb-8">Notes</h4>
+                    <h4 className="fw-semibold mb-8">HR & Employee Agreement</h4>
                     <nav aria-label="breadcrumb">
                       <ol className="breadcrumb">
                         <li className="breadcrumb-item">
@@ -78,7 +78,7 @@ const Hr_Employee_agreements = () => {
                     href="#0"
                     className="d-flex justify-content-between align-items-center"
                   >
-                    <span>File 1</span>
+                    <span>Employees Agreement</span>
                     <i className="ti ti-download"></i>
                   </a>
                 </div>
@@ -89,7 +89,7 @@ const Hr_Employee_agreements = () => {
                     href="#0"
                     className="d-flex justify-content-between align-items-center"
                   >
-                    <span>File 2</span>
+                    <span>NDAs</span>
                     <i className="ti ti-download"></i>
                   </a>
                 </div>
@@ -100,7 +100,7 @@ const Hr_Employee_agreements = () => {
                     href="#0"
                     className="d-flex justify-content-between align-items-center"
                   >
-                    <span>File 3</span>
+                    <span>Offer Letter, Appraisal Letter and Relieving/Exit Letters</span>
                     <i className="ti ti-download"></i>
                   </a>
                 </div>
@@ -111,7 +111,29 @@ const Hr_Employee_agreements = () => {
                     href="#0"
                     className="d-flex justify-content-between align-items-center"
                   >
-                    <span>File 4</span>
+                    <span>HR Policies</span>
+                    <i className="ti ti-download"></i>
+                  </a>
+                </div>
+              </div>
+              <div className="card">
+                <div className="card-body">
+                  <a
+                    href="#0"
+                    className="d-flex justify-content-between align-items-center"
+                  >
+                    <span>Employee Handbook</span>
+                    <i className="ti ti-download"></i>
+                  </a>
+                </div>
+              </div>
+              <div className="card">
+                <div className="card-body">
+                  <a
+                    href="#0"
+                    className="d-flex justify-content-between align-items-center"
+                  >
+                    <span>Pay slip Templates</span>
                     <i className="ti ti-download"></i>
                   </a>
                 </div>

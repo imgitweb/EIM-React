@@ -22,7 +22,7 @@ const Compliance_Document = () => {
               <div className="card-body px-4 py-3">
                 <div className="row align-items-center">
                   <div className="col-9">
-                    <h4 className="fw-semibold mb-8">Notes</h4>
+                    <h4 className="fw-semibold mb-8">Legal & Compliance Document</h4>
                     <nav aria-label="breadcrumb">
                       <ol className="breadcrumb">
                         <li className="breadcrumb-item">
@@ -73,7 +73,7 @@ const Compliance_Document = () => {
                     href="#0"
                     className="d-flex justify-content-between align-items-center"
                   >
-                    <span>File 1</span>
+                    <span>Founders Agreement </span>
                     <i className="ti ti-download"></i>
                   </a>
                 </div>
@@ -84,7 +84,7 @@ const Compliance_Document = () => {
                     href="#0"
                     className="d-flex justify-content-between align-items-center"
                   >
-                    <span>File 2</span>
+                    <span>Business Agreements</span>
                     <i className="ti ti-download"></i>
                   </a>
                 </div>
@@ -95,7 +95,7 @@ const Compliance_Document = () => {
                     href="#0"
                     className="d-flex justify-content-between align-items-center"
                   >
-                    <span>File 3</span>
+                    <span>Cap Table Format</span>
                     <i className="ti ti-download"></i>
                   </a>
                 </div>
@@ -106,7 +106,7 @@ const Compliance_Document = () => {
                     href="#0"
                     className="d-flex justify-content-between align-items-center"
                   >
-                    <span>File 4</span>
+                    <span>Legal Compliance Checklist</span>
                     <i className="ti ti-download"></i>
                   </a>
                 </div>

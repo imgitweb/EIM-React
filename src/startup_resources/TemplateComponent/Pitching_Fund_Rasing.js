@@ -22,7 +22,7 @@ const Pitching_And_Fundraising = () => {
               <div className="card-body px-4 py-3">
                 <div className="row align-items-center">
                   <div className="col-9">
-                    <h4 className="fw-semibold mb-8">Notes</h4>
+                    <h4 className="fw-semibold mb-8">Pitching & Fundraising</h4>
                     <nav aria-label="breadcrumb">
                       <ol className="breadcrumb">
                         <li className="breadcrumb-item">
@@ -80,7 +80,7 @@ const Pitching_And_Fundraising = () => {
                     href="#0"
                     className="d-flex justify-content-between align-items-center"
                   >
-                    <span>File 1</span>
+                    <span>Pitch Deck Template </span>
                     <i className="ti ti-download"></i>
                   </a>
                   </div>
@@ -91,7 +91,7 @@ const Pitching_And_Fundraising = () => {
                     href="#0"
                     className="d-flex justify-content-between align-items-center"
                   >
-                    <span>File 2</span>
+                    <span>Sample Pitch Deck Of Existing Startup</span>
                     <i className="ti ti-download"></i>
                   </a>
                   </div>
@@ -102,7 +102,7 @@ const Pitching_And_Fundraising = () => {
                     href="#0"
                     className="d-flex justify-content-between align-items-center"
                   >
-                    <span>File 3</span>
+                    <span>Valuation Template In Excel</span>
                     <i className="ti ti-download"></i>
                   </a>
                   </div>
@@ -113,7 +113,7 @@ const Pitching_And_Fundraising = () => {
                     href="#0"
                     className="d-flex justify-content-between align-items-center"
                   >
-                    <span>File 4</span>
+                    <span>Pitch Deck Database</span>
                     <i className="ti ti-download"></i>
                   </a>
                   </div>

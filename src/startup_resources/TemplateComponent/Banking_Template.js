@@ -22,7 +22,7 @@ const Banking_Template = () => {
               <div className="card-body px-4 py-3">
                 <div className="row align-items-center">
                   <div className="col-9">
-                    <h4 className="fw-semibold mb-8">Notes</h4>
+                    <h4 className="fw-semibold mb-8">Formation & Banking Templates</h4>
                     <nav aria-label="breadcrumb">
                       <ol className="breadcrumb">
                         <li className="breadcrumb-item">
@@ -78,7 +78,7 @@ const Banking_Template = () => {
                     href="#0"
                     className="d-flex justify-content-between align-items-center"
                   >
-                    <span>File 1</span>
+                    <span>Banking Resolution Format</span>
                     <i className="ti ti-download"></i>
                   </a>
                 </div>
@@ -89,7 +89,7 @@ const Banking_Template = () => {
                     href="#0"
                     className="d-flex justify-content-between align-items-center"
                   >
-                    <span>File 2</span>
+                    <span>Board Meeting Minutes Format</span>
                     <i className="ti ti-download"></i>
                   </a>
                 </div>
@@ -100,7 +100,7 @@ const Banking_Template = () => {
                     href="#0"
                     className="d-flex justify-content-between align-items-center"
                   >
-                    <span>File 3</span>
+                    <span>Business Formation Templates</span>
                     <i className="ti ti-download"></i>
                   </a>
                 </div>

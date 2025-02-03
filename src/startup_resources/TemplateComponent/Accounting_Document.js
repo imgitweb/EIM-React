@@ -22,7 +22,7 @@ const Accounting_Document = () => {
               <div className="card-body px-4 py-3">
                 <div className="row align-items-center">
                   <div className="col-9">
-                    <h4 className="fw-semibold mb-8">Notes</h4>
+                    <h4 className="fw-semibold mb-8">Financial & Accounting Documents</h4>
                     <nav aria-label="breadcrumb">
                       <ol className="breadcrumb">
                         <li className="breadcrumb-item">
@@ -78,7 +78,7 @@ const Accounting_Document = () => {
                     href="#0"
                     className="d-flex justify-content-between align-items-center"
                   >
-                    <span>File 1</span>
+                    <span>Financial Planning</span>
                     <i className="ti ti-download"></i>
                   </a>
                 </div>
@@ -89,7 +89,7 @@ const Accounting_Document = () => {
                     href="#0"
                     className="d-flex justify-content-between align-items-center"
                   >
-                    <span>File 2</span>
+                    <span>Invoice Samples</span>
                     <i className="ti ti-download"></i>
                   </a>
                 </div>
@@ -100,7 +100,7 @@ const Accounting_Document = () => {
                     href="#0"
                     className="d-flex justify-content-between align-items-center"
                   >
-                    <span>File 3</span>
+                    <span>Accounting Templates</span>
                     <i className="ti ti-download"></i>
                   </a>
                 </div>
@@ -111,7 +111,40 @@ const Accounting_Document = () => {
                     href="#0"
                     className="d-flex justify-content-between align-items-center"
                   >
-                    <span>File 4</span>
+                    <span>Financial Reporting Templates</span>
+                    <i className="ti ti-download"></i>
+                  </a>
+                </div>
+              </div>
+              <div className="card">
+                <div className="card-body">
+                  <a
+                    href="#0"
+                    className="d-flex justify-content-between align-items-center"
+                  >
+                    <span>Revenue Projections</span>
+                    <i className="ti ti-download"></i>
+                  </a>
+                </div>
+              </div>
+              <div className="card">
+                <div className="card-body">
+                  <a
+                    href="#0"
+                    className="d-flex justify-content-between align-items-center"
+                  >
+                    <span>Financial Modeling Templates</span>
+                    <i className="ti ti-download"></i>
+                  </a>
+                </div>
+              </div>
+              <div className="card">
+                <div className="card-body">
+                  <a
+                    href="#0"
+                    className="d-flex justify-content-between align-items-center"
+                  >
+                    <span>Expense Management</span>
                     <i className="ti ti-download"></i>
                   </a>
                 </div>
