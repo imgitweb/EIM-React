@@ -1,37 +1,100 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import LeftSidebar from "../componant/LeftSidebar";
 import Navigation from "../componant/Navigation";
 import SerchBar from "../componant/SearchBar";
 import { Unity, useUnityContext } from "react-unity-webgl";
+import { Loader2 } from "lucide-react";
+
+const ProgressBar = ({ progress }) => {
+  return (
+    <div className="fixed top-0 left-0 w-full z-50">
+      <div className="h-2 w-full bg-gray-200">
+        <div
+          className="h-full bg-blue-600 transition-all duration-300"
+          style={{ width: `${progress}%` }}
+        />
+      </div>
+      <div className="absolute right-4 top-4 bg-white px-3 py-1 rounded-full shadow-md text-sm font-medium text-blue-600">
+        {progress}%
+      </div>
+    </div>
+  );
+};
 
 export default function MetaVerse() {
   const [isActive, setActive] = useState(false);
+  const [canRender, setCanRender] = useState(false);
+  const unityContainerRef = useRef(null);
 
   const ToggleEvent = () => {
     setActive((prevState) => !prevState);
   };
 
-  const { unityProvider, addEventListener, removeEventListener, sendMessage } =
-    useUnityContext({
-      loaderUrl: "./../../unity/Build/GIS_office.loader.js",
-      dataUrl: "./../../unity/Build/GIS_office.data.unityweb",
-      frameworkUrl: "./../../unity/Build/GIS_office.framework.js.unityweb",
-      codeUrl: "./../../unity/Build/GIS_office.wasm.unityweb",
-    });
+  const {
+    unityProvider,
+    addEventListener,
+    removeEventListener,
+    sendMessage,
+    isLoaded,
+    loadingProgression,
+    initialisationError,
+  } = useUnityContext({
+    loaderUrl: "./../../unity/Build/GIS_office.loader.js",
+    dataUrl: "./../../unity/Build/GIS_office.data.unityweb",
+    frameworkUrl: "./../../unity/Build/GIS_office.framework.js.unityweb",
+    codeUrl: "./../../unity/Build/GIS_office.wasm.unityweb",
+  });
 
-  sendMessage(
-    "ReactUnityCommunicationManager",
-    "GetReactData",
-    JSON.stringify({
-      event: "startup",
-      data: {
-        id: localStorage.getItem("token"),
-      },
-    })
-  );
+  const loadingPercentage = Math.round(loadingProgression * 100);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setCanRender(true);
+    }, 100);
+
+    return () => {
+      clearTimeout(timer);
+      setCanRender(false);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isLoaded && canRender) {
+      try {
+        sendMessage(
+          "ReactUnityCommunicationManager",
+          "GetReactData",
+          JSON.stringify({
+            event: "startup",
+            data: {
+              id: localStorage.getItem("token"),
+            },
+          })
+        );
+      } catch (error) {
+        console.error("Error sending message to Unity:", error);
+      }
+    }
+  }, [isLoaded, canRender, sendMessage]);
+
+  if (initialisationError) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-center p-4">
+          <h2 className="text-xl font-semibold text-red-600 mb-2">
+            Failed to load Metaverse
+          </h2>
+          <p className="text-gray-600">
+            Please refresh the page and try again.
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div>
+      {!isLoaded && <ProgressBar progress={loadingPercentage} />}
       <div id="main-wrapper" className={isActive ? "show-sidebar" : ""}>
         <LeftSidebar onButtonClick={ToggleEvent} />
         <div className="page-wrapper">
@@ -72,11 +135,41 @@ export default function MetaVerse() {
                 </div>
               </div>
               <div className="card">
-                <div className="card-body">
-                  <Unity
-                    unityProvider={unityProvider}
-                    style={{ width: "100%", height: "calc(100vh - 0px)" }}
-                  />
+                <div className="card-body relative" ref={unityContainerRef}>
+                  {!isLoaded && (
+                    <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-r from-blue-50 to-purple-50">
+                      <div className="text-center">
+                        <Loader2 className="w-12 h-12 text-blue-600 animate-spin mb-4" />
+                        <h3 className="text-xl font-semibold text-gray-700 mb-2">
+                          Loading Metaverse
+                        </h3>
+                        <p className="text-sm text-gray-500">
+                          {loadingPercentage < 25 &&
+                            "Initializing Virtual Environment..."}
+                          {loadingPercentage >= 25 &&
+                            loadingPercentage < 50 &&
+                            "Loading 3D Assets..."}
+                          {loadingPercentage >= 50 &&
+                            loadingPercentage < 75 &&
+                            "Preparing Digital Space..."}
+                          {loadingPercentage >= 75 &&
+                            loadingPercentage < 90 &&
+                            "Configuring Environment..."}
+                          {loadingPercentage >= 90 && "Almost Ready..."}
+                        </p>
+                      </div>
+                    </div>
+                  )}
+                  {canRender && (
+                    <Unity
+                      unityProvider={unityProvider}
+                      style={{
+                        width: "100%",
+                        height: "calc(100vh - 0px)",
+                        display: isLoaded ? "block" : "none",
+                      }}
+                    />
+                  )}
                 </div>
               </div>
             </div>
