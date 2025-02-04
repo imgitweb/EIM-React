@@ -45,45 +45,60 @@ function App() {
         <Route
           path="/*"
           element={
-            // <PrivateRoute>
-            <Routes>
-              <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/hiring-assist" element={<HiringAssist />} />
-              <Route path="/invester-pool" element={<InvesterPool />} />
-              <Route path="/my-mentor" element={<MyMentor />} />
-              <Route path="/path-unicorn" element={<PathUnicorn />} />
-              <Route path="/path-unicorn2" element={<PathUnicorn2 />} />
-              <Route path="/path-unicorn3" element={<PathUnicorn3 />} />
-              <Route path="/path-unicorn4" element={<PathUnicorn4 />} />
-              <Route path="/path-unicorn7" element={<PathUnicorn7 />} />
-              <Route path="/path-unicorn8" element={<PathUnicorn8 />} />
-              <Route path="/path-unicorn9" element={<PathUnicorn9 />} />
-              <Route path="/path-unicorn10" element={<PathUnicorn10 />} />
-              <Route path="/path-unicorn11" element={<PathUnicorn11 />} />
-              <Route path="/revenu-trac" element={<RevenueTracker />} />
-              <Route path="/sales-funnel" element={<SalesFunnel />} />
-              <Route path="/upgrade-beta" element={<UpgradeBeta />} />
-              <Route path="/my-task" element={<MyTask />} />
-              <Route path="/rivarly-insights" element={<RivarlyInsight />} />
-              <Route path="/projection" element={<Projection />} />
-              <Route path="/app-profile" element={<AppProfile />} />
-              <Route path="/business" element={<BusinessModel />} />
-              <Route path="/pitch-deck" element={<PitchDeck />} />
-              <Route path="/logout" element={<Logout />} />
-              <Route path="/meta-verse" element={<MetaVerse />} />
-              <Route path="/tools" element={<Tools />} />
-              <Route path="/template" element={<Template />} />
-              <Route path="/training-videos" element={<TrainingVideos />} />
-              <Route path="/idea-validation" element={<IdeaValidation />} />
-              <Route path="/market-research" element = {<Market_Research/>} />
-              <Route path="/pitching-and-fund-rasing" element={<Pitching_And_Fundraising/>} />
-              <Route path="/legal-and-compliance-doc" element={<Compliance_Document/>} />
-              <Route path="/formation-and-banking-temp" element={<Banking_Template/>} />
-              <Route path="/hr-and-employee-agreement" element={<Hr_Employee_agreements/>} />
-              <Route path="/financial-and-accounting-docs" element={<Accounting_Document/>} />
-              <Route path="*" element={<NotFund />} />
-            </Routes>
-            // </PrivateRoute>
+            <PrivateRoute>
+              <Routes>
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/hiring-assist" element={<HiringAssist />} />
+                <Route path="/invester-pool" element={<InvesterPool />} />
+                <Route path="/my-mentor" element={<MyMentor />} />
+                <Route path="/path-unicorn" element={<PathUnicorn />} />
+                <Route path="/path-unicorn2" element={<PathUnicorn2 />} />
+                <Route path="/path-unicorn3" element={<PathUnicorn3 />} />
+                <Route path="/path-unicorn4" element={<PathUnicorn4 />} />
+                <Route path="/path-unicorn7" element={<PathUnicorn7 />} />
+                <Route path="/path-unicorn8" element={<PathUnicorn8 />} />
+                <Route path="/path-unicorn9" element={<PathUnicorn9 />} />
+                <Route path="/path-unicorn10" element={<PathUnicorn10 />} />
+                <Route path="/path-unicorn11" element={<PathUnicorn11 />} />
+                <Route path="/revenu-trac" element={<RevenueTracker />} />
+                <Route path="/sales-funnel" element={<SalesFunnel />} />
+                <Route path="/upgrade-beta" element={<UpgradeBeta />} />
+                <Route path="/my-task" element={<MyTask />} />
+                <Route path="/rivarly-insights" element={<RivarlyInsight />} />
+                <Route path="/projection" element={<Projection />} />
+                <Route path="/app-profile" element={<AppProfile />} />
+                <Route path="/business" element={<BusinessModel />} />
+                <Route path="/pitch-deck" element={<PitchDeck />} />
+                <Route path="/logout" element={<Logout />} />
+                <Route path="/meta-verse" element={<MetaVerse />} />
+                <Route path="/tools" element={<Tools />} />
+                <Route path="/template" element={<Template />} />
+                <Route path="/training-videos" element={<TrainingVideos />} />
+                <Route path="/idea-validation" element={<IdeaValidation />} />
+                <Route path="/market-research" element={<Market_Research />} />
+                <Route
+                  path="/pitching-and-fund-rasing"
+                  element={<Pitching_And_Fundraising />}
+                />
+                <Route
+                  path="/legal-and-compliance-doc"
+                  element={<Compliance_Document />}
+                />
+                <Route
+                  path="/formation-and-banking-temp"
+                  element={<Banking_Template />}
+                />
+                <Route
+                  path="/hr-and-employee-agreement"
+                  element={<Hr_Employee_agreements />}
+                />
+                <Route
+                  path="/financial-and-accounting-docs"
+                  element={<Accounting_Document />}
+                />
+                <Route path="*" element={<NotFund />} />
+              </Routes>
+            </PrivateRoute>
           }
         />
       </Routes>
