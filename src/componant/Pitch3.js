@@ -1,6 +1,6 @@
 import React from "react";
 
-function Pitch3() {
+function Pitch3(problem) {
   return (
     <div
       style={{
@@ -42,7 +42,7 @@ function Pitch3() {
                 className="st11 st12"
                 style={{ fontSize: 19 }}
                 transform="matrix(1.0012 0 0 1 329.913 150.132)">
-                &lt;&lt; Write down the problem statement in detail &gt;&gt;
+                {problem.problem}
               </text>
             </g>
           </g>

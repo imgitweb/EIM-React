@@ -83,7 +83,13 @@ const PitchDeck = () => {
       - StartupName
       - Who_We_are
       - Problem
-      - Solution
+      - Solution1
+      - Solution2
+      - Solution3
+      - Solution4
+      - Solution5
+      - Solution6
+      - firstToMarket
       - Market
       - Features
       - ProductOverview
@@ -366,14 +372,24 @@ const PitchDeck = () => {
                               <br />
                               <Pitch4
                                 id="pitch4"
-                                solution={generatedPitchDeck.Solution}
+                                solution={[
+                                  generatedPitchDeck.Solution1,
+                                  generatedPitchDeck.Solution2,
+                                  generatedPitchDeck.Solution3,
+                                  generatedPitchDeck.Solution4,
+                                  generatedPitchDeck.Solution5,
+
+                                  generatedPitchDeck.Solution6,
+                                ]}
                               />
                               <br />
                               <Pitch5
                                 id="pitch5"
-                                productOverview={
-                                  generatedPitchDeck.ProductOverview
-                                }
+                                productOverview={[
+                                  generatedPitchDeck.firstToMarket,
+                                ]}
+                                unique={true}
+                                tested={true}
                               />
                               <br />
                               <Pitch6
