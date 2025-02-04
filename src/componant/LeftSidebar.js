@@ -28,8 +28,7 @@ const LeftSidebar = ({ onButtonClick }) => {
           <Link
             to="#0"
             onClick={onButtonClick}
-            className="sidebartoggler ms-auto text-decoration-none fs-5 d-block d-xl-none"
-          >
+            className="sidebartoggler ms-auto text-decoration-none fs-5 d-block d-xl-none">
             <i className="ti ti-x" />
           </Link>
         </div>
@@ -50,8 +49,7 @@ const LeftSidebar = ({ onButtonClick }) => {
                 className="sidebar-link"
                 to="/dashboard"
                 id="get-url"
-                aria-expanded="false"
-              >
+                aria-expanded="false">
                 <span>
                   <i className="ti ti-aperture" />
                 </span>
@@ -62,8 +60,7 @@ const LeftSidebar = ({ onButtonClick }) => {
               <Link
                 className="sidebar-link"
                 to="/revenu-trac"
-                aria-expanded="false"
-              >
+                aria-expanded="false">
                 <span>
                   <i className="ti ti-currency-rupee" />
                 </span>
@@ -73,9 +70,8 @@ const LeftSidebar = ({ onButtonClick }) => {
             <li className="sidebar-item">
               <Link
                 className="sidebar-link"
-                to="/sales-funnel"
-                aria-expanded="false"
-              >
+                to="/salesfunnel"
+                aria-expanded="false">
                 <span>
                   <i className="ti ti-currency-dollar" />
                 </span>
@@ -86,8 +82,7 @@ const LeftSidebar = ({ onButtonClick }) => {
               <Link
                 className="sidebar-link"
                 to="/my-mentor"
-                aria-expanded="false"
-              >
+                aria-expanded="false">
                 <span>
                   <i className="ti ti-user" />
                 </span>
@@ -98,8 +93,7 @@ const LeftSidebar = ({ onButtonClick }) => {
               <Link
                 className="sidebar-link"
                 to="/path-unicorn"
-                aria-expanded="false"
-              >
+                aria-expanded="false">
                 <span>
                   <i className="ti ti-map" />
                 </span>
@@ -125,8 +119,7 @@ const LeftSidebar = ({ onButtonClick }) => {
                 className="sidebar-link has-arrow"
                 to="#0"
                 aria-expanded={isDropdownOpen}
-                onClick={toggleDropdown}
-              >
+                onClick={toggleDropdown}>
                 <span className="d-flex">
                   <i className="ti ti-layout-grid" />
                 </span>
@@ -136,8 +129,7 @@ const LeftSidebar = ({ onButtonClick }) => {
                 className={`first-level ${
                   isDropdownOpen ? "show" : "collapse"
                 }`}
-                aria-expanded={isDropdownOpen}
-              >
+                aria-expanded={isDropdownOpen}>
                 <li className="sidebar-item">
                   <Link to="/tools" className="sidebar-link">
                     <div className="round-16 d-flex align-items-center justify-content-center">
@@ -169,8 +161,7 @@ const LeftSidebar = ({ onButtonClick }) => {
               <Link
                 className="sidebar-link"
                 to="/invester-pool"
-                aria-expanded="false"
-              >
+                aria-expanded="false">
                 <span>
                   <i className="ti ti-users" />
                 </span>
@@ -181,8 +172,7 @@ const LeftSidebar = ({ onButtonClick }) => {
               <Link
                 className="sidebar-link"
                 to="/hiring-assist"
-                aria-expanded="false"
-              >
+                aria-expanded="false">
                 <span>
                   <i className="ti ti-user-plus" />
                 </span>
@@ -193,8 +183,7 @@ const LeftSidebar = ({ onButtonClick }) => {
               <Link
                 className="sidebar-link"
                 to="/meta-verse"
-                aria-expanded="false"
-              >
+                aria-expanded="false">
                 <span>
                   <i className="ti ti-user-plus" />
                 </span>
@@ -205,8 +194,7 @@ const LeftSidebar = ({ onButtonClick }) => {
               <Link
                 className="sidebar-link"
                 to="/Upgrade-Beta"
-                aria-expanded="false"
-              >
+                aria-expanded="false">
                 <span>
                   <i className="ti ti-arrow-up-right" />
                 </span>
@@ -241,8 +229,7 @@ const LeftSidebar = ({ onButtonClick }) => {
               aria-label="logout"
               data-bs-toggle="tooltip"
               data-bs-placement="top"
-              data-bs-title="logout"
-            >
+              data-bs-title="logout">
               <i className="ti ti-power fs-6" />
             </button>
           </div>

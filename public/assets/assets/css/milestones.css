@@ -160,8 +160,8 @@
   background-color: #223662;
   padding: 20px;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  /* align-items: center; */
+  /* justify-content: center; */
   border-radius: 5px;
   width: 200px; /* Sidebar width for desktop */
   margin-right: 20px;
@@ -295,8 +295,6 @@
   background-color: #223662;
   padding: 20px;
   display: flex;
-  align-items: center;
-  justify-content: center;
   border-radius: 5px;
   width: 200px; /* Sidebar width for desktop */
   margin-right: 20px;
@@ -442,9 +440,8 @@
   background-color: #223662;
   padding: 20px;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+  /* text-align: center; */
+  border-radius: 5px;
 }
 
 .body4 .sales-funnel-sidebar h2 {

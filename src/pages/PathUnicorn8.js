@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import LeftSidebar from "../componant/LeftSidebar";
 import Navigation from "../componant/Navigation";
 import SerchBar from "../componant/SearchBar";
+import Sidebar from "./Sidebar";
 
 function PathUnicorn8() {
   const [isActive, setActive] = useState(false);
@@ -112,7 +113,10 @@ function PathUnicorn8() {
               <div className="body2 card">
                 <div className="client-persona-container ">
                   <div className="sidebar">
-                    <h2>CLIENT PERSONA</h2>
+                    <Sidebar
+                      selectedSection="client-persona"
+                      setSelectedSection={() => {}}
+                    />
                   </div>
                   <div className="form-container">
                     <h1
@@ -122,6 +126,8 @@ function PathUnicorn8() {
                         alignItems: "center", // Aligns items vertically
                         fontSize: "28px",
                         marginBottom: "20px",
+                        marginTop: "10px",
+
                         width: "100%", // Ensures full width
                       }}>
                       <span
@@ -132,7 +138,7 @@ function PathUnicorn8() {
                         CLIENT PERSONA
                       </span>
                       <Link
-                        to="/path-unicorn"
+                        to="/salesfunnel"
                         className="text-end btn btn-lg bg-default"
                         style={{
                           backgroundColor: "#223662",

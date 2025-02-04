@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import LeftSidebar from "../componant/LeftSidebar";
 import Navigation from "../componant/Navigation";
 import SerchBar from "../componant/SearchBar";
+import Sidebar from "./Sidebar";
 
 // import "./App.css"; // Import your CSS file for styling
 
@@ -74,13 +75,14 @@ function PathUnicorn9() {
                         height: "100%",
                         display: "flex",
                         justifyContent: "center",
-                        alignItems: "center",
-                        textAlign: "center",
                         padding: "20px",
                         fontWeight: "bold",
                         borderRadius: "5px",
                       }}>
-                      Sales Funnel
+                      <Sidebar
+                        selectedSection="Product Listing"
+                        setSelectedSection={() => {}}
+                      />
                     </div>
                   </div>
                   {/* Main Content */}
@@ -91,6 +93,7 @@ function PathUnicorn9() {
                         display: "flex",
                         justifyContent: "center",
                         alignItems: "center",
+                        marginTop: "10px",
                       }}>
                       <div style={{ width: "100%", maxWidth: "900px" }}>
                         <h1
@@ -110,7 +113,7 @@ function PathUnicorn9() {
                             MARKETING FUNNEL
                           </span>
                           <Link
-                            to="/path-unicorn"
+                            to="/salesfunnel"
                             className="text-end btn btn-lg bg-default"
                             style={{
                               backgroundColor: "#223662",

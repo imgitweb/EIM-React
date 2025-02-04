@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import LeftSidebar from "../componant/LeftSidebar";
 import Navigation from "../componant/Navigation";
 import SerchBar from "../componant/SearchBar";
+import Sidebar from "./Sidebar";
 
 function PathUnicorn11() {
   const [isActive, setActive] = useState(false);
@@ -114,7 +115,10 @@ function PathUnicorn11() {
                 <div className="sales-funnel-container">
                   {/* Sidebar */}
                   <div className="sales-funnel-sidebar">
-                    <h2>Sales Funnel</h2>
+                    <Sidebar
+                      selectedSection="Product Listing"
+                      setSelectedSection={() => {}}
+                    />
                   </div>
 
                   {/* Form Container */}
@@ -137,7 +141,7 @@ function PathUnicorn11() {
                           Sales Funnel
                         </span>
                         <Link
-                          to="/path-unicorn"
+                          to="/salesfunnel"
                           className="text-end btn btn-lg bg-default"
                           style={{
                             backgroundColor: "#223662",
