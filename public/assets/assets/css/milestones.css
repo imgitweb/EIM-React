@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  /* background-color: #2e004f; */
   color: white;
   text-align: center;
 }
@@ -213,17 +212,6 @@
   color: #fff;
 }
 
-.body2 .form-group input,
-.body2 .form-group select,
-.body2 .form-group textarea {
-  padding: 10px;
-  border: 1px solid #fff;
-  border-radius: 5px;
-  color: #fff;
-  /* background-color: #223662; Background color for inputs */
-  box-sizing: border-box;
-}
-
 .body2 .radio-group {
   display: flex;
   gap: 10px;
@@ -339,16 +327,6 @@
   margin-bottom: 5px;
 }
 
-.body3 .form-group input,
-.body3 .form-group select,
-.body3 .form-group textarea {
-  padding: 10px;
-  border: 1px solid #fff;
-  border-radius: 5px;
-  /* background-color: #223662; */
-  color: #fff;
-}
-
 .body3 textarea {
   resize: none;
   height: 100px;
@@ -393,12 +371,6 @@
 
   .body3 .form-group {
     flex-direction: column;
-  }
-
-  .body3 .form-group input,
-  .body3 .form-group select,
-  .body3 .form-group textarea {
-    font-size: 14px;
   }
 
   .body3 .save-button {
@@ -491,7 +463,8 @@
   padding: 10px;
   margin-top: 5px;
   border-radius: 5px;
-  border: none;
+
+  background-color: #202936;
 }
 
 /* Error message styles */
@@ -545,11 +518,23 @@
   .body4 .sales-funnel-form select,
   .body4 .sales-funnel-form textarea {
     font-size: 14px;
+    background-color: #202936;
   }
 
   .body4 .sales-funnel-form button {
     font-size: 14px;
     padding: 8px 15px;
+  }
+  .body4 .save-button {
+    background-color: #223662;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    color: white;
+    margin-top: 5px;
+    width: 100%;
   }
 }
 

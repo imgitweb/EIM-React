@@ -123,6 +123,7 @@ const PathUnicorn7 = () => {
                     {/* Input Form */}
                     <form style={styles.form} className="form-container">
                       <input
+                        className="form-control"
                         type="text"
                         name="name"
                         placeholder="Name"
@@ -131,6 +132,7 @@ const PathUnicorn7 = () => {
                         style={styles.inputField}
                       />
                       <input
+                        className="form-control"
                         type="text"
                         name="category"
                         placeholder="Category"
@@ -139,6 +141,7 @@ const PathUnicorn7 = () => {
                         style={styles.inputField}
                       />
                       <input
+                        className="form-control"
                         type="text"
                         name="price"
                         placeholder="Price"
@@ -218,13 +221,13 @@ const styles = {
     justifyContent: "space-between",
   },
   inputField: {
-    flex: "1",
-    minWidth: "140px",
-    padding: "10px",
-    borderRadius: "5px",
-    border: "none",
-    backgroundColor: "#223662",
-    color: "#FFFFFF",
+    // flex: "1",
+    // minWidth: "140px",
+    // padding: "10px",
+    // borderRadius: "5px",
+    // // border: "none",
+    // backgroundColor: "#202936",
+    // color: "#FFFFFF",
   },
   saveButton: {
     flex: "1 1 100%",

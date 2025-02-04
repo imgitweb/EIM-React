@@ -158,6 +158,7 @@ function PathUnicorn8() {
                         <div className="form-group">
                           <label>Profile Name</label>
                           <input
+                            className="form-control"
                             type="text"
                             name="profileName"
                             placeholder="Enter Profile Name"
@@ -171,6 +172,7 @@ function PathUnicorn8() {
                         <div className="form-group">
                           <label>Select Product / Service</label>
                           <input
+                            className="form-control"
                             type="text"
                             name="productService"
                             placeholder="Enter Product / Service"
@@ -188,6 +190,7 @@ function PathUnicorn8() {
                         <div className="form-group">
                           <label>Age Group</label>
                           <input
+                            className="form-control"
                             type="text"
                             name="ageGroup"
                             placeholder="Enter Age Group"
@@ -243,6 +246,7 @@ function PathUnicorn8() {
                         <div className="form-group">
                           <label>Country</label>
                           <input
+                            className="form-control"
                             type="text"
                             name="country"
                             placeholder="Enter Country"
@@ -256,6 +260,7 @@ function PathUnicorn8() {
                         <div className="form-group">
                           <label>State</label>
                           <input
+                            className="form-control"
                             type="text"
                             name="state"
                             placeholder="Enter State"
@@ -273,6 +278,7 @@ function PathUnicorn8() {
                         <div className="form-group">
                           <label>Preferred Platforms</label>
                           <select
+                            className="form-control"
                             name="preferredPlatform"
                             value={formData.preferredPlatform}
                             onChange={handleInputChange}>
@@ -288,6 +294,7 @@ function PathUnicorn8() {
                         <div className="form-group">
                           <label>Tech Savviness</label>
                           <select
+                            className="form-control"
                             name="techSavviness"
                             value={formData.techSavviness}
                             onChange={handleInputChange}>
@@ -303,6 +310,7 @@ function PathUnicorn8() {
                         <div className="form-group">
                           <label>Content Preferences</label>
                           <select
+                            className="form-control"
                             name="contentPreference"
                             value={formData.contentPreference}
                             onChange={handleInputChange}>
