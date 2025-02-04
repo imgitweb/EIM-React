@@ -138,6 +138,7 @@ function PathUnicorn9() {
                           <form style={{ width: "45%" }}>
                             <div style={{ marginBottom: "15px" }}>
                               <input
+                                className="form-control"
                                 type="text"
                                 placeholder="Full Name"
                                 style={inputStyle}
@@ -145,6 +146,7 @@ function PathUnicorn9() {
                             </div>
                             <div style={{ marginBottom: "15px" }}>
                               <input
+                                className="form-control"
                                 type="email"
                                 placeholder="Email"
                                 style={inputStyle}
@@ -152,6 +154,7 @@ function PathUnicorn9() {
                             </div>
                             <div style={{ marginBottom: "15px" }}>
                               <input
+                                className="form-control"
                                 type="tel"
                                 placeholder="Phone Number"
                                 style={inputStyle}
@@ -159,6 +162,7 @@ function PathUnicorn9() {
                             </div>
                             <div style={{ marginBottom: "15px" }}>
                               <select
+                                className="form-control"
                                 style={{ ...inputStyle, padding: "10px" }}>
                                 <option value="">Purpose</option>
                                 <option value="newsletter">
@@ -172,6 +176,7 @@ function PathUnicorn9() {
                           </form>
                           <div style={{ width: "45%" }}>
                             <textarea
+                              className="form-control"
                               placeholder="Message"
                               style={{
                                 ...inputStyle,
@@ -211,11 +216,12 @@ function PathUnicorn9() {
 }
 
 const inputStyle = {
-  width: "100%",
-  padding: "10px",
-  borderRadius: "5px",
-  border: "1px solid #ddd",
-  fontSize: "14px",
+  // width: "100%",
+  // padding: "10px",
+  // borderRadius: "5px",
+  // backgroundColor: "#202936",
+  // border: "1px solid #ddd",
+  // fontSize: "14px",
 };
 
 export default PathUnicorn9;

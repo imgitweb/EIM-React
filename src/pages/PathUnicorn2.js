@@ -48,7 +48,7 @@ function PathUnicorn2() {
   };
 
   const handleCardClick = (card) => {
-    alert(`Clicked on: ${card.title}`);
+    window.location.href = "/path-unicorn4"; // Navigate to the new page
   };
 
   return (

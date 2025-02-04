@@ -126,6 +126,7 @@ function PathUnicorn10() {
                         <div className="form-group">
                           <label>Full Name</label>
                           <input
+                            className="form-control"
                             type="text"
                             name="fullName"
                             placeholder="Enter your full name"
@@ -137,6 +138,7 @@ function PathUnicorn10() {
                         <div className="form-group">
                           <label>Email</label>
                           <input
+                            className="form-control"
                             type="email"
                             name="email"
                             placeholder="Enter your email"
@@ -148,6 +150,7 @@ function PathUnicorn10() {
                         <div className="form-group">
                           <label>Phone Number</label>
                           <input
+                            className="form-control"
                             type="text"
                             name="phoneNumber"
                             placeholder="Enter your phone number"
@@ -158,6 +161,7 @@ function PathUnicorn10() {
                         <div className="form-group">
                           <label>Purpose</label>
                           <select
+                            className="form-control"
                             name="purpose"
                             value={formData.purpose}
                             onChange={handleInputChange}
@@ -180,6 +184,7 @@ function PathUnicorn10() {
                         <div className="form-group message-group">
                           <label>Message</label>
                           <textarea
+                            className="form-control"
                             name="message"
                             placeholder="Enter your message"
                             value={formData.message}

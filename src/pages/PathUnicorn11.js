@@ -138,7 +138,7 @@ function PathUnicorn11() {
                             fontWeight: "bold", // Highlighted text styling
                             // color: "#223662", // Adjust the color as needed
                           }}>
-                          Sales Funnel
+                          SALES FUNNEL
                         </span>
                         <Link
                           to="/salesfunnel"
@@ -160,6 +160,7 @@ function PathUnicorn11() {
                         <div>
                           <label>Full Name</label>
                           <input
+                            className="form-control"
                             type="text"
                             name="fullName"
                             value={formData.fullName}
@@ -172,11 +173,11 @@ function PathUnicorn11() {
                             </span>
                           )}
                         </div>
-
                         {/* Email */}
                         <div>
                           <label>Email</label>
                           <input
+                            className="form-control"
                             type="email"
                             name="email"
                             value={formData.email}
@@ -189,11 +190,11 @@ function PathUnicorn11() {
                             </span>
                           )}
                         </div>
-
                         {/* Phone Number */}
                         <div>
                           <label>Phone Number</label>
                           <input
+                            className="form-control"
                             type="text"
                             name="phoneNumber"
                             value={formData.phoneNumber}
@@ -206,11 +207,11 @@ function PathUnicorn11() {
                             </span>
                           )}
                         </div>
-
                         {/* Interest */}
                         <div>
                           <label>What are you interested in?</label>
                           <select
+                            className="form-control"
                             name="interest"
                             value={formData.interest}
                             onChange={handleChange}>
@@ -227,11 +228,11 @@ function PathUnicorn11() {
                             </span>
                           )}
                         </div>
-
                         {/* Budget */}
                         <div>
                           <label>What is your budget?</label>
                           <select
+                            className="form-control"
                             name="budget"
                             value={formData.budget}
                             onChange={handleChange}>
@@ -246,23 +247,20 @@ function PathUnicorn11() {
                             </span>
                           )}
                         </div>
-
                         {/* Additional Notes */}
                         <div>
                           <label>Tell us about your needs (optional)</label>
                           <textarea
+                            className="form-control"
                             name="notes"
                             value={formData.notes}
                             onChange={handleChange}
                             rows="5"></textarea>
                         </div>
-
                         {/* Save Button */}
-                        <div className="form-row">
-                          <button type="submit" className="save-button">
-                            Save
-                          </button>
-                        </div>
+                        <button type="submit" className="save-button">
+                          Save
+                        </button>{" "}
                       </form>
                     </div>
                   </div>
