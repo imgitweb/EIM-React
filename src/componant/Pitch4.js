@@ -1,6 +1,6 @@
 import React from "react";
 
-function Pitch4() {
+function Pitch4({ id, solution }) {
   return (
     <div
       style={{
@@ -53,25 +53,25 @@ function Pitch4() {
               <text
                 className="st3 st21 st22"
                 transform="matrix(1.0012 0 0 1 546.706 165.03)">
-                &lt;&lt; Write up &gt;&gt;
+                {solution[0]}
               </text>
               <path d="M546.71 231.68h102.71v18.36H546.71z" className="st10" />
               <text
                 className="st3 st21 st22"
                 transform="matrix(1.0012 0 0 1 546.706 241.245)">
-                &lt;&lt; Write up &gt;&gt;
+                {solution[1]}
               </text>
               <path d="M546.71 308.06h102.71v18.36H546.71z" className="st10" />
               <text
                 className="st3 st21 st22"
                 transform="matrix(1.0012 0 0 1 546.706 317.626)">
-                &lt;&lt; Write up &gt;&gt;
+                {solution[2]}
               </text>
               <path d="M546.71 387.39h102.71v18.36H546.71z" className="st10" />
               <text
                 className="st3 st21 st22"
                 transform="matrix(1.0012 0 0 1 546.706 396.958)">
-                &lt;&lt; Write up &gt;&gt;
+                {solution[3]}
               </text>
               <path d="M546.71 279.53h141.18v24.45H546.71z" className="st10" />
               <text

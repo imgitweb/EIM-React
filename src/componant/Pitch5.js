@@ -1,6 +1,6 @@
 import React from "react";
 
-function Pitch5() {
+function Pitch5({ id, ProductOverview, unique, tested, firstToMarket }) {
   return (
     <div
       style={{
@@ -32,22 +32,22 @@ function Pitch5() {
               <text
                 className="st3 st24 st25"
                 transform="matrix(1.0012 0 0 1 44.221 179.332)">
-                &lt;&lt; Write up &gt;&gt;
+                &lt;&lt; {unique ? "Yes" : "No"} &gt;&gt;
               </text>
               <text
                 className="st3 st24 st25"
                 transform="matrix(1.0012 0 0 1 239.177 383.982)">
-                &lt;&lt; Write up &gt;&gt;
+                &lt;&lt; {tested ? "Yes" : "No"} &gt;&gt;
               </text>
               <text
                 className="st3 st24 st25"
                 transform="matrix(1.0012 0 0 1 44.221 383.982)">
-                &lt;&lt; Write up &gt;&gt;
+                &lt;&lt;{tested ? "Yes" : "No"} &gt;&gt;
               </text>
               <text
                 className="st3 st24 st25"
                 transform="matrix(1.0012 0 0 1 239.177 179.332)">
-                &lt;&lt; Write up &gt;&gt;
+                &lt;&lt; {tested ? "Yes" : "No"} &gt;&gt;
               </text>
               <text
                 className="st26 st4 st27"
@@ -60,12 +60,12 @@ function Pitch5() {
                 Tested
               </text>
               <text
-                className="st26 st4 st27"
+                className="st26 st4 st26"
                 transform="matrix(1.0012 0 0 1 44.221 359.047)">
                 First to market?
               </text>
               <text
-                className="st26 st4 st27"
+                className="st26 st4 st26"
                 transform="matrix(1.0012 0 0 1 239.178 359.047)">
                 Any other feature{" "}
               </text>
