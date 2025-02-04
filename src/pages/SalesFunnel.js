@@ -96,25 +96,25 @@ const SalesFunnel = () => {
                         number: 1,
                         label: "PRODUCT LISTING",
                         color: "#FFA726",
-                        to: "/path-unicorn7",
+                        to: "/product-listing",
                       },
                       {
                         number: 2,
                         label: "CLIENT PERSONA",
                         color: "#66BB6A",
-                        to: "/path-unicorn8",
+                        to: "/client-persona",
                       },
                       {
                         number: 3,
                         label: "MARKETING FUNNEL",
                         color: "#42A5F5",
-                        to: "/path-unicorn9",
+                        to: "/marketing-funnel",
                       },
                       {
                         number: 4,
                         label: "SALES FUNNEL",
                         color: "#EF5350",
-                        to: "/path-unicorn11",
+                        to: "/marketing-funnel",
                       },
                     ].map((step) => (
                       <div key={step.number} style={styles.step}>

@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import LeftSidebar from "../componant/LeftSidebar";
 import Navigation from "../componant/Navigation";
 import SerchBar from "../componant/SearchBar";
+import Sidebar from "./Sidebar";
 
 function PathUnicorn11() {
   const [isActive, setActive] = useState(false);
@@ -87,8 +89,7 @@ function PathUnicorn11() {
                           <li className="breadcrumb-item">
                             <a
                               className="text-muted text-decoration-none"
-                              href="../dark/index.html"
-                            >
+                              href="../dark/index.html">
                               Home
                             </a>
                           </li>
@@ -110,65 +111,53 @@ function PathUnicorn11() {
                   </div>
                 </div>
               </div>
-              <div className="card">
-                <div
-                  style={{
-                    display: "flex",
-                    // backgroundColor: "#1a001a",
-                    color: "#fff",
-                    fontFamily: "Arial, sans-serif",
-                  }}
-                >
+              <div className="card body4">
+                <div className="sales-funnel-container">
                   {/* Sidebar */}
-                  <div
-                    style={{
-                      width: "20%",
-                      backgroundColor: "#000",
-                      padding: "20px",
-                      display: "flex",
-                      alignItems: "center",
-                    }}
-                  >
-                    <h2
-                      style={{
-                        color: "#fff",
-                        textAlign: "center",
-                      }}
-                    >
-                      Sales Funnel
-                    </h2>
+                  <div className="sales-funnel-sidebar">
+                    <Sidebar
+                      selectedSection="Product Listing"
+                      setSelectedSection={() => {}}
+                    />
                   </div>
 
-                  {/* Main Form */}
-                  <div
-                    style={{
-                      flex: 1,
-                      padding: "20px",
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                    }}
-                  >
-                    <div
-                      style={{
-                        width: "800px",
-                        borderRadius: "8px",
-                        padding: "20px",
-                      }}
-                    >
+                  {/* Form Container */}
+                  <div className="sales-funnel-form-container">
+                    <div className="sales-funnel-form">
                       <h1
                         style={{
-                          color: "#ff9900",
-                          textAlign: "center",
+                          display: "flex",
+                          justifyContent: "space-between", // Pushes elements to both ends
+                          alignItems: "center", // Aligns items vertically
+                          fontSize: "28px",
                           marginBottom: "20px",
-                        }}
-                      >
-                        SALES <span style={{ color: "#fff" }}>FUNNEL</span>
+                          width: "100%", // Ensures full width
+                        }}>
+                        <span
+                          style={{
+                            fontWeight: "bold", // Highlighted text styling
+                            // color: "#223662", // Adjust the color as needed
+                          }}>
+                          Sales Funnel
+                        </span>
+                        <Link
+                          to="/salesfunnel"
+                          className="text-end btn btn-lg bg-default"
+                          style={{
+                            backgroundColor: "#223662",
+                            color: "white",
+                            padding: "10px 20px",
+                            borderRadius: "5px",
+                            textDecoration: "none",
+                            fontSize: "16px",
+                          }}>
+                          ← Back
+                        </Link>
                       </h1>
 
-                      <form onSubmit={handleSubmit} className="card p-5">
+                      <form onSubmit={handleSubmit}>
                         {/* Full Name */}
-                        <div style={{ marginBottom: "15px" }}>
+                        <div>
                           <label>Full Name</label>
                           <input
                             type="text"
@@ -176,23 +165,16 @@ function PathUnicorn11() {
                             value={formData.fullName}
                             onChange={handleChange}
                             placeholder="Enter your name"
-                            style={{
-                              width: "100%",
-                              padding: "10px",
-                              marginTop: "5px",
-                              borderRadius: "5px",
-                              border: "none",
-                            }}
                           />
                           {errors.fullName && (
-                            <span style={{ color: "red", fontSize: "12px" }}>
+                            <span className="error-message">
                               {errors.fullName}
                             </span>
                           )}
                         </div>
 
                         {/* Email */}
-                        <div style={{ marginBottom: "15px" }}>
+                        <div>
                           <label>Email</label>
                           <input
                             type="email"
@@ -200,23 +182,16 @@ function PathUnicorn11() {
                             value={formData.email}
                             onChange={handleChange}
                             placeholder="Enter your email"
-                            style={{
-                              width: "100%",
-                              padding: "10px",
-                              marginTop: "5px",
-                              borderRadius: "5px",
-                              border: "none",
-                            }}
                           />
                           {errors.email && (
-                            <span style={{ color: "red", fontSize: "12px" }}>
+                            <span className="error-message">
                               {errors.email}
                             </span>
                           )}
                         </div>
 
                         {/* Phone Number */}
-                        <div style={{ marginBottom: "15px" }}>
+                        <div>
                           <label>Phone Number</label>
                           <input
                             type="text"
@@ -224,36 +199,21 @@ function PathUnicorn11() {
                             value={formData.phoneNumber}
                             onChange={handleChange}
                             placeholder="Enter your phone number"
-                            style={{
-                              width: "100%",
-                              padding: "10px",
-                              marginTop: "5px",
-                              borderRadius: "5px",
-                              border: "none",
-                            }}
                           />
                           {errors.phoneNumber && (
-                            <span style={{ color: "red", fontSize: "12px" }}>
+                            <span className="error-message">
                               {errors.phoneNumber}
                             </span>
                           )}
                         </div>
 
                         {/* Interest */}
-                        <div style={{ marginBottom: "15px" }}>
+                        <div>
                           <label>What are you interested in?</label>
                           <select
                             name="interest"
                             value={formData.interest}
-                            onChange={handleChange}
-                            style={{
-                              width: "100%",
-                              padding: "10px",
-                              marginTop: "5px",
-                              borderRadius: "5px",
-                              border: "none",
-                            }}
-                          >
+                            onChange={handleChange}>
                             <option value="">Select</option>
                             <option value="demo">Request a Demo</option>
                             <option value="pricing">Learn about pricing</option>
@@ -262,75 +222,47 @@ function PathUnicorn11() {
                             </option>
                           </select>
                           {errors.interest && (
-                            <span style={{ color: "red", fontSize: "12px" }}>
+                            <span className="error-message">
                               {errors.interest}
                             </span>
                           )}
                         </div>
 
                         {/* Budget */}
-                        <div style={{ marginBottom: "15px" }}>
+                        <div>
                           <label>What is your budget?</label>
                           <select
                             name="budget"
                             value={formData.budget}
-                            onChange={handleChange}
-                            style={{
-                              width: "100%",
-                              padding: "10px",
-                              marginTop: "5px",
-                              borderRadius: "5px",
-                              border: "none",
-                            }}
-                          >
+                            onChange={handleChange}>
                             <option value="">Select</option>
                             <option value="under-500">Under $500</option>
                             <option value="500-1000">$500 - $1000</option>
                             <option value="1000-2000">$1000 - $2000</option>
                           </select>
                           {errors.budget && (
-                            <span style={{ color: "red", fontSize: "12px" }}>
+                            <span className="error-message">
                               {errors.budget}
                             </span>
                           )}
                         </div>
 
                         {/* Additional Notes */}
-                        <div style={{ marginBottom: "15px" }}>
+                        <div>
                           <label>Tell us about your needs (optional)</label>
                           <textarea
                             name="notes"
                             value={formData.notes}
                             onChange={handleChange}
-                            placeholder="Enter additional details"
-                            rows="5"
-                            style={{
-                              width: "100%",
-                              padding: "10px",
-                              marginTop: "5px",
-                              borderRadius: "5px",
-                              border: "none",
-                            }}
-                          ></textarea>
+                            rows="5"></textarea>
                         </div>
 
                         {/* Save Button */}
-                        <button
-                          type="submit"
-                          style={{
-                            backgroundColor: "#ffcc00",
-                            color: "#000",
-                            padding: "10px 20px",
-                            border: "none",
-                            borderRadius: "5px",
-                            cursor: "pointer",
-                            fontWeight: "bold",
-                            display: "block",
-                            margin: "0 auto",
-                          }}
-                        >
-                          Save
-                        </button>
+                        <div className="form-row">
+                          <button type="submit" className="save-button">
+                            Save
+                          </button>
+                        </div>
                       </form>
                     </div>
                   </div>

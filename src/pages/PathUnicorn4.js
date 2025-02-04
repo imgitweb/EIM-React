@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import LeftSidebar from "../componant/LeftSidebar";
 import Navigation from "../componant/Navigation";
 import SerchBar from "../componant/SearchBar";
@@ -113,22 +114,16 @@ function PathUnicorn4() {
                       alignItems: "center",
                       marginBottom: "20px",
                     }}>
-                    <h1 style={{ fontSize: "24px" }}>
+                    <h1 id="fontSize" style={{ fontSize: "24px" }}>
                       Agile Business Analysis: From Strategic Planning to
                       Delivering Value
                     </h1>
-                    <button
-                      style={{
-                        backgroundColor: "#FFE84E",
-                        color: "#2D0E41",
-                        border: "none",
-                        padding: "10px 20px",
-                        borderRadius: "5px",
-                        cursor: "pointer",
-                      }}
-                      onClick={() => alert("Exiting Course")}>
-                      Exit Course
-                    </button>
+                    <Link
+                      to="/path-unicorn"
+                      className="text-end btn btn-lg bg-default"
+                      style={{ backgroundColor: "#223662", color: "white" }}>
+                      ← Back
+                    </Link>
                   </div>
 
                   <div
@@ -252,7 +247,7 @@ function PathUnicorn4() {
                       style={{ display: "flex", gap: "20px" }}
                       className="row">
                       {/* Left Content */}
-                      <div className="col-md-6 col-12 ">
+                      <div className="col-md-6 col-12 card-body ">
                         <div
                           style={{
                             flex: 1,
@@ -281,7 +276,7 @@ function PathUnicorn4() {
                           borderRadius: "8px",
                           padding: "20px",
                         }}
-                        className="col-12 col-md-6">
+                        className=" col-12 card-body">
                         <h3 style={{ fontSize: "20px", marginBottom: "10px" }}>
                           Graph Placeholder
                         </h3>

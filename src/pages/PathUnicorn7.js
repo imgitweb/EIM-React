@@ -1,74 +1,62 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import LeftSidebar from "../componant/LeftSidebar";
 import Navigation from "../componant/Navigation";
 import SerchBar from "../componant/SearchBar";
+import Sidebar from "./Sidebar";
 
 const PathUnicorn7 = () => {
   const [isActive, setActive] = useState(false);
+  const [form, setForm] = useState({ name: "", category: "", price: "" });
+  const [productListing, setProductListing] = useState([]);
 
   const ToggleEvent = () => {
     setActive((prevState) => !prevState);
   };
-  // State to manage products and form inputs
-  const [products, setProducts] = useState([]);
-  const [form, setForm] = useState({
-    name: "",
-    category: "",
-    price: "",
-  });
 
-  // Handle input change
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
   };
 
-  // Add product to the table
-  const addProduct = () => {
+  const addData = () => {
     if (form.name && form.category && form.price) {
-      setProducts([
-        ...products,
-        { ...form, id: products.length + 1 }, // Auto-generate ID
-      ]);
-      setForm({ name: "", category: "", price: "" }); // Reset form
+      const newEntry = { ...form, id: Date.now() };
+      setProductListing([...productListing, newEntry]);
+      setForm({ name: "", category: "", price: "" });
     } else {
       alert("Please fill all fields!");
     }
   };
 
-  // Delete a product from the list
-  const deleteProduct = (id) => {
-    setProducts(products.filter((product) => product.id !== id));
+  const deleteData = (id) => {
+    setProductListing(productListing.filter((item) => item.id !== id));
   };
 
   return (
     <>
       <div id="main-wrapper" className={isActive ? "show-sidebar" : ""}>
-        {/* Sidebar Start */}
         <LeftSidebar onButtonClick={ToggleEvent} />
-        {/*  Sidebar End */}
         <div className="page-wrapper">
           <Navigation onButtonClick={ToggleEvent} />
           <div className="body-wrapper">
             <div className="container-fluid">
-              {/* Header */}
               <div className="card bg-info-subtle shadow-none position-relative overflow-hidden mb-4">
                 <div className="card-body px-4 py-3">
                   <div className="row align-items-center">
                     <div className="col-9">
-                      <h4 className="fw-semibold mb-8">IM Mentor Club</h4>
+                      <h4 className="fw-semibold mb-8">PRODUCT LISTING</h4>
                       <nav aria-label="breadcrumb">
                         <ol className="breadcrumb">
                           <li className="breadcrumb-item">
                             <a
                               className="text-muted text-decoration-none"
-                              href="../dark/index.html"
-                            >
+                              href="../dark/index.html">
                               Home
                             </a>
                           </li>
                           <li className="breadcrumb-item" aria-current="page">
-                            IM Mentor Club
+                            PRODUCT LISTING
                           </li>
                         </ol>
                       </nav>
@@ -85,38 +73,59 @@ const PathUnicorn7 = () => {
                   </div>
                 </div>
               </div>
-              <div className="card">
-                <div style={styles.container}>
-                  {/* Sidebar */}
-                  <div style={styles.sidebar}>
-                    <h3 style={styles.sidebarTitle}>Sales Funnel</h3>
-                    <ul style={styles.menu}>
-                      {[
-                        "Product Listing",
-                        "Product Pricing",
-                        "Client Persona",
-                        "Marketing Funnel",
-                        "Sales Funnel",
-                      ].map((item, index) => (
-                        <li key={index} style={styles.menuItem}>
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
+
+              {/* Layout */}
+              <div className="card" style={styles.card}>
+                <div className="row">
+                  {/* Sidebar Component */}
+                  <div className="col-md-2 col-12">
+                    <Sidebar
+                      selectedSection="Product Listing"
+                      setSelectedSection={() => {}}
+                    />
                   </div>
 
                   {/* Main Content */}
-                  <div style={styles.mainContent}>
-                    <h1 style={styles.title}>
-                      <span style={styles.highlight}>PRODUCT</span> LISTING
+                  <div style={styles.mainContent} className="col-md-6 col-12">
+                    <h1
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between", // Pushes elements to both ends
+                        alignItems: "center", // Aligns items vertically
+                        fontSize: "28px",
+                        marginBottom: "20px",
+                        marginTop: "10px",
+
+                        width: "100%", // Ensures full width
+                      }}>
+                      <span
+                        style={{
+                          fontWeight: "bold", // Highlighted text styling
+                          // color: "#223662", // Adjust the color as needed
+                        }}>
+                        PRODUCT LISTING
+                      </span>
+                      <Link
+                        to="/salesfunnel"
+                        className="text-end btn btn-lg bg-default"
+                        style={{
+                          backgroundColor: "#223662",
+                          color: "white",
+                          padding: "10px 20px",
+                          borderRadius: "5px",
+                          textDecoration: "none",
+                          fontSize: "16px",
+                        }}>
+                        ← Back
+                      </Link>
                     </h1>
 
                     {/* Input Form */}
-                    <div style={styles.form}>
+                    <form style={styles.form} className="form-container">
                       <input
                         type="text"
                         name="name"
-                        placeholder="Product Name"
+                        placeholder="Name"
                         value={form.name}
                         onChange={handleInputChange}
                         style={styles.inputField}
@@ -124,7 +133,7 @@ const PathUnicorn7 = () => {
                       <input
                         type="text"
                         name="category"
-                        placeholder="Product Category"
+                        placeholder="Category"
                         value={form.category}
                         onChange={handleInputChange}
                         style={styles.inputField}
@@ -132,48 +141,44 @@ const PathUnicorn7 = () => {
                       <input
                         type="text"
                         name="price"
-                        placeholder="Product Price (Approx)"
+                        placeholder="Price"
                         value={form.price}
                         onChange={handleInputChange}
                         style={styles.inputField}
                       />
-                      <button onClick={addProduct} style={styles.saveButton}>
+                      <button
+                        onClick={addData}
+                        type="button"
+                        style={styles.saveButton}>
                         Save
                       </button>
-                    </div>
+                    </form>
 
-                    {/* Table */}
-                    <div style={styles.tableContainer}>
+                    {/* Product Listing Table */}
+                    <div
+                      style={styles.tableContainer}
+                      className="table-container">
                       <table style={styles.table}>
                         <thead>
                           <tr>
-                            {[
-                              "S.No.",
-                              "Product Name",
-                              "Category",
-                              "Price",
-                              "Action",
-                            ].map((header, index) => (
-                              <th key={index} style={styles.tableHeader}>
-                                {header}
-                              </th>
-                            ))}
+                            <th style={styles.tableHeader}>S.No.</th>
+                            <th style={styles.tableHeader}>Name</th>
+                            <th style={styles.tableHeader}>Category</th>
+                            <th style={styles.tableHeader}>Price</th>
+                            <th style={styles.tableHeader}>Action</th>
                           </tr>
                         </thead>
                         <tbody>
-                          {products.map((product, index) => (
-                            <tr key={product.id}>
+                          {productListing.map((item, index) => (
+                            <tr key={item.id}>
                               <td style={styles.tableData}>{index + 1}</td>
-                              <td style={styles.tableData}>{product.name}</td>
-                              <td style={styles.tableData}>
-                                {product.category}
-                              </td>
-                              <td style={styles.tableData}>{product.price}</td>
+                              <td style={styles.tableData}>{item.name}</td>
+                              <td style={styles.tableData}>{item.category}</td>
+                              <td style={styles.tableData}>{item.price}</td>
                               <td style={styles.tableData}>
                                 <button
-                                  onClick={() => deleteProduct(product.id)}
-                                  style={styles.deleteButton}
-                                >
+                                  onClick={() => deleteData(item.id)}
+                                  style={styles.deleteButton}>
                                   Delete
                                 </button>
                               </td>
@@ -195,48 +200,26 @@ const PathUnicorn7 = () => {
   );
 };
 
+// Styles
 const styles = {
-  container: {
-    display: "flex",
-    height: "60vh",
-    color: "#FFFFFF",
+  card: {
+    height: "100%",
   },
-  sidebar: {
-    width: "250px",
-    backgroundColor: "#000000",
-    padding: "20px",
-  },
-  sidebarTitle: {
-    fontSize: "20px",
-    marginBottom: "20px",
-  },
-  menu: {
-    listStyle: "none",
-    padding: 0,
-  },
-  menuItem: {
-    marginBottom: "10px",
-    color: "#FFD700",
-    cursor: "pointer",
-  },
+
   mainContent: {
     flex: 1,
     padding: "20px",
   },
-  title: {
-    fontSize: "28px",
-    marginBottom: "20px",
-  },
-  highlight: {
-    color: "#FFA500",
-  },
   form: {
     display: "flex",
+    flexWrap: "wrap",
     gap: "10px",
     marginBottom: "20px",
+    justifyContent: "space-between",
   },
   inputField: {
-    flex: 1,
+    flex: "1",
+    minWidth: "140px",
     padding: "10px",
     borderRadius: "5px",
     border: "none",
@@ -244,8 +227,9 @@ const styles = {
     color: "#FFFFFF",
   },
   saveButton: {
+    flex: "1 1 100%",
     padding: "10px 20px",
-    backgroundColor: "#FFD700",
+    backgroundColor: "#4F73D9",
     border: "none",
     borderRadius: "5px",
     cursor: "pointer",
@@ -255,19 +239,24 @@ const styles = {
     backgroundColor: "#223662",
     padding: "20px",
     borderRadius: "10px",
+    overflowX: "auto",
   },
   table: {
     width: "100%",
     borderCollapse: "collapse",
+    minWidth: "600px",
   },
   tableHeader: {
     textAlign: "left",
     padding: "10px",
     borderBottom: "2px solid #FFFFFF",
+    color: "#FFFFFF",
+    backgroundColor: "#223662",
   },
   tableData: {
     padding: "10px",
     borderBottom: "1px solid #FFFFFF",
+    color: "#FFFFFF",
   },
   deleteButton: {
     padding: "5px 10px",
@@ -278,5 +267,25 @@ const styles = {
     cursor: "pointer",
   },
 };
+
+// Mobile Styling
+const mobileStyle = `
+  @media (max-width: 768px) {
+    .form-container {
+      flex-direction: column;
+      gap: 10px;
+    }
+    .table-container {
+      overflow-x: auto;
+      max-width: 100%;
+    }
+    table {
+      min-width: 600px;
+    }
+  }
+`;
+const styleElement = document.createElement("style");
+styleElement.innerHTML = mobileStyle;
+document.head.appendChild(styleElement);
 
 export default PathUnicorn7;

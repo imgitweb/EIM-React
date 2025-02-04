@@ -49,8 +49,7 @@ function PathUnicorn3() {
                           <li className="breadcrumb-item">
                             <a
                               className="text-muted text-decoration-none"
-                              href="../dark/index.html"
-                            >
+                              href="../dark/index.html">
                               Home
                             </a>
                           </li>
@@ -79,8 +78,7 @@ function PathUnicorn3() {
                     color: "#FFF",
                     minHeight: "100vh",
                     padding: "20px",
-                  }}
-                >
+                  }}>
                   {/* Back Button */}
                   <div style={{ marginBottom: "20px" }}>
                     <button
@@ -94,8 +92,7 @@ function PathUnicorn3() {
                         display: "flex",
                         alignItems: "center",
                         gap: "5px",
-                      }}
-                    >
+                      }}>
                       <span style={{ fontSize: "18px" }}>←</span> Back to path
                     </button>
                   </div>
@@ -107,9 +104,11 @@ function PathUnicorn3() {
                       justifyContent: "space-between",
                       marginBottom: "20px",
                     }}
-                  >
+                    className="row">
                     {/* Course Title and Description */}
-                    <div style={{ flex: 1, paddingRight: "20px" }}>
+                    <div
+                      style={{ flex: 1, paddingRight: "20px" }}
+                      className="col-md-6 col-12">
                       <h1 style={{ fontSize: "28px", marginBottom: "10px" }}>
                         Brand Building
                       </h1>
@@ -129,7 +128,7 @@ function PathUnicorn3() {
                         borderRadius: "8px",
                         padding: "20px",
                       }}
-                    >
+                      className="col-md-6 col-12">
                       <h3 style={{ fontSize: "20px", marginBottom: "15px" }}>
                         Graph Placeholder
                       </h3>
@@ -144,8 +143,7 @@ function PathUnicorn3() {
                           alignItems: "center",
                           justifyContent: "center",
                           color: "#2D0E41",
-                        }}
-                      >
+                        }}>
                         Graph Visualization
                       </div>
                     </div>
@@ -157,8 +155,7 @@ function PathUnicorn3() {
                       display: "flex",
                       marginBottom: "20px",
                       gap: "20px",
-                    }}
-                  >
+                    }}>
                     {["Courses", "About"].map((tab) => (
                       <button
                         key={tab}
@@ -172,8 +169,7 @@ function PathUnicorn3() {
                           cursor: "pointer",
                           padding: "10px 20px",
                           borderRadius: "5px",
-                        }}
-                      >
+                        }}>
                         {tab}
                       </button>
                     ))}
@@ -193,13 +189,11 @@ function PathUnicorn3() {
                             borderRadius: "8px",
                             overflow: "hidden",
                             marginBottom: "20px",
-                          }}
-                        >
+                          }}>
                           <video
                             style={{ width: "100%", height: "auto" }}
                             controls
-                            poster="https://via.placeholder.com/800x400?text=Video+Thumbnail"
-                          >
+                            poster="https://via.placeholder.com/800x400?text=Video+Thumbnail">
                             <source src="video.mp4" type="video/mp4" />
                             Your browser does not support the video tag.
                           </video>
@@ -211,8 +205,7 @@ function PathUnicorn3() {
                         {/* Description */}
                         <div style={{ flex: 1 }}>
                           <h3
-                            style={{ fontSize: "20px", marginBottom: "10px" }}
-                          >
+                            style={{ fontSize: "20px", marginBottom: "10px" }}>
                             Description
                           </h3>
                           <p style={{ lineHeight: "1.6" }}>
@@ -233,8 +226,7 @@ function PathUnicorn3() {
                                 borderRadius: "5px",
                                 marginRight: "10px",
                                 cursor: "pointer",
-                              }}
-                            >
+                              }}>
                               Get Course
                             </button>
                             <button
@@ -246,8 +238,7 @@ function PathUnicorn3() {
                                 border: "none",
                                 borderRadius: "5px",
                                 cursor: "pointer",
-                              }}
-                            >
+                              }}>
                               Download Course
                             </button>
                           </div>
@@ -256,8 +247,7 @@ function PathUnicorn3() {
                         {/* Table of Contents */}
                         <div style={{ flex: 1 }}>
                           <h3
-                            style={{ fontSize: "20px", marginBottom: "10px" }}
-                          >
+                            style={{ fontSize: "20px", marginBottom: "10px" }}>
                             Table of Contents
                           </h3>
                           <ul style={{ listStyle: "none", padding: "0" }}>
@@ -270,8 +260,7 @@ function PathUnicorn3() {
                                   padding: "10px 0",
                                   borderBottom: "1px solid #4B1D6E",
                                   fontSize: "16px",
-                                }}
-                              >
+                                }}>
                                 <span>{item.title}</span>
                                 <span>{item.duration}</span>
                               </li>

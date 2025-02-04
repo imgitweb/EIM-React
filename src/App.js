@@ -75,27 +75,6 @@ function App() {
                 <Route path="/template" element={<Template />} />
                 <Route path="/training-videos" element={<TrainingVideos />} />
                 <Route path="/idea-validation" element={<IdeaValidation />} />
-                <Route path="/market-research" element={<Market_Research />} />
-                <Route
-                  path="/pitching-and-fund-rasing"
-                  element={<Pitching_And_Fundraising />}
-                />
-                <Route
-                  path="/legal-and-compliance-doc"
-                  element={<Compliance_Document />}
-                />
-                <Route
-                  path="/formation-and-banking-temp"
-                  element={<Banking_Template />}
-                />
-                <Route
-                  path="/hr-and-employee-agreement"
-                  element={<Hr_Employee_agreements />}
-                />
-                <Route
-                  path="/financial-and-accounting-docs"
-                  element={<Accounting_Document />}
-                />
                 <Route path="*" element={<NotFund />} />
               </Routes>
             </PrivateRoute>
