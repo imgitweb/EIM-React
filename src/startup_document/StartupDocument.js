@@ -188,24 +188,36 @@ export default function StartupDocument() {
                 <tr>
                   <td>Company Registration</td>
                   <td>
-                    <a
-                      href={`http://localhost:5000/${documentData.company_registration}`}
-                    >
-                      CR
-                    </a>
+                    <button className="btn btn-warning">
+                      <i className="fa fa-download"> </i>
+                    </button>
                   </td>
                 </tr>
                 <tr>
                   <td>Aadhar Card</td>
-                  <td>{documentData.aadhar_card}</td>
+                  <td>
+                    <button className="btn btn-warning">
+                      <i className="fa fa-download"> </i>
+                    </button>
+                  </td>
                 </tr>
                 <tr>
                   <td>PAN Card</td>
-                  <td>{documentData.pan_card}</td>
+                  <td>
+                    {" "}
+                    <button className="btn btn-warning">
+                      <i className="fa fa-download"> </i>
+                    </button>
+                  </td>
                 </tr>
                 <tr>
                   <td>DPIIT</td>
-                  <td>{documentData.dpiit}</td>
+                  <td>
+                    {" "}
+                    <button className="btn btn-warning">
+                      <i className="fa fa-download"> </i>
+                    </button>
+                  </td>
                 </tr>
               </table>
             ))

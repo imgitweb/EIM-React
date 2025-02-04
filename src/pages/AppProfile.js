@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import LeftSidebar from "../componant/LeftSidebar";
 import Navigation from "../componant/Navigation";
 import SerchBar from "../componant/SearchBar";
@@ -6,13 +6,83 @@ import AddTeam from "../Team/AddTeam";
 import TeamDetails from "../Team/TeamDetails";
 import IncorporationDetails from "../Incorporation/IncorporationDetails";
 import StartupDocument from "../startup_document/StartupDocument";
-
+import axios from "axios";
+import API_BASE_URL from "./../componant/config";
+const sections = [
+  {
+    title: "Week 1 - Introduction to Entrepreneurship",
+    content: [
+      "Understanding the startup ecosystem",
+      "Identifying market needs",
+      "Define problem statement and potential market size in your country and globally",
+      "Idea Ranking and chances of success meter (ESM Score out of 100)",
+      "Introduction to EIM and EIM Network",
+    ],
+  },
+  {
+    title: "Week 2 - Business Idea Validation",
+    content: [
+      "Techniques for validating ideas",
+      "Customer interviews and feedback",
+      "Identify potential sales and distribution channels",
+      "List out similar businesses, their success and failure patterns",
+      "List out potential impediments such as founders' knowledge, resources, money, and technology exposure",
+    ],
+  },
+  {
+    title: "Week 3 - First Cut of Business Model",
+    content: [
+      "Introduction to business model canvas",
+      "List out potential competitors and prepare a matrix",
+      "Examples of successful and failed business models",
+      "List 10 potential customers who would pay for your services and create customer personas",
+      "Fine-tune the revenue model for your idea",
+      "List required budget and resources for MLP and full-fledged product development",
+    ],
+  },
+  {
+    title: "Week 4 - Finalizing Numbers and Decision Making",
+    content: [
+      "Recalculate ESM",
+      "Create a viable plan to arrange the required budget and resources",
+      "Create a potential roadmap to ₹100 Crore revenue and positive EBITDA",
+      "Decision time – pursue the idea further or drop it",
+    ],
+  },
+];
 const AppProfile = () => {
+  const [profile, setProfile] = useState(false);
   const [isActive, setActive] = useState(false);
-
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [previewURL, setPreviewURL] = useState(null);
+  const [uploadedLogoPath, setUploadedLogoPath] = useState(null);
+  const startup_id = localStorage.getItem("token");
   const ToggleEvent = () => {
     setActive((prevState) => !prevState);
   };
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // Retrieve startup_id from localStorage
+        const response = await axios.get(
+          `${API_BASE_URL}/api/startup/getStartupInfo/${startup_id}`
+        );
+
+        // Extract only the 'startup' data from the response
+        const startupData = response.data?.startup || null; // Use optional chaining to avoid errors if 'startup' doesn't exist
+
+        console.log("Fetched Startup Data:", startupData); // Log the fetched startup data
+
+        setProfile(startupData); // Set the startup data to state
+      } catch (error) {
+        console.error("Error while fetching data:", error);
+        setProfile(null); // Set null in case of an error
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <>
       <div id="main-wrapper" className={isActive ? "show-sidebar" : ""}>
@@ -67,19 +137,8 @@ const AppProfile = () => {
                     <div className="col-lg-4 order-lg-1 order-2">
                       <div className="d-flex align-items-center justify-content-around m-4">
                         <div className="text-center">
-                          <i className="ti ti-file-description fs-6 d-block mb-2" />
-                          <h4 className="mb-0 lh-1">938</h4>
-                          <p className="mb-0 ">Posts</p>
-                        </div>
-                        <div className="text-center">
-                          <i className="ti ti-user-circle fs-6 d-block mb-2" />
-                          <h4 className="mb-0 lh-1">3,586</h4>
-                          <p className="mb-0 ">Followers</p>
-                        </div>
-                        <div className="text-center">
-                          <i className="ti ti-user-check fs-6 d-block mb-2" />
-                          <h4 className="mb-0 lh-1">2,659</h4>
-                          <p className="mb-0 ">Following</p>
+                          <h4 className="mb-0 lh-1">Alpha</h4>
+                          <p className="mb-0 ">Current Plan</p>
                         </div>
                       </div>
                     </div>
@@ -97,8 +156,11 @@ const AppProfile = () => {
                           </div>
                         </div>
                         <div className="text-center">
-                          <h5 className="mb-0">Mathew Anderson</h5>
-                          <p className="mb-0">Designer</p>
+                          {profile ? (
+                            <h5>{profile.startup_name}</h5>
+                          ) : (
+                            <p>No Name</p>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -116,30 +178,30 @@ const AppProfile = () => {
                         </li>
                         <li>
                           <a
-                            className="btn btn-secondary d-flex align-items-center justify-content-center p-2 fs-4 rounded-circle"
+                            className="btn btn-primary d-flex align-items-center justify-content-center p-2 fs-4 rounded-circle"
                             href="#"
                           >
-                            <i className="ti ti-brand-dribbble" />
+                            <i className="ti ti-brand-linkedin" />
                           </a>
                         </li>
                         <li>
                           <a
-                            className="btn btn-danger d-flex align-items-center justify-content-center p-2 fs-4 rounded-circle"
+                            className="btn btn-primary d-flex align-items-center justify-content-center p-2 fs-4 rounded-circle"
                             href="#"
                           >
-                            <i className="ti ti-brand-youtube" />
+                            <i className="ti ti-brand-twitter" />
                           </a>
                         </li>
                         <li>
                           <button className="btn btn-primary text-nowrap">
-                            Add To Story
+                            Upgrade Now
                           </button>
                         </li>
                       </ul>
                     </div>
                   </div>
                   <ul
-                    className="nav nav-pills user-profile-tab justify-content-end mt-2 bg-primary-subtle rounded-2 rounded-top-0"
+                    className="nav nav-pills user-profile-tab justify-content-center mt-2 bg-primary-subtle rounded-2 rounded-top-0"
                     id="pills-tab"
                     role="tablist"
                   >
@@ -205,6 +267,21 @@ const AppProfile = () => {
                         <span className="d-none d-md-block">Documents</span>
                       </button>
                     </li>
+                    <li className="nav-item" role="presentation">
+                      <button
+                        className="nav-link hstack gap-2 rounded-0 py-6"
+                        id="pills-gallery-tab"
+                        data-bs-toggle="pill"
+                        data-bs-target="#stage-task"
+                        type="button"
+                        role="tab"
+                        aria-controls="pills-gallery"
+                        aria-selected="false"
+                      >
+                        <i className="ti ti-list fs-5" />
+                        <span className="d-none d-md-block">Stage Task</span>
+                      </button>
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -266,205 +343,52 @@ const AppProfile = () => {
                                 <div className="card w-100 border position-relative overflow-hidden">
                                   <div className="card-body p-4">
                                     <h4 className="card-title">
-                                      Change Password
+                                      Profile Details
                                     </h4>
-                                    <p className="card-subtitle mb-4">
-                                      To change your password please confirm
-                                      here
-                                    </p>
-                                    <form>
-                                      <div className="mb-3">
-                                        <label
-                                          htmlFor="exampleInputPassword1"
-                                          className="form-label"
-                                        >
-                                          Current Password
-                                        </label>
-                                        <input
-                                          type="password"
-                                          className="form-control"
-                                          id="exampleInputPassword1"
-                                          defaultValue={12345678910}
-                                        />
-                                      </div>
-                                      <div className="mb-3">
-                                        <label
-                                          htmlFor="exampleInputPassword2"
-                                          className="form-label"
-                                        >
-                                          New Password
-                                        </label>
-                                        <input
-                                          type="password"
-                                          className="form-control"
-                                          id="exampleInputPassword2"
-                                          defaultValue={12345678910}
-                                        />
-                                      </div>
-                                      <div>
-                                        <label
-                                          htmlFor="exampleInputPassword3"
-                                          className="form-label"
-                                        >
-                                          Confirm Password
-                                        </label>
-                                        <input
-                                          type="password"
-                                          className="form-control"
-                                          id="exampleInputPassword3"
-                                          defaultValue={12345678910}
-                                        />
-                                      </div>
-                                    </form>
-                                  </div>
-                                </div>
-                              </div>
-                              <div className="col-12">
-                                <div className="card w-100 border position-relative overflow-hidden mb-0">
-                                  <div className="card-body p-4">
-                                    <h4 className="card-title">
-                                      Personal Details
-                                    </h4>
-                                    <p className="card-subtitle mb-4">
-                                      To change your personal detail , edit and
-                                      save from here
-                                    </p>
-                                    <form>
-                                      <div className="row">
-                                        <div className="col-lg-6">
-                                          <div className="mb-3">
-                                            <label
-                                              htmlFor="exampleInputtext"
-                                              className="form-label"
-                                            >
-                                              Your Name
-                                            </label>
-                                            <input
-                                              type="text"
-                                              className="form-control"
-                                              id="exampleInputtext"
-                                              placeholder="Mathew Anderson"
-                                            />
-                                          </div>
-                                          <div className="mb-3">
-                                            <label className="form-label">
-                                              Location
-                                            </label>
-                                            <select
-                                              className="form-select"
-                                              aria-label="Default select example"
-                                            >
-                                              <option selected="">
-                                                United Kingdom
-                                              </option>
-                                              <option value={1}>
-                                                United States
-                                              </option>
-                                              <option value={2}>
-                                                United Kingdom
-                                              </option>
-                                              <option value={3}>India</option>
-                                              <option value={3}>Russia</option>
-                                            </select>
-                                          </div>
-                                          <div className="mb-3">
-                                            <label
-                                              htmlFor="exampleInputtext1"
-                                              className="form-label"
-                                            >
-                                              Email
-                                            </label>
-                                            <input
-                                              type="email"
-                                              className="form-control"
-                                              id="exampleInputtext1"
-                                              placeholder="info@modernize.com"
-                                            />
-                                          </div>
-                                        </div>
-                                        <div className="col-lg-6">
-                                          <div className="mb-3">
-                                            <label
-                                              htmlFor="exampleInputtext2"
-                                              className="form-label"
-                                            >
-                                              Store Name
-                                            </label>
-                                            <input
-                                              type="text"
-                                              className="form-control"
-                                              id="exampleInputtext2"
-                                              placeholder="Maxima Studio"
-                                            />
-                                          </div>
-                                          <div className="mb-3">
-                                            <label className="form-label">
-                                              Currency
-                                            </label>
-                                            <select
-                                              className="form-select"
-                                              aria-label="Default select example"
-                                            >
-                                              <option selected="">
-                                                India (INR)
-                                              </option>
-                                              <option value={1}>
-                                                US Dollar ($)
-                                              </option>
-                                              <option value={2}>
-                                                United Kingdom (Pound)
-                                              </option>
-                                              <option value={3}>
-                                                India (INR)
-                                              </option>
-                                              <option value={3}>
-                                                Russia (Ruble)
-                                              </option>
-                                            </select>
-                                          </div>
-                                          <div className="mb-3">
-                                            <label
-                                              htmlFor="exampleInputtext3"
-                                              className="form-label"
-                                            >
-                                              Phone
-                                            </label>
-                                            <input
-                                              type="text"
-                                              className="form-control"
-                                              id="exampleInputtext3"
-                                              placeholder="+91 12345 65478"
-                                            />
-                                          </div>
-                                        </div>
-                                        <div className="col-12">
-                                          <div>
-                                            <label
-                                              htmlFor="exampleInputtext4"
-                                              className="form-label"
-                                            >
-                                              Address
-                                            </label>
-                                            <input
-                                              type="text"
-                                              className="form-control"
-                                              id="exampleInputtext4"
-                                              placeholder="814 Howard Street, 120065, India"
-                                            />
-                                          </div>
-                                        </div>
-                                        <div className="col-12">
-                                          <div className="d-flex align-items-center justify-content-end mt-4 gap-6">
-                                            <button className="btn btn-primary">
-                                              Save
-                                            </button>
-                                            <button className="btn bg-danger-subtle text-danger">
-                                              Cancel
-                                            </button>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </form>
+                                    {profile ? (
+                                      <table className="table">
+                                        <tbody>
+                                          <tr>
+                                            <td>Startup Name</td>
+                                            <td>
+                                              {profile.startup_name || "N/A"}
+                                            </td>
+                                          </tr>
+                                          <tr>
+                                            <td>Email</td>
+                                            <td>{profile.email_id || "N/A"}</td>
+                                          </tr>
+                                          <tr>
+                                            <td>Mobile</td>
+                                            <td>
+                                              {profile.mobile_no || "N/A"}
+                                            </td>
+                                          </tr>
+                                          <tr>
+                                            <td>Country</td>
+                                            <td>
+                                              {profile.country_name || "N/A"}
+                                            </td>
+                                          </tr>
+                                          <tr>
+                                            <td>Industry</td>
+                                            <td>{profile.industry || "N/A"}</td>
+                                          </tr>
+                                          <tr>
+                                            <td>Stage</td>
+                                            <td>{profile.stage || "N/A"}</td>
+                                          </tr>
+                                          <tr>
+                                            <td>Startup Idea</td>
+                                            <td>
+                                              {profile.startup_idea || "N/A"}
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    ) : (
+                                      <p>No startup information found.</p>
+                                    )}
                                   </div>
                                 </div>
                               </div>
@@ -1126,6 +1050,65 @@ const AppProfile = () => {
                   </div>
                   <TeamDetails />
                 </div>
+                <div
+                  className="tab-pane fade"
+                  id="stage-task"
+                  role="tabpanel"
+                  aria-labelledby="pills-followers-tab"
+                  tabIndex={0}
+                >
+                  <div className="row">
+                    <div className="card w-100">
+                      <div className="card-body">
+                        <div className="mb-4">
+                          <h4 className="card-title mb-0 text-center">
+                            Entrepreneurship Course Outline
+                          </h4>
+                        </div>
+                        <div
+                          className="accordion accordion-flush"
+                          id="accordionFlushExample"
+                        >
+                          {sections.map((section, index) => (
+                            <div className="accordion-item" key={index}>
+                              <h2
+                                className="accordion-header"
+                                id={`flush-heading${index}`}
+                              >
+                                <button
+                                  className="accordion-button collapsed"
+                                  type="button"
+                                  data-bs-toggle="collapse"
+                                  data-bs-target={`#flush-collapse${index}`}
+                                  aria-expanded="false"
+                                  aria-controls={`flush-collapse${index}`}
+                                >
+                                  {section.title}
+                                </button>
+                              </h2>
+                              <div
+                                id={`flush-collapse${index}`}
+                                className="accordion-collapse collapse"
+                                aria-labelledby={`flush-heading${index}`}
+                                data-bs-parent="#accordionFlushExample"
+                              >
+                                <div className="accordion-body">
+                                  <ul>
+                                    {section.content.map((item, idx) => (
+                                      <li key={idx}>{item}</li>
+                                    ))}
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  {/* Stage Task */}
+                </div>
+
                 {/* Incorportation Details */}
                 <IncorporationDetails />
                 {/* Document Details */}

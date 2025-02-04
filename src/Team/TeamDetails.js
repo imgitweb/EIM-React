@@ -61,51 +61,37 @@ export default function TeamDetails() {
           <div className="datatables">
             <div className="card">
               <div className="card-body">
-                <h4 className="card-title">Team Details</h4>
-                <div className="table-responsive">
-                  <table
-                    ref={tableRef}
-                    className="table table-striped table-bordered display text-nowrap"
-                  >
-                    <thead>
-                      <tr>
-                        <th>Sno.</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Mobile</th>
-                        <th>Job Type</th>
-                        <th>Designation</th>
-                        <th>Salary</th>
-                        <th>Joining Date</th>
-                        <th>Action</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {Array.isArray(team) &&
-                        team.map((teamMember, index) => (
-                          <tr key={index}>
-                            <td>{index + 1}</td>
-                            <td>{teamMember.member_name}</td>
-                            <td>{teamMember.email}</td>
-                            <td>{teamMember.mobile}</td>
-                            <td>{teamMember.job_type}</td>
-                            <td>{teamMember.designation}</td>
-                            <td>{teamMember.salary}</td>
-                            <td>{teamMember.joining_date}</td>
-                            <td>
-                              <button
-                                data-bs-toggle="modal"
-                                data-bs-target="#editteam"
-                                className="btn btn-warning"
-                                onClick={() => handleEditClick(teamMember)}
-                              >
-                                <i className="fa fa-edit"></i>
-                              </button>
-                            </td>
-                          </tr>
-                        ))}
-                    </tbody>
-                  </table>
+                <h4 className="card-title text-center pb-3">Team Details</h4>
+                <div className="row">
+                  {Array.isArray(team) &&
+                    team.map((teamMember, index) => (
+                      <div className="col-md-4" key={index}>
+                        <div className="card">
+                          <div className="card-header">
+                            <div className="border mx-auto border-4 border-white d-flex align-items-center justify-content-center rounded-circle overflow-hidden round-100">
+                              <img
+                                src="./assets/assets/images/profile/user-1.jpg"
+                                alt="modernize-img"
+                                className="w-100 h-100"
+                              />
+                            </div>
+                          </div>
+                          <div className="card-body text-center">
+                            <h3>{teamMember.member_name}</h3>
+                            <p>{teamMember.designation}</p>
+                          </div>
+                          <div className="card-footer text-center">
+                            <a href={`tel:${teamMember.mobile}`}>
+                              <i className="fa fa-phone float-start"></i>
+                            </a>
+                            <a href={`mailto:${teamMember.email}`} className="">
+                              <i className="fa fa-envelope"></i>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+
                   {selectedTeam && <UpdateTeam selectedTeam={selectedTeam} />}
                 </div>
               </div>

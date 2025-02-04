@@ -2,248 +2,288 @@ import React, { useState } from "react";
 import LeftSidebar from "../componant/LeftSidebar";
 import Navigation from "../componant/Navigation";
 import SerchBar from "../componant/SearchBar";
+import "../assets/css/investorpool.css";
 
-const InvesterPool = () => {
+const InvestorPool = () => {
   const [isActive, setActive] = useState(false);
   const ToggleEvent = () => setActive((prevState) => !prevState);
 
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-  });
-
-  const [investmentOptions] = useState([
+  const sampleInvestors = [
     {
       id: 1,
-      title: "Seed Investment",
-      description:
-        "For early-stage funding with higher risks and higher rewards.",
+      name: "Ratan Tata",
+      logo: "/api/placeholder/50/50",
+      company: "Tata Sons",
+      ideal: "seed",
+      industry: "ai/ml",
     },
     {
       id: 2,
-      title: "Growth Capital",
-      description:
-        "Invest in the growth phase of our company with solid returns.",
+      name: "Sequoia India",
+      logo: "/api/placeholder/50/50",
+      company: "Sequoia Capital",
+      ideal: "growth",
+      industry: "fintech",
     },
     {
       id: 3,
-      title: "Strategic Partnerships",
-      description: "Become a strategic partner to drive innovation and growth.",
+      name: "Blume Ventures",
+      logo: "/api/placeholder/50/50",
+      company: "Blume",
+      ideal: "early",
+      industry: "saas",
     },
-  ]);
+    {
+      id: 4,
+      name: "Nexus Venture Partners",
+      logo: "/api/placeholder/50/50",
+      company: "Nexus VP",
+      ideal: "seed",
+      industry: "healthtech",
+    },
+    {
+      id: 5,
+      name: "Tiger Global",
+      logo: "/api/placeholder/50/50",
+      company: "Tiger Global Management",
+      ideal: "growth",
+      industry: "edtech",
+    },
+    {
+      id: 6,
+      name: "Ratan Tata",
+      logo: "/api/placeholder/50/50",
+      company: "Tata Sons",
+      ideal: "seed",
+      industry: "ai/ml",
+    },
+    {
+      id: 7,
+      name: "Sequoia India",
+      logo: "/api/placeholder/50/50",
+      company: "Sequoia Capital",
+      ideal: "growth",
+      industry: "fintech",
+    },
+    {
+      id: 8,
+      name: "Blume Ventures",
+      logo: "/api/placeholder/50/50",
+      company: "Blume",
+      ideal: "early",
+      industry: "saas",
+    },
+    {
+      id: 9,
+      name: "Nexus Venture Partners",
+      logo: "/api/placeholder/50/50",
+      company: "Nexus VP",
+      ideal: "seed",
+      industry: "healthtech",
+    },
+    {
+      id: 10,
+      name: "Tiger Global",
+      logo: "/api/placeholder/50/50",
+      company: "Tiger Global Management",
+      ideal: "growth",
+      industry: "edtech",
+    },
+  ];
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+  const [currentPage, setCurrentPage] = useState(1);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedIdeal, setSelectedIdeal] = useState("");
+  const [selectedIndustry, setSelectedIndustry] = useState("");
+
+  const idealOptions = ["pre-seed", "seed", "early", "growth"];
+  const industryOptions = [
+    "ai/ml",
+    "agritech",
+    "consumer",
+    "digital entertainment",
+    "edtech",
+    "fintech",
+    "healthtech",
+    "media",
+    "mobility",
+    "saas"
+  ];
+
+  // Filter investors based on search and filter criteria
+  const filteredInvestors = sampleInvestors.filter(investor => {
+    return (
+      investor.name.toLowerCase().includes(searchTerm.toLowerCase()) &&
+      (selectedIdeal === "" || investor.ideal === selectedIdeal) &&
+      (selectedIndustry === "" || investor.industry === selectedIndustry)
+    );
+  });
+
+  // Pagination logic
+  const investorsPerPage = 5;
+  const totalPages = Math.ceil(filteredInvestors.length / investorsPerPage);
+  const indexOfLastInvestor = currentPage * investorsPerPage;
+  const indexOfFirstInvestor = indexOfLastInvestor - investorsPerPage;
+  const currentInvestors = filteredInvestors.slice(indexOfFirstInvestor, indexOfLastInvestor);
+
+  // Handle page changes
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Here you can handle form submission logic (e.g., call an API or store the data)
-    alert("Investment form submitted successfully!");
-  };
+  // Generate page numbers
+  const pageNumbers = [];
+  for (let i = 1; i <= totalPages; i++) {
+    pageNumbers.push(i);
+  }
 
   return (
-    <>
-      <div id="main-wrapper" className={isActive ? "show-sidebar" : ""}>
-        <LeftSidebar onButtonClick={ToggleEvent} />
-        <div className="page-wrapper">
-          <Navigation onButtonClick={ToggleEvent} />
-          <div className="body-wrapper">
-            <div className="container-fluid">
-              <div className="card bg-info-subtle shadow-none position-relative overflow-hidden mb-4">
-                <div className="card-body px-4 py-3">
-                  <div className="row align-items-center">
-                    <div className="col-9">
-                      <h4 className="fw-semibold mb-8">Investor Pool</h4>
-                      <nav aria-label="breadcrumb">
-                        <ol className="breadcrumb">
-                          <li className="breadcrumb-item">
-                            <a
-                              href="../dark/index.html"
-                              className="text-muted text-decoration-none"
-                            >
-                              Home
-                            </a>
-                          </li>
-                          <li className="breadcrumb-item" aria-current="page">
-                            Investor Pool
-                          </li>
-                        </ol>
-                      </nav>
-                    </div>
-                    <div className="col-3">
-                      <div className="text-center mb-n5">
-                        <img
-                          src="./assets/assets/images/breadcrumb/ChatBc.png"
-                          alt="breadcrumb-img"
-                          className="img-fluid mb-n4"
-                        />
-                      </div>
+    <div id="main-wrapper" className={isActive ? "show-sidebar" : ""}>
+      <LeftSidebar onButtonClick={ToggleEvent} />
+      <div className="page-wrapper">
+        <Navigation onButtonClick={ToggleEvent} />
+        <div className="body-wrapper">
+          <div className="container-fluid">
+            <div className="card bg-info-subtle shadow-none position-relative overflow-hidden mb-4">
+              <div className="card-body px-4 py-3">
+                <div className="row align-items-center">
+                  <div className="col-9">
+                    <h4 className="fw-semibold mb-8">Investor Pool</h4>
+                    <nav aria-label="breadcrumb">
+                      <ol className="breadcrumb">
+                        <li className="breadcrumb-item">
+                          <a className="text-muted text-decoration-none" href="../dark/index.html">
+                            Home
+                          </a>
+                        </li>
+                        <li className="breadcrumb-item" aria-current="page">
+                          Investor Pool
+                        </li>
+                      </ol>
+                    </nav>
+                  </div>
+                  <div className="col-3">
+                    <div className="text-center mb-n5">
+                      <img
+                        src="./assets/assets/images/breadcrumb/ChatBc.png"
+                        alt="breadcrumb-img"
+                        className="img-fluid mb-n4"
+                      />
                     </div>
                   </div>
                 </div>
               </div>
+            </div>
 
-              <div className="investor-pool">
-                <h1>Welcome to the Investor Pool</h1>
-                <p>
-                  At [Your Company Name], we offer exclusive investment
-                  opportunities with high ROI potential. Join us as we expand
-                  and create value in the [industry/sector].
+            <div className="investor-directory">
+              <div className="hero-section">
+                <h1 className="main-heading">The Ultimate Indian <span>Investors List</span></h1>
+                <p className="sub-heading">
+                  Find the perfect investor for your business in our extensive database.
+                  With a wide network spanning various industries, you'll discover the
+                  ideal match for your needs.
                 </p>
+              </div>
 
-                <section>
-                  <h2>Why Invest with Us?</h2>
-                  <ul>
-                    <li>High ROI potential</li>
-                    <li>Diversified investment options</li>
-                    <li>Strong market presence</li>
-                    <li>Transparent financial reporting</li>
-                  </ul>
-                </section>
+              <div className="search-window">
+                <div className="search-controls">
+                  <input
+                    type="text"
+                    placeholder="Search investors by name..."
+                    className="search-input"
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                  />
 
-                <section>
-                  <h2>Choose Your Investment Path</h2>
-                  <div className="investment-options">
-                    {investmentOptions.map((option) => (
-                      <div key={option.id} className="investment-option">
-                        <h3>{option.title}</h3>
-                        <p>{option.description}</p>
-                      </div>
-                    ))}
+                  <div className="filters">
+                    <select
+                      value={selectedIdeal}
+                      onChange={(e) => setSelectedIdeal(e.target.value)}
+                      className="filter-dropdown primary"
+                    >
+                      <option value="">Ideal For</option>
+                      {idealOptions.map(option => (
+                        <option key={option} value={option}>
+                          {option.charAt(0).toUpperCase() + option.slice(1)}
+                        </option>
+                      ))}
+                    </select>
+
+                    <select
+                      value={selectedIndustry}
+                      onChange={(e) => setSelectedIndustry(e.target.value)}
+                      className="filter-dropdown secondary"
+                    >
+                      <option value="">Industry</option>
+                      {industryOptions.map(option => (
+                        <option key={option} value={option}>
+                          {option.toUpperCase()}
+                        </option>
+                      ))}
+                    </select>
                   </div>
-                </section>
+                </div>
 
-                <section>
-                  <h2>How Can You Get Started?</h2>
-                  <p>Follow these simple steps to invest with us:</p>
-                  <ol>
-                    <li>Fill out the investor form below.</li>
-                    <li>Review and sign the investment agreement.</li>
-                    <li>
-                      Transfer funds via bank or preferred payment method.
-                    </li>
-                    <li>Receive regular updates on your investment.</li>
-                  </ol>
-                </section>
+                <div className="investors-list-header">
+                  <div>Name</div>
+                  <div className="ideal-tag-cell">Ideal For</div>
+                  <div className="industry-tag-cell">Industry</div>
+                </div>
 
-                <section>
-                  <h2>What You Gain as an Investor</h2>
-                  <ul>
-                    <li>Access to exclusive investor events</li>
-                    <li>Early access to new products/services</li>
-                    <li>Priority customer support</li>
-                  </ul>
-                </section>
-
-                <section>
-                  <h2>Have Questions? Get in Touch!</h2>
-                  <div className="card">
-                    <div className="card-body">
-                      <h4 className="card-title mb-3">Investor Pool Form</h4>
-                      <form onSubmit={handleSubmit}>
-                        <div className="row">
-                          <div className="col-md-6">
-                            <div className="form-floating mb-3">
-                              <input
-                                type="text"
-                                className="form-control"
-                                id="tb-fname"
-                                name="name"
-                                value={formData.name}
-                                onChange={handleInputChange}
-                                placeholder="Enter Name here"
-                              />
-                              <label htmlFor="tb-fname">Name</label>
-                            </div>
-                          </div>
-                          <div className="col-md-6">
-                            <div className="form-floating mb-3">
-                              <input
-                                type="email"
-                                className="form-control"
-                                id="tb-email"
-                                name="email"
-                                value={formData.email}
-                                onChange={handleInputChange}
-                                placeholder="name@example.com"
-                              />
-                              <label htmlFor="tb-email">Email address</label>
-                            </div>
-                          </div>
-                          <div className="col-md-6">
-                            <div className="form-floating mb-3">
-                              <input
-                                type="password"
-                                className="form-control"
-                                id="tb-pwd"
-                                name="password"
-                                value={formData.password}
-                                onChange={handleInputChange}
-                                placeholder="Password"
-                              />
-                              <label htmlFor="tb-pwd">Password</label>
-                            </div>
-                          </div>
-                          <div className="col-md-6">
-                            <div className="form-floating mb-3">
-                              <input
-                                type="password"
-                                className="form-control"
-                                id="tb-cpwd"
-                                name="confirmPassword"
-                                value={formData.confirmPassword}
-                                onChange={handleInputChange}
-                                placeholder="Password"
-                              />
-                              <label htmlFor="tb-cpwd">Confirm Password</label>
-                            </div>
-                          </div>
-                          <div className="col-12">
-                            <div className="d-md-flex align-items-center">
-                              <div className="form-check">
-                                <input
-                                  className="form-check-input"
-                                  type="checkbox"
-                                  value=""
-                                  id="flexCheckDefault"
-                                />
-                                <label
-                                  className="form-check-label"
-                                  htmlFor="flexCheckDefault"
-                                >
-                                  Remember me
-                                </label>
-                              </div>
-                              <div className="ms-auto mt-3 mt-md-0">
-                                <button
-                                  type="submit"
-                                  className="btn btn-primary hstack gap-6"
-                                >
-                                  <i className="ti ti-send fs-4"></i>
-                                  Submit
-                                </button>
-                              </div>
-                            </div>
-                          </div>
+                <div className="investors-list">
+                  {currentInvestors.map(investor => (
+                    <div key={investor.id} className="investor-card">
+                      <div className="investor-basic-info">
+                        <img src="https://i.pinimg.com/736x/ec/d9/c2/ecd9c2e8ed0dbbc96ac472a965e4afda.jpg" alt={`${investor.name} logo`} className="investor-logo" />
+                        <div className="investor-info">
+                          <h3>{investor.name}</h3>
+                          <p className="company-name">{investor.company}</p>
                         </div>
-                      </form>
+                      </div>
+                      <div className="ideal-tag-cell">
+                        <span className="tag ideal-tag">{investor.ideal}</span>
+                      </div>
+                      <div className="industry-tag-cell">
+                        <span className="tag industry-tag">{investor.industry}</span>
+                      </div>
                     </div>
-                  </div>
-                </section>
+                  ))}
+                </div>
+
+                <div className="pagination">
+                  <button 
+                    className="pagination-btn"
+                    onClick={() => handlePageChange(currentPage - 1)}
+                    disabled={currentPage === 1}
+                  >
+                    Prev
+                  </button>
+                  {pageNumbers.map(number => (
+                    <button
+                      key={number}
+                      className={`pagination-btn ${currentPage === number ? 'active' : ''}`}
+                      onClick={() => handlePageChange(number)}
+                    >
+                      {number}
+                    </button>
+                  ))}
+                  <button 
+                    className="pagination-btn"
+                    onClick={() => handlePageChange(currentPage + 1)}
+                    disabled={currentPage === totalPages}
+                  >
+                    Next
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </div>
-
-        <SerchBar />
       </div>
+      <SerchBar />
       <div className="dark-transparent sidebartoggler" />
-    </>
+    </div>
   );
 };
 
-export default InvesterPool;
+export default InvestorPool;

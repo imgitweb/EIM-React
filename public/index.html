@@ -1,114 +1,112 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr" data-bs-theme="dark" data-color-theme="Blue_Theme" data-layout="vertical">
 
-    <head>
-        <!-- Meta Tags -->
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <!-- Favicon -->
-        <link rel="shortcut icon" type="image/png" href="./assets/assets/images/logos/favicon.png" />
-        <!-- Core CSS -->
-        <link rel="stylesheet" href="./assets/assets/css/styles.css" />
-        <!-- Owl Carousel -->
-        <link rel="stylesheet" href="./assets/assets/libs/owl.carousel/dist/assets/owl.carousel.min.css" />
-        <!-- Bootstrap Icons -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" />
-        <!-- Custom CSS -->
-        <link rel="stylesheet" href="./assets/assets/css/milestones.css" />
-        <link rel="stylesheet" href="./assets/assets/css/pathunicorn.css" />
-        <link rel="stylesheet" href="./assets/assets/css/pathunicorn.js" />
-        <link rel="stylesheet" href="./assets/assets/css/pitch.css" />
+<head>
+    <!-- Meta Tags -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/png" href="./assets/assets/images/logos/favicon.png" />
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="./assets/assets/css/styles.css" />
+    <!-- Owl Carousel -->
+    <link rel="stylesheet" href="./assets/assets/libs/owl.carousel/dist/assets/owl.carousel.min.css" />
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./assets/assets/css/milestones.css" />
+    <link rel="stylesheet" href="./assets/assets/css/pathunicorn.css" />
+    <link rel="stylesheet" href="./assets/assets/css/pathunicorn.js" />
+    <link rel="stylesheet" href="./assets/assets/css/pitch.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <title>EIM-Panel</title>
 
-        <title>Modernize Bootstrap Admin</title>
-    </head>
+</head>
 
-    <body>
-        <!-- Root Element for Dynamic Content -->
-        <div id="root"></div>
+<body>
+    <!-- Root Element for Dynamic Content -->
+    <div id="root"></div>
 
-        <!-- Vendor Scripts -->
-        <script src="./assets/assets/js/vendor.min.js"></script>
+    <!-- Vendor Scripts -->
+    <script src="./assets/assets/js/vendor.min.js"></script>
 
-        <!-- Bootstrap -->
-        <script src="./assets/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="./assets/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
-        <!-- Simplebar (Custom Scrollbars) -->
-        <script src="./assets/assets/libs/simplebar/dist/simplebar.min.js"></script>
+    <!-- Simplebar (Custom Scrollbars) -->
+    <script src="./assets/assets/libs/simplebar/dist/simplebar.min.js"></script>
 
-        <!-- App Initialization -->
-        <script src="./assets/assets/js/theme/app.dark.init.js"></script>
-        <script src="./assets/assets/js/theme/theme.js"></script>
-        <script src="./assets/assets/js/theme/app.min.js"></script>
-        <script src="./assets/assets/js/theme/sidebarmenu.js"></script>
+    <!-- App Initialization -->
+    <script src="./assets/assets/js/theme/app.dark.init.js"></script>
+    <script src="./assets/assets/js/theme/theme.js"></script>
+    <script src="./assets/assets/js/theme/app.min.js"></script>
+    <script src="./assets/assets/js/theme/sidebarmenu.js"></script>
 
-        <!-- Iconify Icons -->
-        <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+    <!-- Iconify Icons -->
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
 
-        <!-- Owl Carousel -->
-        <script src="./assets/assets/libs/owl.carousel/dist/owl.carousel.min.js"></script>
+    <!-- Owl Carousel -->
+    <script src="./assets/assets/libs/owl.carousel/dist/owl.carousel.min.js"></script>
 
-        <!-- Apex Charts -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/4.2.0/apexcharts.min.js"></script>
-        <script src="./assets/assets/js/apex-chart/apex.line.init.js"></script>
-        <script src="./assets/assets/js/dashboards/dashboard.js"></script>
-        <script src="./assets/assets/js/dashboards/dashboard2.js"></script>
+    <!-- Apex Charts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/4.2.0/apexcharts.min.js"></script>
+    <script src="./assets/assets/js/apex-chart/apex.line.init.js"></script>
+    <script src="./assets/assets/js/dashboards/dashboard.js"></script>
+    <script src="./assets/assets/js/dashboards/dashboard2.js"></script>
 
-        <!-- Calendar -->
-        <script src="./assets/assets/libs/fullcalendar/index.global.min.js"></script>
-        <script src="./assets/assets/js/apps/calendar-init.js"></script>
+    <!-- Custom Scripts -->
+    <script src="./assets/assets/js/apps/invoice.js"></script>
+    <script src="./assets/assets/js/milistone.js"></script>
+    <script src="./assets/assets/js/revenue.js"></script>
+    <script src="./assets/assets/js/apps/jquery.PrintArea.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script>
+        // Define the chart options
+        const chartOptions = {
+            series: [{
+                name: "Revenue",
+                data: [30, 40, 35, 50, 49, 60, 70, 91]
+            }],
+            chart: {
+                type: "line",
+                height: 350
+            },
+        };
 
-        <!-- Custom Scripts -->
-        <script src="./assets/assets/js/apps/invoice.js"></script>
-        <script src="./assets/assets/js/milistone.js"></script>
-        <script src="./assets/assets/js/revenue.js"></script>
-        <script src="./assets/assets/js/apps/jquery.PrintArea.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.slim.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
-        <script>
-            // Define the chart options
-            const chartOptions = {
-                series: [{
-                    name: "Revenue",
-                    data: [30, 40, 35, 50, 49, 60, 70, 91]
-                }],
-                chart: {
-                    type: "line",
-                    height: 350
-                },
-            };
+        // Create the chart instance
+        const chart1 = new ApexCharts(document.querySelector("#chart1"), chartOptions);
 
-            // Create the chart instance
-            const chart1 = new ApexCharts(document.querySelector("#chart1"), chartOptions);
+        // Render the chart
+        chart1.render().then(() => {
+            console.log("Chart rendered successfully!");
 
-            // Render the chart
-            chart1.render().then(() => {
-                console.log("Chart rendered successfully!");
-
-                // Function to reset the series
-                function resetSeries() {
-                    if (chart1) {
-                        chart1.resetSeries();
-                        console.log("Series reset successfully!");
-                    }
+            // Function to reset the series
+            function resetSeries() {
+                if (chart1) {
+                    chart1.resetSeries();
+                    console.log("Series reset successfully!");
                 }
+            }
 
-                // Simulate a change in the chart data after 2 seconds
-                setTimeout(() => {
-                    chart1s.updateOptions({
-                        series: [{
-                            name: "Updated Revenue",
-                            data: [10, 20, 15, 25, 18, 30, 50, 80]
-                        }]
-                    });
+            // Simulate a change in the chart data after 2 seconds
+            setTimeout(() => {
+                chart1s.updateOptions({
+                    series: [{
+                        name: "Updated Revenue",
+                        data: [10, 20, 15, 25, 18, 30, 50, 80]
+                    }]
+                });
 
-                    // Reset series after 2 seconds
-                    setTimeout(resetSeries, 2000); // Reset after another 2 seconds
-                }, 2000);
-            }).catch((error) => {
-                console.error("Error rendering the chart:", error);
-            });
-        </script>
-    </body>
+                // Reset series after 2 seconds
+                setTimeout(resetSeries, 2000); // Reset after another 2 seconds
+            }, 2000);
+        }).catch((error) => {
+            console.error("Error rendering the chart:", error);
+        });
+    </script>
+</body>
 
 </html>
