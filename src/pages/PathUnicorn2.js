@@ -21,6 +21,7 @@ function PathUnicorn2() {
   const location = useLocation();
   const activeMilestoneFromProps = location.state?.activeMilestone || "All"; // Default to "M1" if not provided
   const [activeTab, setActiveTab] = useState(activeMilestoneFromProps);
+  const startup_id = localStorage.getItem("token");
   useEffect(() => {
     setActiveTab(activeMilestoneFromProps); // Update state when props change
   }, [activeMilestoneFromProps]);
@@ -63,7 +64,7 @@ function PathUnicorn2() {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        `${API_BASE_URL}:5000/api/unicorn/677e5beb5f85e00bf37b8702`
+        `https://app.incubationmasters.com:5000/api/unicorn/${startup_id}`
       );
       setData(response.data.data);
       setLoading(false);
