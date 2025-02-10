@@ -4,6 +4,7 @@ import LeftSidebar from "../componant/LeftSidebar";
 import Navigation from "../componant/Navigation";
 import SerchBar from "../componant/SearchBar";
 import { Loader2 } from "lucide-react";
+import API_BASE_URL from "./../componant/config";
 import axios from "axios";
 import BecomeUnicorn from "./BecomeUnicorn";
 function PathUnicorn2() {
@@ -62,7 +63,7 @@ function PathUnicorn2() {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/unicorn/677e5beb5f85e00bf37b8702"
+        `${API_BASE_URL}:5000/api/unicorn/677e5beb5f85e00bf37b8702`
       );
       setData(response.data.data);
       setLoading(false);
