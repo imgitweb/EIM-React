@@ -28,9 +28,9 @@ const BecomeUnicorn = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+  const startup_id = localStorage.getItem("token");
   useEffect(() => {
-    fetch("http://localhost:5000/api/unicorn/677e5beb5f85e00bf37b8702")
+    fetch(`https://app.incubationmasters.com:5000/api/unicorn/${startup_id}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
