@@ -1,0 +1,231 @@
+.investor-directory {
+    padding: 2rem;
+    background-color: #202936;
+  }
+  
+  .hero-section {
+    width: 100%;
+    margin-bottom: 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .main-heading {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    /* width: 35%; */
+    color: white;
+    text-align: center;
+  }
+  .main-heading span{
+    color: #FE9C29;
+  }
+  
+  .sub-heading {
+    color: #a7adb6;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    width: 70%;
+    text-align: center;
+  }
+  
+  .search-window {
+    background-color: #162035;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(32, 41, 54, 0.1);
+  }
+  
+  .search-controls {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  .search-input {
+    flex: 1;
+    min-width: 300px;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #1d2b4a;
+    color: #202936;
+    transition: border-color 0.2s;
+  }
+  
+  .search-input:focus {
+    outline: none;
+    border-color: #FE9C29;
+  }
+  
+  .filters {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .filter-dropdown {
+    padding: 0.75rem 2.5rem 0.75rem 1rem;
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: border-color 0.2s;
+    min-width: 160px;
+  }
+
+  .filter-dropdown.primary {
+    background-color: #4F73D9;
+}
+
+.filter-dropdown.secondary {
+    background-color: #3EA2D9;
+}
+
+  
+  .filter-dropdown:focus {
+    outline: none;
+    border-color: #FE9C29;
+  }
+  
+  .investors-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+
+  .investors-list-header {
+    display: grid;
+    grid-template-columns: 250px 1fr 1fr;
+    padding: 1rem 1.5rem;
+    background-color: #1d2c42;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    color: #7C8EA9;
+    font-weight: 600;
+    align-items: center;
+  }
+  
+ .investor-card {
+  display: grid;
+  grid-template-columns: 250px 1fr 1fr;
+  align-items: center;
+  padding: 1.5rem;
+  background-color: #192639;
+  border: 1px solid rgba(224, 229, 236, 0.1);
+  border-radius: 12px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.investor-basic-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .investor-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(32, 41, 54, 0.1);
+  }
+  
+  .investor-logo {
+    width: 64px;
+    height: 64px;
+    border-radius: 12px;
+    margin-right: 1.5rem;
+    object-fit: cover;
+  }
+  
+  .investor-info {
+    color: white;
+  }
+  
+  .investor-info h3 {
+    color: white;
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+  }
+  
+  .company-name {
+    color: #7C8EA9;
+    font-size: 0.9rem;
+    margin-bottom: 0;
+  }
+  
+  .tags {
+    display: flex;
+    gap: 0.75rem;
+  }
+  
+  .tag {
+    padding: 0.25rem 0.75rem;
+    border-radius: 16px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+  
+  .ideal-tag {
+    background-color: #223662;
+    color: white;
+  }
+  
+  .industry-tag {
+    background-color: #FE9C29;
+    color: white;
+  }
+
+  .ideal-tag-cell, .industry-tag-cell {
+    text-align: center;
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+  }
+  
+  .pagination-btn {
+    padding: 0.5rem 1rem;
+    border: 1px solid #e0e5ec;
+    background-color: white;
+    color: #223662;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .pagination-btn:hover {
+    background-color: #f8f9fa;
+  }
+  
+  .pagination-btn.active {
+    background-color: #223662;
+    color: white;
+    border-color: #223662;
+  }
+  
+  @media (max-width: 768px) {
+    .main-heading,
+    .sub-heading {
+      width: 100%;
+    }
+  
+    .search-controls {
+      flex-direction: column;
+    }
+  
+    .filters {
+      flex-direction: column;
+    }
+  
+    .filter-dropdown {
+      width: 100%;
+    }
+  }
