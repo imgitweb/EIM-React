@@ -1,0 +1,33 @@
+.dashboard-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 20px;
+  background-color: #1e1e2f;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.card {
+  background: #292b3e;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.activity-chart {
+  grid-column: span 2;
+}
+
+.pipeline p {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+  font-size: 1rem;
+}
+
+.avg-deal-value,
+.close-ratio,
+.cycle-length {
+  text-align: center;
+}
