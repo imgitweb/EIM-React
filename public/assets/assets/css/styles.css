@@ -6,7 +6,18 @@
     font-size: 11px !important;
   }
 }
-
+* 
+{
+  color:white !important;
+}
+p 
+{
+  color:white !important; 
+}
+a 
+{
+  color: white !important; 
+}
 /* pitch deck */
 .st1 {
   fill: #595a5a;
@@ -15107,7 +15118,7 @@ sup {
   top: -0.5em;
 }
 a {
-  color: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1));
+  color: white;
   text-decoration: underline;
 }
 a:hover {
@@ -33114,7 +33125,7 @@ html[data-boxed-layout="boxed"] .container-xxl {
   height: 70px;
   padding: 0 15px;
   font-size: 14px;
-  color: var(--bs-link-color);
+  color: white;
 }
 .topbar .navbar .navbar-nav .nav-item .nav-link i {
   font-size: 20px;
