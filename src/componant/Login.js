@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import API_BASE_URL from "./../componant/config";
 
@@ -8,6 +8,52 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
+
+  // Check for existing authentication from the first app
+  useEffect(() => {
+    // Check if we have auth data from the first application
+    const userId = localStorage.getItem("user_id");
+    const authToken = localStorage.getItem("auth_token");
+
+    if (userId && authToken) {
+      // We have auth data, validate it before auto-login
+      validateExistingAuth(userId, authToken);
+    }
+  }, []);
+
+  // Validate existing auth data
+  const validateExistingAuth = async (userId, token) => {
+    try {
+      setIsLoading(true);
+
+      // Optional: Make a validation request to your backend
+      const response = await axios.post(
+        `${API_BASE_URL}/api/auth/validate-token`,
+        { user_id: userId, token },
+        { headers: { "Content-Type": "application/json" } }
+      );
+
+      // If validation is successful, proceed to dashboard
+      if (response.status === 200) {
+        // Navigate to dashboard
+        navigate("/dashboard");
+      }
+    } catch (err) {
+      console.error("Auth validation error:", err);
+      // If validation fails, clear localStorage and let user login manually
+      // localStorage.clear(); - Uncomment to clear all local storage on failure
+
+      // Only clear auth-related items
+      localStorage.removeItem("user_id");
+      localStorage.removeItem("auth_token");
+      localStorage.removeItem("refresh_token");
+
+      setError("Your session has expired. Please login again.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -24,23 +70,28 @@ export default function Login() {
     try {
       setIsLoading(true); // Start loading spinner
 
-      // Simulate a loading delay
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-
       // Send POST request with proper headers and body format
       const response = await axios.post(
         `${API_BASE_URL}/api/auth/login`,
-        { email_id: email, password }, // Corrected the key for email
+        { email_id: email, password }, // Key for email
         { headers: { "Content-Type": "application/json" } }
       );
 
       // Handle successful response
       if (response.status === 200) {
-        localStorage.setItem("token", response.data.user.id);
-        localStorage.setItem("user_id", response.data.user.id); // Store user ID
+        // Store authentication data
+        localStorage.setItem(
+          "token",
+          response.data.token || response.data.user.id
+        );
+        localStorage.setItem("user_id", response.data.user.id);
+        localStorage.setItem("user_data", JSON.stringify(response.data.user));
+
+        // Alert success
         alert("Login Successful");
-        // Redirect to the dashboard or other page
-        window.location.href = "/dashboard";
+
+        // Redirect to the dashboard
+        navigate("/dashboard");
       }
     } catch (err) {
       // Check if the error has a response and display the error message
@@ -90,6 +141,19 @@ export default function Login() {
                 <div className="auth-max-width col-sm-8 col-md-6 col-xl-7 px-4">
                   <h2 className="mb-1 fs-7 fw-bolder">Welcome to EIM</h2>
                   <p className="mb-7">Your Admin Dashboard</p>
+
+                  {isLoading && !error && (
+                    <div className="alert alert-info" role="alert">
+                      Checking your authentication status...
+                    </div>
+                  )}
+
+                  {error && (
+                    <div className="alert alert-danger" role="alert">
+                      {error}
+                    </div>
+                  )}
+
                   <form onSubmit={handleLogin}>
                     <div className="mb-3">
                       <label
@@ -127,12 +191,6 @@ export default function Login() {
                       />
                     </div>
 
-                    {error && (
-                      <div className="alert alert-danger" role="alert">
-                        {error}
-                      </div>
-                    )}
-
                     <div className="d-flex align-items-center justify-content-between mb-4">
                       <div className="form-check">
                         <input
@@ -152,7 +210,7 @@ export default function Login() {
                       </div>
                       <Link
                         className="text-primary fw-medium fs-3"
-                        to="../dark/authentication-forgot-password.html"
+                        to="/forgot-password"
                       >
                         Forgot Password ?
                       </Link>

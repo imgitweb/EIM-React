@@ -1,5 +1,11 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import Login from "./componant/Login";
 import Dashboard from "./pages/Dashboard";
 import HiringAssist from "./pages/HiringAssist";
@@ -38,71 +44,321 @@ import Banking_Template from "./startup_resources/TemplateComponent/Banking_Temp
 import Hr_Employee_agreements from "./startup_resources/TemplateComponent/Hr_Employee_Agreement";
 import Accounting_Document from "./startup_resources/TemplateComponent/Accounting_Document";
 
+// Utility to parse tokens and store in localStorage
+function useTokenParser() {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const queryParams = new URLSearchParams(location.search);
+    const userData = queryParams.get("userData");
+    const userId = queryParams.get("userId");
+    const token = queryParams.get("token");
+    const refreshToken = queryParams.get("refreshToken");
+
+    if (userData && userId && token) {
+      localStorage.setItem("user", decodeURIComponent(userData));
+      localStorage.setItem("userId", userId);
+      localStorage.setItem("token", decodeURIComponent(token));
+      if (refreshToken)
+        localStorage.setItem("refreshToken", decodeURIComponent(refreshToken));
+
+      const parsedUser = JSON.parse(decodeURIComponent(userData));
+      localStorage.setItem("userData", JSON.stringify(parsedUser));
+
+      // Remove query params and navigate to clean route
+      navigate("/dashboard", { replace: true });
+    }
+  }, [location.search, navigate]);
+}
+
+function AppRoutes() {
+  useTokenParser();
+
+  return (
+    <Routes>
+      <Route path="/" element={<Login />} />
+      <Route
+        path="/dashboard"
+        element={
+          <PrivateRoute>
+            <Dashboard />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/hiring-assist"
+        element={
+          <PrivateRoute>
+            <HiringAssist />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/invester-pool"
+        element={
+          <PrivateRoute>
+            <InvesterPool />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/my-mentor"
+        element={
+          <PrivateRoute>
+            <MyMentor />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/path-unicorn"
+        element={
+          <PrivateRoute>
+            <PathUnicorn />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/path-unicorn2"
+        element={
+          <PrivateRoute>
+            <PathUnicorn2 />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/path-unicorn3"
+        element={
+          <PrivateRoute>
+            <PathUnicorn3 />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/path-unicorn4"
+        element={
+          <PrivateRoute>
+            <PathUnicorn4 />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/product-listing"
+        element={
+          <PrivateRoute>
+            <PathUnicorn7 />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/client-persona"
+        element={
+          <PrivateRoute>
+            <PathUnicorn8 />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/marketing-funnel"
+        element={
+          <PrivateRoute>
+            <PathUnicorn9 />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/product-pricing"
+        element={
+          <PrivateRoute>
+            <PathUnicorn10 />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/sales-funnel"
+        element={
+          <PrivateRoute>
+            <PathUnicorn11 />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/revenu-trac"
+        element={
+          <PrivateRoute>
+            <RevenueTracker />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/salesfunnel"
+        element={
+          <PrivateRoute>
+            <SalesFunnel />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/upgrade-beta"
+        element={
+          <PrivateRoute>
+            <UpgradeBeta />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/my-task"
+        element={
+          <PrivateRoute>
+            <MyTask />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/rivarly-insights"
+        element={
+          <PrivateRoute>
+            <RivarlyInsight />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/projection"
+        element={
+          <PrivateRoute>
+            <Projection />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/app-profile"
+        element={
+          <PrivateRoute>
+            <AppProfile />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/business"
+        element={
+          <PrivateRoute>
+            <BusinessModel />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/pitch-deck"
+        element={
+          <PrivateRoute>
+            <PitchDeck />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/logout"
+        element={
+          <PrivateRoute>
+            <Logout />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/meta-verse"
+        element={
+          <PrivateRoute>
+            <MetaVerse />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/tools"
+        element={
+          <PrivateRoute>
+            <Tools />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/template"
+        element={
+          <PrivateRoute>
+            <Template />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/training-videos"
+        element={
+          <PrivateRoute>
+            <TrainingVideos />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/idea-validation"
+        element={
+          <PrivateRoute>
+            <IdeaValidation />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/market-research"
+        element={
+          <PrivateRoute>
+            <Market_Research />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/pitching-and-fund-rasing"
+        element={
+          <PrivateRoute>
+            <Pitching_And_Fundraising />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/legal-and-compliance-doc"
+        element={
+          <PrivateRoute>
+            <Compliance_Document />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/formation-and-banking-temp"
+        element={
+          <PrivateRoute>
+            <Banking_Template />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/hr-and-employee-agreement"
+        element={
+          <PrivateRoute>
+            <Hr_Employee_agreements />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/financial-and-accounting-docs"
+        element={
+          <PrivateRoute>
+            <Accounting_Document />
+          </PrivateRoute>
+        }
+      />
+      <Route path="*" element={<NotFund />} />
+    </Routes>
+  );
+}
+
 function App() {
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<Login />} />
-        <Route
-          path="/*"
-          element={
-            <PrivateRoute>
-              <Routes>
-                <Route path="/dashboard" element={<Dashboard />} />
-                <Route path="/hiring-assist" element={<HiringAssist />} />
-                <Route path="/invester-pool" element={<InvesterPool />} />
-                <Route path="/my-mentor" element={<MyMentor />} />
-                <Route path="/path-unicorn" element={<PathUnicorn />} />
-                <Route path="/path-unicorn2" element={<PathUnicorn2 />} />
-                <Route path="/path-unicorn3" element={<PathUnicorn3 />} />
-                <Route path="/path-unicorn4" element={<PathUnicorn4 />} />
-                <Route path="/product-listing" element={<PathUnicorn7 />} />
-                <Route path="/client-persona" element={<PathUnicorn8 />} />
-                <Route path="/marketing-funnel" element={<PathUnicorn9 />} />
-                <Route path="/product-pricing" element={<PathUnicorn10 />} />
-                <Route path="/sales-funnel" element={<PathUnicorn11 />} />
-                <Route path="/revenu-trac" element={<RevenueTracker />} />
-                <Route path="/salesfunnel" element={<SalesFunnel />} />
-                <Route path="/upgrade-beta" element={<UpgradeBeta />} />
-                <Route path="/my-task" element={<MyTask />} />
-                <Route path="/rivarly-insights" element={<RivarlyInsight />} />
-                <Route path="/projection" element={<Projection />} />
-                <Route path="/app-profile" element={<AppProfile />} />
-                <Route path="/business" element={<BusinessModel />} />
-                <Route path="/pitch-deck" element={<PitchDeck />} />
-                <Route path="/logout" element={<Logout />} />
-                <Route path="/meta-verse" element={<MetaVerse />} />
-                <Route path="/tools" element={<Tools />} />
-                <Route path="/template" element={<Template />} />
-                <Route path="/training-videos" element={<TrainingVideos />} />
-                <Route path="/idea-validation" element={<IdeaValidation />} />
-                <Route path="/market-research" element={<Market_Research />} />
-                <Route
-                  path="/pitching-and-fund-rasing"
-                  element={<Pitching_And_Fundraising />}
-                />
-                <Route
-                  path="/legal-and-compliance-doc"
-                  element={<Compliance_Document />}
-                />
-                <Route
-                  path="/formation-and-banking-temp"
-                  element={<Banking_Template />}
-                />
-                <Route
-                  path="/hr-and-employee-agreement"
-                  element={<Hr_Employee_agreements />}
-                />
-                <Route
-                  path="/financial-and-accounting-docs"
-                  element={<Accounting_Document />}
-                />
-                <Route path="*" element={<NotFund />} />
-              </Routes>
-            </PrivateRoute>
-          }
-        />
-      </Routes>
+      <AppRoutes />
     </Router>
   );
 }
