@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Frontend_URL from "../componant/config2";
 
 const LeftSidebar = ({ onButtonClick }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -8,7 +9,11 @@ const LeftSidebar = ({ onButtonClick }) => {
     setIsDropdownOpen(!isDropdownOpen);
   };
   function LogoutHandler() {
-    navigate("/logout");
+    localStorage.removeItem("token");
+    localStorage.removeItem("userData");
+    localStorage.removeItem("refreshToken");
+
+    window.location.href = Frontend_URL;
   }
   return (
     <aside className="left-sidebar with-vertical">
