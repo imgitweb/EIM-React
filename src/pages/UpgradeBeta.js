@@ -19,7 +19,7 @@ const UpgradeBeta = () => {
         "Basic guidance, idea validation, draft business model creation, access to startup resources, and community support",
       goal: "Equip startups with foundational support to bring their ideas to life",
       delay: "0.1s",
-      color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+      color: "linear-gradient(135deg,rgb(15, 15, 16) 0%, #764ba2 100%)",
       icon: "🚀",
     },
     {
@@ -94,7 +94,7 @@ const UpgradeBeta = () => {
 
   return (
     <>
-      <div id="main-wrapper" className={isActive ? "show-sidebar" : ""}>
+      <div id="main-wrapper " className={isActive ? "show-sidebar" : ""}>
         <LeftSidebar onButtonClick={ToggleEvent} />
         <div className="page-wrapper">
           <Navigation onButtonClick={ToggleEvent} />
@@ -122,25 +122,25 @@ const UpgradeBeta = () => {
                     <button
                       type="button"
                       className="btn-close ms-auto"
-                      onClick={() => setPaymentStatus("")}
-                    ></button>
+                      onClick={() => setPaymentStatus("")}></button>
                   </div>
                 </div>
               )}
 
               <div className="row">
                 {plans.map((plan, index) => (
-                  <div key={index} className="col-12 col-md-6 col-xl-3 mb-4">
+                  <div
+                    key={index}
+                    className="col-12 col-md-6 col-xl-3 mb-4 bg-darkBlue">
                     <div
-                      className={`pricing-card ${
+                      className={`pricing-card bg-darkBlue ${
                         plan.featured ? "featured" : ""
                       } ${hoveredPlan === index ? "hovered" : ""}`}
                       onMouseEnter={() => setHoveredPlan(index)}
                       onMouseLeave={() => setHoveredPlan(null)}
                       style={{
                         "--plan-gradient": plan.color,
-                      }}
-                    >
+                      }}>
                       <div className="pricing-card-header">
                         <span className="plan-icon">{plan.icon}</span>
                         <h3 className="plan-name">{plan.name}</h3>
@@ -178,8 +178,7 @@ const UpgradeBeta = () => {
 
                       <button
                         className="select-plan-btn"
-                        onClick={() => handlePayment(plan)}
-                      >
+                        onClick={() => handlePayment(plan)}>
                         Select Plan
                         <span className="btn-icon">→</span>
                       </button>
@@ -196,9 +195,8 @@ const UpgradeBeta = () => {
 
       <style jsx>{`
         .pricing-card {
-          background: white;
           border-radius: 20px;
-          padding: 2rem;
+          padding: 15px;
           height: 100%;
           position: relative;
           transition: all 0.3s ease;
@@ -207,7 +205,6 @@ const UpgradeBeta = () => {
         }
 
         .pricing-card::before {
-          content: "";
           position: absolute;
           top: 0;
           left: 0;
