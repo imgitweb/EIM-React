@@ -107,7 +107,7 @@ export default function MetaVerse() {
           JSON.stringify({
             event: "startup",
             data: {
-              id: localStorage.getItem("token"),
+              id: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NDAwNjM0Y2Y2NTU4YzZlMmI2MzYyZiIsImVtYWlsIjoibml0aW5qbjA3QGdtYWlsLmNvbSIsImlhdCI6MTc0OTAyNjM1NiwiZXhwIjoxNzQ5MTEyNzU2fQ.i8Zo3ILhNf4m6JIG69RAzFQ5qZ8JSMYJZuffNypq0Bs",
             },
           })
         );
