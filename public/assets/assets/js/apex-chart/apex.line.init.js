@@ -1,4 +1,6 @@
-$(document).ready(function () {
+import ApexCharts from "apexcharts";
+import $ from "jquery";
+$(function () {
   // Basic Line Chart -------> LINE CHART
   var options_line = {
     series: [
@@ -27,7 +29,7 @@ $(document).ready(function () {
     },
     grid: {
       row: {
-        colors: [ "transparent"], // takes an array which will be repeated on columns
+        colors: ["transparent"], // takes an array which will be repeated on columns
         opacity: 0.5,
       },
       borderColor: "transparent",
