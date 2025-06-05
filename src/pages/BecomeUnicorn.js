@@ -21,6 +21,7 @@ import {
   AreaChart,
   Area,
 } from "recharts";
+const API_URL = require("../componant/config")
 
 const BecomeUnicorn = () => {
   const [selectedMilestone, setSelectedMilestone] = useState("1");
@@ -30,7 +31,7 @@ const BecomeUnicorn = () => {
   const [error, setError] = useState(null);
   const startup_id = localStorage.getItem("token");
   useEffect(() => {
-    fetch(`https://app.incubationmasters.com:5000/api/unicorn/${startup_id}`)
+    fetch(`${API_URL}/api/unicorn/${startup_id}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");

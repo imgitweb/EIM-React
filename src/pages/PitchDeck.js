@@ -193,6 +193,81 @@ const PitchDeck = () => {
 
     pdf.save("PitchDeck.pdf");
   };
+  const printDiv = (divId) => {
+  const divToPrint = document.getElementById(divId);
+  if (!divToPrint) {
+    console.error("Div not found");
+    return;
+  }
+
+  const newWindow = window.open("", "_blank");
+
+  const htmlContent = `
+    <html>
+      <head>
+        <title>Print Pitch Deck</title>
+        <style>
+          body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: white;
+            color: black;
+          }
+
+          * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+          }
+
+          .print-page {
+            padding: 40px;
+            page-break-after: always;
+            border-bottom: 1px dashed #ccc;
+          }
+
+          .no-break {
+            page-break-inside: avoid !important;
+            break-inside: avoid !important;
+          }
+
+          img {
+            max-width: 100%;
+            height: auto;
+            page-break-inside: avoid;
+          }
+
+          @media print {
+            .print-page {
+              border: none;
+            }
+          }
+        </style>
+      </head>
+      <body>
+        ${Array.from(divToPrint.children)
+          .map(
+            (child) =>
+              `<div class="print-page">${child.outerHTML}</div>`
+          )
+          .join("")}
+      </body>
+    </html>
+  `;
+
+  newWindow.document.open();
+  newWindow.document.write(htmlContent);
+  newWindow.document.close();
+
+  // Wait for all resources to load
+  newWindow.onload = () => {
+    newWindow.focus();
+    newWindow.print();
+    newWindow.close();
+  };
+};
+
 
   return (
     <>

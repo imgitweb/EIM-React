@@ -107,7 +107,7 @@ export default function MetaVerse() {
           JSON.stringify({
             event: "startup",
             data: {
-              id: localStorage.getItem("token"),
+              id: localStorage.getItem("userId"),
             },
           })
         );

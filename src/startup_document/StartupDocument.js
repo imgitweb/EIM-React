@@ -70,7 +70,7 @@ export default function StartupDocument() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const startup_id = localStorage.getItem("token");
+        const startup_id = localStorage.getItem("userId");
         const response = await axios.get(
           `${API_BASE_URL}/api/document/get_document/${startup_id}`
         );

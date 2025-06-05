@@ -64,7 +64,7 @@ function PathUnicorn2() {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        `https://app.incubationmasters.com:5000/api/unicorn/${startup_id}`
+        `http://localhost:5000/api/unicorn/${startup_id}`
       );
       setData(response.data.data);
       setLoading(false);
