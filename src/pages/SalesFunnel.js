@@ -96,39 +96,44 @@ const SalesFunnel = () => {
                         number: 1,
                         label: "PRODUCT LISTING",
                         color: "#FFA726",
+                        textColor: "#000000",
                         to: "/product-listing",
                       },
                       {
                         number: 2,
                         label: "CLIENT PERSONA",
                         color: "#66BB6A",
+                        textColor: "#000000",
                         to: "/client-persona",
                       },
                       {
                         number: 3,
                         label: "MARKETING FUNNEL",
                         color: "#42A5F5",
+                        textColor: "#000000",
                         to: "/marketing-funnel",
                       },
                       {
                         number: 4,
                         label: "SALES FUNNEL",
                         color: "#EF5350",
+                        textColor: "#000000",
                         to: "/marketing-funnel",
                       },
                     ].map((step) => (
-                      <div key={step.number} style={styles.step}>
+                      <Link to={step.to} key={step.number} style={styles.step}>
                         <div
                           style={{
                             ...styles.circle,
                             borderColor: step.color,
+                            color: step.textColor,
                           }}>
                           {step.number}
                         </div>
                         <p style={styles.stepLabel}>
                           <Link to={step.to}>{step.label}</Link>
                         </p>
-                      </div>
+                      </Link>
                     ))}
                   </div>
                 </div>
@@ -184,7 +189,7 @@ const styles = {
     justifyContent: "center",
     fontSize: "24px",
     fontWeight: "bold",
-    backgroundColor: "#FFFFFF",
+    // backgroundColor: "#FFFFFF",
     color: "#000000",
   },
   stepLabel: {

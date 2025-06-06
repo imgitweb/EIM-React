@@ -29,7 +29,7 @@ const BecomeUnicorn = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const startup_id = localStorage.getItem("token");
+  const startup_id = localStorage.getItem("userId") || "default_startup_id"; // Replace with actual startup ID
   useEffect(() => {
     fetch(`${API_URL}/api/unicorn/${startup_id}`)
       .then((response) => {

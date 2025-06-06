@@ -5,7 +5,7 @@ export default function MrrListModal() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const startupId = localStorage.getItem("token"); // Retrieve the startup_id
+  const startupId = localStorage.getItem("userId"); // Retrieve the startup_id
 
   useEffect(() => {
     const fetchData = async () => {

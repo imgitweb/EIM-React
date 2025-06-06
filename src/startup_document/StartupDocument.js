@@ -14,7 +14,7 @@ export default function StartupDocument() {
 
   // Automatically retrieve startupId from localStorage on component mount
   useEffect(() => {
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("userId");
     if (token) {
       setStartupId(token);
     } else {

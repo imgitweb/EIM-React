@@ -78,8 +78,9 @@ const PathUnicorn7 = () => {
               <div className="card" style={styles.card}>
                 <div className="row">
                   {/* Sidebar Component */}
-                  <div className="col-md-2 col-12">
-                    <Sidebar
+                  <div className="col-md-2  col-12 sidebar-container">
+                    <Sidebar 
+                      style={styles.sidebarContainer}
                       selectedSection="Product Listing"
                       setSelectedSection={() => {}}
                     />
@@ -95,6 +96,7 @@ const PathUnicorn7 = () => {
                         fontSize: "28px",
                         marginBottom: "20px",
                         marginTop: "10px",
+                        // minHeight: "100%",
 
                         width: "100%", // Ensures full width
                       }}>
@@ -205,13 +207,19 @@ const PathUnicorn7 = () => {
 
 // Styles
 const styles = {
+  sidebarContainer:{
+    height: "100%",
+    minHeight: "100vh",
+  },
   card: {
     height: "100%",
+    minHeight: "100vh",
   },
 
   mainContent: {
     flex: 1,
     padding: "20px",
+    height: "100%",
   },
   form: {
     display: "flex",

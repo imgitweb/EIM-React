@@ -21,7 +21,7 @@ function PathUnicorn2() {
   const location = useLocation();
   const activeMilestoneFromProps = location.state?.activeMilestone || "All"; // Default to "M1" if not provided
   const [activeTab, setActiveTab] = useState(activeMilestoneFromProps);
-  const startup_id = localStorage.getItem("token");
+  const startup_id = localStorage.getItem("userId") || "default_startup_id"; // Replace with actual startup ID
   useEffect(() => {
     setActiveTab(activeMilestoneFromProps); // Update state when props change
   }, [activeMilestoneFromProps]);
