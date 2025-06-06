@@ -21,7 +21,7 @@ import {
   AreaChart,
   Area,
 } from "recharts";
-const API_URL = require("../componant/config")
+import API_URL from "./../componant/config";
 
 const BecomeUnicorn = () => {
   const [selectedMilestone, setSelectedMilestone] = useState("1");
@@ -29,16 +29,19 @@ const BecomeUnicorn = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const startup_id = localStorage.getItem("userId") || "default_startup_id"; // Replace with actual startup ID
+  const startup_id = localStorage.getItem("userId") || "default_startup_id"; 
+  
   useEffect(() => {
     fetch(`${API_URL}/api/unicorn/${startup_id}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
+
         return response.json();
       })
       .then((data) => {
+        console.log("Fetched data:----", data);
         setData(data.data);
         setLoading(false);
       })

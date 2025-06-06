@@ -94,7 +94,7 @@ const PathToUnicorn = () => {
       handleClose();
       navigate("/path-unicorn2");
     } catch (error) {
-      console.error("Error:", error);
+      console.error("Error:-----", error);
     } finally {
       setLoading(false);
     }

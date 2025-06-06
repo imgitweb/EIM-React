@@ -8,6 +8,7 @@ import IncorporationDetails from "../Incorporation/IncorporationDetails";
 import StartupDocument from "../startup_document/StartupDocument";
 import axios from "axios";
 import API_BASE_URL from "./../componant/config";
+import { Link } from "react-router-dom";
 const sections = [
   {
     title: "Week 1 - Introduction to Entrepreneurship",
@@ -198,9 +199,11 @@ const AppProfile = () => {
                           </a>
                         </li>
                         <li>
-                          <button className="btn btn-primary text-nowrap">
+                          <Link to={
+                          "/Upgrade-Beta"
+                          } className="btn btn-primary text-nowrap">
                             Upgrade Now
-                          </button>
+                          </Link>
                         </li>
                       </ul>
                     </div>

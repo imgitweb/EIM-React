@@ -194,7 +194,7 @@
   .pagination-btn {
     padding: 0.5rem 1rem;
     border: 1px solid #e0e5ec;
-    background-color: white;
+    background-color: #202936;
     color: #223662;
     border-radius: 8px;
     cursor: pointer;
@@ -202,7 +202,7 @@
   }
   
   .pagination-btn:hover {
-    background-color: #f8f9fa;
+    background-color: #2c3849;
   }
   
   .pagination-btn.active {

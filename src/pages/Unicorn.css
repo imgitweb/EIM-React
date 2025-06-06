@@ -2,6 +2,7 @@
 
 .custom-w-full {
     width: 100%;
+    background-color: #202936;
   }
   
   .custom-max-w-6xl {
@@ -33,9 +34,9 @@
     background-image: linear-gradient(to bottom right, var(--from-color), var(--to-color));
   }
   
-  .custom-from-white {
+  /* .custom-from-white {
     --from-color: #ffffff;
-  }
+  } */
   
   .custom-to-purple-50 {
     --to-color: #f5f3ff; /* Tailwind purple-50 */
@@ -78,13 +79,13 @@
   }
   
   .custom-card {
-    background-color: #ffffff;
+    /* background-color: #ffffff; */
     border-radius: 0.5rem; /* Equivalent to 8px */
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   }
   
   .custom-bg-white-50 {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: #323c4a;
   }
   
   .custom-backdrop-blur-sm {
@@ -244,17 +245,17 @@
   }
   
   .custom-milestone-button:hover {
-      background-color: #f5f3ff;
+      background-color: #2a3546;
   }
   
   .custom-milestone-button-active {
-      background-color: #ede7f6;
+      background-color: #344154;
       color: #4527a0;
       box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   }
   
   .custom-hover-bg-purple-50:hover {
-      background-color: #f5f3ff;
+     background-color: #2a3546;
   }
   
   .custom-tabs {
@@ -271,11 +272,11 @@
       height: 8px;
       width: 8px;
       border-radius: 4px;
-      background-color: #f1f1f1;
+    background-color: #2a3546;
   }
   
   .custom-scroll-area::-webkit-scrollbar-thumb {
-      background-color: #c1c1c1;
+      background-color: #606060;
       border-radius: 4px;
   }
   
@@ -285,9 +286,9 @@
   
   .custom-tabs-list {
       display: inline-flex;
-      width: 100%;
+      width: fit-content;
       border-bottom: 1px solid #e0e0e0;
-      background-color: rgba(255, 255, 255, 0.5);
+      /* background-color: rgba(255, 255, 255, 0.5); */
       backdrop-filter: blur(4px);
   }
   

@@ -43,6 +43,7 @@ import Compliance_Document from "./startup_resources/TemplateComponent/Complianc
 import Banking_Template from "./startup_resources/TemplateComponent/Banking_Template";
 import Hr_Employee_agreements from "./startup_resources/TemplateComponent/Hr_Employee_Agreement";
 import Accounting_Document from "./startup_resources/TemplateComponent/Accounting_Document";
+import RouteWatcher from "./reloadDashboard/RouteWatcher";
 
 // Utility to parse tokens and store in localStorage
 function useTokenParser() {
@@ -66,10 +67,13 @@ function useTokenParser() {
       const parsedUser = JSON.parse(decodeURIComponent(userData));
       localStorage.setItem("userData", JSON.stringify(parsedUser));
 
+    
+
       // Remove query params and navigate to clean route
       navigate("/dashboard", { replace: true });
     }
   }, [location.search, navigate]);
+
 }
 
 function AppRoutes() {
@@ -77,6 +81,7 @@ function AppRoutes() {
 
   return (
     <Routes>
+     
       <Route path="/" element={<Login />} />
       <Route
         path="/dashboard"
@@ -357,9 +362,13 @@ function AppRoutes() {
 
 function App() {
   return (
-    <Router>
+    <>
+     <Router>
+     <RouteWatcher />
       <AppRoutes />
     </Router>
+    </>
+   
   );
 }
 
