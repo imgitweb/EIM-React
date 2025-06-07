@@ -66,13 +66,13 @@ function PathUnicorn9() {
                   }}
                   className="row">
                   {/* Left Sidebar */}
-                  <div className="col-md-3 col-12">
+                  <div className="col-md-2 col-16">
                     <div
                       style={{
                         backgroundColor: "#223662",
                         color: "#fff",
-                        width: "100%",
-                        height: "100%",
+                        width: "120%",
+                        minHeight: "120%",
                         display: "flex",
                         justifyContent: "center",
                         padding: "20px",
@@ -86,7 +86,7 @@ function PathUnicorn9() {
                     </div>
                   </div>
                   {/* Main Content */}
-                  <div className="col-md-8 col-12">
+                  <div className="col-md-10 col-12">
                     <div
                       style={{
                         flex: 1,

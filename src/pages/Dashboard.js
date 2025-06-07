@@ -2,10 +2,13 @@ import React, { useState, useEffect } from "react";
 import LeftSidebar from "../componant/LeftSidebar";
 import Navigation from "../componant/Navigation";
 import SerchBar from "../componant/SearchBar";
+import { useLocation } from "react-router-dom";
 
 const Dashboard = () => {
   const [selectedValue, setSelectedValue] = useState("option1");
   const [token, setToken] = useState("");
+   const location = useLocation();
+
   const handleChange = (event) => {
     setSelectedValue(event.target.value);
   };
@@ -20,8 +23,18 @@ const Dashboard = () => {
     if (storedToken) {
       setToken(storedToken);
       console.log(token);
+
+
     }
+
+
+
+
   }, []);
+
+
+
+
   return (
     <>
       <div id="main-wrapper" className={isActive ? "show-sidebar" : ""}>

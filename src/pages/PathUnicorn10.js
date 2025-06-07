@@ -84,7 +84,7 @@ function PathUnicorn10() {
               </div>
               <div className="card body3">
                 <div className="marketing-budget-container">
-                  <div className="sidebar ">
+                  <div className="sidebar">
                     <Sidebar
                       selectedSection="Product Listing"
                       setSelectedSection={() => {}}

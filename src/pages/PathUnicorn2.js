@@ -7,8 +7,9 @@ import { Loader2 } from "lucide-react";
 import API_BASE_URL from "./../componant/config";
 import axios from "axios";
 import BecomeUnicorn from "./BecomeUnicorn";
+
 function PathUnicorn2() {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState({  milestones: {} });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [isActive, setActive] = useState(false);
@@ -21,7 +22,7 @@ function PathUnicorn2() {
   const location = useLocation();
   const activeMilestoneFromProps = location.state?.activeMilestone || "All"; // Default to "M1" if not provided
   const [activeTab, setActiveTab] = useState(activeMilestoneFromProps);
-  const startup_id = localStorage.getItem("token");
+  const startup_id = localStorage.getItem("userId") || "default_startup_id"; // Replace with actual startup ID
   useEffect(() => {
     setActiveTab(activeMilestoneFromProps); // Update state when props change
   }, [activeMilestoneFromProps]);
@@ -64,9 +65,10 @@ function PathUnicorn2() {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        `https://app.incubationmasters.com:5000/api/unicorn/${startup_id}`
+        `http://localhost:5000/api/unicorn/${startup_id}`
       );
-      setData(response.data.data);
+      setData(response.data.data.milestones);
+      console.log("Fetched Data:", response.data.data.milestones);
       setLoading(false);
     } catch (err) {
       setError("Failed to fetch data");

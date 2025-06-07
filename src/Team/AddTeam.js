@@ -21,7 +21,7 @@ export default function AddTeam() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const storedStartupId = localStorage.getItem("user_id");
+    const storedStartupId = localStorage.getItem("userId");
     setTeam((prev) => ({ ...prev, startup_id: storedStartupId || "" }));
   }, []);
 
@@ -92,7 +92,8 @@ export default function AddTeam() {
               <form onSubmit={submitForm}>
                 <div className="form-group">
                   <input
-                    type="text"
+                    type="hidden"
+                  
                     name="startup_id"
                     value={team.startup_id}
                     className="form-control"

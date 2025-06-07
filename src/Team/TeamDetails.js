@@ -27,7 +27,7 @@ export default function TeamDetails() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const startup_id = localStorage.getItem("token"); // Retrieve startup_id from localStorage
+        const startup_id = localStorage.getItem("userId"); // Retrieve startup_id from localStorage
         const response = await axios.get(
           `${API_BASE_URL}/api/team/get_team/${startup_id}`
         );

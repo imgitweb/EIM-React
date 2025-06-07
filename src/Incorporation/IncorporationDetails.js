@@ -18,7 +18,7 @@ export default function IncorporationDetails() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const storedStartupId = localStorage.getItem("user_id");
+    const storedStartupId = localStorage.getItem("userId");
     setCompany((prev) => ({ ...prev, startup_id: storedStartupId || "" }));
   }, []);
 
@@ -61,7 +61,8 @@ export default function IncorporationDetails() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const startup_id = localStorage.getItem("token");
+        const startup_id = localStorage.getItem("userId");
+        console.log("Fetching data for startup_id:", startup_id);
         const response = await axios.get(
           `${API_BASE_URL}/api/company/get_company/${startup_id}`
         );

@@ -3,7 +3,7 @@ import API_BASE_URL from "./../../componant/config";
 export default function MrrModal() {
   const [years, setYears] = useState([]);
   const [months, setMonths] = useState([]);
-  const [startupId] = useState(localStorage.getItem("token")); // Retrieve token from localStorage
+  const [startupId] = useState(localStorage.getItem("userId")); // Retrieve token from localStorage
   const [message, setMessage] = useState(null); // Holds success or error message
   const [messageType, setMessageType] = useState(""); // 'success' or 'error'
 

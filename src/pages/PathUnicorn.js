@@ -26,12 +26,12 @@ const PathToUnicorn = () => {
     founder2: "",
     country: "",
     revenueStatus: "",
-    startup_id: localStorage.getItem("token"),
+    startup_id: localStorage.getItem("userId"),
   });
 
   useEffect(() => {
     setShowModal(true);
-    const storedId = localStorage.getItem("token");
+    const storedId = localStorage.getItem("userId");
     console.log(storedId);
     if (storedId) {
       setFormData((prev) => ({
@@ -94,7 +94,7 @@ const PathToUnicorn = () => {
       handleClose();
       navigate("/path-unicorn2");
     } catch (error) {
-      console.error("Error:", error);
+      console.error("Error:-----", error);
     } finally {
       setLoading(false);
     }

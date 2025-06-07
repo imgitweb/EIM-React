@@ -8,6 +8,7 @@ import IncorporationDetails from "../Incorporation/IncorporationDetails";
 import StartupDocument from "../startup_document/StartupDocument";
 import axios from "axios";
 import API_BASE_URL from "./../componant/config";
+import { Link } from "react-router-dom";
 const sections = [
   {
     title: "Week 1 - Introduction to Entrepreneurship",
@@ -56,10 +57,15 @@ const AppProfile = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [previewURL, setPreviewURL] = useState(null);
   const [uploadedLogoPath, setUploadedLogoPath] = useState(null);
-  const startup_id = localStorage.getItem("token");
+  const startup_id = localStorage.getItem("userId");
+
   const ToggleEvent = () => {
     setActive((prevState) => !prevState);
   };
+
+
+
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -71,11 +77,11 @@ const AppProfile = () => {
         // Extract only the 'startup' data from the response
         const startupData = response.data?.startup || null; // Use optional chaining to avoid errors if 'startup' doesn't exist
 
-        console.log("Fetched Startup Data:", startupData); // Log the fetched startup data
 
-        setProfile(startupData); // Set the startup data to state
+        setProfile(startupData); 
+        console.log("Profile state updated:", profile); // Log the updated profile state
       } catch (error) {
-        console.error("Error while fetching data:", error);
+        console.error("Error while fetching data:-----", error);
         setProfile(null); // Set null in case of an error
       }
     };
@@ -137,7 +143,7 @@ const AppProfile = () => {
                     <div className="col-lg-4 order-lg-1 order-2">
                       <div className="d-flex align-items-center justify-content-around m-4">
                         <div className="text-center">
-                          <h4 className="mb-0 lh-1">Alpha</h4>
+                          <h4 className="mb-0 lh-1">{profile.selectedPlan}</h4>
                           <p className="mb-0 ">Current Plan</p>
                         </div>
                       </div>
@@ -157,7 +163,7 @@ const AppProfile = () => {
                         </div>
                         <div className="text-center">
                           {profile ? (
-                            <h5>{profile.startup_name}</h5>
+                            <h5>{profile.firstName}  {profile.lastName}</h5>
                           ) : (
                             <p>No Name</p>
                           )}
@@ -193,9 +199,11 @@ const AppProfile = () => {
                           </a>
                         </li>
                         <li>
-                          <button className="btn btn-primary text-nowrap">
+                          <Link to={
+                          "/Upgrade-Beta"
+                          } className="btn btn-primary text-nowrap">
                             Upgrade Now
-                          </button>
+                          </Link>
                         </li>
                       </ul>
                     </div>
@@ -351,23 +359,23 @@ const AppProfile = () => {
                                           <tr>
                                             <td>Startup Name</td>
                                             <td>
-                                              {profile.startup_name || "N/A"}
+                                              {profile.firstName || "N/A"}
                                             </td>
                                           </tr>
                                           <tr>
                                             <td>Email</td>
-                                            <td>{profile.email_id || "N/A"}</td>
+                                            <td>{profile.email || "N/A"}</td>
                                           </tr>
                                           <tr>
                                             <td>Mobile</td>
                                             <td>
-                                              {profile.mobile_no || "N/A"}
+                                              {profile.contactNumber || "N/A"}
                                             </td>
                                           </tr>
                                           <tr>
                                             <td>Country</td>
                                             <td>
-                                              {profile.country_name || "N/A"}
+                                              {profile.country || "N/A"}
                                             </td>
                                           </tr>
                                           <tr>
@@ -376,12 +384,12 @@ const AppProfile = () => {
                                           </tr>
                                           <tr>
                                             <td>Stage</td>
-                                            <td>{profile.stage || "N/A"}</td>
+                                            <td>{profile.startupStage || "N/A"}</td>
                                           </tr>
                                           <tr>
-                                            <td>Startup Idea</td>
+                                            <td>Startup Name</td>
                                             <td>
-                                              {profile.startup_idea || "N/A"}
+                                              {profile.startupName|| "N/A"}
                                             </td>
                                           </tr>
                                         </tbody>
