@@ -4,6 +4,7 @@ import LeftSidebar from "../componant/LeftSidebar";
 import Navigation from "../componant/Navigation";
 import SerchBar from "../componant/SearchBar";
 import Sidebar from "./Sidebar";
+import SuggestiveSelect from "../componant/SuggestiveSelect";
 
 function PathUnicorn8() {
   const [isActive, setActive] = useState(false);
@@ -115,7 +116,7 @@ function PathUnicorn8() {
                   <div className="sidebar">
                     <Sidebar
                       selectedSection="client-persona"
-                      setSelectedSection={() => {}}
+                      setSelectedSection={() => { }}
                     />
                   </div>
                   <div className="form-container">
@@ -276,49 +277,54 @@ function PathUnicorn8() {
                       {/* Behaviors and Preferences Section */}
                       <div className="form-row">
                         <div className="form-group">
-                          <label>Preferred Platforms</label>
-                          <select
-                            className="form-control"
+                          <SuggestiveSelect
+                            label="Preferred Platforms"
                             name="preferredPlatform"
                             value={formData.preferredPlatform}
-                            onChange={handleInputChange}>
-                            <option value="">Select</option>
-                            <option value="Social Media">Social Media</option>
-                            <option value="Web Apps">Web Apps</option>
-                            <option value="Mobile Apps">Mobile Apps</option>
-                          </select>
+                            onChange={handleInputChange}
+                            options={[
+                              { label: "Social Media", value: "Social Media" },
+                              { label: "Web Apps", value: "Web Apps" },
+                              { label: "Mobile Apps", value: "Mobile Apps" }
+                            ]}
+                            placeholder="Select or type platform"
+                          />
                           {errors.preferredPlatform && (
                             <p className="error">{errors.preferredPlatform}</p>
                           )}
                         </div>
                         <div className="form-group">
-                          <label>Tech Savviness</label>
-                          <select
-                            className="form-control"
+                          <SuggestiveSelect
+                            label="Tech Savviness"
                             name="techSavviness"
                             value={formData.techSavviness}
-                            onChange={handleInputChange}>
-                            <option value="">Select</option>
-                            <option value="Beginner">Beginner</option>
-                            <option value="Intermediate">Intermediate</option>
-                            <option value="Advanced">Advanced</option>
-                          </select>
+                            onChange={handleInputChange}
+                            options={[
+                              { label: "Beginner", value: "Beginner" },
+                              { label: "Intermediate", value: "Intermediate" },
+                              { label: "Advanced", value: "Advanced" }
+                            ]}
+                            placeholder="Select or type level"
+                          />
                           {errors.techSavviness && (
                             <p className="error">{errors.techSavviness}</p>
                           )}
                         </div>
+
+
                         <div className="form-group">
-                          <label>Content Preferences</label>
-                          <select
-                            className="form-control"
+                          <SuggestiveSelect
+                            label="Content Preferences"
                             name="contentPreference"
                             value={formData.contentPreference}
-                            onChange={handleInputChange}>
-                            <option value="">Select</option>
-                            <option value="Text">Text</option>
-                            <option value="Video">Video</option>
-                            <option value="Interactive">Interactive</option>
-                          </select>
+                            onChange={handleInputChange}
+                            options={[
+                              { label: "Text", value: "Text" },
+                              { label: "Video", value: "Video" },
+                              { label: "Interactive", value: "Interactive" }
+                            ]}
+                            placeholder="Select or type content style"
+                          />
                           {errors.contentPreference && (
                             <p className="error">{errors.contentPreference}</p>
                           )}

@@ -14158,6 +14158,7 @@ h3 {
   color: #7c8fac;
   background-color: #202936;
 }
+
 [data-bs-theme="dark"] .form-control:focus,
 [data-bs-theme="dark"] .form-select:focus {
   border-color: #5d87ff !important;
@@ -44360,4 +44361,22 @@ strong {
 
 .spinner-border {
   display: none;
+}
+
+
+.custom-select {
+  width: 100%;
+  padding: 10px 15px;
+  /* border: 1px solid #ccc; */
+  border-radius: 8px;
+  /* box-shadow: 0 1px 3px rgba(0,0,0,0.1); */
+  font-size: 14px;
+  outline: none;
+  background-color: #202936 !important;
+  /* transition: border-color 0.3s, box-shadow 0.3s; */
+}
+
+.custom-select:focus {
+  /* border-color: #4f46e5; indigo-600 */
+  /* box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3); blue glow */
 }
