@@ -4,12 +4,75 @@ import LeftSidebar from "../componant/LeftSidebar";
 import Navigation from "../componant/Navigation";
 import SearchBar from "../componant/SearchBar";
 import PUGraph from "./PUGraph";
+import SuggestiveSelect from "../componant/SuggestiveSelect";
 
 const PathToUnicorn = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [isActive, setIsActive] = useState(false);
   const [showModal, setShowModal] = useState(false);
+const countries = [
+  { value: "Afghanistan", label: "Afghanistan" },
+  { value: "Albania", label: "Albania" },
+  { value: "Algeria", label: "Algeria" },
+  { value: "Andorra", label: "Andorra" },
+  { value: "Angola", label: "Angola" },
+  { value: "Argentina", label: "Argentina" },
+  { value: "Armenia", label: "Armenia" },
+  { value: "Australia", label: "Australia" },
+  { value: "Austria", label: "Austria" },
+  { value: "Azerbaijan", label: "Azerbaijan" },
+  { value: "Bangladesh", label: "Bangladesh" },
+  { value: "Belgium", label: "Belgium" },
+  { value: "Bhutan", label: "Bhutan" },
+  { value: "Brazil", label: "Brazil" },
+  { value: "Canada", label: "Canada" },
+  { value: "China", label: "China" },
+  { value: "Denmark", label: "Denmark" },
+  { value: "Egypt", label: "Egypt" },
+  { value: "Finland", label: "Finland" },
+  { value: "France", label: "France" },
+  { value: "Germany", label: "Germany" },
+  { value: "India", label: "India" },
+  { value: "Indonesia", label: "Indonesia" },
+  { value: "Iran", label: "Iran" },
+  { value: "Iraq", label: "Iraq" },
+  { value: "Ireland", label: "Ireland" },
+  { value: "Israel", label: "Israel" },
+  { value: "Italy", label: "Italy" },
+  { value: "Japan", label: "Japan" },
+  { value: "Kenya", label: "Kenya" },
+  { value: "Malaysia", label: "Malaysia" },
+  { value: "Mexico", label: "Mexico" },
+  { value: "Nepal", label: "Nepal" },
+  { value: "Netherlands", label: "Netherlands" },
+  { value: "New Zealand", label: "New Zealand" },
+  { value: "Nigeria", label: "Nigeria" },
+  { value: "Norway", label: "Norway" },
+  { value: "Pakistan", label: "Pakistan" },
+  { value: "Philippines", label: "Philippines" },
+  { value: "Poland", label: "Poland" },
+  { value: "Portugal", label: "Portugal" },
+  { value: "Qatar", label: "Qatar" },
+  { value: "Russia", label: "Russia" },
+  { value: "Saudi Arabia", label: "Saudi Arabia" },
+  { value: "Singapore", label: "Singapore" },
+  { value: "South Africa", label: "South Africa" },
+  { value: "South Korea", label: "South Korea" },
+  { value: "Spain", label: "Spain" },
+  { value: "Sri Lanka", label: "Sri Lanka" },
+  { value: "Sweden", label: "Sweden" },
+  { value: "Switzerland", label: "Switzerland" },
+  { value: "Thailand", label: "Thailand" },
+  { value: "Turkey", label: "Turkey" },
+  { value: "UAE", label: "UAE" },
+  { value: "Ukraine", label: "Ukraine" },
+  { value: "United Kingdom", label: "United Kingdom" },
+  { value: "United States", label: "United States" },
+  { value: "Vietnam", label: "Vietnam" },
+  { value: "Zimbabwe", label: "Zimbabwe" }
+];
+
 
   const [formData, setFormData] = useState({
     industry: "",
@@ -340,22 +403,35 @@ const PathToUnicorn = () => {
 
                             <div className="col-md-6">
                               <div className="form-floating">
-                                <select
+                                {/* <select
                                   className="form-select"
                                   id="country"
                                   value={formData.country}
                                   onChange={handleChange}>
+                                 
                                   <option value="">Select Country</option>
-                                  <option value="India">India</option>
-                                </select>
-                                <label htmlFor="country">
+                                  {countries.map((country) => (
+                                    <option key={country} value={country}>
+                                      {country}
+                                    </option>
+                                  ))}
+
+                                </select> */}
+                                <SuggestiveSelect
+                                  id="country"
+                                  value={formData.country}
+                                  onChange={handleChange}
+                                  options={countries}
+                                  placeholder="Select Startup Operating Country"
+                                />
+                                {/* <label htmlFor="country">
                                   Startup Operating Country
-                                </label>
+                                </label> */}
                               </div>
                             </div>
 
                             <div className="col-md-6">
-                              <div className="form-floating">
+                              <div className="form-floatin">
                                 <select
                                   className="form-select"
                                   id="revenueStatus"
@@ -365,9 +441,9 @@ const PathToUnicorn = () => {
                                   <option value="Yes">Yes</option>
                                   <option value="No">No</option>
                                 </select>
-                                <label htmlFor="revenueStatus">
+                                {/* <label htmlFor="revenueStatus">
                                   Is this startup revenue generating yet?
-                                </label>
+                                </label> */}
                               </div>
                             </div>
                           </div>

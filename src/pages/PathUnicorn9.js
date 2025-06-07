@@ -4,6 +4,7 @@ import LeftSidebar from "../componant/LeftSidebar";
 import Navigation from "../componant/Navigation";
 import SerchBar from "../componant/SearchBar";
 import Sidebar from "./Sidebar";
+import SuggestiveSelect from "../componant/SuggestiveSelect";
 
 // import "./App.css"; // Import your CSS file for styling
 
@@ -13,6 +14,20 @@ function PathUnicorn9() {
   const ToggleEvent = () => {
     setActive((prevState) => !prevState);
   };
+  const [formData, setFormData] = useState({
+    purpose: "",
+  });
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  }
+
+
+
   return (
     <>
       <div id="main-wrapper" className={isActive ? "show-sidebar" : ""}>
@@ -81,7 +96,7 @@ function PathUnicorn9() {
                       }}>
                       <Sidebar
                         selectedSection="Product Listing"
-                        setSelectedSection={() => {}}
+                        setSelectedSection={() => { }}
                       />
                     </div>
                   </div>
@@ -161,17 +176,20 @@ function PathUnicorn9() {
                               />
                             </div>
                             <div style={{ marginBottom: "15px" }}>
-                              <select
-                                className="form-control"
-                                style={{ ...inputStyle, padding: "10px" }}>
-                                <option value="">Purpose</option>
-                                <option value="newsletter">
-                                  Subscribe to Newsletter
-                                </option>
-                                <option value="demo">Request a Demo</option>
-                                <option value="inquiry">General Inquiry</option>
-                                <option value="social">Social Media</option>
-                              </select>
+                              <SuggestiveSelect
+                                // label="Purpose"
+                                name="purpose"
+                                value={formData.purpose}
+                                onChange={handleInputChange}
+                                options={[
+                                  { label: "Subscribe to Newsletter", value: "Subscribe to Newsletter" },
+                                  { label: "Request a Demo", value: "Request a Demo" },
+                                  { label: "General Inquiry", value: "General Inquiry" },
+                                  { label: "Social Media", value: "Social Media" }
+                                ]}
+                                placeholder="Select or type purpose"
+                                inputStyle={{ ...inputStyle, padding: "10px" }}
+                              />
                             </div>
                           </form>
                           <div style={{ width: "45%" }}>

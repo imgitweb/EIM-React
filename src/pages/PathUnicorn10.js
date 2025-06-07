@@ -4,6 +4,7 @@ import LeftSidebar from "../componant/LeftSidebar";
 import Navigation from "../componant/Navigation";
 import SerchBar from "../componant/SearchBar";
 import Sidebar from "./Sidebar";
+import SuggestiveSelect from "../componant/SuggestiveSelect";
 
 function PathUnicorn10() {
   const [isActive, setActive] = useState(false);
@@ -36,6 +37,14 @@ function PathUnicorn10() {
       message: "",
     });
   };
+
+   const purposeOptions = [
+    { label: "Select Purpose", value: "" },
+    { label: "Subscribe to Newsletter", value: "Subscribe to Newsletter" },
+    { label: "Request a Demo", value: "Request a Demo" },
+    { label: "General Inquiry", value: "General Inquiry" },
+    { label: "Social Media", value: "Social Media" }
+  ];
 
   return (
     <>
@@ -87,7 +96,7 @@ function PathUnicorn10() {
                   <div className="sidebar">
                     <Sidebar
                       selectedSection="Product Listing"
-                      setSelectedSection={() => {}}
+                      setSelectedSection={() => { }}
                     />
                   </div>
                   <div className="form-container">
@@ -159,26 +168,15 @@ function PathUnicorn10() {
                           />
                         </div>
                         <div className="form-group">
-                          <label>Purpose</label>
-                          <select
-                            className="form-control"
-                            name="purpose"
-                            value={formData.purpose}
-                            onChange={handleInputChange}
-                            required>
-                            <option value="">Select Purpose</option>
-                            <option value="Subscribe to Newsletter">
-                              Subscribe to Newsletter
-                            </option>
-                            <option value="Request a Demo">
-                              Request a Demo
-                            </option>
-                            <option value="General Inquiry">
-                              General Inquiry
-                            </option>
-                            <option value="Social Media">Social Media</option>
-                          </select>
+                          <SuggestiveSelect
+        label="Purpose"
+        name="purpose"
+        value={formData.purpose}
+        onChange={handleInputChange}
+        options={purposeOptions}
+      />
                         </div>
+
                       </div>
                       <div className="form-row">
                         <div className="form-group message-group">
