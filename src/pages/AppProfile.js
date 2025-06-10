@@ -71,7 +71,10 @@ const AppProfile = () => {
       try {
         // Retrieve startup_id from localStorage
         const response = await axios.get(
-          `${API_BASE_URL}/api/startup/getStartupInfo/${startup_id}`
+          `${API_BASE_URL}/api/startup/getStartupInfo/${startup_id}`,
+           {
+    withCredentials: true, 
+    }
         );
 
         // Extract only the 'startup' data from the response

@@ -42,6 +42,7 @@ export default function IncorporationDetails() {
           founding_date: company.founding_date,
           startup_id: company.startup_id,
         }
+        
       );
       console.log("Company Saved Successfully:", response.data);
       setMessage("Company Saved Successfully");

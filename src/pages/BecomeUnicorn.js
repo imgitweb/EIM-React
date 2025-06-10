@@ -32,7 +32,7 @@ const BecomeUnicorn = () => {
   const startup_id = localStorage.getItem("userId") || "default_startup_id"; 
   
   useEffect(() => {
-    fetch(`${API_URL}/api/unicorn/${startup_id}`)
+    fetch(`${API_URL}/api/unicorn/${startup_id}` )
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
