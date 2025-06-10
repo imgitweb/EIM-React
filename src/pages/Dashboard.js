@@ -3,11 +3,15 @@ import LeftSidebar from "../componant/LeftSidebar";
 import Navigation from "../componant/Navigation";
 import SerchBar from "../componant/SearchBar";
 import { useLocation } from "react-router-dom";
+import { useTheme } from "../context/ThemeContext";
 
 const Dashboard = () => {
   const [selectedValue, setSelectedValue] = useState("option1");
   const [token, setToken] = useState("");
-   const location = useLocation();
+  const location = useLocation();
+    const { isDark, theme } = useTheme();
+
+  console.log("Current theme:", theme, "=", isDark);
 
   const handleChange = (event) => {
     setSelectedValue(event.target.value);
@@ -40,16 +44,20 @@ const Dashboard = () => {
       <div id="main-wrapper" className={isActive ? "show-sidebar" : ""}>
         {/* Sidebar Start */}
         <LeftSidebar onButtonClick={ToggleEvent} />
+        
         {/*  Sidebar End */}
         <div className="page-wrapper">
           <Navigation onButtonClick={ToggleEvent} />
           <div className="body-wrapper">
             <div className="container-fluid">
-              {}
+              { }
               {/*  Owl carousel */}
               <div className="row">
                 <div className="col-md-2">
-                  <div className="card border-0 zoom-in bg-primary-subtle shadow-none">
+                  <div
+                    className={`card border-0 zoom-in shadow-none ${isDark ? "bg-primary-subtle text-primary" : "bg-gray text-dark"
+                      }`}
+                  >
                     <div className="card-body">
                       <div className="text-center">
                         <img
@@ -59,17 +67,30 @@ const Dashboard = () => {
                           className="mb-3"
                           alt="modernize-img"
                         />
-                        <p className="fw-semibold fs-3 text-primary mb-1">
+                        <p
+                          className={`fw-semibold fs-3 mb-1 ${isDark ? "text-primary" : "text-black"
+                            }`}
+                        >
                           MRR
                         </p>
-                        <h5 className="fw-semibold text-primary mb-0">96</h5>
+                        <h5
+                          className={`fw-semibold mb-0 ${isDark ? "text-primary" : "text-black"
+                            }`}
+                        >
+                          96
+                        </h5>
                       </div>
                     </div>
                   </div>
+
                 </div>
                 <div className="col-md-2">
-                  <div className="card border-0 zoom-in bg-primary-subtle shadow-none">
+                   <div
+                    className={`card border-0 zoom-in shadow-none ${isDark ? "bg-primary-subtle text-primary" : "bg-gray text-black"
+                      }`}
+                  > 
                     <div className="card-body">
+
                       <div className="text-center">
                         <img
                           src="./assets/assets/images/svgs/icon-user-male.svg"
@@ -78,16 +99,26 @@ const Dashboard = () => {
                           className="mb-3"
                           alt="modernize-img"
                         />
-                        <p className="fw-semibold fs-3 text-primary mb-1">
+                       <p
+                          className={`fw-semibold fs-3 mb-1 ${isDark ? "text-primary" : "text-black"
+                            }`}
+                        >
                           EBITDA
                         </p>
-                        <h5 className="fw-semibold text-primary mb-0">96</h5>
+                         <h5
+              className={`fw-semibold mb-0 ${
+                isDark ? 'text-primary' : 'text-black'
+              }`}
+            >96</h5>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div className="col-md-2">
-                  <div className="card border-0 zoom-in bg-primary-subtle shadow-none">
+                   <div
+                    className={`card border-0 zoom-in shadow-none ${isDark ? "bg-primary-subtle text-primary" : "bg-gray text-dark"
+                      }`}
+                  >
                     <div className="card-body">
                       <div className="text-center">
                         <img
@@ -97,16 +128,25 @@ const Dashboard = () => {
                           className="mb-3"
                           alt="modernize-img"
                         />
-                        <p className="fw-semibold fs-3 text-primary mb-1">
+                        <p
+                          className={`fw-semibold fs-3 mb-1 ${isDark ? "text-primary" : "text-black"
+                            }`}
+                        >
                           CAC/LTV
                         </p>
-                        <h5 className="fw-semibold text-primary mb-0">96</h5>
+                         <h5
+                          className={`fw-semibold mb-0 ${isDark ? "text-primary" : "text-black"
+                            }`}
+                        >96</h5>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div className="col-md-2">
-                  <div className="card border-0 zoom-in bg-primary-subtle shadow-none">
+                 <div
+                    className={`card border-0 zoom-in shadow-none ${isDark ? "bg-primary-subtle text-primary" : "bg-gray text-dark"
+                      }`}
+                  >
                     <div className="card-body">
                       <div className="text-center">
                         <img
@@ -116,17 +156,25 @@ const Dashboard = () => {
                           className="mb-3"
                           alt="modernize-img"
                         />
-                        <p className="fw-semibold fs-3 text-primary mb-1">
+                  <p
+                          className={`fw-semibold fs-3 mb-1 ${isDark ? "text-primary" : "text-black"
+                            }`}
+                        >
                           MONTHLY BURN
                         </p>
-                        <h5 className="fw-semibold text-primary mb-0">96</h5>
+                         <h5
+                          className={`fw-semibold mb-0 ${isDark ? "text-primary" : "text-black"
+                            }`}
+                        >96</h5>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div className="col-md-2">
-                  <div className="card border-0 zoom-in bg-primary-subtle shadow-none">
-                    <div className="card-body">
+ <div
+                    className={`card border-0 zoom-in shadow-none ${isDark ? "bg-primary-subtle text-primary" : "bg-gray text-dark"
+                      }`}
+                  >                    <div className="card-body">
                       <div className="text-center">
                         <img
                           src="./assets/assets/images/svgs/icon-user-male.svg"
@@ -135,16 +183,25 @@ const Dashboard = () => {
                           className="mb-3"
                           alt="modernize-img"
                         />
-                        <p className="fw-semibold fs-3 text-primary mb-1">
+                   <p
+                          className={`fw-semibold fs-3 mb-1 ${isDark ? "text-primary" : "text-black"
+                            }`}
+                        >
                           CASH RUNWAY
                         </p>
-                        <h5 className="fw-semibold text-primary mb-0">96</h5>
+                         <h5
+                          className={`fw-semibold mb-0 ${isDark ? "text-primary" : "text-black"
+                            }`}
+                        >96</h5>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div className="col-md-2">
-                  <div className="card border-0 zoom-in bg-primary-subtle shadow-none">
+                  <div
+                    className={`card border-0 zoom-in shadow-none ${isDark ? "bg-primary-subtle text-primary" : "bg-gray text-dark"
+                      }`}
+                  >
                     <div className="card-body">
                       <div className="text-center">
                         <img
@@ -154,10 +211,16 @@ const Dashboard = () => {
                           className="mb-3"
                           alt="modernize-img"
                         />
-                        <p className="fw-semibold fs-3 text-primary mb-1">
+                        <p
+                          className={`fw-semibold fs-3 mb-1 ${isDark ? "text-primary" : "text-black"
+                            }`}
+                        >
                           CLIENTS
                         </p>
-                        <h5 className="fw-semibold text-primary mb-0">96</h5>
+                         <h5
+                          className={`fw-semibold mb-0 ${isDark ? "text-primary" : "text-black"
+                            }`}
+                        >96</h5>
                       </div>
                     </div>
                   </div>
