@@ -7,7 +7,7 @@
   }
 }
 * 
-{
+/* {
   color:white !important;
 }
 p 
@@ -17,7 +17,7 @@ p
 a 
 {
   color: white !important; 
-}
+} */
 /* pitch deck */
 .st1 {
   fill: #595a5a;
@@ -32873,12 +32873,25 @@ html[data-boxed-layout="boxed"] .container-xxl {
   flex-shrink: 0;
   background: var(--bs-body-bg);
   z-index: 99;
-  transition: 0.2s ease-in;
+  /* transition: 0.2s ease-in; */
   position: fixed;
   left: 0;
   right: 0;
   height: 100%;
 }
+[data-bs-theme="light"] .sidebar-link {
+ color: var(--bs-dark-text-emphasis);
+  /* border-bottom: 1px solid var(--bs-border-color); */
+}
+/* [data-bs-theme="light"] . {
+   color: var(--bs-dark-text-emphasis);
+  background-color: var(--bs-white);
+  border-bottom: 1px solid var(--bs-border-color);
+} */
+
+
+
+
 .left-sidebar .sidebartoggler {
   color: var(--bs-dark-text-emphasis);
 }
@@ -33126,7 +33139,7 @@ html[data-boxed-layout="boxed"] .container-xxl {
   height: 70px;
   padding: 0 15px;
   font-size: 14px;
-  color: white;
+  /* color: white; */
 }
 .topbar .navbar .navbar-nav .nav-item .nav-link i {
   font-size: 20px;

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import useThemeToggle from "../hooks/useThemeToggle";
+import { useTheme } from "../context/ThemeContext";
 
 const Navigation = ({ onButtonClick }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const { theme, toggleTheme } = useThemeToggle();
+  const { theme, toggleTheme } = useTheme();
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -54,10 +54,12 @@ const Navigation = ({ onButtonClick }) => {
               {/* ------------------------------- */}
               {/* end apps Dropdown */}
               {/* ------------------------------- */}
-              <li className="nav-item dropdown-hover d-none d-lg-block">
-                <Link className="nav-link" to="/rivarly-insights">
+              <li className="nav-item nav-icon-hover-bg rounded w-auto dropdown d-none d-lg-block mx-0">
+                <div className="hover-dd">
+                    <Link className="nav-link" to="/rivarly-insights">
                   Rivalry Insight
                 </Link>
+                </div>
               </li>
               {/* <li className="nav-item dropdown-hover d-none d-lg-block">
                 <Link className="nav-link" to="/calendar">
@@ -69,20 +71,26 @@ const Navigation = ({ onButtonClick }) => {
                   Projections
                 </Link>
               </li> */}
-              <li className="nav-item dropdown-hover d-none d-lg-block">
-                <Link className="nav-link" to="/business">
+              <li className="nav-item nav-icon-hover-bg rounded w-auto dropdown d-none d-lg-block mx-0">
+                <div className="hover-dd">
+                   <Link className="nav-link" to="/business">
                   Business Model
                 </Link>
+                </div>
               </li>
-              <li className="nav-item dropdown-hover d-none d-lg-block">
-                <Link className="nav-link" to="/pitch-deck">
+               <li className="nav-item nav-icon-hover-bg rounded w-auto dropdown d-none d-lg-block mx-0">
+                <div className="hover-dd">
+                  <Link className="nav-link" to="/pitch-deck">
                   Pitch Deck
                 </Link>
+                </div>
               </li>
-              <li className="nav-item dropdown-hover d-none d-lg-block">
-                <Link className="nav-link" to="/idea-validation">
+               <li className="nav-item nav-icon-hover-bg rounded w-auto dropdown d-none d-lg-block mx-0">
+                <div className="hover-dd">
+                 <Link className="nav-link" to="/idea-validation">
                   Idea Validation
                 </Link>
+                </div>
               </li>
               <li className="nav-item dropdown-hover d-none d-lg-block">
                 <Link className="nav-link" to="/market-research">
