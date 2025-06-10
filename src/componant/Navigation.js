@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import useThemeToggle from "../hooks/useThemeToggle";
 
 const Navigation = ({ onButtonClick }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const { theme, toggleTheme } = useThemeToggle();
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -125,6 +127,26 @@ const Navigation = ({ onButtonClick }) => {
                   <i className="ti ti-align-justified fs-7" />
                 </Link>
                 <ul className="navbar-nav flex-row ms-auto align-items-center justify-content-center">
+
+                  {/* ------------------------------- */}
+                  {/* start theme Dropdown */}
+                  <li className="nav-item nav-icon-hover-bg rounded-circle dropdown">
+                    <Link
+                      className="nav-link position-relative"
+                      href="/#"
+                      id="drop2"
+                      aria-expanded="false"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        toggleTheme();
+                      }}
+                    >
+                      <i className={`ti ${theme === 'light' ? 'ti-sun' : 'ti-moon'}`} />
+                      {/* <div className="notification bg-primary rounded-circle" /> */}
+                    </Link>
+
+                  </li>
+
                   {/* ------------------------------- */}
                   {/* start language Dropdown */}
                   {/* ------------------------------- */}
@@ -2292,3 +2314,4 @@ const Navigation = ({ onButtonClick }) => {
 };
 
 export default Navigation;
+
