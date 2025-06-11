@@ -5,6 +5,7 @@ import Navigation from "../componant/Navigation";
 import SearchBar from "../componant/SearchBar";
 import PUGraph from "./PUGraph";
 import SuggestiveSelect from "../componant/SuggestiveSelect";
+import API_BASE_URL from "./../componant/config";
 
 const PathToUnicorn = () => {
   const navigate = useNavigate();
@@ -138,7 +139,7 @@ const countries = [
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/unicorn/generate-milestones",
+        `${API_BASE_URL}/api/unicorn/generate-milestones`,
         {
           method: "POST",
           headers: {

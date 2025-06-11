@@ -65,7 +65,7 @@ function PathUnicorn2() {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/unicorn/${startup_id}`
+        `${API_BASE_URL}/api/unicorn/${startup_id}`
       );
       setData(response.data.data.milestones);
       console.log("Fetched Data:", response.data.data.milestones);
