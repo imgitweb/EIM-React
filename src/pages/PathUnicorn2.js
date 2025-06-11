@@ -9,7 +9,7 @@ import axios from "axios";
 import BecomeUnicorn from "./BecomeUnicorn";
 
 function PathUnicorn2() {
-  const [data, setData] = useState({  milestones: {} });
+  const [data, setData] = useState({ milestones: {} });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [isActive, setActive] = useState(false);
