@@ -127,7 +127,6 @@ const PathToUnicorn = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
 
     // Basic validation
     if (!formData.startup_id || !formData.businessModel) {
@@ -136,9 +135,11 @@ const PathToUnicorn = () => {
       return;
     }
 
+    setLoading(true);
+
     try {
       const response = await fetch(
-        1`${API_BASE_URL}/api/unicorn/generate-milestones`,
+        `${API_BASE_URL}/api/unicorn/generate-milestones`,
         {
           method: "POST",
           headers: {
