@@ -67,13 +67,10 @@ function useTokenParser() {
       const parsedUser = JSON.parse(decodeURIComponent(userData));
       localStorage.setItem("userData", JSON.stringify(parsedUser));
 
-    
-
       // Remove query params and navigate to clean route
       navigate("/dashboard", { replace: true });
     }
   }, [location.search, navigate]);
-
 }
 
 function AppRoutes() {
@@ -81,7 +78,6 @@ function AppRoutes() {
 
   return (
     <Routes>
-     
       <Route path="/" element={<Login />} />
       <Route
         path="/dashboard"
@@ -363,12 +359,11 @@ function AppRoutes() {
 function App() {
   return (
     <>
-     <Router>
-     <RouteWatcher />
-      <AppRoutes />
-    </Router>
+      <Router>
+        <RouteWatcher />
+        <AppRoutes />
+      </Router>
     </>
-   
   );
 }
 
