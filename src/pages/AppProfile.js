@@ -9,6 +9,7 @@ import StartupDocument from "../startup_document/StartupDocument";
 import axios from "axios";
 import API_BASE_URL from "./../componant/config";
 import { Link } from "react-router-dom";
+import PopupModal from "../componant/PopupModal";
 const sections = [
   {
     title: "Week 1 - Introduction to Entrepreneurship",
@@ -54,19 +55,71 @@ const sections = [
 const AppProfile = () => {
   const [profile, setProfile] = useState(false);
   const [isActive, setActive] = useState(false);
-  const [selectedFile, setSelectedFile] = useState(null);
+  // const [selectedFile, setSelectedFile] = useState(null);
   const [previewURL, setPreviewURL] = useState(null);
   const [uploadedLogoPath, setUploadedLogoPath] = useState(null);
   const startup_id = localStorage.getItem("userId");
+  const [endDate, setEndDate] = useState();
+  const [countdown, setCountdown] = useState('');
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const ToggleEvent = () => {
     setActive((prevState) => !prevState);
   };
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [previewUrl, setPreviewUrl] = useState(null);
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setSelectedFile(file);
+      setPreviewUrl(URL.createObjectURL(file));
+    }
+  };
+
+  const handleUpload = async () => {
+    if (!selectedFile) return alert("Please select a file first.");
+
+    const formData = new FormData();
+    formData.append("logo", selectedFile);
+
+    try {
+      const res = await axios.put(
+        `${API_BASE_URL}/api/profile/${startup_id}`,
+        formData,
+        {
+          headers: { "Content-Type": "multipart/form-data" },
+          withCredentials: true,
+        }
+      );
+      console.log("Upload response:", res.data);
+      alert("Profile updated successfully");
+    } catch (error) {
+      console.error("Upload error:", error);
+      alert("Upload failed");
+    }
+  };
+
+  const handleReset = () => {
+    setSelectedFile(null);
+    setPreviewUrl(null);
+  };
 
 
-  const getSubscriptionStatus = () => {
 
-  }
+
+  const getSubscriptionStatus = async () => {
+    try {
+      const res = await axios.get(`${API_BASE_URL}/api/subscriptions/${startup_id}`, {
+        withCredentials: true,
+      });
+      const date = res.data.subscriptions[0].endDate;
+      setEndDate(new Date(date));
+    } catch (error) {
+      console.error("Error retrieving subscription status:", error);
+    }
+  };
+
 
 
 
@@ -79,25 +132,49 @@ const AppProfile = () => {
         // Retrieve startup_id from localStorage
         const response = await axios.get(
           `${API_BASE_URL}/api/startup/getStartupInfo/${startup_id}`,
-           {
-    withCredentials: true, 
-    }
+          {
+            withCredentials: true,
+          }
         );
 
         // Extract only the 'startup' data from the response
         const startupData = response.data?.startup || null; // Use optional chaining to avoid errors if 'startup' doesn't exist
 
 
-        setProfile(startupData); 
-        console.log("Profile state updated:", profile); // Log the updated profile state
+        setProfile(startupData);
       } catch (error) {
         console.error("Error while fetching data:-----", error);
         setProfile(null); // Set null in case of an error
       }
     };
 
+    getSubscriptionStatus()
     fetchData();
   }, []);
+  useEffect(() => {
+    if (!endDate) return;
+
+    const interval = setInterval(() => {
+      const now = new Date();
+      const timeLeft = endDate - now;
+
+      if (timeLeft <= 0) {
+        setCountdown("Your plan has expired.");
+        clearInterval(interval);
+        return;
+      }
+
+      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeLeft / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((timeLeft / (1000 * 60)) % 60);
+      const seconds = Math.floor((timeLeft / 1000) % 60);
+
+      setCountdown(`${days}d ${hours}h ${minutes}m ${seconds}s`);
+    }, 1000);
+
+    return () => clearInterval(interval); // Cleanup on unmount or endDate change
+  }, [endDate]);
+
 
   return (
     <>
@@ -153,21 +230,34 @@ const AppProfile = () => {
                     <div className="col-lg-4 order-lg-1 order-2">
                       <div className="d-flex align-items-center gap-10 m-4">
                         <div>
-                          <Link to={
-                          "/Upgrade-Beta"
-                          } className="btn btn-primary text-nowrap">
+                          <button
+                            onClick={() => setIsModalOpen(true)}
+                            className="btn btn-primary text-nowrap">
                             Weekly Tracker
-                          </Link>
+                          </button>
                         </div>
-                       
+
+                        {/* pop code  */}
+
+
+                        <PopupModal
+                          isOpen={isModalOpen}
+                          onClose={() => setIsModalOpen(false)}
+                          title="Dashboard Popup"
+                        >
+                          <p>Your plan is valid until 5th July 2025.</p>
+                          <p>Here are the details of your plan:</p>
+                        </PopupModal>
+
+
                         <div className="text-center">
                           <h4 style={{
                             textTransform: "capitalize",
                           }} className="mb-0 lh-1 ">{profile?.selectedPlan}</h4>
                           <p className="mb-0 ">Current Plan</p>
                         </div>
-                       
-                        
+
+
                       </div>
                     </div>
                     <div className="col-lg-4 mt-n3 order-lg-2 order-1">
@@ -222,14 +312,14 @@ const AppProfile = () => {
                         </li> */}
                         <li>
                           <Link to={
-                          "/Upgrade-Beta"
+                            "/Upgrade-Beta"
                           } className="btn btn-primary text-nowrap">
-                            Timer 
+                            <i class="bi bi-stopwatch mx-1"> </i> {countdown}
                           </Link>
                         </li>
                         <li>
                           <Link to={
-                          "/Upgrade-Beta"
+                            "/Upgrade-Beta"
                           } className="btn btn-primary text-nowrap">
                             Upgrade Now
                           </Link>
@@ -285,7 +375,7 @@ const AppProfile = () => {
                       >
                         <i className="ti ti-user-circle fs-5" />
                         <span className="d-none d-md-block">
-                          Incorporation 
+                          Incorporation
                         </span>
                       </button>
                     </li>
@@ -346,36 +436,50 @@ const AppProfile = () => {
                               <div className="col-lg-6 d-flex align-items-stretch">
                                 <div className="card w-100 border position-relative overflow-hidden">
                                   <div className="card-body p-4">
-                                    <h4 className="card-title">
-                                      Change Profile
-                                    </h4>
+                                    <h4 className="card-title">Change Profile</h4>
                                     <p className="card-subtitle mb-4">
                                       Change your profile picture from here
                                     </p>
+
                                     <div className="text-center">
                                       <img
-                                        src="./assets/assets/images/profile/user-1.jpg"
-                                        alt="modernize-img"
+                                        src={
+                                          previewUrl
+                                            ? previewUrl
+                                            : profile?.logoUrl
+                                              ? `http://localhost:5000${profile?.logoUrl}`
+                                              : "/assets/assets/images/profile/user-1.jpg"
+                                        }
+                                        alt="profile"
                                         className="img-fluid rounded-circle"
                                         width={120}
                                         height={120}
                                       />
-                                      <div className="d-flex align-items-center justify-content-center my-4 gap-6">
-                                        <button className="btn btn-primary">
-                                          Upload
-                                        </button>
-                                        <button className="btn bg-danger-subtle text-danger">
-                                          Reset
-                                        </button>
+
+                                      <div className="my-4">
+                                        <input
+                                          type="file"
+                                          accept="image/png, image/jpeg, image/gif"
+                                          className="form-control mb-3"
+                                          onChange={handleFileChange}
+                                        />
+
+                                        <div className="d-flex align-items-center justify-content-center gap-3">
+                                          <button className="btn btn-primary" onClick={handleUpload}>
+                                            Upload
+                                          </button>
+                                          <button className="btn bg-danger-subtle text-danger" onClick={handleReset}>
+                                            Reset
+                                          </button>
+                                        </div>
                                       </div>
-                                      <p className="mb-0">
-                                        Allowed JPG, GIF or PNG. Max size of
-                                        800K
-                                      </p>
+
+                                      <p className="mb-0">Allowed JPG, GIF or PNG. Max size of 800K</p>
                                     </div>
                                   </div>
                                 </div>
                               </div>
+
                               <div className="col-lg-6 d-flex align-items-stretch">
                                 <div className="card w-100 border position-relative overflow-hidden">
                                   <div className="card-body p-4">
@@ -418,7 +522,7 @@ const AppProfile = () => {
                                           <tr>
                                             <td>Startup Name</td>
                                             <td>
-                                              {profile.startupName|| "N/A"}
+                                              {profile.startupName || "N/A"}
                                             </td>
                                           </tr>
                                         </tbody>
