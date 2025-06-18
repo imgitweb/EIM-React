@@ -1,68 +1,87 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import LeftSidebar from "../componant/LeftSidebar";
 import Navigation from "../componant/Navigation";
 import SerchBar from "../componant/SearchBar";
+import axios from "axios";
+import API_URI from "../componant/config";
 
 const MentorList = () => {
   const [isActive, setActive] = useState(false);
-  const [activeTab, setActiveTab] = useState("technical");
+  const [activeTab, setActiveTab] = useState("tech");
   const [selectedMentor, setSelectedMentor] = useState(null);
+  const [mentors, setMentors] = useState([]);
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState("");
 
-  const mentors = [
-    {
-      id: 1,
-      name: "John Smith",
-      expertise: "Full Stack Development",
-      experience: "10 years",
-      description: "Expert in React, Node.js, and Cloud Architecture",
-      category: "technical",
-      education: "MS in Computer Science",
-      availability: "Mon-Fri, 9 AM - 5 PM",
-      languages: ["English", "Spanish"],
-      skills: ["React", "Node.js", "AWS", "Python", "MongoDB"],
-      rating: 4.8,
-      totalMentees: 45,
-    },
-    {
-      id: 2,
-      name: "Sarah Johnson",
-      expertise: "Leadership & Management",
-      experience: "8 years",
-      description:
-        "Specialized in team management and professional development",
-      category: "non-technical",
-      education: "MBA in Business Administration",
-      availability: "Tue-Sat, 10 AM - 6 PM",
-      languages: ["English", "French"],
-      skills: [
-        "Leadership",
-        "Team Management",
-        "Strategic Planning",
-        "Communication",
-      ],
-      rating: 4.9,
-      totalMentees: 38,
-    },
-    {
-      id: 3,
-      name: "Dr. Michael Chen",
-      expertise: "Computer Science",
-      experience: "15 years",
-      description:
-        "PhD in Computer Science, specializing in AI and Machine Learning",
-      category: "subject-expert",
-      education: "PhD in Computer Science",
-      availability: "Mon-Thu, 2 PM - 8 PM",
-      languages: ["English", "Mandarin"],
-      skills: ["Machine Learning", "AI", "Data Science", "Research Methods"],
-      rating: 4.7,
-      totalMentees: 52,
-    },
-  ];
+  // const mentors = [
+  //   {
+  //     id: 1,
+  //     name: "John Smith",
+  //     expertise: "Full Stack Development",
+  //     experience: "10 years",
+  //     description: "Expert in React, Node.js, and Cloud Architecture",
+  //     category: "tech",
+  //     education: "MS in Computer Science",
+  //     availability: "Mon-Fri, 9 AM - 5 PM",
+  //     languages: ["English", "Spanish"],
+  //     skills: ["React", "Node.js", "AWS", "Python", "MongoDB"],
+  //     rating: 4.8,
+  //     totalMentees: 45,
+  //   },
+  //   {
+  //     id: 2,
+  //     name: "Sarah Johnson",
+  //     expertise: "Leadership & Management",
+  //     experience: "8 years",
+  //     description:
+  //       "Specialized in team management and professional development",
+  //     category: "non-technical",
+  //     education: "MBA in Business Administration",
+  //     availability: "Tue-Sat, 10 AM - 6 PM",
+  //     languages: ["English", "French"],
+  //     skills: [
+  //       "Leadership",
+  //       "Team Management",
+  //       "Strategic Planning",
+  //       "Communication",
+  //     ],
+  //     rating: 4.9,
+  //     totalMentees: 38,
+  //   },
+  //   {
+  //     id: 3,
+  //     name: "Dr. Michael Chen",
+  //     expertise: "Computer Science",
+  //     experience: "15 years",
+  //     description:
+  //       "PhD in Computer Science, specializing in AI and Machine Learning",
+  //     category: "subject-expert",
+  //     education: "PhD in Computer Science",
+  //     availability: "Mon-Thu, 2 PM - 8 PM",
+  //     languages: ["English", "Mandarin"],
+  //     skills: ["Machine Learning", "AI", "Data Science", "Research Methods"],
+  //     rating: 4.7,
+  //     totalMentees: 52,
+  //   },
+  // ];
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get(`${API_URI}/mentors/get-mentor`);
+        setMentors(res.data.data);
+        console.log("res", res.data);
+      } catch (err) {
+        setError(err.message || "Something went wrong");
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  const filterMentors = () => {
-    return mentors.filter((mentor) => mentor.category === activeTab);
-  };
+    fetchData();
+  }, []);
+
+  const filterMentors = () =>
+    mentors.filter((mentor) => mentor.category.toLowerCase() === activeTab);
 
   const TabButton = ({ category, label }) => (
     <li className="nav-item">
@@ -70,8 +89,7 @@ const MentorList = () => {
         onClick={() => setActiveTab(category)}
         className={`nav-link gap-6 note-link d-flex align-items-center justify-content-center px-3 px-md-3 ${
           activeTab === category ? "active" : ""
-        }`}
-      >
+        }`}>
         <span className="d-none d-md-block fw-medium">{label}</span>
       </button>
     </li>
@@ -84,8 +102,7 @@ const MentorList = () => {
       <div
         className="modal fade show"
         style={{ display: "block" }}
-        tabIndex={-1}
-      >
+        tabIndex={-1}>
         <div className="modal-dialog modal-dialog-centered modal-lg">
           <div className="modal-content border-0">
             <div className="modal-header bg-primary text-white">
@@ -101,8 +118,7 @@ const MentorList = () => {
                 <div className="col-md-4 text-center">
                   <div
                     className="rounded-circle bg-light p-4 mx-auto mb-3"
-                    style={{ width: "fit-content" }}
-                  >
+                    style={{ width: "fit-content" }}>
                     <i className="ti ti-user fs-1" />
                   </div>
                   <h4>{mentor.name}</h4>
@@ -137,8 +153,7 @@ const MentorList = () => {
                       {mentor.skills.map((skill, index) => (
                         <span
                           key={index}
-                          className="badge bg-light-subtle text-dark"
-                        >
+                          className="badge bg-light-subtle text-dark">
                           {skill}
                         </span>
                       ))}
@@ -150,8 +165,7 @@ const MentorList = () => {
                       {mentor.languages.map((language, index) => (
                         <span
                           key={index}
-                          className="badge bg-info-subtle text-dark"
-                        >
+                          className="badge bg-info-subtle text-dark">
                           {language}
                         </span>
                       ))}
@@ -168,8 +182,7 @@ const MentorList = () => {
               <button
                 type="button"
                 className="btn btn-secondary"
-                onClick={onClose}
-              >
+                onClick={onClose}>
                 Close
               </button>
               <button type="button" className="btn btn-primary">
@@ -201,8 +214,7 @@ const MentorList = () => {
                         <li className="breadcrumb-item">
                           <a
                             className="text-muted text-decoration-none"
-                            href="#"
-                          >
+                            href="#">
                             Home
                           </a>
                         </li>
@@ -216,7 +228,7 @@ const MentorList = () => {
 
             {/* Tabs Navigation */}
             <ul className="nav nav-pills p-3 mb-3 rounded align-items-center card flex-row">
-              <TabButton category="technical" label="Technical Mentor" />
+              <TabButton category="tech" label="Technical Mentor" />
               <TabButton
                 category="non-technical"
                 label="Non Technical Mentor"
@@ -258,8 +270,7 @@ const MentorList = () => {
                         <div className="d-flex justify-content-between align-items-center">
                           <button
                             className="btn btn-outline-primary"
-                            onClick={() => setSelectedMentor(mentor)}
-                          >
+                            onClick={() => setSelectedMentor(mentor)}>
                             View Profile
                           </button>
                           <button className="btn btn-primary">Connect</button>
