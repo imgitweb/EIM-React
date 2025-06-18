@@ -64,6 +64,13 @@ const AppProfile = () => {
   };
 
 
+  const getSubscriptionStatus = () => {
+
+  }
+
+
+
+
 
 
   useEffect(() => {
@@ -144,11 +151,23 @@ const AppProfile = () => {
                   />
                   <div className="row align-items-center">
                     <div className="col-lg-4 order-lg-1 order-2">
-                      <div className="d-flex align-items-center justify-content-around m-4">
+                      <div className="d-flex align-items-center gap-10 m-4">
+                        <div>
+                          <Link to={
+                          "/Upgrade-Beta"
+                          } className="btn btn-primary text-nowrap">
+                            Weekly Tracker
+                          </Link>
+                        </div>
+                       
                         <div className="text-center">
-                          <h4 className="mb-0 lh-1">{profile.selectedPlan}</h4>
+                          <h4 style={{
+                            textTransform: "capitalize",
+                          }} className="mb-0 lh-1 ">{profile?.selectedPlan}</h4>
                           <p className="mb-0 ">Current Plan</p>
                         </div>
+                       
+                        
                       </div>
                     </div>
                     <div className="col-lg-4 mt-n3 order-lg-2 order-1">
@@ -175,7 +194,7 @@ const AppProfile = () => {
                     </div>
                     <div className="col-lg-4 order-last">
                       <ul className="list-unstyled d-flex align-items-center justify-content-center justify-content-lg-end my-3 mx-4 pe-xxl-4 gap-3">
-                        <li>
+                        {/* <li>
                           <a
                             className="d-flex align-items-center justify-content-center btn btn-primary p-2 fs-4 rounded-circle"
                             href="#"
@@ -200,6 +219,13 @@ const AppProfile = () => {
                           >
                             <i className="ti ti-brand-twitter" />
                           </a>
+                        </li> */}
+                        <li>
+                          <Link to={
+                          "/Upgrade-Beta"
+                          } className="btn btn-primary text-nowrap">
+                            Timer 
+                          </Link>
                         </li>
                         <li>
                           <Link to={
