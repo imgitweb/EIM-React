@@ -5,6 +5,7 @@ import SerchBar from "../componant/SearchBar";
 import Pitch1 from "../componant/Pitch1";
 import { OpenAI } from "openai";
 // import PptxGenJS from "pptxgenjs";
+import PptxGenJS from "pptxgenjs";
 import Pitch2 from "../componant/Pitch2";
 import Pitch3 from "../componant/Pitch3";
 import Pitch4 from "../componant/Pitch4";
@@ -151,48 +152,48 @@ const PitchDeck = () => {
     }
   };
 
-  const downloadPDF = async () => {
-    const pdf = new jsPDF();
-    const pitchDeckIds = [
-      "pitch1",
-      "pitch2",
-      "pitch3",
-      "pitch4",
-      "pitch5",
-      "pitch6",
-      "pitch7",
-      "pitch8",
-      "pitch9",
-      "pitch10",
-      "pitch11",
-      "pitch12",
-      "pitch13",
-      "pitch14",
-    ];
+  // const downloadPDF = async () => {
+  //   const pdf = new jsPDF();
+  //   const pitchDeckIds = [
+  //     "pitch1",
+  //     "pitch2",
+  //     "pitch3",
+  //     "pitch4",
+  //     "pitch5",
+  //     "pitch6",
+  //     "pitch7",
+  //     "pitch8",
+  //     "pitch9",
+  //     "pitch10",
+  //     "pitch11",
+  //     "pitch12",
+  //     "pitch13",
+  //     "pitch14",
+  //   ];
 
-    for (let i = 0; i < pitchDeckIds.length; i++) {
-      const pitchId = pitchDeckIds[i];
-      const element = document.getElementById(pitchId);
+  //   for (let i = 0; i < pitchDeckIds.length; i++) {
+  //     const pitchId = pitchDeckIds[i];
+  //     const element = document.getElementById(pitchId);
 
-      if (element) {
-        await new Promise((resolve) => setTimeout(resolve, 500)); // Add a delay
-        const canvas = await html2canvas(element);
-        const imgData = canvas.toDataURL("image/png");
-        const imgProps = pdf.getImageProperties(imgData);
-        const pdfWidth = pdf.internal.pageSize.getWidth();
-        const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+  //     if (element) {
+  //       await new Promise((resolve) => setTimeout(resolve, 500)); // Add a delay
+  //       const canvas = await html2canvas(element);
+  //       const imgData = canvas.toDataURL("image/png");
+  //       const imgProps = pdf.getImageProperties(imgData);
+  //       const pdfWidth = pdf.internal.pageSize.getWidth();
+  //       const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
 
-        if (i === 0) {
-          pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
-        } else {
-          pdf.addPage();
-          pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
-        }
-      }
-    }
+  //       if (i === 0) {
+  //         pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
+  //       } else {
+  //         pdf.addPage();
+  //         pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
+  //       }
+  //     }
+  //   }
 
-    pdf.save("PitchDeck.pdf");
-  };
+  //   pdf.save("PitchDeck.pdf");
+  // };
   const printDiv = (divId) => {
   const divToPrint = document.getElementById(divId);
   if (!divToPrint) {
@@ -267,6 +268,47 @@ const PitchDeck = () => {
     newWindow.close();
   };
 };
+
+const downloadPDF = async () => {
+  const sectionIds = [
+    "pitch1", "pitch2", "pitch3", "pitch4", "pitch5", "pitch6",
+    "pitch7", "pitch8", "pitch9", "pitch10", "pitch11", "pitch12",
+    "pitch13", "pitch14"
+  ];
+
+  const pdf = new jsPDF("landscape", "pt", "a4"); // A4 landscape
+
+  for (let i = 0; i < sectionIds.length; i++) {
+    const id = sectionIds[i];
+    const element = document.getElementById(id);
+
+    if (!element) continue;
+
+    try {
+      const canvas = await html2canvas(element, {
+        scale: 2,
+        useCORS: true,
+        backgroundColor: "#ffffff"
+      });
+
+      const imgData = canvas.toDataURL("image/png");
+
+      const imgProps = pdf.getImageProperties(imgData);
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+
+      if (i !== 0) pdf.addPage();
+
+      pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
+    } catch (err) {
+      console.error(`Error rendering ${id}:`, err);
+    }
+  }
+
+  pdf.save("Startup_PitchDeck.pdf");
+};
+
+
 
 
   return (
@@ -559,7 +601,7 @@ const PitchDeck = () => {
 
                             <button
                               className="btn btn-success mt-4"
-                              onClick={downloadPDF}>
+                              onClick={downloadPDF  }>
                               Download Pitch Deck
                             </button>
                           </>
