@@ -357,7 +357,7 @@ const progressOptions = {
 
 
   return (
-    <div className="content-ara">
+    <div className="content-area">
       <div className="container-flui">
         <div className="man">
           <div className="row mt-4">

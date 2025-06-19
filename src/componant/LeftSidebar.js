@@ -4,6 +4,7 @@ import Frontend_URL from "./config2";
 
 const LeftSidebar = ({ onButtonClick }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const theme = localStorage.getItem("theme") || "light"; // Default to light theme if not set
   const navigate = useNavigate();
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -25,8 +26,8 @@ const LeftSidebar = ({ onButtonClick }) => {
         <div className="brand-logo d-flex align-items-center justify-content-between">
           <Link to="/dashboard" className="text-nowrap logo-img">
             <img
-              src="./assets/logo/logo-light.png"
-              className="dark-logo"
+              src={`${theme === "dark" ? "./assets/logo/logo-light.png" : "./assets/logo/logo-dark.png"}`}
+              className="dark-logo text-center"
               alt="Logo-Dark"
               width="50px"
             />
@@ -216,7 +217,7 @@ const LeftSidebar = ({ onButtonClick }) => {
           <div className="hstack gap-3">
             <div className="john-img">
               <img
-                src="./assets/logo/logo-light.png"
+                 src={`${theme === "dark" ? "./assets/logo/logo-light.png" : "./assets/logo/logo-dark.png"}`}
                 className="rounded-circle"
                 width={40}
                 height={40}
