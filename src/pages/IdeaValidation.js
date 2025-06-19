@@ -3,13 +3,170 @@ import { Heart, CheckCircle, DollarSign, Star, Target } from "lucide-react";
 import LeftSidebar from "../componant/LeftSidebar";
 import Navigation from "../componant/Navigation";
 import SerchBar from "../componant/SearchBar";
+import { OpenAI } from "openai";
+
+const evaluationQuestions = [
+  {
+    category: "Problem & Solution",
+    question: "Is there a real and urgent problem being solved?",
+    options: [
+      { label: "Critical, widespread pain point (4)", value: 4 },
+      { label: "Important but not urgent (3)", value: 3 },
+      { label: "Minor inconvenience (2)", value: 2 },
+      { label: "Not clear (1)", value: 1 },
+    ],
+  },
+  {
+    category: "Problem & Solution",
+    question: "How well does the solution solve the problem?",
+    options: [
+      { label: "Breakthrough innovation (4)", value: 4 },
+      { label: "Good improvement (3)", value: 3 },
+      { label: "Marginal improvement (2)", value: 2 },
+      { label: "Unproven (1)", value: 1 },
+    ],
+  },
+  {
+    category: "Market & Demand",
+    question: "Target market size",
+    options: [
+      { label: ">1M users (4)", value: 4 },
+      { label: "100k-1M users (3)", value: 3 },
+      { label: "10k-100k users (2)", value: 2 },
+      { label: "<10k users (1)", value: 1 },
+    ],
+  },
+  {
+    category: "Market & Demand",
+    question: "Market growth rate",
+    options: [
+      { label: "Rapidly growing (4)", value: 4 },
+      { label: "Growing (3)", value: 3 },
+      { label: "Stable (2)", value: 2 },
+      { label: "Declining (1)", value: 1 },
+    ],
+  },
+  {
+    category: "Market & Demand",
+    question: "Customer willingness to pay",
+    options: [
+      { label: "Yes, clearly (4)", value: 4 },
+      { label: "Somewhat (3)", value: 3 },
+      { label: "Unclear (2)", value: 2 },
+      { label: "No (1)", value: 1 },
+    ],
+  },
+  {
+    category: "Business Model",
+    question: "Revenue model clarity",
+    options: [
+      { label: "Proven in the industry (4)", value: 4 },
+      { label: "Somewhat clear (3)", value: 3 },
+      { label: "Unclear (2)", value: 2 },
+      { label: "No model (1)", value: 1 },
+    ],
+  },
+  {
+    category: "Business Model",
+    question: "Scalability potential",
+    options: [
+      { label: "Highly scalable (4)", value: 4 },
+      { label: "Scalable (3)", value: 3 },
+      { label: "Limited (2)", value: 2 },
+      { label: "Not scalable (1)", value: 1 },
+    ],
+  },
+  {
+    category: "Competition & USP",
+    question: "Level of competition",
+    options: [
+      { label: "First mover (4)", value: 4 },
+      { label: "Few competitors (3)", value: 3 },
+      { label: "Many competitors (2)", value: 2 },
+      { label: "Highly saturated (1)", value: 1 },
+    ],
+  },
+  {
+    category: "Competition & USP",
+    question: "Unique value proposition (USP)",
+    options: [
+      { label: "Highly compelling (4)", value: 4 },
+      { label: "Somewhat compelling (3)", value: 3 },
+      { label: "Weak (2)", value: 2 },
+      { label: "Not clear (1)", value: 1 },
+    ],
+  },
+  {
+    category: "Team & Execution",
+    question: "Team experience & skill",
+    options: [
+      { label: "Extensive experience (4)", value: 4 },
+      { label: "Good experience (3)", value: 3 },
+      { label: "Some experience (2)", value: 2 },
+      { label: "Little/no experience (1)", value: 1 },
+    ],
+  },
+  {
+    category: "Team & Execution",
+    question: "Execution capability (MVP/traction)",
+    options: [
+      { label: "Growing traction (4)", value: 4 },
+      { label: "Some traction (3)", value: 3 },
+      { label: "Prototype only (2)", value: 2 },
+      { label: "No progress (1)", value: 1 },
+    ],
+  },
+  {
+    category: "Legal & Feasibility",
+    question: "Any legal/ethical concerns?",
+    options: [
+      { label: "No concerns (4)", value: 4 },
+      { label: "Minor concerns (3)", value: 3 },
+      { label: "Some concerns (2)", value: 2 },
+      { label: "Major concerns (1)", value: 1 },
+    ],
+  },
+  {
+    category: "Legal & Feasibility",
+    question: "Technical feasibility",
+    options: [
+      { label: "Feasible with tech effort (3)", value: 3 },
+      { label: "Challenging but possible (2)", value: 2 },
+      { label: "Not feasible (1)", value: 1 },
+      { label: "Highly feasible (4)", value: 4 },
+    ],
+  },
+];
+
+const getEvaluationResult = (score) => {
+  if (score >= 45) return "Promising – proceed to MVP";
+  if (score >= 35) return "Worth exploring further";
+  if (score >= 25) return "Needs work – consider pivot or drop";
+  return "Not viable – consider dropping idea";
+};
 
 const IdeaValidation = () => {
   const [isActive, setActive] = useState(false);
+  const [scores, setScores] = useState(Array(evaluationQuestions.length).fill(4));
+  const [totalScore, setTotalScore] = useState(evaluationQuestions.length * 4);
+  const [result, setResult] = useState(getEvaluationResult(evaluationQuestions.length * 4));
 
   const ToggleEvent = () => {
     setActive((prevState) => !prevState);
   };
+
+  const handleScoreChange = (idx, value) => {
+    const newScores = [...scores];
+    newScores[idx] = parseInt(value);
+    setScores(newScores);
+  };
+
+  const calculateScore = () => {
+    const sum = scores.reduce((a, b) => a + b, 0);
+    setTotalScore(sum);
+    setResult(getEvaluationResult(sum));
+  };
+
   return (
     <>
       <div id="main-wrapper" className={isActive ? "show-sidebar" : ""}>
@@ -66,6 +223,56 @@ const IdeaValidation = () => {
                       Use the DVF framework to prioritize and select your
                       ventures
                     </p>
+
+                    {/* Startup Idea Evaluation Table */}
+                    <div className="container-fluid mt-4">
+                      <div className="card mb-4">
+                        <div className="card-header" style={{ backgroundColor: "#223662", color: "#fff" }}>
+                          <h3 className="mb-0">Startup Idea Evaluation Table</h3>
+                        </div>
+                        <div className="card-body table-responsive">
+                          <table className="table table-bordered align-middle">
+                            <thead>
+                              <tr style={{ backgroundColor: "#e3eafc" }}>
+                                <th>Category</th>
+                                <th>Question</th>
+                                <th>Options</th>
+                                <th>Score (1–4)</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {evaluationQuestions.map((q, idx) => (
+                                <tr key={idx}>
+                                  <td>{q.category}</td>
+                                  <td>{q.question}</td>
+                                  <td>
+                                    <select
+                                      className="form-select"
+                                      value={scores[idx]}
+                                      onChange={e => handleScoreChange(idx, e.target.value)}
+                                    >
+                                      {q.options.map((opt, i) => (
+                                        <option key={i} value={opt.value}>{opt.label}</option>
+                                      ))}
+                                    </select>
+                                  </td>
+                                  <td className="text-center">{scores[idx]}</td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                          <div className="text-center mt-3">
+                            <button className="btn btn-success" onClick={calculateScore}>
+                              Calculate Score
+                            </button>
+                          </div>
+                          <div className="text-center mt-3">
+                            <h5>Total Score: {totalScore}</h5>
+                            <div>Evaluation Result: <b>{result}</b></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
 
                     {/* Circles Section */}
                     <div className="row mb-12 justify-content-center ">

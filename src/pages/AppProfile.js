@@ -666,7 +666,7 @@ const AppProfile = () => {
                               </div>
                               <div className="col-12">
                                 <div className="d-flex align-items-center justify-content-end gap-6">
-                                  <button className="btn btn-primary">
+                                  <button className="btn btn-primary mt-2">
                                     Save
                                   </button>
                                   <button className="btn bg-danger-subtle text-danger">
@@ -887,7 +887,7 @@ const AppProfile = () => {
                               </div>
                               <div className="col-12">
                                 <div className="d-flex align-items-center justify-content-end gap-6">
-                                  <button className="btn btn-primary">
+                                  <button className="btn btn-primary mt-2">
                                     Save
                                   </button>
                                   <button className="btn bg-danger-subtle text-danger">
@@ -1031,9 +1031,9 @@ const AppProfile = () => {
                                   </div>
                                 </div>
                               </div>
-                              <div className="col-12">
-                                <div className="d-flex align-items-center justify-content-end gap-6">
-                                  <button className="btn btn-primary">
+                              <div className="col-12 mt-2">
+                                <div className="d-flex align-items-center justify-content-end gap-6 ">
+                                  <button className="btn btn-primary ">
                                     Save
                                   </button>
                                   <button className="btn bg-danger-subtle text-danger">

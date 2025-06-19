@@ -40,50 +40,58 @@ function Pitch10() {
               <path d="M547.38 201.48h190.59v204.4H547.38z" className="st39" />
               <text
                 className="st11 st4"
-                style={{ fontSize: "50.474px" }}
+                style={{ fontSize: "50.474px", color: "#007bff" }}
                 transform="matrix(1.0012 0 0 1 242.382 60.812)">
                 Growth strategy
               </text>
               <text
                 className="st43 st4 st44"
-                transform="matrix(1.0012 0 0 1 149.676 239.758)">
+                transform="matrix(1.0012 0 0 1 149.676 239.758)"
+                style={{ fill: "#000000" }}>
                 1
               </text>
               <text
                 className="st43 st4 st45"
-                transform="matrix(.5837 0 0 .583 163.26 229.225)">
+                transform="matrix(.5837 0 0 .583 163.26 229.225)"
+                style={{ fill: "#000000" }}>
                 st
               </text>
               <text
                 className="st43 st4 st44"
-                transform="matrix(1.0012 0 0 1 177.106 239.758)">
+                transform="matrix(1.0012 0 0 1 177.106 239.758)"
+                style={{ fill: "#000000" }}>
                 {" "}
                 Year
               </text>
               <text
                 className="st43 st4 st44"
-                transform="matrix(1.0012 0 0 1 367.41 239.758)">
+                transform="matrix(1.0012 0 0 1 367.41 239.758)"
+                style={{ fill: "#000000" }}>
                 2
               </text>
               <text
                 className="st43 st4 st45"
-                transform="matrix(.5837 0 0 .583 380.994 229.225)">
+                transform="matrix(.5837 0 0 .583 380.994 229.225)"
+                style={{ fill: "#000000" }}>
                 nd
               </text>
               <text
                 className="st43 st4 st44"
-                transform="matrix(1.0012 0 0 1 400.799 239.758)">
+                transform="matrix(1.0012 0 0 1 400.799 239.758)"
+                style={{ fill: "#000000" }}>
                 {" "}
                 Year
               </text>
               <text
                 className="st43 st4 st44"
-                transform="matrix(1.0012 0 0 1 601.998 239.757)">
-                1
+                transform="matrix(1.0012 0 0 1 601.998 239.757)"
+                style={{ fill: "#000000" }}>
+                3
               </text>
               <text
                 className="st43 st4 st45"
-                transform="matrix(.5837 0 0 .583 615.582 229.225)">
+                transform="matrix(.5837 0 0 .583 615.582 229.225)"
+                style={{ fill: "#000000" }}>
                 rd
               </text>
               <text
@@ -127,7 +135,7 @@ function Pitch10() {
               </text>
               <text
                 className="st3 st12"
-                style={{ fontSize: "23.0379px" }}
+                style={{ fontSize: "23.0379px", color: "#007bff" }}
                 transform="matrix(1.0012 0 0 1 268.603 102.715)">
                 How we’ll scale in the future
               </text>

@@ -1,6 +1,11 @@
 import React from "react";
 
-function Pitch14() {
+function Pitch14({ contactDetails }) {
+
+  const email = contactDetails?.Email || "info@gmail.com";
+  const mobile = contactDetails?.Mobile || "9999999999";
+  const address = contactDetails?.Address || "MP Nagar";
+
   return (
     <div
       style={{
@@ -30,13 +35,13 @@ function Pitch14() {
               </text>
               <text transform="matrix(1.0012 0 0 1 546.34 378.557)">
                 <tspan x={0} y={0} className="st53 st4 st54">
-                  &lt;&lt; Address &gt;&gt;
+                  {address}
                 </tspan>
                 <tspan x={0} y={24} className="st53 st4 st54">
-                  &lt;&lt; EmaiL ID &gt;&gt;
+                  {email}
                 </tspan>
                 <tspan x={0} y={48} className="st53 st4 st54">
-                  www.&lt;&lt; Address &gt;&gt;.com
+                  www.{address?.toLowerCase().replace(/\s+/g, '')}.com
                 </tspan>
               </text>
               <image

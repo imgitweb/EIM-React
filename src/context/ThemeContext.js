@@ -9,6 +9,8 @@ const applyTheme = (theme) => {
   
   // Set custom color theme attribute
   // document.documentElement.setAttribute('data-color-theme', 'Blue_Theme');
+  // document.documentElement.setAttribute('data-color-theme', 'Aqua_Theme');
+  // document.documentElement.setAttribute('data-color-theme', 'Purple_Theme');
 };
 
 export const ThemeProvider = ({ children }) => {

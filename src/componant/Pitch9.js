@@ -1,6 +1,6 @@
 import React from "react";
 
-function Pitch9() {
+function Pitch9(growthStrategy) {
   return (
     <div
       style={{
@@ -51,12 +51,12 @@ function Pitch9() {
               <text
                 className="st41 st4 st26"
                 transform="matrix(1.0012 0 0 1 353.078 237.554)">
-                Competitor#1
+                Competitor#2
               </text>
               <text
                 className="st41 st4 st26"
                 transform="matrix(1.0012 0 0 1 579.292 237.554)">
-                Competitor#1
+                Competitor#3
               </text>
               <text transform="matrix(1.0012 0 0 1 158.364 291.144)">
                 <tspan x={0} y={0} className="st3 st24 st25">
