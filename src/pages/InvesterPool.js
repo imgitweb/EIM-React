@@ -21,7 +21,7 @@ const InvestorPool = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(`${API_URI}/investors/angel`);
+        const res = await axios.get(`${API_URI}/api/investors/angel`);
         setsampleInvestors(res.data.data);
       } catch (err) {
         setError(err.message || "Something went wrong");

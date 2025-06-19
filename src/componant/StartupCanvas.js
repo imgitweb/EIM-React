@@ -12,7 +12,7 @@ const StartupCanvas = ({
 }) => {
   return (
     <div className="canvas-container">
-      <h1 className="canvas-title">Startup Canvas!</h1>
+      <h1 className="canvas-title text-light">Startup Canvas!</h1>
       <div className="canvas-grid">
         <div className="canvas-item purple">
           <span className="section-title font-weight-bold">Problem</span>

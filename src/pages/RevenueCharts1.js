@@ -25,6 +25,9 @@ const RevenueCharts1 = () => {
       chart: {
         type: "bar",
         height: 350,
+        toolbar: {
+          show: false,
+        },
       },
       plotOptions: {
         bar: {

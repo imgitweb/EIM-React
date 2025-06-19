@@ -5,122 +5,181 @@ import ApexCharts from "apexcharts";
 
 const Market_Research = () => {
   const [isActive, setActive] = useState(false);
+  const [chartData, setChartData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+   const testStartups = [
+  {
+    startup_name: "DentalBoost",
+    location: "Delhi, India",
+    primary_service: "SEO and Website Design",
+    target_audience: "Dentists",
+    budget: "₹5,00,000",
+  },
+  {
+    startup_name: "LegalTrack",
+    location: "Mumbai, India",
+    primary_service: "Case Management Software",
+    target_audience: "Independent Lawyers and Law Firms",
+    budget: "₹8,00,000",
+  },
+  {
+    startup_name: "FitMeal",
+    location: "Bangalore, India",
+    primary_service: "Subscription-based Healthy Meal Delivery",
+    target_audience: "Working Professionals & Fitness Enthusiasts",
+    budget: "₹10,00,000",
+  },
+  {
+    startup_name: "TutorNest",
+    location: "Hyderabad, India",
+    primary_service: "Online Tutoring Platform",
+    target_audience: "School Students (Grades 6–12)",
+    budget: "₹3,50,000",
+  }
+];
+  const [selectedStartup, setSelectedStartup] = useState(testStartups[3]);
+
+
+ 
+
 
   const ToggleEvent = () => {
     setActive((prevState) => !prevState);
   };
 
-  // Function to generate random data
-  const generateRandomData = (size) => {
-    let data = [];
-    for (let i = 0; i < size; i++) {
-      data.push(Math.floor(Math.random() * 100) + 1); // Random number between 1 and 100
-    }
-    return data;
-  };
+  const prompt = `
+You are a market research analyst. Based on the startup details below, generate chart-friendly JSON data.
+
+Startup Name: ${selectedStartup.startup_name}
+Location: ${selectedStartup.location}
+Primary Service: ${selectedStartup.primary_service}
+Target Audience: ${selectedStartup.target_audience}
+Budget: ${selectedStartup.budget}
+
+Return JSON with:
+{
+  "monthly_market_size": {
+    "months": ["Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct"],
+    "TAM": [int, int, ..., int],
+    "SAM": [int, int, ..., int]
+  },
+  "competition_analysis": {
+    "months": ["Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct"],
+    "SAM": [int, int, ..., int]
+  },
+  "geo_competition": {
+    "regions": ["Germany", "USA", "China", "UK", "France", "Japan", "India", "South Korea", "Italy", "Netherlands"],
+    "intensity": [int, int, ..., int]
+  },
+  "demographics": {
+    "age_groups": ["18-24", "25-34", "35-44", "45-54", "55-64"],
+    "percentage": [int, int, ..., int]
+  }
+}
+`;
 
   useEffect(() => {
-    const categories = [
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-    ];
-
-    // Define the chart options for each chart
-    const options = [
-      {
-        series: [
-          { name: "TAM", data: generateRandomData(9) },
-          { name: "SAM", data: generateRandomData(9) },
-        ],
-        chart: { type: "bar", height: 250 }, // Reduced height
-        xaxis: {
-          categories: categories,
-          labels: { style: { colors: "white" } },
-        },
-        yaxis: { labels: { style: { colors: "white" } } },
-      },
-      {
-        series: [{ name: "SAM", data: generateRandomData(9) }],
-        chart: { type: "bar", height: 250 }, // Reduced height
-        xaxis: {
-          categories: categories,
-          labels: { style: { colors: "white" } },
-        },
-        yaxis: { labels: { style: { colors: "white" } } },
-      },
-      {
-        series: [{ data: generateRandomData(10) }],
-        chart: { type: "bar", height: 350 },
-        plotOptions: {
-          bar: {
-            horizontal: true,
+    const fetchChartData = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch("https://api.openai.com/v1/chat/completions", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${process.env.REACT_APP_OPENAI_API_KEY}`,
           },
-        },
-        xaxis: {
-          categories: [
-            "South Korea",
-            "Canada",
-            "United Kingdom",
-            "Netherlands",
-            "Italy",
-            "France",
-            "Japan",
-            "United States",
-            "China",
-            "Germany",
+          body: JSON.stringify({
+            model: "gpt-4",
+            messages: [{ role: "user", content: prompt }],
+          }),
+        });
+
+
+        const result = await response.json();
+        console.log(result,"asfasfsdf");
+        const parsed = JSON.parse(result.choices[0].message.content);
+        console.log(parsed, "Parsed Chart Data");
+        setChartData(parsed);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchChartData();
+  }, []);
+
+  useEffect(() => {
+    if (!chartData) return;
+
+    const chartConfigs = [
+      {
+        elementId: "chart1",
+        options: {
+          series: [
+            { name: "TAM", data: chartData.monthly_market_size.TAM },
+            { name: "SAM", data: chartData.monthly_market_size.SAM },
           ],
-          labels: {
-            style: {
-              colors: "white",
-              // fontSize: '14px',
-            },
+          chart: { type: "bar", height: 250, 
+             toolbar: { show: false } },
+           },
+          xaxis: {
+            categories: chartData.monthly_market_size.months,
+            labels: { style: { colors: localStorage.getItem("theme") === "light"  ? "#00000" : "#ffffff"} },
           },
+          yaxis: { labels: { style: { colors: localStorage.getItem("theme") === "light"  ? "#00000" : "#ffffff"} }, },
         },
-        yaxis: {
-          labels: {
-            style: {
-              colors: "white",
-            },
+      {
+        elementId: "chart2",
+        options: {
+          series: [{ name: "SAM", data: chartData.competition_analysis.SAM }],
+          chart: { type: "bar", height: 250 ,toolbar: { show: false }},
+          xaxis: {
+            categories: chartData.competition_analysis.months,
+            labels: { labels: { style: { colors: localStorage.getItem("theme") === "light"  ? "#00000" : "#ffffff"} }, },
           },
+          yaxis: { labels: { style: { colors: localStorage.getItem("theme") === "light"  ? "#00000" : "#ffffff"} }, },
         },
       },
       {
-        series: [44, 55, 41, 17, 15],
-        chart: { type: "donut", height: 250 },
-        labels: ["18-24", "25-34", "35-44", "45-54", "55-64"],
+        elementId: "chart3",
+        options: {
+          series: [{ data: chartData.geo_competition.intensity }],
+          chart: { type: "bar", height: 350,toolbar: { show: false } },
+          plotOptions: { bar: { horizontal: true } },
+          xaxis: {
+            categories: chartData.geo_competition.regions,
+            labels: { style: { colors: localStorage.getItem("theme") === "light"  ? "#00000" : "#ffffff"} },
+          },
+          yaxis: { labels: { style: { colors: localStorage.getItem("theme") === "light"  ? "#00000" : "#ffffff"} }, },
+        },
+      },
+      {
+        elementId: "chart4",
+        options: {
+          series: chartData.demographics.percentage,
+          chart: { type: "donut", height: 250 ,toolbar: { show: false } },
+          labels: chartData.demographics.age_groups,
+        },
       },
     ];
 
-    const charts = options.map((option, index) => {
-      const chart = new ApexCharts(
-        document.querySelector(`#chart${index + 1}`),
-        option
-      );
+    const chartInstances = chartConfigs.map(({ elementId, options }) => {
+      const chart = new ApexCharts(document.querySelector(`#${elementId}`), options);
       chart.render();
       return chart;
     });
 
-    // Clean up charts on component unmount
-    return () => {
-      charts.forEach((chart) => chart.destroy());
-    };
-  }, []);
+    return () => chartInstances.forEach((chart) => chart.destroy());
+  }, [chartData]);
 
   return (
     <div id="main-wrapper" className={isActive ? "show-sidebar" : ""}>
-      {/* Sidebar Start */}
       <LeftSidebar onButtonClick={ToggleEvent} />
-      {/* Sidebar End */}
       <div className="page-wrapper">
         <Navigation onButtonClick={ToggleEvent} />
-        {/* Page Content */}
         <div className="body-wrapper">
           <div className="container-fluid">
             <div className="card bg-info-subtle shadow-none position-relative overflow-hidden mb-4">
@@ -131,12 +190,7 @@ const Market_Research = () => {
                     <nav aria-label="breadcrumb">
                       <ol className="breadcrumb">
                         <li className="breadcrumb-item">
-                          <a
-                            className="text-muted text-decoration-none"
-                            href="#0"
-                          >
-                            Home
-                          </a>
+                          <a className="text-muted text-decoration-none" href="#0">Home</a>
                         </li>
                         <li className="breadcrumb-item" aria-current="page">
                           Market Research
@@ -156,121 +210,51 @@ const Market_Research = () => {
                 </div>
               </div>
             </div>
-          </div>
 
-          {/* Tab Navigation */}
-          <div className="container-fluid">
+            {/* Tab Navigation */}
             <ul
               className="nav nav-pills user-profile-tab justify-content-end mt-2 bg-primary-subtle rounded-2 rounded-top-2"
               id="pills-tab"
               role="tablist"
             >
-              <li className="nav-item" role="presentation">
-                <button
-                  className="nav-link active hstack gap-2 rounded-0 py-6"
-                  id="pills-profile-tab"
-                  data-bs-toggle="pill"
-                  data-bs-target="#pills-profile"
-                  type="button"
-                  role="tab"
-                  aria-controls="pills-profile"
-                  aria-selected="true"
-                >
-                  <i className="ti ti-trending-up fs-5"></i>
-                  <span className="d-none d-md-block">Size your market</span>
-                </button>
-              </li>
-              <li className="nav-item" role="presentation">
-                <button
-                  className="nav-link hstack gap-2 rounded-0 py-6"
-                  id="pills-followers-tab"
-                  data-bs-toggle="pill"
-                  data-bs-target="#pills-followers"
-                  type="button"
-                  role="tab"
-                  aria-controls="pills-followers"
-                  aria-selected="false"
-                >
-                  <i className="ti ti-flask fs-5"></i>
-                  <span className="d-none d-md-block">
-                    Research the competition
-                  </span>
-                </button>
-              </li>
-              <li className="nav-item" role="presentation">
-                <button
-                  className="nav-link hstack gap-2 rounded-0 py-6"
-                  id="pills-friends-tab"
-                  data-bs-toggle="pill"
-                  data-bs-target="#pills-friends"
-                  type="button"
-                  role="tab"
-                  aria-controls="pills-friends"
-                  aria-selected="false"
-                >
-                  <i className="ti ti-globe fs-5"></i>
-                  <span className="d-none d-md-block">
-                    Discover what marketing channels work
-                  </span>
-                </button>
-              </li>
-              <li className="nav-item" role="presentation">
-                <button
-                  className="nav-link hstack gap-2 rounded-0 py-6"
-                  id="pills-gallery-tab"
-                  data-bs-toggle="pill"
-                  data-bs-target="#pills-gallery"
-                  type="button"
-                  role="tab"
-                  aria-controls="pills-gallery"
-                  aria-selected="false"
-                >
-                  <i className="ti ti-analyze fs-5"></i>
-                  <span className="d-none d-md-block">
-                    Analyze audience demographics
-                  </span>
-                </button>
-              </li>
+              {["Size your market", "Research the competition", "Discover what marketing channels work", "Analyze audience demographics"].map(
+                (label, i) => ( 
+                  <li className="nav-item" role="presentation" key={i}>
+                    <button
+                      className={`nav-link hstack gap-2 rounded-0 py-6 ${i === 0 ? "active" : ""}`}
+                      id={`pills-tab-${i}`}
+                      data-bs-toggle="pill"
+                      data-bs-target={`#chart-tab-${i}`}
+                      type="button"
+                      role="tab"
+                      aria-selected={i === 0}
+                    >
+                      <i className="ti ti-chart-bar fs-5"></i>
+                      <span className="d-none d-md-block">{label}</span>
+                    </button>
+                  </li>
+                )
+              )}
             </ul>
-          </div>
 
-          {/* Tab Content */}
-          <div className="body-wrapper">
-            <div className="container-fluid">
-              <div className="tab-content mt-3" id="pills-tabContent">
+            {/* Tab Content */}
+            <div className="tab-content mt-3" id="pills-tabContent">
+              {[0, 1, 2, 3].map((i) => (
                 <div
-                  className="tab-pane fade show active"
-                  id="pills-profile"
+                  className={`tab-pane fade ${i === 0 ? "show active" : ""}`}
+                  id={`chart-tab-${i}`}
                   role="tabpanel"
-                  aria-labelledby="pills-profile-tab"
+                  key={i}
                 >
-                  <div id="chart1" className="chart-container"></div>
+                  {loading ? (
+                     loading && (<div className="alert alert-info text-center">Loading analysis...</div>)
+                  ) : error ? (
+                    <p className="text-danger">Error: {error}</p>
+                  ) : (
+                    <div id={`chart${i + 1}`} className="chart-container"></div>
+                  )}
                 </div>
-                <div
-                  className="tab-pane fade"
-                  id="pills-followers"
-                  role="tabpanel"
-                  aria-labelledby="pills-followers-tab"
-                >
-                  <div id="chart2" className="chart-container"></div>
-                </div>
-                <div
-                  className="tab-pane fade"
-                  id="pills-friends"
-                  role="tabpanel"
-                  aria-labelledby="pills-friends-tab"
-                >
-                  <div id="chart3" className="chart-container"></div>
-                </div>
-                <div
-                  className="tab-pane fade"
-                  id="pills-gallery"
-                  role="tabpanel"
-                  aria-labelledby="pills-gallery-tab"
-                >
-                  <div id="chart4" className="chart-container"></div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
