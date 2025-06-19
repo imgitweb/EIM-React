@@ -9346,7 +9346,7 @@ h3 {
   color: #2fa3de;
 }
 .IOTA {
-  color: #fff;
+  color: #dedede;
 }
 .JBS {
   color: #1a8bcd;
@@ -14784,7 +14784,7 @@ h3 {
   --bs-white: #fff;
   --bs-gray: #2a3547;
   --bs-gray-dark: #343a40;
-  --bs-gray-100: #f6f9fc;
+  --bs-gray-100: #1e5286;
   --bs-gray-200: #eaeff4;
   --bs-gray-300: #dfe5ef;
   --bs-gray-400: #7c8fac;
@@ -14855,7 +14855,7 @@ h3 {
   --bs-body-line-height: 1.5;
   --bs-body-color: #5a6a85;
   --bs-body-color-rgb: 90, 106, 133;
-  --bs-body-bg: #fff;
+  --bs-body-bg: #FFFFFF;
   --bs-body-bg-rgb: 255, 255, 255;
   --bs-emphasis-color: #000;
   --bs-emphasis-color-rgb: 0, 0, 0;

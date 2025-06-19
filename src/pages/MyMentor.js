@@ -67,7 +67,7 @@ const MentorList = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(`${API_URI}/mentors/get-mentor`);
+        const res = await axios.get(`${API_URI}/api/mentors/get-mentor`);
         setMentors(res.data.data);
         console.log("res", res.data);
       } catch (err) {

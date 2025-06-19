@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import ReactApexChart from "react-apexcharts";
 
 const RevenueChart = () => {
+  const theme = localStorage.getItem("theme") || "light";
   const [chartData, setChartData] = useState({
     columnData: generateMinuteWiseTimeSeries(
       new Date("12/12/2016 00:20:00").getTime(),
@@ -100,56 +101,75 @@ const RevenueChart = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const columnOptions = {
-    chart: {
-      height: 350,
-      type: "bar",
-      animations: {
-        enabled: false,
-      },
-      toolbar: {
-        show: false,
-      },
-      zoom: {
-        enabled: false,
-      },
-    },
-    plotOptions: {
-      bar: {
-        columnWidth: "45%",
-        distributed: true,
-      },
-    },
-    dataLabels: {
+const columnOptions = {
+  chart: {
+    height: 350,
+    type: "bar",
+   
+    animations: {
       enabled: false,
     },
-    stroke: {
-      width: 0,
+    toolbar: {
+      show: false,
     },
-    fill: {
-      type: "gradient",
-      gradient: {
-        shade: "dark",
-        type: "vertical",
-        shadeIntensity: 0.5,
-        inverseColors: false,
-        opacityFrom: 1,
-        opacityTo: 0.8,
-        stops: [0, 100],
-      },
+    zoom: {
+      enabled: false,
     },
-    xaxis: {
-      type: "datetime",
-      range: 2700000,
+  },
+  plotOptions: {
+    bar: {
+      columnWidth: "45%",
+      distributed: true,
     },
-    title: {
-      text: "Load Average",
-      align: "left",
+  },
+  dataLabels: {
+    enabled: false,
+  },
+  stroke: {
+    width: 0,
+  },
+  fill: {
+    type: "gradient",
+    gradient: {
+      shade: "dark",
+      type: "vertical",
+      shadeIntensity: 0.5,
+      inverseColors: false,
+      opacityFrom: 1,
+      opacityTo: 0.8,
+      stops: [0, 100],
+    },
+  },
+  xaxis: {
+    type: "datetime",
+    range: 2700000,
+    labels: {
       style: {
-        fontSize: "12px",
+        colors: theme === "dark" ? "#FFFFFF" : "#202936", // 👈 bright x-axis labels
       },
     },
-  };
+  },
+  yaxis: {
+    labels: {
+      style: {
+        colors: theme === "dark" ? "#FFFFFF" : "#202936", // 👈 bright y-axis labels
+      },
+    },
+  },
+  legend: {
+    labels: {
+      colors: theme === "dark" ? "#FFFFFF" : "#202936", // 👈 bright legend labels
+    },
+  },
+  title: {
+    text: "Load Average",
+    align: "left",
+    style: {
+      fontSize: "12px",
+      color:theme === "dark" ? "#FFFFFF" : "#202936", // 👈 bright title
+    },
+  },
+};
 
   const lineOptions = {
     chart: {
@@ -179,6 +199,7 @@ const RevenueChart = () => {
     },
     dataLabels: {
       enabled: false,
+
     },
     stroke: {
       curve: "straight",
@@ -195,16 +216,30 @@ const RevenueChart = () => {
       hover: {
         size: 0,
       },
+
     },
     xaxis: {
       type: "datetime",
       range: 2700000,
+      labels: {
+        style: {
+          colors: theme === "dark" ? "#FFFFFF" : "#202936", // 👈 bright x-axis labels
+        },
+      },
+    },  
+    yaxis: {
+      labels: {
+        style: {
+          colors: theme === "dark" ? "#FFFFFF" : "#202936", // 👈 bright y-axis labels
+        },
+      },
     },
     title: {
       text: "Processes",
       align: "left",
       style: {
         fontSize: "12px",
+        color: theme === "dark" ? "#FFFFFF" : "#202936", // 👈 bright title
       },
     },
     legend: {
@@ -214,6 +249,9 @@ const RevenueChart = () => {
       position: "top",
       offsetY: -28,
       offsetX: 60,
+      labels: {
+        colors: theme === "dark" ? "#FFFFFF" : "#202936", // 👈 bright legend labels
+      },
     },
   };
 
@@ -245,11 +283,15 @@ const RevenueChart = () => {
     labels: ["Revenue Distribution", "Revenue Distribution"],
     legend: {
       show: true,
+
       position: "left",
       offsetX: -30,
       offsetY: 10,
       formatter: function (val, opts) {
         return val + " - " + opts.w.globals.series[opts.seriesIndex] + "%";
+      },
+      labels: {
+        colors: theme === "dark" ? "#FFFFFF" : "#202936", // 👈 bright legend labels
       },
     },
     fill: {
@@ -262,46 +304,70 @@ const RevenueChart = () => {
         opacityFrom: 1,
         opacityTo: 1,
         stops: [0, 100],
+
       },
     },
   };
 
-  const progressOptions = {
+const progressOptions = {
     chart: {
       height: 70,
       type: "bar",
       stacked: true,
       sparkline: {
         enabled: true,
+
       },
+      
     },
     plotOptions: {
+
       bar: {
         horizontal: true,
         barHeight: "20%",
+        borderRadius: 5,
         colors: {
           backgroundBarColors: ["#40475D"],
+          
         },
       },
+
     },
     stroke: {
       width: 0,
+
+
     },
     xaxis: {
       max: 100,
+      labels: {
+
+        style: {
+          colors: theme === "dark" ? "#FFFFFF" : "#202936", // 👈 bright x-axis labels
+        },
+      },
     },
     tooltip: {
       enabled: false,
+
     },
   };
 
+  
+
+
   return (
-    <div className="content-area">
-      <div className="container-fluid">
-        <div className="main">
+    <div className="content-ara">
+      <div className="container-flui">
+        <div className="man">
           <div className="row mt-4">
             <div className="col-md-5">
-              <div className="box columnbox mt-4">
+                <div
+              style={{
+                backgroundColor:  theme === "dark" ? "#262D47" : "#EBF3FE",
+               color: theme === "dark" ? "#EBF3FE" : "#000",
+              }}
+               className="p-6 py-4 ">
                 <ReactApexChart
                   options={columnOptions}
                   series={[
@@ -313,7 +379,12 @@ const RevenueChart = () => {
               </div>
             </div>
             <div className="col-md-7">
-              <div className="box mt-4">
+                <div
+              style={{
+                backgroundColor:  theme === "dark" ? "#262D47" : "#EBF3FE",
+               color: theme === "dark" ? "#EBF3FE" : "#000",
+              }}
+               className="p-6 py-4 ">
                 <ReactApexChart
                   options={lineOptions}
                   series={[
@@ -328,7 +399,12 @@ const RevenueChart = () => {
           </div>
           <div className="row">
             <div className="col-md-5">
-              <div className="box radialbox mt-4">
+              <div
+              style={{
+                backgroundColor:  theme === "dark" ? "#262D47" : "#EBF3FE",
+               color: theme === "dark" ? "#EBF3FE" : "#000",
+              }}
+               className="p-6 py-4 mt-4 ">
                 <ReactApexChart
                   options={circleOptions}
                   series={chartData.circleData}
@@ -338,7 +414,12 @@ const RevenueChart = () => {
               </div>
             </div>
             <div className="col-md-7">
-              <div className="box mt-4">
+               <div
+              style={{
+                backgroundColor:  theme === "dark" ? "#262D47" : "#EBF3FE",
+               color: theme === "dark" ? "#EBF3FE" : "#000",
+              }}
+               className="p-6 py-4 mt-4">
                 <div className="mt-4">
                   <ReactApexChart
                     options={{
@@ -349,6 +430,10 @@ const RevenueChart = () => {
                         floating: true,
                         offsetX: -10,
                         offsetY: 5,
+                          style: {
+          color: theme === "dark" ? "#FFFFFF" : "#000000", // 👈 dynamic title color
+          fontSize: "12px",
+        },
                       },
                     }}
                     series={[
@@ -358,7 +443,12 @@ const RevenueChart = () => {
                     height={70}
                   />
                 </div>
-                <div className="mt-4">
+                   <div
+              style={{
+                backgroundColor:  theme === "dark" ? "#262D47" : "#EBF3FE",
+               color: theme === "dark" ? "#EBF3FE" : "#000",
+              }}
+               className="p-6 py-4 ">
                   <ReactApexChart
                     options={{
                       ...progressOptions,
@@ -368,6 +458,10 @@ const RevenueChart = () => {
                         floating: true,
                         offsetX: -10,
                         offsetY: 5,
+                          style: {
+          color: theme === "dark" ? "#FFFFFF" : "#000000", // 👈 dynamic title color
+          fontSize: "12px",
+        },
                       },
                     }}
                     series={[
@@ -377,7 +471,12 @@ const RevenueChart = () => {
                     height={70}
                   />
                 </div>
-                <div className="mt-4">
+                  <div
+              style={{
+                backgroundColor:  theme === "dark" ? "#262D47" : "#EBF3FE",
+               color: theme === "dark" ? "#EBF3FE" : "#000",
+              }}
+               className="p-6 py-4 ">
                   <ReactApexChart
                     options={{
                       ...progressOptions,
@@ -387,6 +486,10 @@ const RevenueChart = () => {
                         floating: true,
                         offsetX: -10,
                         offsetY: 5,
+                          style: {
+          color: theme === "dark" ? "#FFFFFF" : "#000000", // 👈 dynamic title color
+          fontSize: "12px",
+        },
                       },
                     }}
                     series={[

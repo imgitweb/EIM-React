@@ -161,10 +161,9 @@ Return JSON with:
               {analysisData && (
   <div className="card mt-4">
     <h2 className="card-header text-center">Competitive Analysis Framework</h2>
-    {/* <div className="card-header">Startup & Competitor Comparison</div> */}
     <div className="card-body">
       <table className="table table-bordered">
-        <thead className="table-dark">
+        <thead className={`localStorage.getItem("theme") === "dark" ? "bg-dark" : "table-light"}`}>
           <tr>
             <th>Category</th>
             <th>Your Company</th>
@@ -225,7 +224,6 @@ Return JSON with:
       </table>
     </div>
 
-    {/* <div className="card-header mt-4">Market Analysis</div> */}
     <h2 className="card-header text-center">Market Analysis</h2>
 
     <div className="card-body">

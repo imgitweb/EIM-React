@@ -59,7 +59,7 @@ const IdeaValidation = () => {
                 <div className="">
                   <div className="container p-4">
                     {/* Title */}
-                    <h1 className="display-4 text-center mb-2 text-white">
+                    <h1 className="display-4 text-center mb-2 ">
                       Evaluate your startup idea
                     </h1>
                     <p className="text-center mb-8">
@@ -85,7 +85,7 @@ const IdeaValidation = () => {
                           }}>
                           <Heart style={{ width: "40px", height: "40px" }} />
                         </div>
-                        <div className="text-center text-white">
+                        <div className="text-center ">
                           <h5>Solution viability</h5>
                           <p className="small">
                             Do customers / users want this?
@@ -111,7 +111,7 @@ const IdeaValidation = () => {
                             style={{ width: "40px", height: "40px" }}
                           />
                         </div>
-                        <div className="text-center text-white">
+                        <div className="text-center ">
                           <h5>Evidence gathering</h5>
                           <p className="small">Can we do this?</p>
                         </div>
@@ -135,7 +135,7 @@ const IdeaValidation = () => {
                             style={{ width: "40px", height: "40px" }}
                           />
                         </div>
-                        <div className="text-center text-white">
+                        <div className="text-center ">
                           <h5>Level of demand</h5>
                           <p className="small">Can this survive and thrive?</p>
                         </div>
@@ -157,7 +157,7 @@ const IdeaValidation = () => {
                           }}>
                           <Star style={{ width: "40px", height: "40px" }} />
                         </div>
-                        <div className="text-center text-white">
+                        <div className="text-center ">
                           <h5>Efficiency, Client focus</h5>
                           <p className="small">
                             How new and innovative is the idea?
@@ -181,7 +181,7 @@ const IdeaValidation = () => {
                           }}>
                           <Target style={{ width: "40px", height: "40px" }} />
                         </div>
-                        <div className="text-center text-white">
+                        <div className="text-center ">
                           <h5>Team alignment</h5>
                           <p className="small">Who is the target audience?</p>
                         </div>
@@ -193,7 +193,7 @@ const IdeaValidation = () => {
                       {/* Desirability Column */}
                       <div className="col-md-4 card">
                         <div className="border p-3">
-                          <h3 className="font-weight-bold text-xl mb-4 text-white">
+                          <h3 className="font-weight-bold text-xl mb-4">
                             Desirability
                           </h3>
                           <div
@@ -217,7 +217,7 @@ const IdeaValidation = () => {
                       {/* Viability Column */}
                       <div className="col-md-4 card">
                         <div className="border p-3">
-                          <h3 className="font-weight-bold text-xl mb-4 text-white">
+                          <h3 className="font-weight-bold text-xl mb-4">
                             Viability
                           </h3>
                           <div
@@ -246,7 +246,7 @@ const IdeaValidation = () => {
                       {/* Feasibility Column */}
                       <div className="col-md-4 card">
                         <div className="border p-3">
-                          <h3 className="font-weight-bold text-xl mb-4 text-white">
+                          <h3 className="font-weight-bold text-xl mb-4">
                             Feasibility
                           </h3>
                           <div
@@ -278,7 +278,7 @@ const IdeaValidation = () => {
                       border="1 1px soiled black"
                       className="border table-responsive p-3"
                       style={{ color: "#D3D3D3" }}>
-                      <h3 className="font-weight-bold mb-4 text-white">
+                      <h3 className="font-weight-bold mb-4">
                         Sample Scoring
                       </h3>
                       <table className="table table table-bordered">
@@ -287,17 +287,17 @@ const IdeaValidation = () => {
                             <th>Ideas</th>
                             <th
                               className="p-2"
-                              style={{ backgroundColor: "#223662" }}>
+                              >
                               Desirability
                             </th>
                             <th
                               className="p-2"
-                              style={{ backgroundColor: "#223662" }}>
+                              >
                               Viability
                             </th>
                             <th
                               className="p-2"
-                              style={{ backgroundColor: "#223662" }}>
+                              >
                               Feasibility
                             </th>
                             <th>Total</th>

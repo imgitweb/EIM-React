@@ -59,16 +59,16 @@ const RevenueTracker = () => {
                   <h2 className="text-muted">FY 2024-25</h2>
                 </div>
 
-                <div className="row g-4">
+                <div className="row px-3">
                   {/* Gross Revenue */}
-                  <div className="col-md-4">
+                  <div className="col-md-4 ">
                     <div className="card h-100">
                       <div className="card-header text-center fw-semibold">
                         Gross Revenue
                       </div>
                       <div
                         className="card-body text-center"
-                        style={{ backgroundColor: "#262D47" }}>
+                        >
                         <h3 className="fw-bold text-primary">2.5M</h3>
                         <p className="text-muted">Total Revenue</p>
                         <div className="row mt-3">
@@ -92,7 +92,7 @@ const RevenueTracker = () => {
                       </div>
                       <div
                         className="card-body text-center"
-                        style={{ backgroundColor: "#262D47" }}>
+                        >
                         <h3 className="fw-bold text-success">3.5%</h3>
                         <p className="text-muted">Operating Margin</p>
                         <p className="mt-3">
@@ -109,7 +109,7 @@ const RevenueTracker = () => {
                       </div>
                       <div
                         className="card-body text-center"
-                        style={{ backgroundColor: "#262D47" }}>
+                        >
                         <h3 className="fw-bold text-warning">234</h3>
                         <p className="text-muted">Earnings Before Tax</p>
                       </div>

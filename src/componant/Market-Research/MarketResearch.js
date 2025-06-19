@@ -122,44 +122,45 @@ Return JSON with:
             { name: "TAM", data: chartData.monthly_market_size.TAM },
             { name: "SAM", data: chartData.monthly_market_size.SAM },
           ],
-          chart: { type: "bar", height: 250 },
+          chart: { type: "bar", height: 250, 
+             toolbar: { show: false } },
+           },
           xaxis: {
             categories: chartData.monthly_market_size.months,
-            labels: { style: { colors: "white" } },
+            labels: { style: { colors: localStorage.getItem("theme") === "light"  ? "#00000" : "#ffffff"} },
           },
-          yaxis: { labels: { style: { colors: "white" } } },
+          yaxis: { labels: { style: { colors: localStorage.getItem("theme") === "light"  ? "#00000" : "#ffffff"} }, },
         },
-      },
       {
         elementId: "chart2",
         options: {
           series: [{ name: "SAM", data: chartData.competition_analysis.SAM }],
-          chart: { type: "bar", height: 250 },
+          chart: { type: "bar", height: 250 ,toolbar: { show: false }},
           xaxis: {
             categories: chartData.competition_analysis.months,
-            labels: { style: { colors: "white" } },
+            labels: { labels: { style: { colors: localStorage.getItem("theme") === "light"  ? "#00000" : "#ffffff"} }, },
           },
-          yaxis: { labels: { style: { colors: "white" } } },
+          yaxis: { labels: { style: { colors: localStorage.getItem("theme") === "light"  ? "#00000" : "#ffffff"} }, },
         },
       },
       {
         elementId: "chart3",
         options: {
           series: [{ data: chartData.geo_competition.intensity }],
-          chart: { type: "bar", height: 350 },
+          chart: { type: "bar", height: 350,toolbar: { show: false } },
           plotOptions: { bar: { horizontal: true } },
           xaxis: {
             categories: chartData.geo_competition.regions,
-            labels: { style: { colors: "white" } },
+            labels: { style: { colors: localStorage.getItem("theme") === "light"  ? "#00000" : "#ffffff"} },
           },
-          yaxis: { labels: { style: { colors: "white" } } },
+          yaxis: { labels: { style: { colors: localStorage.getItem("theme") === "light"  ? "#00000" : "#ffffff"} }, },
         },
       },
       {
         elementId: "chart4",
         options: {
           series: chartData.demographics.percentage,
-          chart: { type: "donut", height: 250 },
+          chart: { type: "donut", height: 250 ,toolbar: { show: false } },
           labels: chartData.demographics.age_groups,
         },
       },
@@ -217,7 +218,7 @@ Return JSON with:
               role="tablist"
             >
               {["Size your market", "Research the competition", "Discover what marketing channels work", "Analyze audience demographics"].map(
-                (label, i) => (
+                (label, i) => ( 
                   <li className="nav-item" role="presentation" key={i}>
                     <button
                       className={`nav-link hstack gap-2 rounded-0 py-6 ${i === 0 ? "active" : ""}`}
@@ -246,7 +247,7 @@ Return JSON with:
                   key={i}
                 >
                   {loading ? (
-                    <p className="text-white">Loading chart data...</p>
+                     loading && (<div className="alert alert-info text-center">Loading analysis...</div>)
                   ) : error ? (
                     <p className="text-danger">Error: {error}</p>
                   ) : (
