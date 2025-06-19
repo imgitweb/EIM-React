@@ -4,7 +4,7 @@ import Navigation from "../componant/Navigation";
 import SerchBar from "../componant/SearchBar";
 import Pitch1 from "../componant/Pitch1";
 import { OpenAI } from "openai";
-// import PptxGenJS from "pptxgenjs";
+
 import PptxGenJS from "pptxgenjs";
 import Pitch2 from "../componant/Pitch2";
 import Pitch3 from "../componant/Pitch3";
@@ -104,14 +104,14 @@ const PitchDeck = () => {
             "Solution1": "",                 
             "Solution2": "",                 
             "Solution3": "",                 
-            "firstToMarketText": "",          // Minimal text, e.g., "First to market."
+            "firstToMarketText": "First to market.",          // Minimal text, e.g., "First to market."
             "Market": "",                   
-            "Features": "",                   // Minimal text, e.g., "With additional features."
+            "Features": "With additional features.",                   // Minimal text, e.g., "With additional features."
             "ProductOverview": {              // Structured as an object with boolean attributes
-              "isUnique": "",              // Boolean: Is the product unique?
-              "isTested": "",              // Boolean: Is the product tested?
-              "firstToMarket": "",         // Boolean: Is the product first to market?
-              "hasAdditionalFeatures": ""  // Boolean: Does the product have additional features?
+              "isUnique": true,              // Boolean: Is the product unique?
+              "isTested": true,              // Boolean: Is the product tested?
+              "firstToMarket": true,         // Boolean: Is the product first to market?
+              "hasAdditionalFeatures": true  // Boolean: Does the product have additional features?
             },
             "BusinessModel": "",           
             "CompetitionAnalysis": "",     
@@ -139,7 +139,7 @@ const PitchDeck = () => {
       if (response.choices && response.choices.length > 0) {
         const pitchData = JSON.parse(response.choices[0].message.content);
         setGeneratedPitchDeck(pitchData);
-        console.log(generatedPitchDeck);
+        console.log(pitchData);
       } else {
         setGeneratedPitchDeck(null);
         setError("No response from OpenAI API.");
@@ -152,58 +152,208 @@ const PitchDeck = () => {
     }
   };
 
-  // const downloadPDF = async () => {
-  //   const pdf = new jsPDF();
-  //   const pitchDeckIds = [
-  //     "pitch1",
-  //     "pitch2",
-  //     "pitch3",
-  //     "pitch4",
-  //     "pitch5",
-  //     "pitch6",
-  //     "pitch7",
-  //     "pitch8",
-  //     "pitch9",
-  //     "pitch10",
-  //     "pitch11",
-  //     "pitch12",
-  //     "pitch13",
-  //     "pitch14",
-  //   ];
+  const downloadPowerPoint = async () => {
+    try {
+      // Check if pitch deck is generated
+      if (!generatedPitchDeck) {
+        alert("Please generate a pitch deck first before downloading.");
+        return;
+      }
 
-  //   for (let i = 0; i < pitchDeckIds.length; i++) {
-  //     const pitchId = pitchDeckIds[i];
-  //     const element = document.getElementById(pitchId);
+      const pptx = new PptxGenJS();
 
-  //     if (element) {
-  //       await new Promise((resolve) => setTimeout(resolve, 500)); // Add a delay
-  //       const canvas = await html2canvas(element);
-  //       const imgData = canvas.toDataURL("image/png");
-  //       const imgProps = pdf.getImageProperties(imgData);
-  //       const pdfWidth = pdf.internal.pageSize.getWidth();
-  //       const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+      // Set presentation properties
+      pptx.author = formData.businessName;
+      pptx.company = formData.businessName;
+      pptx.title = `${formData.businessName} - Pitch Deck`;
+      pptx.subject = "Startup Pitch Deck";
 
-  //       if (i === 0) {
-  //         pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
-  //       } else {
-  //         pdf.addPage();
-  //         pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
-  //       }
-  //     }
-  //   }
+      // Define slide layouts and content
+      const slides = [
+        {
+          title: "Startup Name",
+          content: generatedPitchDeck.StartupName || "Startup Name",
+          subtitle: "Welcome to our pitch deck",
+        },
+        {
+          title: "Who We Are",
+          content: generatedPitchDeck.Who_We_are || "About our company",
+          subtitle: "Company Overview",
+        },
+        {
+          title: "The Problem",
+          content: generatedPitchDeck.Problem || "Problem statement",
+          subtitle: "Market Problem",
+        },
+        {
+          title: "Our Solution",
+          content: [
+            generatedPitchDeck.Solution0 || "Solution 1",
+            generatedPitchDeck.Solution1 || "Solution 2",
+            generatedPitchDeck.Solution2 || "Solution 3",
+            generatedPitchDeck.Solution3 || "Solution 4",
+          ].filter(Boolean),
+          subtitle: "Innovative Solutions",
+        },
+        {
+          title: "Product Overview",
+          content: `Unique: ${
+            generatedPitchDeck.ProductOverview?.isUnique ? "Yes" : "No"
+          }\nTested: ${
+            generatedPitchDeck.ProductOverview?.isTested ? "Yes" : "No"
+          }\nFirst to Market: ${
+            generatedPitchDeck.ProductOverview?.firstToMarket ? "Yes" : "No"
+          }\nAdditional Features: ${
+            generatedPitchDeck.ProductOverview?.hasAdditionalFeatures
+              ? "Yes"
+              : "No"
+          }`,
+          subtitle: "Product Features",
+        },
+        {
+          title: "Product Benefits",
+          content: generatedPitchDeck.Features || "Product benefits",
+          subtitle: "Key Benefits",
+        },
+        {
+          title: "Target Market",
+          content: generatedPitchDeck.Market || "Market overview",
+          subtitle: "Market Analysis",
+        },
+        {
+          title: "Competition Analysis",
+          content:
+            generatedPitchDeck.CompetitionAnalysis || "Competition analysis",
+          subtitle: "Competitive Landscape",
+        },
+        {
+          title: "Growth Strategy",
+          content: generatedPitchDeck.GrowthStrategy || "Growth strategy",
+          subtitle: "Strategic Plan",
+        },
+        {
+          title: "Business Model",
+          content: generatedPitchDeck.BusinessModel || "Business model",
+          subtitle: "Revenue Model",
+        },
+        {
+          title: "Meet The Founders",
+          content: generatedPitchDeck.Who_We_are || "Team information",
+          subtitle: "Leadership Team",
+        },
+        {
+          title: "Team",
+          content: "Hari - Manager\nRam - CTO\nShyam - CFO\nSita - COO",
+          subtitle: "Our Team",
+        },
+        {
+          title: "Funding Request",
+          content: generatedPitchDeck.FundingRequest || "Funding request",
+          subtitle: "Investment Opportunity",
+        },
+        {
+          title: "Contact Information",
+          content: `Email: ${
+            generatedPitchDeck.ContactInformation?.Email || formData.email
+          }\nMobile: ${
+            generatedPitchDeck.ContactInformation?.Mobile || formData.mobile
+          }\nAddress: ${
+            generatedPitchDeck.ContactInformation?.Address || formData.address
+          }`,
+          subtitle: "Get In Touch",
+        },
+      ];
 
-  //   pdf.save("PitchDeck.pdf");
-  // };
+      // Create slides
+      slides.forEach((slideData, index) => {
+        const slide = pptx.addSlide();
+
+        // Add title
+        slide.addText(slideData.title, {
+          x: 0.5,
+          y: 0.5,
+          w: 9,
+          h: 1,
+          fontSize: 32,
+          bold: true,
+          color: "2E86AB",
+          align: "center",
+        });
+
+        // Add subtitle
+        slide.addText(slideData.subtitle, {
+          x: 0.5,
+          y: 1.5,
+          w: 9,
+          h: 0.5,
+          fontSize: 18,
+          color: "666666",
+          align: "center",
+        });
+
+        // Add content
+        if (Array.isArray(slideData.content)) {
+          // Handle array content (like solutions)
+          slideData.content.forEach((item, itemIndex) => {
+            slide.addText(`• ${item}`, {
+              x: 0.5,
+              y: 2.5 + itemIndex * 0.4,
+              w: 9,
+              h: 0.3,
+              fontSize: 16,
+              color: "333333",
+            });
+          });
+        } else {
+          // Handle string content
+          slide.addText(slideData.content, {
+            x: 0.5,
+            y: 2.5,
+            w: 9,
+            h: 4,
+            fontSize: 16,
+            color: "333333",
+            align: "left",
+            valign: "top",
+          });
+        }
+
+        // Add slide number
+        slide.addText(`${index + 1}`, {
+          x: 9.2,
+          y: 6.8,
+          w: 0.3,
+          h: 0.2,
+          fontSize: 12,
+          color: "999999",
+          align: "right",
+        });
+      });
+
+      // Save the presentation
+      pptx.writeFile({
+        fileName: `${formData.businessName.replace(
+          /\s+/g,
+          "_"
+        )}_PitchDeck.pptx`,
+      });
+      console.log("PowerPoint download completed");
+    } catch (error) {
+      console.error("Error generating PowerPoint:", error);
+      alert("Error generating PowerPoint. Please try again.");
+    }
+  };
+
   const printDiv = (divId) => {
-  const divToPrint = document.getElementById(divId);
-  if (!divToPrint) {
-    console.error("Div not found");
-    return;
-  }
+    const divToPrint = document.getElementById(divId);
+    if (!divToPrint) {
+      console.error("Div not found");
+      return;
+    }
 
-  const newWindow = window.open("", "_blank");
+    const newWindow = window.open("", "_blank");
 
-  const htmlContent = `
+    const htmlContent = `
     <html>
       <head>
         <title>Print Pitch Deck</title>
@@ -248,68 +398,73 @@ const PitchDeck = () => {
       </head>
       <body>
         ${Array.from(divToPrint.children)
-          .map(
-            (child) =>
-              `<div class="print-page">${child.outerHTML}</div>`
-          )
+          .map((child) => `<div class="print-page">${child.outerHTML}</div>`)
           .join("")}
       </body>
     </html>
   `;
 
-  newWindow.document.open();
-  newWindow.document.write(htmlContent);
-  newWindow.document.close();
+    newWindow.document.open();
+    newWindow.document.write(htmlContent);
+    newWindow.document.close();
 
-  // Wait for all resources to load
-  newWindow.onload = () => {
-    newWindow.focus();
-    newWindow.print();
-    newWindow.close();
+    // Wait for all resources to load
+    newWindow.onload = () => {
+      newWindow.focus();
+      newWindow.print();
+      newWindow.close();
+    };
   };
-};
 
-const downloadPDF = async () => {
-  const sectionIds = [
-    "pitch1", "pitch2", "pitch3", "pitch4", "pitch5", "pitch6",
-    "pitch7", "pitch8", "pitch9", "pitch10", "pitch11", "pitch12",
-    "pitch13", "pitch14"
-  ];
+  const downloadPDF = async () => {
+    const sectionIds = [
+      "pitch1",
+      "pitch2",
+      "pitch3",
+      "pitch4",
+      "pitch5",
+      "pitch6",
+      "pitch7",
+      "pitch8",
+      "pitch9",
+      "pitch10",
+      "pitch11",
+      "pitch12",
+      "pitch13",
+      "pitch14",
+    ];
 
-  const pdf = new jsPDF("landscape", "pt", "a4"); // A4 landscape
+    const pdf = new jsPDF("landscape", "pt", "a4"); // A4 landscape
 
-  for (let i = 0; i < sectionIds.length; i++) {
-    const id = sectionIds[i];
-    const element = document.getElementById(id);
+    for (let i = 0; i < sectionIds.length; i++) {
+      const id = sectionIds[i];
+      const element = document.getElementById(id);
 
-    if (!element) continue;
+      if (!element) continue;
 
-    try {
-      const canvas = await html2canvas(element, {
-        scale: 2,
-        useCORS: true,
-        backgroundColor: "#ffffff"
-      });
+      try {
+        const canvas = await html2canvas(element, {
+          scale: 2,
+          useCORS: true,
+          backgroundColor: "#ffffff",
+        });
 
-      const imgData = canvas.toDataURL("image/png");
+        const imgData = canvas.toDataURL("image/png");
 
-      const imgProps = pdf.getImageProperties(imgData);
-      const pdfWidth = pdf.internal.pageSize.getWidth();
-      const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+        const imgProps = pdf.getImageProperties(imgData);
+        const pdfWidth = pdf.internal.pageSize.getWidth();
+        const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
 
-      if (i !== 0) pdf.addPage();
+        if (i !== 0) pdf.addPage();
 
-      pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
-    } catch (err) {
-      console.error(`Error rendering ${id}:`, err);
+        pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
+      } catch (err) {
+        console.error(`Error rendering ${id}:`, err);
+      }
     }
-  }
 
-  pdf.save("Startup_PitchDeck.pdf");
-};
-
-
-
+    pdf.save("Startup_PitchDeck.pdf");
+  };
 
   return (
     <>
@@ -528,80 +683,125 @@ const downloadPDF = async () => {
                               <br />
                               <Pitch5
                                 id="pitch5"
-                                productOverview={[
-                                  generatedPitchDeck.firstToMarketText,
-                                  generatedPitchDeck.Features,
-                                ]}
-                                unique={
-                                  generatedPitchDeck.ProductOverview.isUnique
-                                }
-                                tested={
-                                  generatedPitchDeck.ProductOverview.isTested
-                                }
+                                productOverview={{
+                                  isUnique:
+                                    generatedPitchDeck.ProductOverview
+                                      ?.isUnique || false,
+                                  isTested:
+                                    generatedPitchDeck.ProductOverview
+                                      ?.isTested || false,
+                                  firstToMarket:
+                                    generatedPitchDeck.ProductOverview
+                                      ?.firstToMarket || false,
+                                  hasAdditionalFeatures:
+                                    generatedPitchDeck.ProductOverview
+                                      ?.hasAdditionalFeatures || false,
+                                }}
                               />
                               <br />
                               <Pitch6
                                 id="pitch6"
                                 productBenefits={
-                                  generatedPitchDeck.ProductBenefits
+                                  generatedPitchDeck.Features ||
+                                  "With additional features."
                                 }
                               />
                               <br />
                               <Pitch7
                                 id="pitch7"
                                 targetMarketOverview={
-                                  generatedPitchDeck.TargetMarketOverview
+                                  generatedPitchDeck.Market || "Market overview"
                                 }
                               />
                               <br />
                               <Pitch8
                                 id="pitch8"
-                                ourRivals={generatedPitchDeck.OurRivals}
+                                ourRivals={
+                                  generatedPitchDeck.CompetitionAnalysis ||
+                                  "Competition analysis"
+                                }
+                                marketPosition={`${formData.businessName} is positioned as a leading ${formData.businessType} provider in ${formData.targetLocation}`}
+                                competitiveAdvantages={`Unique ${formData.services.join(
+                                  ", "
+                                )} solutions with proven track record of ${
+                                  formData.customerCount
+                                } satisfied customers`}
+                                marketShare={`Established presence in ${formData.targetLocation} with ₹${formData.revenue} revenue and growing market share`}
                               />
                               <br />
                               <Pitch9
                                 id="pitch9"
                                 growthStrategy={
-                                  generatedPitchDeck.GrowthStrategy
+                                  generatedPitchDeck.GrowthStrategy ||
+                                  "Growth strategy"
                                 }
                               />
                               <br />
                               <Pitch10
                                 id="pitch10"
                                 forecastingForSuccess={
-                                  generatedPitchDeck.ForecastingForSuccess
+                                  generatedPitchDeck.BusinessModel ||
+                                  "Business model"
                                 }
                               />
                               <br />
                               <Pitch11
                                 id="pitch11"
                                 meetTheFounders={
-                                  generatedPitchDeck.MeetTheFounders
+                                  generatedPitchDeck.Who_We_are || "Who we are"
                                 }
                               />
                               <br />
                               <Pitch12
                                 id="pitch12"
-                                fundingRequest={
-                                  generatedPitchDeck.FundingRequest
-                                }
+                                fundingRequest={[
+                                  {
+                                    name: "Hari ",
+                                    designation: " Manager ",
+                                    image:
+                                      "https://tse2.mm.bing.net/th?id=OIP.SRZxpL6M3ItElXPI_pUiyAHaHa&pid=Api&P=0&h=220",
+                                  },
+                                  {
+                                    name: "Ram",
+                                    designation: "CTO",
+                                    image: "https://example.com/bob.png",
+                                  },
+                                  {
+                                    name: "Shyam",
+                                    designation: "CFO",
+                                    image: "https://example.com/carol.png",
+                                  },
+                                  {
+                                    name: "Sita",
+                                    designation: "COO",
+                                    image: "https://example.com/dave.png",
+                                  },
+                                ]}
                               />
                               <br />
                               <Pitch13
                                 id="pitch13"
-                                pitchData={generatedPitchDeck.PitchData}
+                                pitchData={
+                                  generatedPitchDeck.FundingRequest ||
+                                  "Funding request"
+                                }
                               />
+                              <br></br>
                               <Pitch14
                                 id="pitch14"
                                 contactDetails={
-                                  generatedPitchDeck.ContactDetails
+                                  generatedPitchDeck.ContactInformation || {
+                                    Email: formData.email,
+                                    Mobile: formData.mobile,
+                                    Address: formData.address,
+                                  }
                                 }
                               />
                             </div>
 
                             <button
                               className="btn btn-success mt-4"
-                              onClick={downloadPDF  }>
+                              onClick={downloadPowerPoint}>
                               Download Pitch Deck
                             </button>
                           </>

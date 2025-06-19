@@ -22,7 +22,7 @@ export default function IncorporationDetails() {
     setCompany((prev) => ({ ...prev, startup_id: storedStartupId || "" }));
   }, []);
 
-  const inputHandler = (e) => {
+  const inputHandler = (e) => { 
     const { name, value } = e.target;
     setCompany({ ...company, [name]: value });
   };
@@ -103,7 +103,7 @@ export default function IncorporationDetails() {
                     className="form-control"
                   />
                 </div>
-                <div className="form-group">
+                <div className="form-group mt-1">
                   <label>Company Type</label>
                   <input
                     type="text"
@@ -112,7 +112,7 @@ export default function IncorporationDetails() {
                     onChange={inputHandler}
                   />
                 </div>
-                <div className="form-group">
+                <div className="form-group mt-1 ">
                   <label>Reg No</label>
                   <input
                     type="text"
@@ -121,7 +121,7 @@ export default function IncorporationDetails() {
                     onChange={inputHandler}
                   />
                 </div>
-                <div className="form-group">
+                <div className="form-group mt-1 ">
                   <label>Date of Incorporation</label>
                   <input
                     type="text"
@@ -130,7 +130,7 @@ export default function IncorporationDetails() {
                     onChange={inputHandler}
                   />
                 </div>
-                <div className="form-group">
+                <div className="form-group mt-2 ">
                   <button
                     type="submit"
                     className="btn btn-primary"

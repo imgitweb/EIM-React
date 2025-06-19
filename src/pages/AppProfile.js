@@ -60,7 +60,7 @@ const AppProfile = () => {
   const [uploadedLogoPath, setUploadedLogoPath] = useState(null);
   const startup_id = localStorage.getItem("userId");
   const [endDate, setEndDate] = useState();
-  const [countdown, setCountdown] = useState('');
+  const [countdown, setCountdown] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const ToggleEvent = () => {
@@ -105,26 +105,20 @@ const AppProfile = () => {
     setPreviewUrl(null);
   };
 
-
-
-
   const getSubscriptionStatus = async () => {
     try {
-      const res = await axios.get(`${API_BASE_URL}/api/subscriptions/${startup_id}`, {
-        withCredentials: true,
-      });
+      const res = await axios.get(
+        `${API_BASE_URL}/api/subscriptions/${startup_id}`,
+        {
+          withCredentials: true,
+        }
+      );
       const date = res.data.subscriptions[0].endDate;
       setEndDate(new Date(date));
     } catch (error) {
       console.error("Error retrieving subscription status:", error);
     }
   };
-
-
-
-
-
-
 
   useEffect(() => {
     const fetchData = async () => {
@@ -140,7 +134,6 @@ const AppProfile = () => {
         // Extract only the 'startup' data from the response
         const startupData = response.data?.startup || null; // Use optional chaining to avoid errors if 'startup' doesn't exist
 
-
         setProfile(startupData);
       } catch (error) {
         console.error("Error while fetching data:-----", error);
@@ -148,7 +141,7 @@ const AppProfile = () => {
       }
     };
 
-    getSubscriptionStatus()
+    getSubscriptionStatus();
     fetchData();
   }, []);
   useEffect(() => {
@@ -175,7 +168,6 @@ const AppProfile = () => {
     return () => clearInterval(interval); // Cleanup on unmount or endDate change
   }, [endDate]);
 
-
   return (
     <>
       <div id="main-wrapper" className={isActive ? "show-sidebar" : ""}>
@@ -196,8 +188,7 @@ const AppProfile = () => {
                           <li className="breadcrumb-item">
                             <a
                               className="text-muted text-decoration-none"
-                              href="../dark/index.html"
-                            >
+                              href="../dark/index.html">
                               Home
                             </a>
                           </li>
@@ -239,25 +230,24 @@ const AppProfile = () => {
 
                         {/* pop code  */}
 
-
                         <PopupModal
                           isOpen={isModalOpen}
                           onClose={() => setIsModalOpen(false)}
-                          title="Dashboard Popup"
-                        >
+                          title="Dashboard Popup">
                           <p>Your plan is valid until 5th July 2025.</p>
                           <p>Here are the details of your plan:</p>
                         </PopupModal>
 
-
                         <div className="text-center">
-                          <h4 style={{
-                            textTransform: "capitalize",
-                          }} className="mb-0 lh-1 ">{profile?.selectedPlan}</h4>
+                          <h4
+                            style={{
+                              textTransform: "capitalize",
+                            }}
+                            className="mb-0 lh-1 ">
+                            {profile?.selectedPlan}
+                          </h4>
                           <p className="mb-0 ">Current Plan</p>
                         </div>
-
-
                       </div>
                     </div>
                     <div className="col-lg-4 mt-n3 order-lg-2 order-1">
@@ -275,7 +265,9 @@ const AppProfile = () => {
                         </div>
                         <div className="text-center">
                           {profile ? (
-                            <h5>{profile.firstName}  {profile.lastName}</h5>
+                            <h5>
+                              {profile.firstName} {profile.lastName}
+                            </h5>
                           ) : (
                             <p>No Name</p>
                           )}
@@ -311,16 +303,16 @@ const AppProfile = () => {
                           </a>
                         </li> */}
                         <li>
-                          <Link to={
-                            "/Upgrade-Beta"
-                          } className="btn btn-primary text-nowrap">
+                          <Link
+                            to={"/Upgrade-Beta"}
+                            className="btn btn-primary text-nowrap">
                             <i class="bi bi-stopwatch mx-1"> </i> {countdown}
                           </Link>
                         </li>
                         <li>
-                          <Link to={
-                            "/Upgrade-Beta"
-                          } className="btn btn-primary text-nowrap">
+                          <Link
+                            to={"/Upgrade-Beta"}
+                            className="btn btn-primary text-nowrap">
                             Upgrade Now
                           </Link>
                         </li>
@@ -330,8 +322,7 @@ const AppProfile = () => {
                   <ul
                     className="nav nav-pills user-profile-tab justify-content-center mt-2 bg-primary-subtle rounded-2 rounded-top-0"
                     id="pills-tab"
-                    role="tablist"
-                  >
+                    role="tablist">
                     <li className="nav-item" role="presentation">
                       <button
                         className="nav-link active hstack gap-2 rounded-0 py-6"
@@ -341,8 +332,7 @@ const AppProfile = () => {
                         type="button"
                         role="tab"
                         aria-controls="pills-profile"
-                        aria-selected="true"
-                      >
+                        aria-selected="true">
                         <i className="ti ti-user-circle fs-5" />
                         <span className="d-none d-md-block">Basic profile</span>
                       </button>
@@ -356,8 +346,7 @@ const AppProfile = () => {
                         type="button"
                         role="tab"
                         aria-controls="pills-followers"
-                        aria-selected="false"
-                      >
+                        aria-selected="false">
                         <i className="ti ti-heart fs-5" />
                         <span className="d-none d-md-block">Team details</span>
                       </button>
@@ -371,12 +360,9 @@ const AppProfile = () => {
                         type="button"
                         role="tab"
                         aria-controls="pills-friends"
-                        aria-selected="false"
-                      >
+                        aria-selected="false">
                         <i className="ti ti-user-circle fs-5" />
-                        <span className="d-none d-md-block">
-                          Incorporation
-                        </span>
+                        <span className="d-none d-md-block">Incorporation</span>
                       </button>
                     </li>
                     <li className="nav-item" role="presentation">
@@ -388,8 +374,7 @@ const AppProfile = () => {
                         type="button"
                         role="tab"
                         aria-controls="pills-gallery"
-                        aria-selected="false"
-                      >
+                        aria-selected="false">
                         <i className="ti ti-photo-plus fs-5" />
                         <span className="d-none d-md-block">Documents</span>
                       </button>
@@ -403,8 +388,7 @@ const AppProfile = () => {
                         type="button"
                         role="tab"
                         aria-controls="pills-gallery"
-                        aria-selected="false"
-                      >
+                        aria-selected="false">
                         <i className="ti ti-list fs-5" />
                         <span className="d-none d-md-block">Stage Task</span>
                       </button>
@@ -419,8 +403,7 @@ const AppProfile = () => {
                   id="pills-profile"
                   role="tabpanel"
                   aria-labelledby="pills-profile-tab"
-                  tabIndex={0}
-                >
+                  tabIndex={0}>
                   <div className="row">
                     <div className="card">
                       <div className="card-body">
@@ -430,13 +413,14 @@ const AppProfile = () => {
                             id="pills-account"
                             role="tabpanel"
                             aria-labelledby="pills-account-tab"
-                            tabIndex={0}
-                          >
+                            tabIndex={0}>
                             <div className="row">
                               <div className="col-lg-6 d-flex align-items-stretch">
                                 <div className="card w-100 border position-relative overflow-hidden">
                                   <div className="card-body p-4">
-                                    <h4 className="card-title">Change Profile</h4>
+                                    <h4 className="card-title">
+                                      Change Profile
+                                    </h4>
                                     <p className="card-subtitle mb-4">
                                       Change your profile picture from here
                                     </p>
@@ -447,8 +431,8 @@ const AppProfile = () => {
                                           previewUrl
                                             ? previewUrl
                                             : profile?.logoUrl
-                                              ? `http://localhost:5000${profile?.logoUrl}`
-                                              : "/assets/assets/images/profile/user-1.jpg"
+                                            ? `http://localhost:5000${profile?.logoUrl}`
+                                            : "/assets/assets/images/profile/user-1.jpg"
                                         }
                                         alt="profile"
                                         className="img-fluid rounded-circle"
@@ -465,16 +449,23 @@ const AppProfile = () => {
                                         />
 
                                         <div className="d-flex align-items-center justify-content-center gap-3">
-                                          <button className="btn btn-primary" onClick={handleUpload}>
+                                          <button
+                                            className="btn btn-primary"
+                                            onClick={handleUpload}>
                                             Upload
                                           </button>
-                                          <button className="btn bg-danger-subtle text-danger" onClick={handleReset}>
+                                          <button
+                                            className="btn bg-danger-subtle text-danger"
+                                            onClick={handleReset}>
                                             Reset
                                           </button>
                                         </div>
                                       </div>
 
-                                      <p className="mb-0">Allowed JPG, GIF or PNG. Max size of 800K</p>
+                                      <p className="mb-0">
+                                        Allowed JPG, GIF or PNG. Max size of
+                                        800K
+                                      </p>
                                     </div>
                                   </div>
                                 </div>
@@ -507,9 +498,7 @@ const AppProfile = () => {
                                           </tr>
                                           <tr>
                                             <td>Country</td>
-                                            <td>
-                                              {profile.country || "N/A"}
-                                            </td>
+                                            <td>{profile.country || "N/A"}</td>
                                           </tr>
                                           <tr>
                                             <td>Industry</td>
@@ -517,7 +506,9 @@ const AppProfile = () => {
                                           </tr>
                                           <tr>
                                             <td>Stage</td>
-                                            <td>{profile.startupStage || "N/A"}</td>
+                                            <td>
+                                              {profile.startupStage || "N/A"}
+                                            </td>
                                           </tr>
                                           <tr>
                                             <td>Startup Name</td>
@@ -540,8 +531,7 @@ const AppProfile = () => {
                             id="pills-notifications"
                             role="tabpanel"
                             aria-labelledby="pills-notifications-tab"
-                            tabIndex={0}
-                          >
+                            tabIndex={0}>
                             <div className="row justify-content-center">
                               <div className="col-lg-9">
                                 <div className="card border shadow-none">
@@ -559,8 +549,7 @@ const AppProfile = () => {
                                     <form className="mb-7">
                                       <label
                                         htmlFor="exampleInputtext5"
-                                        className="form-label"
-                                      >
+                                        className="form-label">
                                         Email Address*
                                       </label>
                                       <input
@@ -752,8 +741,7 @@ const AppProfile = () => {
                                         href="javascript:void(0)"
                                         data-bs-toggle="tooltip"
                                         data-bs-placement="top"
-                                        data-bs-title="Download"
-                                      >
+                                        data-bs-title="Download">
                                         <i className="ti ti-download" />
                                       </a>
                                     </div>
@@ -796,7 +784,7 @@ const AppProfile = () => {
                               </div>
                               <div className="col-12">
                                 <div className="d-flex align-items-center justify-content-end gap-6">
-                                  <button className="btn btn-primary">
+                                  <button className="btn btn-primary mt-2">
                                     Save
                                   </button>
                                   <button className="btn bg-danger-subtle text-danger">
@@ -811,8 +799,7 @@ const AppProfile = () => {
                             id="pills-bills"
                             role="tabpanel"
                             aria-labelledby="pills-bills-tab"
-                            tabIndex={0}
-                          >
+                            tabIndex={0}>
                             <div className="row justify-content-center">
                               <div className="col-lg-9">
                                 <div className="card border shadow-none">
@@ -826,8 +813,7 @@ const AppProfile = () => {
                                           <div className="mb-3">
                                             <label
                                               htmlFor="exampleInputtext6"
-                                              className="form-label"
-                                            >
+                                              className="form-label">
                                               Business Name*
                                             </label>
                                             <input
@@ -840,8 +826,7 @@ const AppProfile = () => {
                                           <div className="mb-3">
                                             <label
                                               htmlFor="exampleInputtext7"
-                                              className="form-label"
-                                            >
+                                              className="form-label">
                                               Business Address*
                                             </label>
                                             <input
@@ -854,8 +839,7 @@ const AppProfile = () => {
                                           <div>
                                             <label
                                               htmlFor="exampleInputtext8"
-                                              className="form-label"
-                                            >
+                                              className="form-label">
                                               First Name*
                                             </label>
                                             <input
@@ -870,8 +854,7 @@ const AppProfile = () => {
                                           <div className="mb-3">
                                             <label
                                               htmlFor="exampleInputtext9"
-                                              className="form-label"
-                                            >
+                                              className="form-label">
                                               Business Sector*
                                             </label>
                                             <input
@@ -884,8 +867,7 @@ const AppProfile = () => {
                                           <div className="mb-3">
                                             <label
                                               htmlFor="exampleInputtext10"
-                                              className="form-label"
-                                            >
+                                              className="form-label">
                                               Country*
                                             </label>
                                             <input
@@ -898,8 +880,7 @@ const AppProfile = () => {
                                           <div>
                                             <label
                                               htmlFor="exampleInputtext11"
-                                              className="form-label"
-                                            >
+                                              className="form-label">
                                               Last Name*
                                             </label>
                                             <input
@@ -949,8 +930,7 @@ const AppProfile = () => {
                                         href="javascript:void(0)"
                                         data-bs-toggle="tooltip"
                                         data-bs-placement="top"
-                                        data-bs-title="Add"
-                                      >
+                                        data-bs-title="Add">
                                         <i className="ti ti-circle-plus" />
                                       </a>
                                     </div>
@@ -997,8 +977,7 @@ const AppProfile = () => {
                                         href="javascript:void(0)"
                                         data-bs-toggle="tooltip"
                                         data-bs-placement="top"
-                                        data-bs-title="Edit"
-                                      >
+                                        data-bs-title="Edit">
                                         <i className="ti ti-pencil-minus" />
                                       </a>
                                     </div>
@@ -1017,7 +996,7 @@ const AppProfile = () => {
                               </div>
                               <div className="col-12">
                                 <div className="d-flex align-items-center justify-content-end gap-6">
-                                  <button className="btn btn-primary">
+                                  <button className="btn btn-primary mt-2">
                                     Save
                                   </button>
                                   <button className="btn bg-danger-subtle text-danger">
@@ -1032,8 +1011,7 @@ const AppProfile = () => {
                             id="pills-security"
                             role="tabpanel"
                             aria-labelledby="pills-security-tab"
-                            tabIndex={0}
-                          >
+                            tabIndex={0}>
                             <div className="row">
                               <div className="col-lg-8">
                                 <div className="card border shadow-none">
@@ -1127,8 +1105,7 @@ const AppProfile = () => {
                                       </div>
                                       <a
                                         className="text-dark fs-6 d-flex align-items-center justify-content-center bg-transparent p-2 fs-4 rounded-circle"
-                                        href="javascript:void(0)"
-                                      >
+                                        href="javascript:void(0)">
                                         <i className="ti ti-dots-vertical" />
                                       </a>
                                     </div>
@@ -1150,8 +1127,7 @@ const AppProfile = () => {
                                       </div>
                                       <a
                                         className="text-dark fs-6 d-flex align-items-center justify-content-center bg-transparent p-2 fs-4 rounded-circle"
-                                        href="javascript:void(0)"
-                                      >
+                                        href="javascript:void(0)">
                                         <i className="ti ti-dots-vertical" />
                                       </a>
                                     </div>
@@ -1161,9 +1137,9 @@ const AppProfile = () => {
                                   </div>
                                 </div>
                               </div>
-                              <div className="col-12">
-                                <div className="d-flex align-items-center justify-content-end gap-6">
-                                  <button className="btn btn-primary">
+                              <div className="col-12 mt-2">
+                                <div className="d-flex align-items-center justify-content-end gap-6 ">
+                                  <button className="btn btn-primary ">
                                     Save
                                   </button>
                                   <button className="btn bg-danger-subtle text-danger">
@@ -1184,8 +1160,7 @@ const AppProfile = () => {
                   id="pills-followers"
                   role="tabpanel"
                   aria-labelledby="pills-followers-tab"
-                  tabIndex={0}
-                >
+                  tabIndex={0}>
                   <div className="d-sm-flex align-items-center justify-content-between mt-3 mb-4">
                     <AddTeam />
                   </div>
@@ -1196,8 +1171,7 @@ const AppProfile = () => {
                   id="stage-task"
                   role="tabpanel"
                   aria-labelledby="pills-followers-tab"
-                  tabIndex={0}
-                >
+                  tabIndex={0}>
                   <div className="row">
                     <div className="card w-100">
                       <div className="card-body">
@@ -1208,22 +1182,19 @@ const AppProfile = () => {
                         </div>
                         <div
                           className="accordion accordion-flush"
-                          id="accordionFlushExample"
-                        >
+                          id="accordionFlushExample">
                           {sections.map((section, index) => (
                             <div className="accordion-item" key={index}>
                               <h2
                                 className="accordion-header"
-                                id={`flush-heading${index}`}
-                              >
+                                id={`flush-heading${index}`}>
                                 <button
                                   className="accordion-button collapsed"
                                   type="button"
                                   data-bs-toggle="collapse"
                                   data-bs-target={`#flush-collapse${index}`}
                                   aria-expanded="false"
-                                  aria-controls={`flush-collapse${index}`}
-                                >
+                                  aria-controls={`flush-collapse${index}`}>
                                   {section.title}
                                 </button>
                               </h2>
@@ -1231,8 +1202,7 @@ const AppProfile = () => {
                                 id={`flush-collapse${index}`}
                                 className="accordion-collapse collapse"
                                 aria-labelledby={`flush-heading${index}`}
-                                data-bs-parent="#accordionFlushExample"
-                              >
+                                data-bs-parent="#accordionFlushExample">
                                 <div className="accordion-body">
                                   <ul>
                                     {section.content.map((item, idx) => (
