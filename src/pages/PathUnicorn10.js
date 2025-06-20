@@ -5,6 +5,7 @@ import Navigation from "../componant/Navigation";
 import SerchBar from "../componant/SearchBar";
 import Sidebar from "./Sidebar";
 import SuggestiveSelect from "../componant/SuggestiveSelect";
+import { useTheme } from "../context/ThemeContext";
 
 function PathUnicorn10() {
   const [isActive, setActive] = useState(false);
@@ -19,6 +20,7 @@ function PathUnicorn10() {
     purpose: "",
     message: "",
   });
+  const { theme } = useTheme(); // Assuming you have a ThemeContext to manage themes
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -93,7 +95,13 @@ function PathUnicorn10() {
               </div>
               <div className="card body3">
                 <div className="marketing-budget-container">
-                  <div className="sidebar">
+                  <div className="sidebar"
+                    style={{
+                      backgroundColor: theme === "dark" ? "#223662" : "#F5F5F5",
+                      color: theme === "dark" ? "#FFFFFF" : "#000000",   
+                    }}
+                  
+                  >
                     <Sidebar
                       selectedSection="Product Listing"
                       setSelectedSection={() => { }}
@@ -120,8 +128,8 @@ function PathUnicorn10() {
                         to="/salesfunnel"
                         className="text-end btn btn-lg bg-default"
                         style={{
-                          backgroundColor: "#223662",
-                          color: "white",
+                          backgroundColor:  theme === "dark" ? "#223662" : "#F5F5F5",
+                          color: theme === "dark" ? "#FFFFFF" : "#000000",
                           padding: "10px 20px",
                           borderRadius: "5px",
                           textDecoration: "none",
@@ -174,6 +182,7 @@ function PathUnicorn10() {
         value={formData.purpose}
         onChange={handleInputChange}
         options={purposeOptions}
+        theme={theme}
       />
                         </div>
 
@@ -190,7 +199,11 @@ function PathUnicorn10() {
                         </div>
                       </div>
                       <div className="form-row">
-                        <button type="submit" className="save-button">
+                        <button type="submit"
+                        style={{
+                          backgroundColor: theme === "dark" ? "#223662" : "#F5F5F5",}}
+                        
+                        className="save-button">
                           Save
                         </button>
                       </div>
@@ -203,7 +216,7 @@ function PathUnicorn10() {
         </div>
         <SerchBar />
       </div>
-      <div className="dark-transparent sidebartoggler" />
+      {/* <div className="dark-transparent sidebartoggler" /> */}
     </>
   );
 }

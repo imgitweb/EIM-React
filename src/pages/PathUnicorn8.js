@@ -5,6 +5,7 @@ import Navigation from "../componant/Navigation";
 import SerchBar from "../componant/SearchBar";
 import Sidebar from "./Sidebar";
 import SuggestiveSelect from "../componant/SuggestiveSelect";
+import { useTheme } from "../context/ThemeContext";
 
 function PathUnicorn8() {
   const [isActive, setActive] = useState(false);
@@ -67,6 +68,7 @@ function PathUnicorn8() {
       alert("Please fix the errors before submitting.");
     }
   };
+  const { theme } = useTheme (); // Assuming you have a ThemeContext to manage themes
 
   return (
     <>
@@ -113,7 +115,12 @@ function PathUnicorn8() {
               </div>
               <div className="body2 card">
                 <div className="client-persona-container ">
-                  <div className="sidebar">
+                  <div className="sidebar" 
+                  style={{
+                    backgroundColor: theme === "dark" ? "#223662" : "#F5F5F5",
+                    // color: "white",
+                  }}
+                  >
                     <Sidebar
                       selectedSection="client-persona"
                       setSelectedSection={() => { }}
@@ -142,12 +149,13 @@ function PathUnicorn8() {
                         to="/salesfunnel"
                         className="text-end btn btn-lg bg-default"
                         style={{
-                          backgroundColor: "#223662",
-                          color: "white",
+                          backgroundColor:  theme === "dark" ? "#223662" : "#F5F5F5",
+                          color: theme === "dark" ? "#FFFFFF" : "#000000",
                           padding: "10px 20px",
                           borderRadius: "5px",
                           textDecoration: "none",
                           fontSize: "16px",
+                          marginRight: "20px",
                         }}>
                         ← Back
                       </Link>
@@ -157,7 +165,9 @@ function PathUnicorn8() {
                       {/* Name & Role Section */}
                       <div className="form-row">
                         <div className="form-group">
-                          <label>Profile Name</label>
+                          <label style={{
+                          color: theme === "dark" ? "#7C8FAC" : "#7C8FAC",
+                         }}>Profile Name</label>
                           <input
                             className="form-control"
                             type="text"
@@ -171,7 +181,9 @@ function PathUnicorn8() {
                           )}
                         </div>
                         <div className="form-group">
-                          <label>Select Product / Service</label>
+                          <label style={{
+                          color: theme === "dark" ? "#7C8FAC" : "#7C8FAC",
+                         }}>Select Product / Service</label>
                           <input
                             className="form-control"
                             type="text"
@@ -188,8 +200,13 @@ function PathUnicorn8() {
 
                       {/* Demographics Section */}
                       <div className="form-row">
-                        <div className="form-group">
-                          <label>Age Group</label>
+                        <div className="form-group"
+                        
+                        >
+                          <label 
+                           style={{
+                          color: theme === "dark" ? "#7C8FAC" : "#7C8FAC",
+                         }}>Age Group</label>
                           <input
                             className="form-control"
                             type="text"
@@ -203,9 +220,14 @@ function PathUnicorn8() {
                           )}
                         </div>
                         <div className="form-group">
-                          <label>Gender</label>
+                          <label style={{
+                          color: theme === "dark" ? "#7C8FAC" : "#7C8FAC",
+                         }}>Gender</label>
                           <div className="radio-group">
-                            <label>
+                            <label
+                            style={{
+                          color: theme === "dark" ? "#7C8FAC" : "#7C8FAC",
+                         }}>
                               <input
                                 type="radio"
                                 name="gender"
@@ -215,7 +237,9 @@ function PathUnicorn8() {
                               />
                               Male
                             </label>
-                            <label>
+                            <label style={{
+                          color: theme === "dark" ? "#7C8FAC" : "#7C8FAC",
+                         }}>
                               <input
                                 type="radio"
                                 name="gender"
@@ -225,7 +249,9 @@ function PathUnicorn8() {
                               />
                               Female
                             </label>
-                            <label>
+                            <label style={{
+                          color: theme === "dark" ? "#7C8FAC" : "#7C8FAC",
+                         }}>
                               <input
                                 type="radio"
                                 name="gender"
@@ -245,7 +271,9 @@ function PathUnicorn8() {
                       {/* Location Section */}
                       <div className="form-row">
                         <div className="form-group">
-                          <label>Country</label>
+                          <label style={{
+                          color: theme === "dark" ? "#7C8FAC" : "#7C8FAC",
+                         }}>Country</label>
                           <input
                             className="form-control"
                             type="text"
@@ -259,7 +287,9 @@ function PathUnicorn8() {
                           )}
                         </div>
                         <div className="form-group">
-                          <label>State</label>
+                          <label style={{
+                          color: theme === "dark" ? "#7C8FAC" : "#7C8FAC",
+                         }}>State</label>
                           <input
                             className="form-control"
                             type="text"
@@ -287,6 +317,7 @@ function PathUnicorn8() {
                               { label: "Web Apps", value: "Web Apps" },
                               { label: "Mobile Apps", value: "Mobile Apps" }
                             ]}
+                            theme={theme}
                             placeholder="Select or type platform"
                           />
                           {errors.preferredPlatform && (
@@ -304,6 +335,7 @@ function PathUnicorn8() {
                               { label: "Intermediate", value: "Intermediate" },
                               { label: "Advanced", value: "Advanced" }
                             ]}
+                            theme={theme}
                             placeholder="Select or type level"
                           />
                           {errors.techSavviness && (
@@ -323,6 +355,7 @@ function PathUnicorn8() {
                               { label: "Video", value: "Video" },
                               { label: "Interactive", value: "Interactive" }
                             ]}
+                            theme={theme}
                             placeholder="Select or type content style"
                           />
                           {errors.contentPreference && (
@@ -333,7 +366,12 @@ function PathUnicorn8() {
 
                       {/* Save Button */}
                       <div className="form-row">
-                        <button type="submit" className="save-button">
+                        <button type="submit"
+                        style={{
+                          backgroundColor:  theme === "dark" ? "#223662" : "#F5F5F5",
+                          color: theme === "dark" ? "#FFFFFF" : "#000000",
+                        }}
+                        className="save-button">
                           Save
                         </button>
                       </div>

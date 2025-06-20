@@ -12,6 +12,7 @@ import {
 import LeftSidebar from "../componant/LeftSidebar";
 import Navigation from "../componant/Navigation";
 import SerchBar from "../componant/SearchBar";
+import { useTheme } from "../context/ThemeContext";
 
 // Register Chart.js components
 ChartJS.register(
@@ -36,6 +37,60 @@ const SalesFunnel = () => {
   const ToggleEvent = () => {
     setActive((prevState) => !prevState);
   };
+  const { theme,} = useTheme(); 
+  
+const styles = {
+  container: {
+    color: theme === "dark" ? "#FFFFFF" : "#000000",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    height: "60vh",
+    padding: "20px",
+  },
+  title: {
+    fontSize: "36px",
+    fontWeight: "bold",
+    marginBottom: "40px",
+    textAlign: "center",
+  },
+  marketing: {
+    color: "#66BB6A",
+  },
+  stepsContainer: {
+    display: "flex",
+    justifyContent: "space-between",
+    gap: "20px",
+    width: "100%",
+    maxWidth: "800px",
+  },
+  step: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    textAlign: "center",
+  },
+  circle: {
+    width: "80px",
+    height: "80px",
+    borderRadius: "50%",
+    border: "5px solid",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    fontSize: "24px",
+    fontWeight: "bold",
+    backgroundColor: theme === "dark" ? "#333333" : "#FFFFFF",
+    color:  theme === "dark" ? "#FFFFFF" : "#000000",
+  },
+  stepLabel: {
+    marginTop: "10px",
+    fontSize: "14px",
+    fontWeight: "bold",
+    color: theme === "dark" ? "#FFFFFF" : "#000000",
+  },
+};
 
   return (
     <>
@@ -96,28 +151,28 @@ const SalesFunnel = () => {
                         number: 1,
                         label: "PRODUCT LISTING",
                         color: "#FFA726",
-                        textColor: "#000000",
+                        textColor: theme === "dark" ? "#FFFFFF" : "#000000", 
                         to: "/product-listing",
                       },
                       {
                         number: 2,
                         label: "CLIENT PERSONA",
                         color: "#66BB6A",
-                        textColor: "#000000",
+                           textColor: theme === "dark" ? "#FFFFFF" : "#000000", 
                         to: "/client-persona",
                       },
                       {
                         number: 3,
                         label: "MARKETING FUNNEL",
                         color: "#42A5F5",
-                        textColor: "#000000",
+                           textColor: theme === "dark" ? "#FFFFFF" : "#000000", 
                         to: "/marketing-funnel",
                       },
                       {
                         number: 4,
                         label: "SALES FUNNEL",
                         color: "#EF5350",
-                        textColor: "#000000",
+                           textColor: theme === "dark" ? "#FFFFFF" : "#000000", 
                         to: "/marketing-funnel",
                       },
                     ].map((step) => (
@@ -130,8 +185,13 @@ const SalesFunnel = () => {
                           }}>
                           {step.number}
                         </div>
-                        <p style={styles.stepLabel}>
-                          <Link to={step.to}>{step.label}</Link>
+                        <p style={styles.stepLabel} 
+                         
+                        
+                        >
+                         <Link to={step.to} style={{ color: step.textColor, textDecoration: "none" }}>
+    {step.label}
+  </Link>
                         </p>
                       </Link>
                     ))}
@@ -147,56 +207,6 @@ const SalesFunnel = () => {
     </>
   );
 };
-const styles = {
-  container: {
-    color: "#FFFFFF",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    height: "60vh",
-    padding: "20px",
-  },
-  title: {
-    fontSize: "36px",
-    fontWeight: "bold",
-    marginBottom: "40px",
-    textAlign: "center",
-  },
-  marketing: {
-    color: "#66BB6A",
-  },
-  stepsContainer: {
-    display: "flex",
-    justifyContent: "space-between",
-    gap: "20px",
-    width: "100%",
-    maxWidth: "800px",
-  },
-  step: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    textAlign: "center",
-  },
-  circle: {
-    width: "80px",
-    height: "80px",
-    borderRadius: "50%",
-    border: "5px solid",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    fontSize: "24px",
-    fontWeight: "bold",
-    // backgroundColor: "#FFFFFF",
-    color: "#000000",
-  },
-  stepLabel: {
-    marginTop: "10px",
-    fontSize: "14px",
-    fontWeight: "bold",
-  },
-};
+
 
 export default SalesFunnel;
