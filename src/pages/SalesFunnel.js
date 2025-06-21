@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -23,19 +24,28 @@ ChartJS.register(
   Legend
 );
 
-const funnelSteps = [
-  { id: 1, title: "Visitors", count: 1000 },
-  { id: 2, title: "Leads", count: 700 },
-  { id: 3, title: "Prospects", count: 400 },
-  { id: 4, title: "Customers", count: 150 },
-];
-
 const SalesFunnel = () => {
   const [isActive, setActive] = useState(false);
+  const [funnelData, setFunnelData] = useState([]); 
+  const [loading, setLoading] = useState(true);
 
   const ToggleEvent = () => {
     setActive((prevState) => !prevState);
   };
+
+  useEffect(() => {
+    setLoading(true);
+    axios
+      .get("http://localhost:5000/sales-funnel") 
+      .then((response) => {
+        setFunnelData(response.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching funnel data:", error);
+        setLoading(false);
+      });
+  }, []);
 
   return (
     <>
@@ -79,6 +89,41 @@ const SalesFunnel = () => {
                   </div>
                 </div>
               </div>
+              
+              {/* Funnel Data Display */}
+              <div className="card mb-4">
+                <div className="card-header">
+                  <h5 className="card-title mb-0">Funnel Data from MongoDB</h5>
+                </div>
+                <div className="card-body">
+                  {loading ? (
+                    <div className="text-center">
+                      <div className="spinner-border" role="status">
+                        <span className="visually-hidden">Loading...</span>
+                      </div>
+                    </div>
+                  ) : funnelData.length > 0 ? (
+                    <div className="row">
+                      {funnelData.map((item, index) => (
+                        <div key={item._id} className="col-md-3 mb-3">
+                          <div className="card border-0 shadow-sm">
+                            <div className="card-body text-center">
+                              <h6 className="card-title">{item.name}</h6>
+                              <p className="card-text text-muted">{item.category}</p>
+                              <span className="badge bg-primary">${item.price}</span>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="text-center text-muted">
+                      <p>No funnel data available</p>
+                    </div>
+                  )}
+                </div>
+              </div>
+
               <div className="card">
                 <div style={styles.container}>
                   {/* Title Section */}
