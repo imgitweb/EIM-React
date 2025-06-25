@@ -91,7 +91,7 @@ const styles = {
   useEffect(() => {
     setLoading(true);
     axios
-      .get("http://localhost:5000/sales-funnel") 
+      .get("http://localhost:5000/api/sales-funnel") 
       .then((response) => {
         setFunnelData(response.data);
         setLoading(false);
