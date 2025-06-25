@@ -7,6 +7,7 @@ import { useTheme } from "../context/ThemeContext";
 import axios from "axios";
 import API_URI from "../componant/config";
 import growthImg from "../assets/growth.webp"; // adjust path as needed
+import BecomeUnicorn from "./BecomeUnicorn2";
 
 const Dashboard = () => {
   const [selectedValue, setSelectedValue] = useState("option1");
@@ -15,6 +16,7 @@ const Dashboard = () => {
   const location = useLocation();
   const { isDark, theme } = useTheme();
   const [hovered, setHovered] = useState(null);
+  const [data, setData] = useState({ milestones: {} });
 
   console.log("Current theme:", theme, "=", isDark);
 
@@ -95,203 +97,10 @@ const Dashboard = () => {
                 </div>
               </div>
 
-              {/*  Owl carousel */}
-              {/* <div className="row">
-                <div className="col-md-2">
-                  <div
-                    className={`card border-0 zoom-in shadow-none ${
-                      isDark
-                        ? "bg-primary-subtle text-primary"
-                        : "bg-gray text-dark"
-                    }`}>
-                    <div className="card-body">
-                      <div className="text-center">
-                        <img
-                          src="./assets/assets/images/svgs/icon-user-male.svg"
-                          width={50}
-                          height={50}
-                          className="mb-3"
-                          alt="modernize-img"
-                        />
-                        <p
-                          className={`fw-semibold fs-3 mb-1 ${
-                            isDark ? "text-primary" : "text-black"
-                          }`}>
-                          MRR
-                        </p>
-                        <h5
-                          className={`fw-semibold mb-0 ${
-                            isDark ? "text-primary" : "text-black"
-                          }`}>
-                          96
-                        </h5>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-md-2">
-                  <div
-                    className={`card border-0 zoom-in shadow-none ${
-                      isDark
-                        ? "bg-primary-subtle text-primary"
-                        : "bg-gray text-black"
-                    }`}>
-                    <div className="card-body">
-                      <div className="text-center">
-                        <img
-                          src="./assets/assets/images/svgs/icon-user-male.svg"
-                          width={50}
-                          height={50}
-                          className="mb-3"
-                          alt="modernize-img"
-                        />
-                        <p
-                          className={`fw-semibold fs-3 mb-1 ${
-                            isDark ? "text-primary" : "text-black"
-                          }`}>
-                          EBITDA
-                        </p>
-                        <h5
-                          className={`fw-semibold mb-0 ${
-                            isDark ? "text-primary" : "text-black"
-                          }`}>
-                          96
-                        </h5>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-md-2">
-                  <div
-                    className={`card border-0 zoom-in shadow-none ${
-                      isDark
-                        ? "bg-primary-subtle text-primary"
-                        : "bg-gray text-dark"
-                    }`}>
-                    <div className="card-body">
-                      <div className="text-center">
-                        <img
-                          src="./assets/assets/images/svgs/icon-user-male.svg"
-                          width={50}
-                          height={50}
-                          className="mb-3"
-                          alt="modernize-img"
-                        />
-                        <p
-                          className={`fw-semibold fs-3 mb-1 ${
-                            isDark ? "text-primary" : "text-black"
-                          }`}>
-                          CAC/LTV
-                        </p>
-                        <h5
-                          className={`fw-semibold mb-0 ${
-                            isDark ? "text-primary" : "text-black"
-                          }`}>
-                          96
-                        </h5>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-md-2">
-                  <div
-                    className={`card border-0 zoom-in shadow-none ${
-                      isDark
-                        ? "bg-primary-subtle text-primary"
-                        : "bg-gray text-dark"
-                    }`}>
-                    <div className="card-body">
-                      <div className="text-center">
-                        <img
-                          src="./assets/assets/images/svgs/icon-user-male.svg"
-                          width={50}
-                          height={50}
-                          className="mb-3"
-                          alt="modernize-img"
-                        />
-                        <p
-                          className={`fw-semibold fs-3 mb-1 ${
-                            isDark ? "text-primary" : "text-black"
-                          }`}>
-                          MONTHLY BURN
-                        </p>
-                        <h5
-                          className={`fw-semibold mb-0 ${
-                            isDark ? "text-primary" : "text-black"
-                          }`}>
-                          96
-                        </h5>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-md-2">
-                  <div
-                    className={`card border-0 zoom-in shadow-none ${
-                      isDark
-                        ? "bg-primary-subtle text-primary"
-                        : "bg-gray text-dark"
-                    }`}>
-                    {" "}
-                    <div className="card-body">
-                      <div className="text-center">
-                        <img
-                          src="./assets/assets/images/svgs/icon-user-male.svg"
-                          width={50}
-                          height={50}
-                          className="mb-3"
-                          alt="modernize-img"
-                        />
-                        <p
-                          className={`fw-semibold fs-3 mb-1 ${
-                            isDark ? "text-primary" : "text-black"
-                          }`}>
-                          CASH RUNWAY
-                        </p>
-                        <h5
-                          className={`fw-semibold mb-0 ${
-                            isDark ? "text-primary" : "text-black"
-                          }`}>
-                          96
-                        </h5>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-md-2">
-                  <div
-                    className={`card border-0 zoom-in shadow-none ${
-                      isDark
-                        ? "bg-primary-subtle text-primary"
-                        : "bg-gray text-dark"
-                    }`}>
-                    <div className="card-body">
-                      <div className="text-center">
-                        <img
-                          src="./assets/assets/images/svgs/icon-user-male.svg"
-                          width={50}
-                          height={50}
-                          className="mb-3"
-                          alt="modernize-img"
-                        />
-                        <p
-                          className={`fw-semibold fs-3 mb-1 ${
-                            isDark ? "text-primary" : "text-black"
-                          }`}>
-                          CLIENTS
-                        </p>
-                        <h5
-                          className={`fw-semibold mb-0 ${
-                            isDark ? "text-primary" : "text-black"
-                          }`}>
-                          96
-                        </h5>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div> */}
-              {/*  Row 1 */}
+              <div className="min-h-screen bg-gray-50 py-8">
+                {data && <BecomeUnicorn data={data} />}
+              </div>
+
               <div className="row">
                 <div className="col-lg-8 d-flex align-items-stretch">
                   <div className="card w-100">
@@ -588,10 +397,10 @@ const Dashboard = () => {
                         />
                       </div>
                     </div>
-                    <div className="card mx-2 mb-2 mt-n2">
+                    <div className="card mx-2  mt-n2">
                       <div className="card-body">
-                        <div className="mb-7 pb-1">
-                          <div className="d-flex justify-content-between align-items-center mb-6">
+                        <div className="pb-1">
+                          <div className="d-flex justify-content-between align-items-center">
                             <div>
                               <h6 className="mb-1 fs-4 fw-semibold">
                                 Best Month for Revenue (55%  March, 2024)
@@ -607,31 +416,6 @@ const Dashboard = () => {
                           <div className="progress bg-primary-subtle h-4">
                             <div
                               className="progress-bar w-50"
-                              role="progressbar"
-                              aria-valuenow={75}
-                              aria-valuemin={0}
-                              aria-valuemax={100}
-                            />
-                          </div>
-                        </div>
-                        <div>
-                          <div className="d-flex justify-content-between align-items-center mb-6">
-                            <div>
-                              <h6 className="mb-1 fs-4 fw-semibold">
-                                Best Month for Revenue/Burn Ratio (20%  March,
-                                2024)
-                              </h6>
-                              <p className="fs-3 mb-0">$23,568</p>
-                            </div>
-                            <div>
-                              <span className="badge bg-secondary-subtle text-secondary fw-bold fs-3">
-                                20%
-                              </span>
-                            </div>
-                          </div>
-                          <div className="progress bg-secondary-subtle h-4">
-                            <div
-                              className="progress-bar text-bg-secondary w-25"
                               role="progressbar"
                               aria-valuenow={75}
                               aria-valuemin={0}

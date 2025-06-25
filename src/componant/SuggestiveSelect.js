@@ -5,9 +5,10 @@ const SuggestiveSelect = ({
   label,
   name,
   value,
+  id,
   onChange,
   options,
-  placeholder = "Select or type..."
+  placeholder = "Select or type...",
 }) => {
   const [searchTerm, setSearchTerm] = useState(value || "");
   const [showDropdown, setShowDropdown] = useState(false);
@@ -62,8 +63,7 @@ const SuggestiveSelect = ({
               <li
                 key={index}
                 className="dropdown-item"
-                onClick={() => handleSelect(option.value)}
-              >
+                onClick={() => handleSelect(option.value)}>
                 {option.label}
               </li>
             ))

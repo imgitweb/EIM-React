@@ -123,6 +123,15 @@ const PathToUnicorn = () => {
       ...prev,
       [id]: value,
     }));
+    console.log(formData);
+  };
+
+  const handleCountryChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
   const handleSubmit = async (e) => {
@@ -420,8 +429,9 @@ const PathToUnicorn = () => {
                                 </select> */}
                                 <SuggestiveSelect
                                   id="country"
+                                  name="country"
                                   value={formData.country}
-                                  onChange={handleChange}
+                                  onChange={handleCountryChange}
                                   options={countries}
                                   placeholder="Select Startup Operating Country"
                                 />

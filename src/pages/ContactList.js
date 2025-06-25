@@ -29,8 +29,7 @@ const ContactList = () => {
                           <li className="breadcrumb-item">
                             <a
                               className="text-muted text-decoration-none"
-                              href="../dark/index.html"
-                            >
+                              href="../dark/index.html">
                               Home
                             </a>
                           </li>
@@ -70,16 +69,14 @@ const ContactList = () => {
                       <div className="action-btn show-btn">
                         <a
                           href="#"
-                          className="delete-multiple bg-danger-subtle btn me-2 text-danger d-flex align-items-center "
-                        >
+                          className="delete-multiple bg-danger-subtle btn me-2 text-danger d-flex align-items-center ">
                           <i className="ti ti-trash me-1 fs-5" /> Delete All Row
                         </a>
                       </div>
                       <a
                         href="#"
                         id="btn-add-contact"
-                        className="btn btn-primary d-flex align-items-center"
-                      >
+                        className="btn btn-primary d-flex align-items-center">
                         <i className="ti ti-users text-white me-1 fs-5" /> Add
                         Contact
                       </a>
@@ -93,12 +90,10 @@ const ContactList = () => {
                   tabIndex={-1}
                   role="dialog"
                   aria-labelledby="addContactModalTitle"
-                  aria-hidden="true"
-                >
+                  aria-hidden="true">
                   <div
                     className="modal-dialog modal-dialog-centered"
-                    role="document"
-                  >
+                    role="document">
                     <div className="modal-content">
                       <div className="modal-header d-flex align-items-center">
                         <h5 className="modal-title">Contact</h5>
@@ -186,8 +181,7 @@ const ContactList = () => {
                           </button>
                           <button
                             className="btn bg-danger-subtle text-danger"
-                            data-bs-dismiss="modal"
-                          >
+                            data-bs-dismiss="modal">
                             {" "}
                             Discard
                           </button>
@@ -254,14 +248,12 @@ const ContactList = () => {
                                 <div className="user-meta-info">
                                   <h6
                                     className="user-name mb-0"
-                                    data-name="Emma Adams"
-                                  >
+                                    data-name="Emma Adams">
                                     Emma Adams
                                   </h6>
                                   <span
                                     className="user-work fs-3"
-                                    data-occupation="Web Developer"
-                                  >
+                                    data-occupation="Web Developer">
                                     Web Developer
                                   </span>
                                 </div>
@@ -271,24 +263,21 @@ const ContactList = () => {
                           <td>
                             <span
                               className="usr-email-addr"
-                              data-email="adams@mail.com"
-                            >
+                              data-email="adams@mail.com">
                               adams@mail.com
                             </span>
                           </td>
                           <td>
                             <span
                               className="usr-location"
-                              data-location="Boston, USA"
-                            >
+                              data-location="Boston, USA">
                               Boston, USA
                             </span>
                           </td>
                           <td>
                             <span
                               className="usr-ph-no"
-                              data-phone="+1 (070) 123-4567"
-                            >
+                              data-phone="+1 (070) 123-4567">
                               +91 (070) 123-4567
                             </span>
                           </td>
@@ -333,14 +322,12 @@ const ContactList = () => {
                                 <div className="user-meta-info">
                                   <h6
                                     className="user-name mb-0"
-                                    data-name="Olivia Allen"
-                                  >
+                                    data-name="Olivia Allen">
                                     Olivia Allen
                                   </h6>
                                   <span
                                     className="user-work fs-3"
-                                    data-occupation="Web Designer"
-                                  >
+                                    data-occupation="Web Designer">
                                     Web Designer
                                   </span>
                                 </div>
@@ -350,24 +337,21 @@ const ContactList = () => {
                           <td>
                             <span
                               className="usr-email-addr"
-                              data-email="allen@mail.com"
-                            >
+                              data-email="allen@mail.com">
                               allen@mail.com
                             </span>
                           </td>
                           <td>
                             <span
                               className="usr-location"
-                              data-location="Sydney, Australia"
-                            >
+                              data-location="Sydney, Australia">
                               Sydney, Australia
                             </span>
                           </td>
                           <td>
                             <span
                               className="usr-ph-no"
-                              data-phone="+91 (125) 450-1500"
-                            >
+                              data-phone="+91 (125) 450-1500">
                               +91 (125) 450-1500
                             </span>
                           </td>
@@ -412,15 +396,13 @@ const ContactList = () => {
                                 <div className="user-meta-info">
                                   <h6
                                     className="user-name mb-0"
-                                    data-name="Isabella Anderson"
-                                  >
+                                    data-name="Isabella Anderson">
                                     {" "}
                                     Isabella Anderson{" "}
                                   </h6>
                                   <span
                                     className="user-work fs-3"
-                                    data-occupation="UX/UI Designer"
-                                  >
+                                    data-occupation="UX/UI Designer">
                                     UX/UI Designer
                                   </span>
                                 </div>
@@ -430,24 +412,21 @@ const ContactList = () => {
                           <td>
                             <span
                               className="usr-email-addr"
-                              data-email="anderson@mail.com"
-                            >
+                              data-email="anderson@mail.com">
                               anderson@mail.com
                             </span>
                           </td>
                           <td>
                             <span
                               className="usr-location"
-                              data-location="Miami, USA"
-                            >
+                              data-location="Miami, USA">
                               Miami, USA
                             </span>
                           </td>
                           <td>
                             <span
                               className="usr-ph-no"
-                              data-phone="+91 (100) 154-1254"
-                            >
+                              data-phone="+91 (100) 154-1254">
                               +91 (100) 154-1254
                             </span>
                           </td>
@@ -492,15 +471,13 @@ const ContactList = () => {
                                 <div className="user-meta-info">
                                   <h6
                                     className="user-name mb-0"
-                                    data-name="Amelia Armstrong"
-                                  >
+                                    data-name="Amelia Armstrong">
                                     {" "}
                                     Amelia Armstrong{" "}
                                   </h6>
                                   <span
                                     className="user-work fs-3"
-                                    data-occupation="Ethical Hacker"
-                                  >
+                                    data-occupation="Ethical Hacker">
                                     Ethical Hacker
                                   </span>
                                 </div>
@@ -510,24 +487,21 @@ const ContactList = () => {
                           <td>
                             <span
                               className="usr-email-addr"
-                              data-email="armstrong@mail.com"
-                            >
+                              data-email="armstrong@mail.com">
                               armstrong@mail.com
                             </span>
                           </td>
                           <td>
                             <span
                               className="usr-location"
-                              data-location="Tokyo, Japan"
-                            >
+                              data-location="Tokyo, Japan">
                               Tokyo, Japan
                             </span>
                           </td>
                           <td>
                             <span
                               className="usr-ph-no"
-                              data-phone="+91 (154) 199- 1540"
-                            >
+                              data-phone="+91 (154) 199- 1540">
                               +91 (154) 199- 1540
                             </span>
                           </td>
@@ -572,15 +546,13 @@ const ContactList = () => {
                                 <div className="user-meta-info">
                                   <h6
                                     className="user-name mb-0"
-                                    data-name="Emily Atkinson"
-                                  >
+                                    data-name="Emily Atkinson">
                                     {" "}
                                     Emily Atkinson{" "}
                                   </h6>
                                   <span
                                     className="user-work fs-3"
-                                    data-occupation="Web developer"
-                                  >
+                                    data-occupation="Web developer">
                                     Web developer
                                   </span>
                                 </div>
@@ -590,24 +562,21 @@ const ContactList = () => {
                           <td>
                             <span
                               className="usr-email-addr"
-                              data-email="atkinson@mail.com"
-                            >
+                              data-email="atkinson@mail.com">
                               atkinson@mail.com
                             </span>
                           </td>
                           <td>
                             <span
                               className="usr-location"
-                              data-location="Edinburgh, UK"
-                            >
+                              data-location="Edinburgh, UK">
                               Edinburgh, UK
                             </span>
                           </td>
                           <td>
                             <span
                               className="usr-ph-no"
-                              data-phone="+91 (900) 150- 1500"
-                            >
+                              data-phone="+91 (900) 150- 1500">
                               +91 (900) 150- 1500
                             </span>
                           </td>
@@ -652,14 +621,12 @@ const ContactList = () => {
                                 <div className="user-meta-info">
                                   <h6
                                     className="user-name mb-0"
-                                    data-name="Sofia Bailey"
-                                  >
+                                    data-name="Sofia Bailey">
                                     Sofia Bailey
                                   </h6>
                                   <span
                                     className="user-work fs-3"
-                                    data-occupation="UX/UI Designer"
-                                  >
+                                    data-occupation="UX/UI Designer">
                                     UX/UI Designer
                                   </span>
                                 </div>
@@ -669,24 +636,21 @@ const ContactList = () => {
                           <td>
                             <span
                               className="usr-email-addr"
-                              data-email="bailey@mail.com"
-                            >
+                              data-email="bailey@mail.com">
                               bailey@mail.com
                             </span>
                           </td>
                           <td>
                             <span
                               className="usr-location"
-                              data-location="New York, USA"
-                            >
+                              data-location="New York, USA">
                               New York, USA
                             </span>
                           </td>
                           <td>
                             <span
                               className="usr-ph-no"
-                              data-phone="+91 (001) 160- 1845"
-                            >
+                              data-phone="+91 (001) 160- 1845">
                               +91 (001) 160- 1845
                             </span>
                           </td>
@@ -729,15 +693,13 @@ const ContactList = () => {
                                 <div className="user-meta-info">
                                   <h6
                                     className="user-name mb-0"
-                                    data-name="Victoria Sharma"
-                                  >
+                                    data-name="Victoria Sharma">
                                     {" "}
                                     Victoria Sharma{" "}
                                   </h6>
                                   <span
                                     className="user-work fs-3"
-                                    data-occupation="Project Manager"
-                                  >
+                                    data-occupation="Project Manager">
                                     Project Manager
                                   </span>
                                 </div>
@@ -747,24 +709,21 @@ const ContactList = () => {
                           <td>
                             <span
                               className="usr-email-addr"
-                              data-email="sharma@mail.com"
-                            >
+                              data-email="sharma@mail.com">
                               sharma@mail.com
                             </span>
                           </td>
                           <td>
                             <span
                               className="usr-location"
-                              data-location="Miami, USA"
-                            >
+                              data-location="Miami, USA">
                               Miami, USA
                             </span>
                           </td>
                           <td>
                             <span
                               className="usr-ph-no"
-                              data-phone="+91 (110) 180- 1600"
-                            >
+                              data-phone="+91 (110) 180- 1600">
                               +91 (110) 180- 1600
                             </span>
                           </td>
@@ -807,15 +766,13 @@ const ContactList = () => {
                                 <div className="user-meta-info">
                                   <h6
                                     className="user-name mb-0"
-                                    data-name="Penelope Baker"
-                                  >
+                                    data-name="Penelope Baker">
                                     {" "}
                                     Penelope Baker{" "}
                                   </h6>
                                   <span
                                     className="user-work fs-3"
-                                    data-occupation="Web Developer"
-                                  >
+                                    data-occupation="Web Developer">
                                     Web Developer
                                   </span>
                                 </div>
@@ -825,24 +782,21 @@ const ContactList = () => {
                           <td>
                             <span
                               className="usr-email-addr"
-                              data-email="baker@mail.com"
-                            >
+                              data-email="baker@mail.com">
                               baker@mail.com
                             </span>
                           </td>
                           <td>
                             <span
                               className="usr-location"
-                              data-location="Edinburgh, UK"
-                            >
+                              data-location="Edinburgh, UK">
                               Edinburgh, UK
                             </span>
                           </td>
                           <td>
                             <span
                               className="usr-ph-no"
-                              data-phone="+91 (405) 483- 4512"
-                            >
+                              data-phone="+91 (405) 483- 4512">
                               +91 (405) 483- 4512
                             </span>
                           </td>

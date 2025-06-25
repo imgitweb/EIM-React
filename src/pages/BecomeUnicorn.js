@@ -29,10 +29,10 @@ const BecomeUnicorn = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const startup_id = localStorage.getItem("userId") || "default_startup_id"; 
-  
+  const startup_id = localStorage.getItem("userId") || "default_startup_id";
+
   useEffect(() => {
-    fetch(`${API_URL}/api/unicorn/${startup_id}` )
+    fetch(`${API_URL}/api/unicorn/${startup_id}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -167,7 +167,7 @@ const BecomeUnicorn = () => {
   ).filter((key) => key !== "timeline");
 
   return (
-    <div className="custom-w-full custom-max-w-6xl custom-mx-auto custom-p-4 custom-bg-gradient-to-br custom-from-white custom-to-purple-50 custom-rounded-lg custom-shadow-lg">
+    <div className="custom-w-full custom-max-w-6xl  custom-mx-auto custom-p-4 custom-bg-gradient-to-br custom-from-white custom-to-purple-50 custom-rounded-lg custom-shadow-lg">
       <div className="custom-mb-6 custom-tabs">
         <div className="custom-scroll-area">
           <div className="custom-inline-flex custom-w-full custom-border-b custom-border-purple-200 custom-bg-white-50 custom-backdrop-blur-sm custom-tabs-list">
