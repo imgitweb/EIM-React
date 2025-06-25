@@ -22,8 +22,10 @@ import {
   Area,
 } from "recharts";
 import API_URL from "./../componant/config";
+import { useTheme } from "../context/ThemeContext";
 
 const BecomeUnicorn = () => {
+  const { theme } = useTheme(); // Assuming you have a theme context
   const [selectedMilestone, setSelectedMilestone] = useState("1");
   const [selectedKey, setSelectedKey] = useState("goal");
   const [data, setData] = useState(null);
@@ -167,7 +169,12 @@ const BecomeUnicorn = () => {
   ).filter((key) => key !== "timeline");
 
   return (
-    <div className="custom-w-full custom-max-w-6xl  custom-mx-auto custom-p-4 custom-bg-gradient-to-br custom-from-white custom-to-purple-50 custom-rounded-lg custom-shadow-lg">
+    <div
+      className="custom-w-full custom-max-w-6xl custom-mx-auto custom-p-4 custom-bg-gradient-to-br custom-from-white custom-to-purple-50 custom-rounded-lg custom-shadow-lg"
+      style={{
+        backgroundColor: theme === "dark" ? "#202936" : "#F5F5F5",
+        color: theme === "dark" ? "#FFFFFF" : "#000000",
+      }}>
       <div className="custom-mb-6 custom-tabs">
         <div className="custom-scroll-area">
           <div className="custom-inline-flex custom-w-full custom-border-b custom-border-purple-200 custom-bg-white-50 custom-backdrop-blur-sm custom-tabs-list">

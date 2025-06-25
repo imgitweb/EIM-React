@@ -5,33 +5,32 @@ const ThemeContext = createContext();
 const applyTheme = (theme) => {
   document.body.className = theme;
   document.documentElement.setAttribute("data-bs-theme", theme);
-  // document.documentElement.setAttribute('data-bs-theme-color', theme === 'dark' ? 'dark' : 'light');
+  document.documentElement.setAttribute('data-color-theme', "Blue_Theme");
 };
 
 export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState("light");
-
+  const [theme, setTheme] = useState("dark");
+  // On initial load
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)"
-    ).matches;
-
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
     const initialTheme = savedTheme || (prefersDark ? "dark" : "light");
+
     setTheme(initialTheme);
-    applyTheme(initialTheme);
   }, []);
 
+  // On theme change
+  useEffect(() => {
+    applyTheme(theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
   const toggleTheme = () => {
-    const newTheme = theme === "light" ? "dark" : "light";
-    setTheme(newTheme);
-    applyTheme(newTheme);
-    localStorage.setItem("theme", newTheme);
+    setTheme((prev) => (prev === "light" ? "dark" : "light"));
   };
 
   return (
-    <ThemeContext.Provider
-      value={{ theme, toggleTheme, isDark: theme === "dark" }}>
+    <ThemeContext.Provider value={{ theme, toggleTheme, isDark: theme === "dark" }}>
       {children}
     </ThemeContext.Provider>
   );

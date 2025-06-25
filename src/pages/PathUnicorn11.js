@@ -4,6 +4,7 @@ import LeftSidebar from "../componant/LeftSidebar";
 import Navigation from "../componant/Navigation";
 import SerchBar from "../componant/SearchBar";
 import Sidebar from "./Sidebar";
+import { useTheme } from "../context/ThemeContext";
 
 function PathUnicorn11() {
   const [isActive, setActive] = useState(false);
@@ -22,6 +23,7 @@ function PathUnicorn11() {
   });
 
   const [errors, setErrors] = useState({});
+  const {theme} = useTheme();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -93,7 +95,9 @@ function PathUnicorn11() {
                               Home
                             </a>
                           </li>
-                          <li className="breadcrumb-item" aria-current="page">
+                          <li className="breadcrumb-item" aria-current="page" 
+                          
+                          >
                             SALES FUNNEL
                           </li>
                         </ol>
@@ -114,7 +118,13 @@ function PathUnicorn11() {
               <div className="card body4">
                 <div className="sales-funnel-container">
                   {/* Sidebar */}
-                  <div className="sales-funnel-sidebar">
+                  <div className="sales-funnel-sidebar
+                  "
+                  style={{
+backgroundColor:  theme === "dark" ? "#223662" : "#F5F5F5",
+                          color: theme === "dark" ? "#FFFFFF" : "#000000",
+                  }}
+                  >
                     <Sidebar
                       selectedSection="Product Listing"
                       setSelectedSection={() => {}}
@@ -136,16 +146,15 @@ function PathUnicorn11() {
                         <span
                           style={{
                             fontWeight: "bold", // Highlighted text styling
-                            // color: "#223662", // Adjust the color as needed
-                          }}>
+                            color: theme === "dark" ? "#FFFFFF" : "#223662",}}>
                           SALES FUNNEL
                         </span>
                         <Link
                           to="/salesfunnel"
                           className="text-end btn btn-lg bg-default"
                           style={{
-                            backgroundColor: "#223662",
-                            color: "white",
+                           backgroundColor:  theme === "dark" ? "#223662" : "#F5F5F5",
+                          color: theme === "dark" ? "#FFFFFF" : "#000000",
                             padding: "10px 20px",
                             borderRadius: "5px",
                             textDecoration: "none",
@@ -158,8 +167,16 @@ function PathUnicorn11() {
                       <form onSubmit={handleSubmit}>
                         {/* Full Name */}
                         <div>
-                          <label>Full Name</label>
+                          <label
+                          style={{
+                          color: theme === "dark" ? "#7C8FAC" : "#7C8FAC",
+                         }}
+                          >Full Name</label>
                           <input
+                          style={{
+                            backgroundColor: theme === "dark" ? "#202936" : "#FFFFFF",
+                            color: theme === "dark" ? "#FFFFFF" : "#000000",
+                          }}
                             className="form-control"
                             type="text"
                             name="fullName"
@@ -175,8 +192,14 @@ function PathUnicorn11() {
                         </div>
                         {/* Email */}
                         <div>
-                          <label>Email</label>
+                          <label  style={{
+                          color: theme === "dark" ? "#7C8FAC" : "#7C8FAC",
+                         }}>Email</label>
                           <input
+                            style={{
+                            backgroundColor: theme === "dark" ? "#202936" : "#FFFFFF",
+                            color: theme === "dark" ? "#FFFFFF" : "#000000",
+                          }}
                             className="form-control"
                             type="email"
                             name="email"
@@ -192,8 +215,14 @@ function PathUnicorn11() {
                         </div>
                         {/* Phone Number */}
                         <div>
-                          <label>Phone Number</label>
+                          <label  style={{
+                          color: theme === "dark" ? "#7C8FAC" : "#7C8FAC",
+                         }}>Phone Number</label>
                           <input
+                            style={{
+                            backgroundColor: theme === "dark" ? "#202936" : "#FFFFFF",
+                            color: theme === "dark" ? "#FFFFFF" : "#000000",
+                          }}
                             className="form-control"
                             type="text"
                             name="phoneNumber"
@@ -209,8 +238,14 @@ function PathUnicorn11() {
                         </div>
                         {/* Interest */}
                         <div>
-                          <label>What are you interested in?</label>
+                          <label  style={{
+                          color: theme === "dark" ? "#7C8FAC" : "#7C8FAC",
+                         }}>What are you interested in?</label>
                           <select
+                            style={{
+                            backgroundColor: theme === "dark" ? "#202936" : "#FFFFFF",
+                            color: theme === "dark" ? "#FFFFFF" : "#000000",
+                          }}
                             className="form-control"
                             name="interest"
                             value={formData.interest}
@@ -230,8 +265,14 @@ function PathUnicorn11() {
                         </div>
                         {/* Budget */}
                         <div>
-                          <label>What is your budget?</label>
+                          <label  style={{
+                          color: theme === "dark" ? "#7C8FAC" : "#7C8FAC",
+                         }}>What is your budget?</label>
                           <select
+                            style={{
+                            backgroundColor: theme === "dark" ? "#202936" : "#FFFFFF",
+                            color: theme === "dark" ? "#FFFFFF" : "#000000",
+                          }}
                             className="form-control"
                             name="budget"
                             value={formData.budget}
@@ -249,8 +290,14 @@ function PathUnicorn11() {
                         </div>
                         {/* Additional Notes */}
                         <div>
-                          <label>Tell us about your needs (optional)</label>
+                          <label  style={{
+                          color: theme === "dark" ? "#7C8FAC" : "#7C8FAC",
+                         }}>Tell us about your needs (optional)</label>
                           <textarea
+                            style={{
+                            backgroundColor: theme === "dark" ? "#202936" : "#FFFFFF",
+                            color: theme === "dark" ? "#FFFFFF" : "#000000",
+                          }}
                             className="form-control"
                             name="notes"
                             value={formData.notes}
@@ -258,7 +305,12 @@ function PathUnicorn11() {
                             rows="5"></textarea>
                         </div>
                         {/* Save Button */}
-                        <button type="submit" className="save-button">
+                        <button type="submit"
+                        style={{
+                          backgroundColor: theme === "dark" ? "#223662" : "#F5F5F5",
+                          color: theme === "dark" ? "#FFFFFF" : "#000000",
+                        }}
+                         className="save-button">
                           Save
                         </button>{" "}
                       </form>

@@ -2,14 +2,12 @@
   position: relative;
   width: 100%;
   margin-bottom: 20px;
-   background-color: #202936 !important;
 }
 
 .dropdown-label {
   display: block;
   font-size: 14px;
   font-weight: 600;
-  color: #333;
   margin-bottom: 6px;
 }
 
@@ -20,7 +18,6 @@
   border-radius: 6px;
   font-size: 14px;
   outline: none;
-   background-color: #202936 !important;
   transition: border-color 0.3s, box-shadow 0.3s;
 }
 
@@ -34,7 +31,6 @@
   top: 100%;
   left: 0;
   right: 0;
-  background-color: #202936 !important;
   border: 1px solid #ddd;
   border-top: none;
   border-radius: 0 0 6px 6px;

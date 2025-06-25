@@ -7,12 +7,14 @@ import { Loader2 } from "lucide-react";
 import API_BASE_URL from "./../componant/config";
 import axios from "axios";
 import BecomeUnicorn from "./BecomeUnicorn";
+import { useTheme } from "../context/ThemeContext";
 
 function PathUnicorn2() {
   const [data, setData] = useState({ milestones: {} });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [isActive, setActive] = useState(false);
+  const {theme } = useTheme(); // Assuming you have a theme context
 
   const ToggleEvent = () => {
     setActive((prevState) => !prevState);

@@ -4,11 +4,14 @@ import LeftSidebar from "../componant/LeftSidebar";
 import Navigation from "../componant/Navigation";
 import SerchBar from "../componant/SearchBar";
 import Sidebar from "./Sidebar";
+import { useTheme } from "../context/ThemeContext";
 
 const PathUnicorn7 = () => {
   const [isActive, setActive] = useState(false);
   const [form, setForm] = useState({ name: "", category: "", price: "" });
   const [productListing, setProductListing] = useState([]);
+    const { theme,} = useTheme(); 
+  
 
   const ToggleEvent = () => {
     setActive((prevState) => !prevState);
@@ -32,6 +35,80 @@ const PathUnicorn7 = () => {
   const deleteData = (id) => {
     setProductListing(productListing.filter((item) => item.id !== id));
   };
+  const styles = {
+  sidebarContainer:{
+    height: "100%",
+    minHeight: "100vh",
+  },
+  card: {
+    height: "100%",
+    minHeight: "100vh",
+  },
+
+  mainContent: {
+    flex: 1,
+    padding: "20px",
+    height: "100%",
+  },
+  form: {
+    display: "flex",
+    flexWrap: "wrap",
+    gap: "10px",
+    marginBottom: "20px",
+    justifyContent: "space-between",
+  },
+  inputField: {
+    // flex: "1",
+    // minWidth: "140px",
+    // padding: "10px",
+    // borderRadius: "5px",
+    // // border: "none",
+    // backgroundColor: "#202936",
+    // color: "#FFFFFF",
+  },
+  saveButton: {
+    flex: "1 1 100%",
+    padding: "10px 20px",
+    backgroundColor: theme === "dark" ? "#4F73D9" : "#F5F5F5",
+    color: theme === "dark" ? "#FFFFFF" : "#000000",
+    border: "none",
+    borderRadius: "5px",
+    cursor: "pointer",
+    fontWeight: "bold",
+  },
+  tableContainer: {
+    // backgroundColor: theme === "dark" ? "#202936" : "#223662",
+    // color: theme === "dark" ? "#FFFFFF" : "#000000",
+    // padding: "20px",
+    borderRadius: "6px",
+    overflowX: "auto",
+  },
+  table: {
+    width: "100%",
+    borderCollapse: "collapse",
+    minWidth: "600px",
+  },
+  tableHeader: {
+    textAlign: "left",
+    padding: "10px",
+    borderBottom: "2px solid #FFFFFF",
+    color:  theme === "dark" ? "#FFFFFF" : "#000000",
+    backgroundColor: theme === "dark" ? "#4F73D9" : "#F5F5F5",
+  },
+  tableData: {
+    padding: "10px",
+    borderBottom: "1px solid #FFFFFF",
+    color: "#FFFFFF",
+  },
+  deleteButton: {
+    padding: "5px 10px",
+    backgroundColor: "#EF5350",
+    border: "none",
+    borderRadius: "5px",
+    color: "#FFFFFF",
+    cursor: "pointer",
+  },
+};
 
   return (
     <>
@@ -111,8 +188,8 @@ const PathUnicorn7 = () => {
                         to="/salesfunnel"
                         className="text-end btn btn-lg bg-default"
                         style={{
-                          backgroundColor: "#223662",
-                          color: "white",
+                          backgroundColor: theme === "dark" ? "#4F73D9" : "#F5F5F5",
+                          color: theme === "dark" ? "#FFFFFF" : "#000000",
                           padding: "10px 20px",
                           borderRadius: "5px",
                           textDecoration: "none",
@@ -206,78 +283,7 @@ const PathUnicorn7 = () => {
 };
 
 // Styles
-const styles = {
-  sidebarContainer:{
-    height: "100%",
-    minHeight: "100vh",
-  },
-  card: {
-    height: "100%",
-    minHeight: "100vh",
-  },
 
-  mainContent: {
-    flex: 1,
-    padding: "20px",
-    height: "100%",
-  },
-  form: {
-    display: "flex",
-    flexWrap: "wrap",
-    gap: "10px",
-    marginBottom: "20px",
-    justifyContent: "space-between",
-  },
-  inputField: {
-    // flex: "1",
-    // minWidth: "140px",
-    // padding: "10px",
-    // borderRadius: "5px",
-    // // border: "none",
-    // backgroundColor: "#202936",
-    // color: "#FFFFFF",
-  },
-  saveButton: {
-    flex: "1 1 100%",
-    padding: "10px 20px",
-    backgroundColor: "#4F73D9",
-    border: "none",
-    borderRadius: "5px",
-    cursor: "pointer",
-    fontWeight: "bold",
-  },
-  tableContainer: {
-    backgroundColor: "#223662",
-    padding: "20px",
-    borderRadius: "10px",
-    overflowX: "auto",
-  },
-  table: {
-    width: "100%",
-    borderCollapse: "collapse",
-    minWidth: "600px",
-  },
-  tableHeader: {
-    textAlign: "left",
-    padding: "10px",
-    borderBottom: "2px solid #FFFFFF",
-    color: "#FFFFFF",
-    backgroundColor: "#223662",
-  },
-  tableData: {
-    padding: "10px",
-    borderBottom: "1px solid #FFFFFF",
-    color: "#FFFFFF",
-  },
-  deleteButton: {
-    padding: "5px 10px",
-    backgroundColor: "#EF5350",
-    border: "none",
-    borderRadius: "5px",
-    color: "#FFFFFF",
-    cursor: "pointer",
-  },
-};
 
 // Mobile Styling
 const mobileStyle = `

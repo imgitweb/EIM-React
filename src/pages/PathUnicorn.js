@@ -6,6 +6,7 @@ import SearchBar from "../componant/SearchBar";
 import PUGraph from "./PUGraph";
 import SuggestiveSelect from "../componant/SuggestiveSelect";
 import API_BASE_URL from "./../componant/config";
+import { useTheme } from "../context/ThemeContext";
 
 const PathToUnicorn = () => {
   const navigate = useNavigate();
@@ -172,6 +173,7 @@ const PathToUnicorn = () => {
       setLoading(false);
     }
   };
+  const {theme} = useTheme();
 
   return (
     <div id="main-wrapper" className={isActive ? "show-sidebar" : ""}>
@@ -433,6 +435,7 @@ const PathToUnicorn = () => {
                                   value={formData.country}
                                   onChange={handleCountryChange}
                                   options={countries}
+                                  theme={theme}
                                   placeholder="Select Startup Operating Country"
                                 />
                                 {/* <label htmlFor="country">

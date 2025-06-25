@@ -193,7 +193,7 @@ const BusinessModel = () => {
                         />
                       </div>
 
-                      <div className="mb-3">
+                      <div className="mb-3"> 
                         <label htmlFor="targetLocation" className="form-label">
                           Target Location
                         </label>

@@ -5,6 +5,7 @@ import Navigation from "../componant/Navigation";
 import SerchBar from "../componant/SearchBar";
 import Sidebar from "./Sidebar";
 import SuggestiveSelect from "../componant/SuggestiveSelect";
+import { useTheme } from "../context/ThemeContext";
 
 // import "./App.css"; // Import your CSS file for styling
 
@@ -26,6 +27,7 @@ function PathUnicorn9() {
     }));
   }
 
+  const { theme } = useTheme();
 
 
   return (
@@ -84,8 +86,8 @@ function PathUnicorn9() {
                   <div className="col-md-2 col-16">
                     <div
                       style={{
-                        backgroundColor: "#223662",
-                        color: "#fff",
+                       backgroundColor:  theme === "dark" ? "#223662" : "#F5F5F5",
+                          color: theme === "dark" ? "#FFFFFF" : "#000000",
                         width: "120%",
                         minHeight: "120%",
                         display: "flex",
@@ -131,8 +133,8 @@ function PathUnicorn9() {
                             to="/salesfunnel"
                             className="text-end btn btn-lg bg-default"
                             style={{
-                              backgroundColor: "#223662",
-                              color: "white",
+                            backgroundColor:  theme === "dark" ? "#223662" : "#F5F5F5",
+                          color: theme === "dark" ? "#FFFFFF" : "#000000",
                               padding: "10px 20px",
                               borderRadius: "5px",
                               textDecoration: "none",
@@ -187,6 +189,7 @@ function PathUnicorn9() {
                                   { label: "General Inquiry", value: "General Inquiry" },
                                   { label: "Social Media", value: "Social Media" }
                                 ]}
+                                theme={theme}
                                 placeholder="Select or type purpose"
                                 inputStyle={{ ...inputStyle, padding: "10px" }}
                               />
@@ -205,11 +208,11 @@ function PathUnicorn9() {
                               <button
                                 type="submit"
                                 style={{
-                                  backgroundColor: "#4F73D9",
-                                  border: "none",
-                                  color: "#EAEFF4",
+                                backgroundColor:  theme === "dark" ? "#223662" : "#F5F5F5",
+                               color: theme === "dark" ? "#FFFFFF" : "#000000",
                                   padding: "10px 20px",
                                   borderRadius: "5px",
+                                  border: "none",
                                   fontWeight: "bold",
                                   cursor: "pointer",
                                 }}>

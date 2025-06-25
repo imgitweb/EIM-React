@@ -2,7 +2,7 @@
 
 .custom-w-full {
   width: 100%;
-  background-color: #202936;
+  /* background-color: #F5F5F5; */
 }
 
 .custom-max-w-6xl {
@@ -39,6 +39,7 @@
 }
 
 /* .custom-from-white {
+
     --from-color: #ffffff;
   } */
 
