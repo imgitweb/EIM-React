@@ -5,16 +5,17 @@ const ThemeContext = createContext();
 const applyTheme = (theme) => {
   document.body.className = theme;
   document.documentElement.setAttribute("data-bs-theme", theme);
+  document.documentElement.setAttribute('data-color-theme', "Blue_Theme");
 };
 
 export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState("dark");
-
   // On initial load
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
     const initialTheme = savedTheme || (prefersDark ? "dark" : "light");
+
     setTheme(initialTheme);
   }, []);
 
