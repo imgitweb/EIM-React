@@ -1,0 +1,16 @@
+.grid-box {
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: pre-line;
+  min-height: 100px;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+@media (max-width: 768px) {
+  .grid-box {
+    font-size: 0.95rem;
+    padding: 8px;
+  }
+} 
