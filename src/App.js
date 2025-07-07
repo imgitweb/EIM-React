@@ -44,6 +44,10 @@ import Banking_Template from "./startup_resources/TemplateComponent/Banking_Temp
 import Hr_Employee_agreements from "./startup_resources/TemplateComponent/Hr_Employee_Agreement";
 import Accounting_Document from "./startup_resources/TemplateComponent/Accounting_Document";
 import RouteWatcher from "./reloadDashboard/RouteWatcher";
+import CourseDetails from "./pages/CourseDetails";
+import LessonPlayerPage from "./pages/LessonPlayerPage";
+import CourseDetailsPage from "./pages/CourseDetails";
+import QuizPage from "./pages/QuizPage";
 
 // Utility to parse tokens and store in localStorage
 function useTokenParser() {
@@ -284,6 +288,31 @@ function AppRoutes() {
         element={
           <PrivateRoute>
             <Template />
+          </PrivateRoute>
+        }
+      />
+
+      <Route
+        path="/coursedetails/:courseId"
+        element={
+          <PrivateRoute>
+          <CourseDetailsPage/>
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/lesson/:lessonId"
+        element={
+          <PrivateRoute>
+          <LessonPlayerPage/>
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/lesson/:lessonId/quiz"
+        element={
+          <PrivateRoute>
+          <QuizPage/>
           </PrivateRoute>
         }
       />

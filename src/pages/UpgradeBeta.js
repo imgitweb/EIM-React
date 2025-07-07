@@ -99,232 +99,114 @@ const UpgradeBeta = () => {
         <div className="page-wrapper">
           <Navigation onButtonClick={ToggleEvent} />
           <div className="body-wrapper">
-            <div className="container-fluid">
-              <div className="row justify-content-center mb-5">
-                <div className="col-12 text-center">
-                  <h2 className="display-4 fw-bold mb-3">Choose Your Plan</h2>
-                  <p className="lead text-muted">
-                    Select the perfect plan for your startup's journey
-                  </p>
-                </div>
-              </div>
+           <div className="container-fluid">
+  <div className="row justify-content-center mb-5">
+    <div className="col-12 text-center">
+      <h2 className="display-4 fw-bold mb-3">Choose Your Plan</h2>
+      <p className="lead text-muted">Select the perfect plan for your startup's journey</p>
+    </div>
+  </div>
 
-              {paymentStatus === "success" && (
-                <div className="alert custom-alert fade show mb-4" role="alert">
-                  <div className="d-flex align-items-center">
-                    <span className="alert-icon">✨</span>
-                    <div>
-                      <h6 className="fw-bold mb-1">Success!</h6>
-                      <p className="mb-0">
-                        Your plan has been upgraded successfully.
-                      </p>
-                    </div>
-                    <button
-                      type="button"
-                      className="btn-close ms-auto"
-                      onClick={() => setPaymentStatus("")}></button>
-                  </div>
-                </div>
-              )}
+  {paymentStatus === "success" && (
+    <div className="alert alert-success d-flex align-items-center justify-content-between fade show mb-4" role="alert">
+      <div className="d-flex align-items-center">
+        <span className="me-3 fs-4">✨</span>
+        <div>
+          <h6 className="fw-bold mb-1">Success!</h6>
+          <p className="mb-0">Your plan has been upgraded successfully.</p>
+        </div>
+      </div>
+      <button type="button" className="btn-close" onClick={() => setPaymentStatus("")}></button>
+    </div>
+  )}
 
-              <div className="row">
-                {plans.map((plan, index) => (
-                  <div
-                    key={index}
-                    className="col-12 col-md-6 col-xl-3 mb-4 bg-darkBlue">
-                    <div
-                      className={`pricing-card bg-darkBlue ${
-                        plan.featured ? "featured" : ""
-                      } ${hoveredPlan === index ? "hovered" : ""}`}
-                      onMouseEnter={() => setHoveredPlan(index)}
-                      onMouseLeave={() => setHoveredPlan(null)}
-                      style={{
-                        "--plan-gradient": plan.color,
-                      }}>
-                      <div className="pricing-card-header">
-                        <span className="plan-icon">{plan.icon}</span>
-                        <h3 className="plan-name">{plan.name}</h3>
-                        <div className="plan-price">
-                          <span className="currency">$</span>
-                          <span className="amount">{plan.price}</span>
-                          <span className="period">/month</span>
-                        </div>
-                      </div>
+  <div className="row">
+  {plans.map((plan, index) => (
+    <div key={index} className="col-12 col-md-6 col-xl-3 mb-4">
+      <div
+        className={`card text-white border-0 shadow-sm pricing-card ${
+          plan.featured ? "featured" : ""
+        } ${hoveredPlan === index ? "hovered" : ""}`}
+        onMouseEnter={() => setHoveredPlan(index)}
+        onMouseLeave={() => setHoveredPlan(null)}
+        style={{
+          background: plan.color,
+        }}
+      >
+        <div className="card-body text-center d-flex flex-column">
+          <span className="plan-icon mb-3">{plan.icon}</span>
+          <h5 className="plan-name mb-3">{plan.name}</h5>
+          <div className="plan-price d-flex justify-content-center align-items-baseline mb-4">
+            <span className="currency">$</span>
+            <span className="amount">{plan.price}</span>
+            <span className="period">/month</span>
+          </div>
 
-                      <div className="pricing-card-features">
-                        <div className="feature-group">
-                          <h6 className="feature-heading">
-                            Duration & Support
-                          </h6>
-                          <p>✦ {plan.duration}</p>
-                          <p>✦ {plan.mentors} Dedicated Mentors</p>
-                        </div>
+          <div className="text-start text-white small flex-grow-1">
+            <p><strong>Duration:</strong> {plan.duration}</p>
+            <p><strong>Mentors:</strong> {plan.mentors}</p>
+            <p><strong>For:</strong> {plan.forWho}</p>
+            <p><strong>Services:</strong> {plan.services}</p>
+            <p><strong>Goal:</strong> {plan.goal}</p>
+          </div>
 
-                        <div className="feature-group">
-                          <h6 className="feature-heading">Target Audience</h6>
-                          <p>✦ {plan.forWho}</p>
-                        </div>
+          <button
+            className="btn btn-light fw-semibold mt-4"
+            onClick={() => handlePayment(plan)}
+          >
+            Select Plan <span className="ms-2">→</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
 
-                        <div className="feature-group">
-                          <h6 className="feature-heading">Services</h6>
-                          <p>✦ {plan.services}</p>
-                        </div>
+</div>
 
-                        <div className="feature-group">
-                          <h6 className="feature-heading">Key Goal</h6>
-                          <p>✦ {plan.goal}</p>
-                        </div>
-                      </div>
-
-                      <button
-                        className="select-plan-btn"
-                        onClick={() => handlePayment(plan)}>
-                        Select Plan
-                        <span className="btn-icon">→</span>
-                      </button>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
         <SerchBar />
       </div>
       <div className="dark-transparent sidebartoggler" />
 
-      <style jsx>{`
-        .pricing-card {
-          border-radius: 20px;
-          padding: 15px;
-          height: 100%;
-          position: relative;
-          transition: all 0.3s ease;
-          border: 2px solid #eef2f7;
-          overflow: hidden;
-        }
+     <style jsx>{`
+  .pricing-card {
+    border-radius: 16px;
+    transition: transform 0.3s ease;
+    height: 100%;
+  }
 
-        .pricing-card::before {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          height: 8px;
-          background: var(--plan-gradient);
-          opacity: 0.8;
-        }
+  .pricing-card.hovered {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
 
-        .pricing-card.featured {
-          transform: scale(1.02);
-          border-color: #38f9d7;
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
+  .plan-name {
+    font-weight: 700;
+    font-size: 1.5rem;
+    background: white;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 
-        .pricing-card.hovered {
-          transform: translateY(-10px);
-          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
+  .plan-price .currency,
+  .plan-price .period {
+    font-size: 1rem;
+    color: white;
+  }
 
-        .plan-icon {
-          font-size: 2.5rem;
-          margin-bottom: 1rem;
-          display: block;
-        }
+  .plan-price .amount {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 0 0.25rem;
+  }
 
-        .plan-name {
-          font-size: 1.5rem;
-          font-weight: 700;
-          margin-bottom: 1rem;
-          background: var(--plan-gradient);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-        }
+  .plan-icon {
+    font-size: 2.5rem;
+  }
+`}</style>
 
-        .plan-price {
-          margin-bottom: 2rem;
-          display: flex;
-          align-items: baseline;
-          justify-content: center;
-          gap: 0.25rem;
-        }
-
-        .currency {
-          font-size: 1.5rem;
-          font-weight: 600;
-          color: #666;
-        }
-
-        .amount {
-          font-size: 3.5rem;
-          font-weight: 700;
-          line-height: 1;
-          color: #2d3748;
-        }
-
-        .period {
-          color: #718096;
-        }
-
-        .feature-group {
-          margin-bottom: 1.5rem;
-        }
-
-        .feature-heading {
-          font-size: 0.875rem;
-          text-transform: uppercase;
-          letter-spacing: 0.05em;
-          color: #718096;
-          margin-bottom: 0.75rem;
-        }
-
-        .feature-group p {
-          margin-bottom: 0.5rem;
-          color: #4a5568;
-          font-size: 0.95rem;
-        }
-
-        .select-plan-btn {
-          width: 100%;
-          padding: 1rem;
-          border: none;
-          border-radius: 10px;
-          background: var(--plan-gradient);
-          color: white;
-          font-weight: 600;
-          cursor: pointer;
-          transition: all 0.3s ease;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 0.5rem;
-        }
-
-        .select-plan-btn:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .btn-icon {
-          transition: transform 0.3s ease;
-        }
-
-        .select-plan-btn:hover .btn-icon {
-          transform: translateX(5px);
-        }
-
-        .custom-alert {
-          background: #f8f9ff;
-          border: none;
-          border-radius: 12px;
-          padding: 1rem;
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-
-        .alert-icon {
-          font-size: 1.5rem;
-          margin-right: 1rem;
-        }
-      `}</style>
     </>
   );
 };

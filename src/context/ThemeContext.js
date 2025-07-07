@@ -5,7 +5,7 @@ const ThemeContext = createContext();
 const applyTheme = (theme) => {
   document.body.className = theme;
   document.documentElement.setAttribute("data-bs-theme", theme);
-  document.documentElement.setAttribute('data-color-theme', "Blue_Theme");
+  // document.documentElement.setAttribute('data-color-theme', "Aqua_Theme");
 };
 
 export const ThemeProvider = ({ children }) => {

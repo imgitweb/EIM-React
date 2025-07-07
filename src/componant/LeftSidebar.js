@@ -26,7 +26,7 @@ const LeftSidebar = ({ onButtonClick }) => {
         <div className="brand-logo d-flex align-items-center justify-content-between">
           <Link to="/dashboard" className="text-nowrap logo-img">
             <img
-              src={`${theme === "dark" ? "./assets/logo/logo-light.png" : "./assets/logo/logo-dark.png"}`}
+              src={`${theme === "dark" ? "/assets/logo/logo-light.png" : "./assets/logo/logo-dark.png"}`}
               className="dark-logo text-center"
               alt="Logo-Dark"
               width="50px"
@@ -217,7 +217,7 @@ const LeftSidebar = ({ onButtonClick }) => {
           <div className="hstack gap-3">
             <div className="john-img">
               <img
-                 src={`${theme === "dark" ? "./assets/logo/logo-light.png" : "./assets/logo/logo-dark.png"}`}
+                 src={`${theme === "dark" ? "/assets/logo/logo-light.png" : "./assets/logo/logo-dark.png"}`}
                 className="rounded-circle"
                 width={40}
                 height={40}
@@ -225,8 +225,8 @@ const LeftSidebar = ({ onButtonClick }) => {
               />
             </div>
             <div className="john-title">
-              <h6 className="mb-0 fs-4 fw-semibold">Startup</h6>
-              <span className="fs-2">Profile</span>
+              <h6 className="mb-0  fw-semibold">Startup</h6>
+              <span className="">Profile</span>
             </div>
             <button
               onClick={LogoutHandler}

@@ -211,7 +211,7 @@ const AppProfile = () => {
                 </div>
               </div>
               <div className="card overflow-hidden">
-                <div className="card-body p-0">
+                <div className="card-body ">
                   <img
                     src="./assets/assets/images/backgrounds/profilebg.jpg"
                     alt="modernize-img"
@@ -219,7 +219,7 @@ const AppProfile = () => {
                   />
                   <div className="row align-items-center">
                     <div className="col-lg-4 order-lg-1 order-2">
-                      <div className="d-flex align-items-center gap-10 m-4">
+                      <div className="d-flex ali  gn-items-center gap-10 m-4">
                         <div>
                           <button
                             onClick={() => setIsModalOpen(true)}
@@ -275,7 +275,7 @@ const AppProfile = () => {
                       </div>
                     </div>
                     <div className="col-lg-4 order-last">
-                      <ul className="list-unstyled d-flex align-items-center justify-content-center justify-content-lg-end my-3 mx-4 pe-xxl-4 gap-3">
+                      <ul className="list-unstyled d-flex align-items-center justify-content-center justify-content-lg-end my-3 mx-1 pe-xxl-4 gap-3">
                         {/* <li>
                           <a
                             className="d-flex align-items-center justify-content-center btn btn-primary p-2 fs-4 rounded-circle"
@@ -304,7 +304,7 @@ const AppProfile = () => {
                         </li> */}
                         <li>
                           <Link
-                            to={"/Upgrade-Beta"}
+                            to={"#"}
                             className="btn btn-primary text-nowrap">
                             <i class="bi bi-stopwatch mx-1"> </i> {countdown}
                           </Link>
@@ -471,59 +471,53 @@ const AppProfile = () => {
                                 </div>
                               </div>
 
-                              <div className="col-lg-6 d-flex align-items-stretch">
-                                <div className="card w-100 border position-relative overflow-hidden">
-                                  <div className="card-body p-4">
-                                    <h4 className="card-title">
-                                      Profile Details
-                                    </h4>
-                                    {profile ? (
-                                      <table className="table">
-                                        <tbody>
-                                          <tr>
-                                            <td>Startup Name</td>
-                                            <td>
-                                              {profile.firstName || "N/A"}
-                                            </td>
-                                          </tr>
-                                          <tr>
-                                            <td>Email</td>
-                                            <td>{profile.email || "N/A"}</td>
-                                          </tr>
-                                          <tr>
-                                            <td>Mobile</td>
-                                            <td>
-                                              {profile.contactNumber || "N/A"}
-                                            </td>
-                                          </tr>
-                                          <tr>
-                                            <td>Country</td>
-                                            <td>{profile.country || "N/A"}</td>
-                                          </tr>
-                                          <tr>
-                                            <td>Industry</td>
-                                            <td>{profile.industry || "N/A"}</td>
-                                          </tr>
-                                          <tr>
-                                            <td>Stage</td>
-                                            <td>
-                                              {profile.startupStage || "N/A"}
-                                            </td>
-                                          </tr>
-                                          <tr>
-                                            <td>Startup Name</td>
-                                            <td>
-                                              {profile.startupName || "N/A"}
-                                            </td>
-                                          </tr>
-                                        </tbody>
-                                      </table>
-                                    ) : (
-                                      <p>No startup information found.</p>
-                                    )}
-                                  </div>
-                                </div>
-                              </div>
+                              <div className="col-12 col-md-10 col-lg-6 mb-4">
+  <div className="card w-100 border position-relative overflow-hidden h-100">
+    <div className="card-body p-4">
+      <h4 className="card-title">Profile Details</h4>
+
+      {profile ? (
+        <div className="table-responsive">
+          <table className="table">
+            <tbody>
+              <tr>
+                <td>Startup Name</td>
+                <td>{profile.firstName || "N/A"}</td>
+              </tr>
+              <tr>
+                <td>Email</td>
+                <td>{profile.email || "N/A"}</td>
+              </tr>
+              <tr>
+                <td>Mobile</td>
+                <td>{profile.contactNumber || "N/A"}</td>
+              </tr>
+              <tr>
+                <td>Country</td>
+                <td>{profile.country || "N/A"}</td>
+              </tr>
+              <tr>
+                <td>Industry</td>
+                <td>{profile.industry || "N/A"}</td>
+              </tr>
+              <tr>
+                <td>Stage</td>
+                <td>{profile.startupStage || "N/A"}</td>
+              </tr>
+              <tr>
+                <td>Startup Name</td>
+                <td>{profile.startupName || "N/A"}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      ) : (
+        <p>No startup information found.</p>
+      )}
+    </div>
+  </div>
+</div>
+
                             </div>
                           </div>
                           <div

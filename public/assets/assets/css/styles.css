@@ -32778,6 +32778,7 @@ ul {
     .left-sidebar
     .hide-menu {
     display: none;
+    
   }
   [data-layout="vertical"]
     body[data-sidebartype="mini-sidebar"]
@@ -32827,6 +32828,7 @@ ul {
     .sidebar-nav
     .has-arrow::after {
     display: inline-block;
+    color: var(--bs-dark-text-emphasis);
   }
   [data-layout="vertical"]
     body[data-sidebartype="mini-sidebar"]
@@ -32931,6 +32933,10 @@ html[data-boxed-layout="boxed"] .container-xxl {
 .sidebar-nav ul .sidebar-item .sidebar-link .ti {
   flex-shrink: 0;
   font-size: 21px;
+}
+.sidebar-nav ul .sidebar-item .sidebar-link  {
+  /* background: var(--bs-primary-bg-subtle);  */
+  color:  var(--bs-dark-text-emphasis);
 }
 .sidebar-nav ul .sidebar-item .sidebar-link:hover {
   background: var(--bs-primary-bg-subtle);

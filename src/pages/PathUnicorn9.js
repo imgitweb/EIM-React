@@ -31,196 +31,147 @@ function PathUnicorn9() {
 
 
   return (
-    <>
-      <div id="main-wrapper" className={isActive ? "show-sidebar" : ""}>
-        {/* Sidebar Start */}
-        <LeftSidebar onButtonClick={ToggleEvent} />
-        {/*  Sidebar End */}
-        <div className="page-wrapper">
-          <Navigation onButtonClick={ToggleEvent} />
-          <div className="body-wrapper">
-            <div className="container-fluid">
-              {/* Header */}
-              <div className="card bg-info-subtle shadow-none position-relative overflow-hidden mb-4">
-                <div className="card-body px-4 py-3">
-                  <div className="row align-items-center">
-                    <div className="col-9">
-                      <h4 className="fw-semibold mb-8">MARKETING FUNNEL</h4>
-                      <nav aria-label="breadcrumb">
-                        <ol className="breadcrumb">
-                          <li className="breadcrumb-item">
-                            <a
-                              className="text-muted text-decoration-none"
-                              href="../dark/index.html">
-                              Home
-                            </a>
-                          </li>
-                          <li className="breadcrumb-item" aria-current="page">
-                            MARKETING FUNNEL
-                          </li>
-                        </ol>
-                      </nav>
-                    </div>
-                    <div className="col-3">
-                      <div className="text-center mb-n5">
-                        <img
-                          src="./assets/assets/images/breadcrumb/ChatBc.png"
-                          alt="modernize-img"
-                          className="img-fluid mb-n4"
-                        />
-                      </div>
-                    </div>
-                  </div>
+<>
+  <div id="main-wrapper" className={isActive ? "show-sidebar" : ""}>
+    {/* Sidebar Start */}
+    <LeftSidebar onButtonClick={ToggleEvent} />
+    {/* Sidebar End */}
+    <div className="page-wrapper">
+      <Navigation onButtonClick={ToggleEvent} />
+      <div className="body-wrapper">
+        <div className="container-fluid">
+          {/* Header */}
+          <div className="card bg-info-subtle shadow-none position-relative overflow-hidden mb-4">
+            <div className="card-body px-4 py-3">
+              <div className="row align-items-center">
+                <div className="col-md-9 col-12">
+                  <h4 className="fw-semibold mb-2">MARKETING FUNNEL</h4>
+                  <nav aria-label="breadcrumb">
+                    <ol className="breadcrumb">
+                      <li className="breadcrumb-item">
+                        <a
+                          className="text-muted text-decoration-none"
+                          href="../dark/index.html"
+                        >
+                          Home
+                        </a>
+                      </li>
+                      <li className="breadcrumb-item active" aria-current="page">
+                        MARKETING FUNNEL
+                      </li>
+                    </ol>
+                  </nav>
+                </div>
+                <div className="col-md-3 col-12 text-center mt-3 mt-md-0">
+                  <img
+                    src="./assets/assets/images/breadcrumb/ChatBc.png"
+                    alt="breadcrumb-img"
+                    className="img-fluid"
+                    style={{ maxHeight: "100px" }}
+                  />
                 </div>
               </div>
-              <div className=" card-body">
+            </div>
+          </div>
+
+          {/* Main Content */}
+          <div className="card">
+            <div className="row">
+              {/* Sidebar Section */}
+              <div className="col-lg-3 col-md-4 mb-4">
                 <div
                   style={{
-                    color: "#fff",
-                    display: "flex",
-                    height: "60vh",
-                    fontFamily: "Arial, sans-serif",
+                    backgroundColor: theme === "dark" ? "#223662" : "#F5F5F5",
+                    color: theme === "dark" ? "#FFFFFF" : "#000000",
+                    padding: "20px",
+                    fontWeight: "bold",
+                    borderRadius: "5px",
+                    height: "100%",
                   }}
-                  className="row">
-                  {/* Left Sidebar */}
-                  <div className="col-md-2 col-16">
-                    <div
+                >
+                  <Sidebar
+                    selectedSection="Product Listing"
+                    setSelectedSection={() => {}}
+                  />
+                </div>
+              </div>
+
+              {/* Form Section */}
+              <div className="col-lg-9 col-md-8">
+                <div className="p-3">
+                  <div className="d-flex flex-column flex-md-row justify-content-between align-items-center mb-4">
+                    <h1 className="fw-bold mb-3 mb-md-0">MARKETING FUNNEL</h1>
+                    <Link
+                      to="/salesfunnel"
+                      className="btn btn-lg"
                       style={{
-                       backgroundColor:  theme === "dark" ? "#223662" : "#F5F5F5",
-                          color: theme === "dark" ? "#FFFFFF" : "#000000",
-                        width: "120%",
-                        minHeight: "120%",
-                        display: "flex",
-                        justifyContent: "center",
-                        padding: "20px",
-                        fontWeight: "bold",
-                        borderRadius: "5px",
-                      }}>
-                      <Sidebar
-                        selectedSection="Product Listing"
-                        setSelectedSection={() => { }}
+                        backgroundColor: theme === "dark" ? "#223662" : "#F5F5F5",
+                        color: theme === "dark" ? "#FFFFFF" : "#000000",
+                      }}
+                    >
+                      ← Back
+                    </Link>
+                  </div>
+
+                  <div className="row">
+                    <div className="col-md-6 mb-4">
+                      <input
+                        className="form-control mb-3"
+                        type="text"
+                        placeholder="Full Name"
+                        style={inputStyle}
+                      />
+                      <input
+                        className="form-control mb-3"
+                        type="email"
+                        placeholder="Email"
+                        style={inputStyle}
+                      />
+                      <input
+                        className="form-control mb-3"
+                        type="tel"
+                        placeholder="Phone Number"
+                        style={inputStyle}
+                      />
+                      <SuggestiveSelect
+                        name="purpose"
+                        value={formData.purpose}
+                        onChange={handleInputChange}
+                        options={[
+                          { label: "Subscribe to Newsletter", value: "Subscribe to Newsletter" },
+                          { label: "Request a Demo", value: "Request a Demo" },
+                          { label: "General Inquiry", value: "General Inquiry" },
+                          { label: "Social Media", value: "Social Media" },
+                        ]}
+                        theme={theme}
+                        placeholder="Select or type purpose"
+                        inputStyle={{ ...inputStyle, padding: "10px" }}
                       />
                     </div>
-                  </div>
-                  {/* Main Content */}
-                  <div className="col-md-10 col-12">
-                    <div
-                      style={{
-                        flex: 1,
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        marginTop: "10px",
-                      }}>
-                      <div style={{ width: "100%", maxWidth: "900px" }}>
-                        <h1
+                    <div className="col-md-6">
+                      <textarea
+                        className="form-control"
+                        placeholder="Message"
+                        style={{
+                          ...inputStyle,
+                          height: "200px",
+                        }}
+                      ></textarea>
+                      <div className="text-end mt-3">
+                        <button
+                          type="submit"
                           style={{
-                            display: "flex",
-                            justifyContent: "space-between", // Pushes elements to both ends
-                            alignItems: "center", // Aligns items vertically
-                            fontSize: "28px",
-                            marginBottom: "20px",
-                            width: "100%", // Ensures full width
-                          }}>
-                          <span
-                            style={{
-                              fontWeight: "bold", // Highlighted text styling
-                              // color: "#223662", // Adjust the color as needed
-                            }}>
-                            MARKETING FUNNEL
-                          </span>
-                          <Link
-                            to="/salesfunnel"
-                            className="text-end btn btn-lg bg-default"
-                            style={{
-                            backgroundColor:  theme === "dark" ? "#223662" : "#F5F5F5",
-                          color: theme === "dark" ? "#FFFFFF" : "#000000",
-                              padding: "10px 20px",
-                              borderRadius: "5px",
-                              textDecoration: "none",
-                              fontSize: "16px",
-                            }}>
-                            ← Back
-                          </Link>
-                        </h1>
-                        <div
-                          style={{
-                            display: "flex",
-                            justifyContent: "space-between",
-                            padding: "30px",
-                            marginBottom: "30px",
-                            borderRadius: "10px",
-                            boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.3)",
-                          }}>
-                          <form style={{ width: "45%" }}>
-                            <div style={{ marginBottom: "15px" }}>
-                              <input
-                                className="form-control"
-                                type="text"
-                                placeholder="Full Name"
-                                style={inputStyle}
-                              />
-                            </div>
-                            <div style={{ marginBottom: "15px" }}>
-                              <input
-                                className="form-control"
-                                type="email"
-                                placeholder="Email"
-                                style={inputStyle}
-                              />
-                            </div>
-                            <div style={{ marginBottom: "15px" }}>
-                              <input
-                                className="form-control"
-                                type="tel"
-                                placeholder="Phone Number"
-                                style={inputStyle}
-                              />
-                            </div>
-                            <div style={{ marginBottom: "15px" }}>
-                              <SuggestiveSelect
-                                // label="Purpose"
-                                name="purpose"
-                                value={formData.purpose}
-                                onChange={handleInputChange}
-                                options={[
-                                  { label: "Subscribe to Newsletter", value: "Subscribe to Newsletter" },
-                                  { label: "Request a Demo", value: "Request a Demo" },
-                                  { label: "General Inquiry", value: "General Inquiry" },
-                                  { label: "Social Media", value: "Social Media" }
-                                ]}
-                                theme={theme}
-                                placeholder="Select or type purpose"
-                                inputStyle={{ ...inputStyle, padding: "10px" }}
-                              />
-                            </div>
-                          </form>
-                          <div style={{ width: "45%" }}>
-                            <textarea
-                              className="form-control"
-                              placeholder="Message"
-                              style={{
-                                ...inputStyle,
-                                height: "200px",
-                              }}></textarea>
-                            <div
-                              style={{ textAlign: "right", marginTop: "20px" }}>
-                              <button
-                                type="submit"
-                                style={{
-                                backgroundColor:  theme === "dark" ? "#223662" : "#F5F5F5",
-                               color: theme === "dark" ? "#FFFFFF" : "#000000",
-                                  padding: "10px 20px",
-                                  borderRadius: "5px",
-                                  border: "none",
-                                  fontWeight: "bold",
-                                  cursor: "pointer",
-                                }}>
-                                Save
-                              </button>
-                            </div>
-                          </div>
-                        </div>
+                            backgroundColor: theme === "dark" ? "#223662" : "#F5F5F5",
+                            color: theme === "dark" ? "#FFFFFF" : "#000000",
+                            padding: "10px 20px",
+                            borderRadius: "5px",
+                            border: "none",
+                            fontWeight: "bold",
+                            cursor: "pointer",
+                          }}
+                        >
+                          Save
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -229,10 +180,13 @@ function PathUnicorn9() {
             </div>
           </div>
         </div>
-        <SerchBar />
-      </div>
-      <div className="dark-transparent sidebartoggler" />
-    </>
+      </div> 
+    </div>
+    <SerchBar />
+  </div>
+  <div className="dark-transparent sidebartoggler" />
+</>
+
   );
 }
 

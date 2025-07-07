@@ -176,90 +176,113 @@ Return JSON with:
   }, [chartData]);
 
   return (
-    <div id="main-wrapper" className={isActive ? "show-sidebar" : ""}>
-      <LeftSidebar onButtonClick={ToggleEvent} />
-      <div className="page-wrapper">
-        <Navigation onButtonClick={ToggleEvent} />
-        <div className="body-wrapper">
-          <div className="container-fluid">
-            <div className="card bg-info-subtle shadow-none position-relative overflow-hidden mb-4">
-              <div className="card-body px-4 py-3">
-                <div className="row align-items-center">
-                  <div className="col-9">
-                    <h4 className="fw-semibold mb-8">Market Research</h4>
-                    <nav aria-label="breadcrumb">
-                      <ol className="breadcrumb">
-                        <li className="breadcrumb-item">
-                          <a className="text-muted text-decoration-none" href="#0">Home</a>
-                        </li>
-                        <li className="breadcrumb-item" aria-current="page">
-                          Market Research
-                        </li>
-                      </ol>
-                    </nav>
-                  </div>
-                  <div className="col-3">
-                    <div className="text-center mb-n5">
-                      <img
-                        src="./assets/assets/images/breadcrumb/ChatBc.png"
-                        alt="modernize-img"
-                        className="img-fluid mb-n4"
-                      />
-                    </div>
-                  </div>
-                </div>
+  <div id="main-wrapper" className={isActive ? "show-sidebar" : ""}>
+  <LeftSidebar onButtonClick={ToggleEvent} />
+  <div className="page-wrapper">
+    <Navigation onButtonClick={ToggleEvent} />
+    <div className="body-wrapper">
+      <div className="container-fluid">
+        {/* Breadcrumb Card */}
+        <div className="card bg-info-subtle shadow-none position-relative overflow-hidden mb-4">
+          <div className="card-body px-3 px-md-4 py-3">
+            <div className="row align-items-center">
+              {/* Left Content */}
+              <div className="col-12 col-md-9 mb-3 mb-md-0">
+                <h4 className="fw-semibold mb-2">Market Research</h4>
+                <nav aria-label="breadcrumb">
+                  <ol className="breadcrumb mb-0">
+                    <li className="breadcrumb-item">
+                      <a
+                        className="text-muted text-decoration-none"
+                        href="#0"
+                      >
+                        Home
+                      </a>
+                    </li>
+                    <li className="breadcrumb-item active" aria-current="page">
+                      Market Research
+                    </li>
+                  </ol>
+                </nav>
               </div>
-            </div>
 
-            {/* Tab Navigation */}
-            <ul
-              className="nav nav-pills user-profile-tab justify-content-end mt-2 bg-primary-subtle rounded-2 rounded-top-2"
-              id="pills-tab"
-              role="tablist"
-            >
-              {["Size your market", "Research the competition", "Discover what marketing channels work", "Analyze audience demographics"].map(
-                (label, i) => ( 
-                  <li className="nav-item" role="presentation" key={i}>
-                    <button
-                      className={`nav-link hstack gap-2 rounded-0 py-6 ${i === 0 ? "active" : ""}`}
-                      id={`pills-tab-${i}`}
-                      data-bs-toggle="pill"
-                      data-bs-target={`#chart-tab-${i}`}
-                      type="button"
-                      role="tab"
-                      aria-selected={i === 0}
-                    >
-                      <i className="ti ti-chart-bar fs-5"></i>
-                      <span className="d-none d-md-block">{label}</span>
-                    </button>
-                  </li>
-                )
-              )}
-            </ul>
-
-            {/* Tab Content */}
-            <div className="tab-content mt-3" id="pills-tabContent">
-              {[0, 1, 2, 3].map((i) => (
-                <div
-                  className={`tab-pane fade ${i === 0 ? "show active" : ""}`}
-                  id={`chart-tab-${i}`}
-                  role="tabpanel"
-                  key={i}
-                >
-                  {loading ? (
-                     loading && (<div className="alert alert-info text-center">Loading analysis...</div>)
-                  ) : error ? (
-                    <p className="text-danger">Error: {error}</p>
-                  ) : (
-                    <div id={`chart${i + 1}`} className="chart-container"></div>
-                  )}
-                </div>
-              ))}
+              {/* Right Image */}
+              <div className="col-12 col-md-3 text-center">
+                <img
+                  src="./assets/assets/images/breadcrumb/ChatBc.png"
+                  alt="modernize-img"
+                  className="img-fluid"
+                  style={{ maxHeight: "100px" }}
+                />
+              </div>
             </div>
           </div>
         </div>
+
+        {/* Tab Navigation - Responsive Scrollable */}
+        <div className="overflow-auto">
+          <ul
+            className="nav nav-pills user-profile-tab flex-nowrap justify-content-start justify-content-md-end mt-2 bg-primary-subtle rounded-2 rounded-top-2"
+            id="pills-tab"
+            role="tablist"
+            style={{ whiteSpace: "nowrap" }}
+          >
+            {[
+              "Size your market",
+              "Research the competition",
+              "Discover what marketing channels work",
+              "Analyze audience demographics",
+            ].map((label, i) => (
+              <li className="nav-item" role="presentation" key={i}>
+                <button
+                  className={`nav-link d-flex flex-column flex-md-row align-items-center gap-1 gap-md-2 rounded-0 py-3 px-3 ${
+                    i === 0 ? "active" : ""
+                  }`}
+                  id={`pills-tab-${i}`}
+                  data-bs-toggle="pill"
+                  data-bs-target={`#chart-tab-${i}`}
+                  type="button"
+                  role="tab"
+                  aria-selected={i === 0}
+                >
+                  <i className="ti ti-chart-bar fs-5"></i>
+                  <span className="text-nowrap text-sm">{label}</span>
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Tab Content */}
+        <div className="tab-content mt-3" id="pills-tabContent">
+          {[0, 1, 2, 3].map((i) => (
+            <div
+              className={`tab-pane fade ${i === 0 ? "show active" : ""}`}
+              id={`chart-tab-${i}`}
+              role="tabpanel"
+              key={i}
+            >
+              {loading ? (
+                <div className="alert alert-info text-center">
+                  Loading analysis...
+                </div>
+              ) : error ? (
+                <p className="text-danger">Error: {error}</p>
+              ) : (
+                <div
+                  id={`chart${i + 1}`}
+                  className="chart-container w-100"
+                  style={{ minHeight: "250px" }}
+                ></div>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
+  </div>
+</div>
+
   );
 };
 

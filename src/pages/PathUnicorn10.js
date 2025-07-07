@@ -49,175 +49,161 @@ function PathUnicorn10() {
   ];
 
   return (
-    <>
-      <div id="main-wrapper" className={isActive ? "show-sidebar" : ""}>
-        {/* Sidebar Start */}
-        <LeftSidebar onButtonClick={ToggleEvent} />
-        {/*  Sidebar End */}
-        <div className="page-wrapper">
-          <Navigation onButtonClick={ToggleEvent} />
-          <div className="body-wrapper">
-            <div className="container-fluid">
-              {/* Header */}
-              <div className="card bg-info-subtle shadow-none position-relative overflow-hidden mb-4">
-                <div className="card-body px-4 py-3">
-                  <div className="row align-items-center">
-                    <div className="col-9">
-                      <h4 className="fw-semibold mb-8">
-                        MARKETING BUDGET PLAN
-                      </h4>
-                      <nav aria-label="breadcrumb">
-                        <ol className="breadcrumb">
-                          <li className="breadcrumb-item">
-                            <a
-                              className="text-muted text-decoration-none"
-                              href="../dark/index.html">
-                              Home
-                            </a>
-                          </li>
-                          <li className="breadcrumb-item" aria-current="page">
-                            MARKETING BUDGET PLAN
-                          </li>
-                        </ol>
-                      </nav>
-                    </div>
-                    <div className="col-3">
-                      <div className="text-center mb-n5">
-                        <img
-                          src="./assets/assets/images/breadcrumb/ChatBc.png"
-                          alt="modernize-img"
-                          className="img-fluid mb-n4"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="card body3">
-                <div className="marketing-budget-container">
-                  <div className="sidebar"
-                    style={{
-                      backgroundColor: theme === "dark" ? "#223662" : "#F5F5F5",
-                      color: theme === "dark" ? "#FFFFFF" : "#000000",   
-                    }}
-                  
-                  >
-                    <Sidebar
-                      selectedSection="Product Listing"
-                      setSelectedSection={() => { }}
-                    />
-                  </div>
-                  <div className="form-container">
-                    <h1
-                      style={{
-                        display: "flex",
-                        justifyContent: "space-between", // Pushes elements to both ends
-                        alignItems: "center", // Aligns items vertically
-                        fontSize: "28px",
-                        marginBottom: "20px",
-                        width: "100%", // Ensures full width
-                      }}>
-                      <span
-                        style={{
-                          fontWeight: "bold", // Highlighted text styling
-                          // color: "#223662", // Adjust the color as needed
-                        }}>
-                        MARKETING BUDGET PLAN
-                      </span>
-                      <Link
-                        to="/salesfunnel"
-                        className="text-end btn btn-lg bg-default"
-                        style={{
-                          backgroundColor:  theme === "dark" ? "#223662" : "#F5F5F5",
-                          color: theme === "dark" ? "#FFFFFF" : "#000000",
-                          padding: "10px 20px",
-                          borderRadius: "5px",
-                          textDecoration: "none",
-                          fontSize: "16px",
-                        }}>
-                        ← Back
-                      </Link>
-                    </h1>
-                    <form onSubmit={handleSubmit} className="form-content">
-                      <div className="form-row">
-                        <div className="form-group">
-                          <label>Full Name</label>
-                          <input
-                            className="form-control"
-                            type="text"
-                            name="fullName"
-                            placeholder="Enter your full name"
-                            value={formData.fullName}
-                            onChange={handleInputChange}
-                            required
-                          />
-                        </div>
-                        <div className="form-group">
-                          <label>Email</label>
-                          <input
-                            className="form-control"
-                            type="email"
-                            name="email"
-                            placeholder="Enter your email"
-                            value={formData.email}
-                            onChange={handleInputChange}
-                            required
-                          />
-                        </div>
-                        <div className="form-group">
-                          <label>Phone Number</label>
-                          <input
-                            className="form-control"
-                            type="text"
-                            name="phoneNumber"
-                            placeholder="Enter your phone number"
-                            value={formData.phoneNumber}
-                            onChange={handleInputChange}
-                          />
-                        </div>
-                        <div className="form-group">
-                          <SuggestiveSelect
-        label="Purpose"
-        name="purpose"
-        value={formData.purpose}
-        onChange={handleInputChange}
-        options={purposeOptions}
-        theme={theme}
-      />
-                        </div>
+ <>
+  <div id="main-wrapper" className={isActive ? "show-sidebar" : ""}>
+    {/* Sidebar */}
+    <LeftSidebar onButtonClick={ToggleEvent} />
 
-                      </div>
-                      <div className="form-row">
-                        <div className="form-group message-group">
-                          <label>Message</label>
-                          <textarea
-                            className="form-control"
-                            name="message"
-                            placeholder="Enter your message"
-                            value={formData.message}
-                            onChange={handleInputChange}></textarea>
-                        </div>
-                      </div>
-                      <div className="form-row">
-                        <button type="submit"
-                        style={{
-                          backgroundColor: theme === "dark" ? "#223662" : "#F5F5F5",}}
-                        
-                        className="save-button">
-                          Save
-                        </button>
-                      </div>
-                    </form>
-                  </div>
+    <div className="page-wrapper">
+      <Navigation onButtonClick={ToggleEvent} />
+
+      <div className="body-wrapper">
+        <div className="container-fluid">
+          {/* Header */}
+          <div className="card bg-info-subtle shadow-none mb-4">
+            <div className="card-body px-4 py-3">
+              <div className="row align-items-center">
+                <div className="col-md-9 col-12">
+                  <h4 className="fw-semibold mb-2">MARKETING BUDGET PLAN</h4>
+                  <nav aria-label="breadcrumb">
+                    <ol className="breadcrumb">
+                      <li className="breadcrumb-item">
+                        <a
+                          className="text-muted text-decoration-none"
+                          href="../dark/index.html">
+                          Home
+                        </a>
+                      </li>
+                      <li className="breadcrumb-item active" aria-current="page">
+                        MARKETING BUDGET PLAN
+                      </li>
+                    </ol>
+                  </nav>
+                </div>
+                <div className="col-md-3 col-12 text-center mt-3 mt-md-0">
+                  <img
+                    src="./assets/assets/images/breadcrumb/ChatBc.png"
+                    alt="breadcrumb"
+                    className="img-fluid"
+                  />
                 </div>
               </div>
             </div>
           </div>
+
+          {/* Main Section */}
+          <div className="card p-3">
+            <div className="row">
+              {/* Sidebar (visible on all screens) */}
+              <div
+                className="col-lg-3 col-md-4 col-12 mb-3"
+                style={{
+                  backgroundColor: theme === "dark" ? "#223662" : "#F5F5F5",
+                  color: theme === "dark" ? "#FFFFFF" : "#000000",
+                }}>
+                <Sidebar
+                  selectedSection="Product Listing"
+                  setSelectedSection={() => {}}
+                />
+              </div>
+
+              {/* Form Section */}
+              <div className="col-lg-9 col-md-8 col-12">
+                <div className="d-flex justify-content-between align-items-center flex-wrap mb-4">
+                  <h1 className="fw-bold fs-4">MARKETING BUDGET PLAN</h1>
+                  <Link
+                    to="/salesfunnel"
+                    className="btn btn-outline-primary btn-sm">
+                    ← Back
+                  </Link>
+                </div>
+
+                <form onSubmit={handleSubmit}>
+                  <div className="row g-3">
+                    <div className="col-md-6 col-12">
+                      <label className="form-label">Full Name</label>
+                      <input
+                        className="form-control"
+                        type="text"
+                        name="fullName"
+                        placeholder="Enter your full name"
+                        value={formData.fullName}
+                        onChange={handleInputChange}
+                        required
+                      />
+                    </div>
+                    <div className="col-md-6 col-12">
+                      <label className="form-label">Email</label>
+                      <input
+                        className="form-control"
+                        type="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        required
+                      />
+                    </div>
+                    <div className="col-md-6 col-12">
+                      <label className="form-label">Phone Number</label>
+                      <input
+                        className="form-control"
+                        type="text"
+                        name="phoneNumber"
+                        placeholder="Enter your phone number"
+                        value={formData.phoneNumber}
+                        onChange={handleInputChange}
+                      />
+                    </div>
+                    <div className="col-md-6 col-12">
+                      <SuggestiveSelect
+                        label="Purpose"
+                        name="purpose"
+                        value={formData.purpose}
+                        onChange={handleInputChange}
+                        options={purposeOptions}
+                        theme={theme}
+                      />
+                    </div>
+                    <div className="col-12">
+                      <label className="form-label">Message</label>
+                      <textarea
+                        className="form-control"
+                        name="message"
+                        placeholder="Enter your message"
+                        value={formData.message}
+                        onChange={handleInputChange}
+                        rows="4"
+                      />
+                    </div>
+                    <div className="col-12 text-end">
+                      <button
+                        type="submit"
+                        className="btn"
+                        style={{
+                          backgroundColor: theme === "dark" ? "#223662" : "#F5F5F5",
+                          color: theme === "dark" ? "#FFF" : "#000",
+                        }}>
+                        Save
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
         </div>
-        <SerchBar />
       </div>
-      {/* <div className="dark-transparent sidebartoggler" /> */}
-    </>
+    </div>
+
+    <SerchBar />
+  </div>
+
+  <div className="dark-transparent sidebartoggler" />
+</>
+
+
   );
 }
 

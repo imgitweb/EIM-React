@@ -101,7 +101,7 @@ const Navigation = ({ onButtonClick }) => {
             <div className="d-block d-lg-none py-4">
               <Link href="#0" className="text-nowrap logo-img">
                 <img
-                  src="./assets/logo/logo-light.png"
+                  src="/assets/logo/logo-light.png"
                   className="dark-logo"
                   alt="Logo-Dark"
                   width="50px"
@@ -138,7 +138,7 @@ const Navigation = ({ onButtonClick }) => {
 
                   {/* ------------------------------- */}
                   {/* start theme Dropdown */}
-                  <li className="nav-item nav-icon-hover-bg rounded-circle dropdown">
+                  {/* <li className="nav-item nav-icon-hover-bg rounded-circle dropdown">
                     <Link
                       className="nav-link position-relative"
                       href="/#"
@@ -150,10 +150,9 @@ const Navigation = ({ onButtonClick }) => {
                       }}
                     >
                       <i className={`ti ${theme === 'light' ? 'ti-sun' : 'ti-moon'}`} />
-                      {/* <div className="notification bg-primary rounded-circle" /> */}
                     </Link>
 
-                  </li>
+                  </li> */}
 
                   {/* ------------------------------- */}
                   {/* start language Dropdown */}
@@ -167,7 +166,7 @@ const Navigation = ({ onButtonClick }) => {
                       aria-expanded="false"
                     >
                       <img
-                        src="./assets/assets/images/svgs/icon-flag-en.svg"
+                        src="/assets/assets/images/svgs/icon-flag-en.svg"
                         alt="modernize-img"
                         width="20px"
                         height="20px"
@@ -185,14 +184,14 @@ const Navigation = ({ onButtonClick }) => {
                         >
                           <div className="position-relative">
                             <img
-                              src="./assets/assets/images/svgs/icon-flag-en.svg"
+                              src="/assets/assets/images/svgs/icon-flag-en.svg"
                               alt="modernize-img"
                               width="20px"
                               height="20px"
                               className="rounded-circle object-fit-cover round-20"
                             />
                           </div>
-                          <p className="mb-0 fs-3">English (UK)</p>
+                          <p className="mb-0 ">English (UK)</p>
                         </Link>
                         <Link
                           href="/#"
@@ -200,14 +199,14 @@ const Navigation = ({ onButtonClick }) => {
                         >
                           <div className="position-relative">
                             <img
-                              src="./assets/assets/images/svgs/india-flag.svg"
+                              src="/assets/assets/images/svgs/india-flag.svg"
                               alt="modernize-img"
                               width="20px"
                               height="20px"
                               className="rounded-circle object-fit-cover round-20"
                             />
                           </div>
-                          <p className="mb-0 fs-3">Local (Hi)</p>
+                          <p className="mb-0">Local (Hi)</p>
                         </Link>
                       </div>
                     </div>
@@ -228,8 +227,8 @@ const Navigation = ({ onButtonClick }) => {
                       aria-labelledby="drop2"
                     >
                       <div className="d-flex align-items-center justify-content-between py-3 px-7">
-                        <h5 className="mb-0 fs-5 fw-semibold">Notifications</h5>
-                        <span className="badge text-bg-primary rounded-4 px-3 py-1 lh-sm">
+                        <h5 className="mb-0  ">Notifications</h5>
+                        <span className="badge text-bg-primary rounded-4 px-3 py-1  ">
                           5 new
                         </span>
                       </div>
@@ -240,7 +239,7 @@ const Navigation = ({ onButtonClick }) => {
                         >
                           <span className="me-3">
                             <img
-                              src="./assets/assets/images/profile/user-2.jpg"
+                              src="/assets/assets/images/profile/user-2.jpg"
                               alt="user"
                               className="rounded-circle"
                               width={48}
@@ -248,10 +247,10 @@ const Navigation = ({ onButtonClick }) => {
                             />
                           </span>
                           <div className="w-100">
-                            <h6 className="mb-1 fw-semibold lh-base">
+                            <h6 className="mb-1 fw-semibold   lh-base">
                               Roman Joined the Team!
                             </h6>
-                            <span className="fs-2 d-block text-body-secondary">
+                            <span className=" d-block text-body-secondary">
                               Congratulate him
                             </span>
                           </div>
@@ -262,7 +261,7 @@ const Navigation = ({ onButtonClick }) => {
                         >
                           <span className="me-3">
                             <img
-                              src="./assets/assets/images/profile/user-3.jpg"
+                              src="/assets/assets/images/profile/user-3.jpg"
                               alt="user"
                               className="rounded-circle"
                               width={48}
@@ -273,7 +272,7 @@ const Navigation = ({ onButtonClick }) => {
                             <h6 className="mb-1 fw-semibold lh-base">
                               New message
                             </h6>
-                            <span className="fs-2 d-block text-body-secondary">
+                            <span className=" d-block text-body-secondary">
                               Salma sent you new message
                             </span>
                           </div>
@@ -284,7 +283,7 @@ const Navigation = ({ onButtonClick }) => {
                         >
                           <span className="me-3">
                             <img
-                              src="./assets/assets/images/profile/user-4.jpg"
+                              src="/assets/assets/images/profile/user-4.jpg"
                               alt="user"
                               className="rounded-circle"
                               width={48}
@@ -295,7 +294,7 @@ const Navigation = ({ onButtonClick }) => {
                             <h6 className="mb-1 fw-semibold lh-base">
                               Bianca sent payment
                             </h6>
-                            <span className="fs-2 d-block text-body-secondary">
+                            <span className=" d-block text-body-secondary">
                               Check your earnings
                             </span>
                           </div>
@@ -306,7 +305,7 @@ const Navigation = ({ onButtonClick }) => {
                         >
                           <span className="me-3">
                             <img
-                              src="./assets/assets/images/profile/user-5.jpg"
+                              src="/assets/assets/images/profile/user-5.jpg"
                               alt="user"
                               className="rounded-circle"
                               width={48}
@@ -317,7 +316,7 @@ const Navigation = ({ onButtonClick }) => {
                             <h6 className="mb-1 fw-semibold lh-base">
                               Jolly completed tasks
                             </h6>
-                            <span className="fs-2 d-block text-body-secondary">
+                            <span className=" d-block text-body-secondary">
                               Assign her new tasks
                             </span>
                           </div>
@@ -328,7 +327,7 @@ const Navigation = ({ onButtonClick }) => {
                         >
                           <span className="me-3">
                             <img
-                              src="./assets/assets/images/profile/user-6.jpg"
+                              src="/assets/assets/images/profile/user-6.jpg"
                               alt="user"
                               className="rounded-circle"
                               width={48}
@@ -339,7 +338,7 @@ const Navigation = ({ onButtonClick }) => {
                             <h6 className="mb-1 fw-semibold lh-base">
                               John received payment
                             </h6>
-                            <span className="fs-2 d-block text-body-secondary">
+                            <span className=" d-block text-body-secondary">
                               $230 deducted from account
                             </span>
                           </div>
@@ -350,7 +349,7 @@ const Navigation = ({ onButtonClick }) => {
                         >
                           <span className="me-3">
                             <img
-                              src="./assets/assets/images/profile/user-7.jpg"
+                              src="/assets/assets/images/profile/user-7.jpg"
                               alt="user"
                               className="rounded-circle"
                               width={48}
@@ -361,7 +360,7 @@ const Navigation = ({ onButtonClick }) => {
                             <h6 className="mb-1 fw-semibold lh-base">
                               Roman Joined the Team!
                             </h6>
-                            <span className="fs-2 d-block text-body-secondary">
+                            <span className=" d-block text-body-secondary">
                               Congratulate him
                             </span>
                           </div>
@@ -377,7 +376,10 @@ const Navigation = ({ onButtonClick }) => {
                   {/* ------------------------------- */}
                   {/* end notification Dropdown */}
                   {/* ------------------------------- */}
+
+
                   {/* ------------------------------- */}
+
                   {/* start profile Dropdown */}
                   {/* ------------------------------- */}
                   <li className="nav-item dropdown">
@@ -390,10 +392,10 @@ const Navigation = ({ onButtonClick }) => {
                       <div className="d-flex align-items-center">
                         <div className="user-profile-img">
                           <img
-                            src="./assets/logo/logo-light.png"
+                            src="/assets/logo/logo-light.png"
                             className="rounded-circle"
-                            width={35}
-                            height={35}
+                            width={30}
+                            height={30}
                             alt="modernize-img"
                           />
                         </div>
@@ -427,7 +429,7 @@ const Navigation = ({ onButtonClick }) => {
                             </div>
                           </div>
                           <Link
-                            to="../dark/authentication-login.html"
+                            to="./dark/authentication-login.html"
                             className="btn btn-outline-primary"
                           >
                             Log Out
@@ -460,7 +462,7 @@ const Navigation = ({ onButtonClick }) => {
             <nav className="sidebar-nav scroll-sidebar">
               <div className="offcanvas-header justify-content-between">
                 <img
-                  src="./assets/logo/logo-light.png"
+                  src="/assets/logo/logo-light.png"
                   className="dark-logo"
                   alt="Logo-Dark"
                   width="50px"
@@ -565,13 +567,13 @@ const Navigation = ({ onButtonClick }) => {
               <li className="nav-item d-none d-xl-block">
                 <Link to="/" className="text-nowrap nav-link">
                   <img
-                    src="./assets/assets/images/logos/dark-logo.svg"
+                    src="/assets/assets/images/logos/dark-logo.svg"
                     className="dark-logo"
                     width={180}
                     alt="modernize-img"
                   />
                   <img
-                    src="./assets/assets/images/logos/light-logo.svg"
+                    src="/assets/assets/images/logos/light-logo.svg"
                     className="light-logo"
                     width={180}
                     alt="modernize-img"
@@ -616,7 +618,7 @@ const Navigation = ({ onButtonClick }) => {
                                   >
                                     <div className="text-bg-light rounded-1 me-3 p-6 d-flex align-items-center justify-content-center">
                                       <img
-                                        src="./assets/assets/images/svgs/icon-dd-chat.svg"
+                                        src="/assets/assets/images/svgs/icon-dd-chat.svg"
                                         alt="modernize-img"
                                         className="img-fluid"
                                         width={24}
@@ -627,7 +629,7 @@ const Navigation = ({ onButtonClick }) => {
                                       <h6 className="mb-1 fw-semibold fs-3">
                                         Chat Application
                                       </h6>
-                                      <span className="fs-2 d-block text-body-secondary">
+                                      <span className=" d-block text-body-secondary">
                                         New messages arrived
                                       </span>
                                     </div>
@@ -638,7 +640,7 @@ const Navigation = ({ onButtonClick }) => {
                                   >
                                     <div className="text-bg-light rounded-1 me-3 p-6 d-flex align-items-center justify-content-center">
                                       <img
-                                        src="./assets/assets/images/svgs/icon-dd-invoice.svg"
+                                        src="/assets/assets/images/svgs/icon-dd-invoice.svg"
                                         alt="modernize-img"
                                         className="img-fluid"
                                         width={24}
@@ -660,7 +662,7 @@ const Navigation = ({ onButtonClick }) => {
                                   >
                                     <div className="text-bg-light rounded-1 me-3 p-6 d-flex align-items-center justify-content-center">
                                       <img
-                                        src="./assets/assets/images/svgs/icon-dd-mobile.svg"
+                                        src="/assets/assets/images/svgs/icon-dd-mobile.svg"
                                         alt="modernize-img"
                                         className="img-fluid"
                                         width={24}
@@ -682,7 +684,7 @@ const Navigation = ({ onButtonClick }) => {
                                   >
                                     <div className="text-bg-light rounded-1 me-3 p-6 d-flex align-items-center justify-content-center">
                                       <img
-                                        src="./assets/assets/images/svgs/icon-dd-message-box.svg"
+                                        src="/assets/assets/images/svgs/icon-dd-message-box.svg"
                                         alt="modernize-img"
                                         className="img-fluid"
                                         width={24}
@@ -708,7 +710,7 @@ const Navigation = ({ onButtonClick }) => {
                                   >
                                     <div className="text-bg-light rounded-1 me-3 p-6 d-flex align-items-center justify-content-center">
                                       <img
-                                        src="./assets/assets/images/svgs/icon-dd-cart.svg"
+                                        src="/assets/assets/images/svgs/icon-dd-cart.svg"
                                         alt="modernize-img"
                                         className="img-fluid"
                                         width={24}
@@ -730,7 +732,7 @@ const Navigation = ({ onButtonClick }) => {
                                   >
                                     <div className="text-bg-light rounded-1 me-3 p-6 d-flex align-items-center justify-content-center">
                                       <img
-                                        src="./assets/assets/images/svgs/icon-dd-date.svg"
+                                        src="/assets/assets/images/svgs/icon-dd-date.svg"
                                         alt="modernize-img"
                                         className="img-fluid"
                                         width={24}
@@ -752,7 +754,7 @@ const Navigation = ({ onButtonClick }) => {
                                   >
                                     <div className="text-bg-light rounded-1 me-3 p-6 d-flex align-items-center justify-content-center">
                                       <img
-                                        src="./assets/assets/images/svgs/icon-dd-lifebuoy.svg"
+                                        src="/assets/assets/images/svgs/icon-dd-lifebuoy.svg"
                                         alt="modernize-img"
                                         className="img-fluid"
                                         width={24}
@@ -774,7 +776,7 @@ const Navigation = ({ onButtonClick }) => {
                                   >
                                     <div className="text-bg-light rounded-1 me-3 p-6 d-flex align-items-center justify-content-center">
                                       <img
-                                        src="./assets/assets/images/svgs/icon-dd-application.svg"
+                                        src="/assets/assets/images/svgs/icon-dd-application.svg"
                                         alt="modernize-img"
                                         className="img-fluid"
                                         width={24}
@@ -821,7 +823,7 @@ const Navigation = ({ onButtonClick }) => {
                             <li className="mb-3">
                               <Link
                                 className="fw-semibold bg-hover-primary"
-                                to="../dark/page-pricing.html"
+                                to="./dark/page-pricing.html"
                               >
                                 Pricing Page
                               </Link>
@@ -829,7 +831,7 @@ const Navigation = ({ onButtonClick }) => {
                             <li className="mb-3">
                               <Link
                                 className="fw-semibold bg-hover-primary"
-                                to="../dark/authentication-login.html"
+                                to="./dark/authentication-login.html"
                               >
                                 Authentication Design
                               </Link>
@@ -837,7 +839,7 @@ const Navigation = ({ onButtonClick }) => {
                             <li className="mb-3">
                               <Link
                                 className="fw-semibold bg-hover-primary"
-                                to="../dark/authentication-register.html"
+                                to="./dark/authentication-register.html"
                               >
                                 Register Now
                               </Link>
@@ -845,7 +847,7 @@ const Navigation = ({ onButtonClick }) => {
                             <li className="mb-3">
                               <Link
                                 className="fw-semibold bg-hover-primary"
-                                to="../dark/authentication-error.html"
+                                to="./dark/authentication-error.html"
                               >
                                 404 Error Page
                               </Link>
@@ -869,7 +871,7 @@ const Navigation = ({ onButtonClick }) => {
                             <li className="mb-3">
                               <Link
                                 className="fw-semibold bg-hover-primary"
-                                to="../dark/page-account-settings.html"
+                                to="./dark/page-account-settings.html"
                               >
                                 Account Settings
                               </Link>
@@ -903,7 +905,7 @@ const Navigation = ({ onButtonClick }) => {
             <div className="d-block d-xl-none">
               <Link to="/" className="text-nowrap nav-link">
                 <img
-                  src="./assets/assets/images/logos/dark-logo.svg"
+                  src="/assets/assets/images/logos/dark-logo.svg"
                   width={180}
                   alt="modernize-img"
                 />
@@ -935,7 +937,7 @@ const Navigation = ({ onButtonClick }) => {
                   data-bs-target="#mobilenavbar"
                   aria-controls="offcanvasWithBothOptions"
                 >
-                  <i className="ti ti-align-justified fs-7" />
+                  <i className="ti ti-align-justified fs-3" />
                 </Link>
                 <ul className="navbar-nav flex-row ms-auto align-items-center justify-content-center">
                   {/* ------------------------------- */}
@@ -957,7 +959,7 @@ const Navigation = ({ onButtonClick }) => {
                       aria-expanded="false"
                     >
                       <img
-                        src="./assets/assets/images/svgs/icon-flag-en.svg"
+                        src="/assets/assets/images/svgs/icon-flag-en.svg"
                         alt="modernize-img"
                         width="20px"
                         height="20px"
@@ -975,7 +977,7 @@ const Navigation = ({ onButtonClick }) => {
                         >
                           <div className="position-relative">
                             <img
-                              src="./assets/assets/images/svgs/icon-flag-en.svg"
+                              src="/assets/assets/images/svgs/icon-flag-en.svg"
                               alt="modernize-img"
                               width="20px"
                               height="20px"
@@ -990,7 +992,7 @@ const Navigation = ({ onButtonClick }) => {
                         >
                           <div className="position-relative">
                             <img
-                              src="./assets/assets/images/svgs/icon-flag-cn.svg"
+                              src="/assets/assets/images/svgs/icon-flag-cn.svg"
                               alt="modernize-img"
                               width="20px"
                               height="20px"
@@ -1005,7 +1007,7 @@ const Navigation = ({ onButtonClick }) => {
                         >
                           <div className="position-relative">
                             <img
-                              src="./assets/assets/images/svgs/icon-flag-fr.svg"
+                              src="/assets/assets/images/svgs/icon-flag-fr.svg"
                               alt="modernize-img"
                               width="20px"
                               height="20px"
@@ -1020,7 +1022,7 @@ const Navigation = ({ onButtonClick }) => {
                         >
                           <div className="position-relative">
                             <img
-                              src="./assets/assets/images/svgs/icon-flag-sa.svg"
+                              src="/assets/assets/images/svgs/icon-flag-sa.svg"
                               alt="modernize-img"
                               width="20px"
                               height="20px"
@@ -1085,7 +1087,7 @@ const Navigation = ({ onButtonClick }) => {
                         >
                           <span className="me-3">
                             <img
-                              src="./assets/assets/images/profile/user-2.jpg"
+                              src="/assets/assets/images/profile/user-2.jpg"
                               alt="user"
                               className="rounded-circle"
                               width={48}
@@ -1096,7 +1098,7 @@ const Navigation = ({ onButtonClick }) => {
                             <h6 className="mb-1 fw-semibold lh-base">
                               Roman Joined the Team!
                             </h6>
-                            <span className="fs-2 d-block text-body-secondary">
+                            <span className="d-block text-body-secondary">
                               Congratulate him
                             </span>
                           </div>
@@ -1107,7 +1109,7 @@ const Navigation = ({ onButtonClick }) => {
                         >
                           <span className="me-3">
                             <img
-                              src="./assets/assets/images/profile/user-3.jpg"
+                              src="/assets/assets/images/profile/user-3.jpg"
                               alt="user"
                               className="rounded-circle"
                               width={48}
@@ -1118,7 +1120,7 @@ const Navigation = ({ onButtonClick }) => {
                             <h6 className="mb-1 fw-semibold lh-base">
                               New message
                             </h6>
-                            <span className="fs-2 d-block text-body-secondary">
+                            <span className=" d-block text-body-secondary">
                               Salma sent you new message
                             </span>
                           </div>
@@ -1129,7 +1131,7 @@ const Navigation = ({ onButtonClick }) => {
                         >
                           <span className="me-3">
                             <img
-                              src="./assets/assets/images/profile/user-4.jpg"
+                              src="/assets/assets/images/profile/user-4.jpg"
                               alt="user"
                               className="rounded-circle"
                               width={48}
@@ -1151,7 +1153,7 @@ const Navigation = ({ onButtonClick }) => {
                         >
                           <span className="me-3">
                             <img
-                              src="./assets/assets/images/profile/user-5.jpg"
+                              src="/assets/assets/images/profile/user-5.jpg"
                               alt="user"
                               className="rounded-circle"
                               width={48}
@@ -1162,7 +1164,7 @@ const Navigation = ({ onButtonClick }) => {
                             <h6 className="mb-1 fw-semibold lh-base">
                               Jolly completed tasks
                             </h6>
-                            <span className="fs-2 d-block text-body-secondary">
+                            <span className=" d-block text-body-secondary">
                               Assign her new tasks
                             </span>
                           </div>
@@ -1173,7 +1175,7 @@ const Navigation = ({ onButtonClick }) => {
                         >
                           <span className="me-3">
                             <img
-                              src="./assets/assets/images/profile/user-6.jpg"
+                              src="/assets/assets/images/profile/user-6.jpg"
                               alt="user"
                               className="rounded-circle"
                               width={48}
@@ -1184,7 +1186,7 @@ const Navigation = ({ onButtonClick }) => {
                             <h6 className="mb-1 fw-semibold lh-base">
                               John received payment
                             </h6>
-                            <span className="fs-2 d-block text-body-secondary">
+                            <span className=" d-block text-body-secondary">
                               $230 deducted from account
                             </span>
                           </div>
@@ -1195,7 +1197,7 @@ const Navigation = ({ onButtonClick }) => {
                         >
                           <span className="me-3">
                             <img
-                              src="./assets/assets/images/profile/user-7.jpg"
+                              src="/assets/assets/images/profile/user-7.jpg"
                               alt="user"
                               className="rounded-circle"
                               width={48}
@@ -1206,7 +1208,7 @@ const Navigation = ({ onButtonClick }) => {
                             <h6 className="mb-1 fw-semibold lh-base">
                               Roman Joined the Team!
                             </h6>
-                            <span className="fs-2 d-block text-body-secondary">
+                            <span className=" d-block text-body-secondary">
                               Congratulate him
                             </span>
                           </div>
@@ -1235,7 +1237,7 @@ const Navigation = ({ onButtonClick }) => {
                       <div className="d-flex align-items-center">
                         <div className="user-profile-img">
                           <img
-                            src="./assets/assets/images/profile/user-1.jpg"
+                            src="/assets/assets/images/profile/user-1.jpg"
                             className="rounded-circle"
                             width={35}
                             height={35}
@@ -1261,7 +1263,7 @@ const Navigation = ({ onButtonClick }) => {
                           >
                             <span className="d-flex align-items-center justify-content-center text-bg-light rounded-1 p-6">
                               <img
-                                src="./assets/logo/logo-light.png"
+                                src="/assets/logo/logo-light.png"
                                 alt="modernize-img"
                                 width={24}
                                 height={24}
@@ -1271,7 +1273,7 @@ const Navigation = ({ onButtonClick }) => {
                               <h6 className="mb-1 fs-3 fw-semibold lh-base">
                                 My Profile
                               </h6>
-                              <span className="fs-2 d-block text-body-secondary">
+                              <span className=" d-block text-body-secondary">
                                 Account Settings
                               </span>
                             </div>
@@ -1282,7 +1284,7 @@ const Navigation = ({ onButtonClick }) => {
                           >
                             <span className="d-flex align-items-center justify-content-center text-bg-light rounded-1 p-6">
                               <img
-                                src="./assets/assets/images/svgs/icon-inbox.svg"
+                                src="/assets/assets/images/svgs/icon-inbox.svg"
                                 alt="modernize-img"
                                 width={24}
                                 height={24}
@@ -1292,7 +1294,7 @@ const Navigation = ({ onButtonClick }) => {
                               <h6 className="mb-1 fs-3 fw-semibold lh-base">
                                 My Inbox
                               </h6>
-                              <span className="fs-2 d-block text-body-secondary">
+                              <span className=" d-block text-body-secondary">
                                 Messages &amp; Emails
                               </span>
                             </div>
@@ -1303,28 +1305,28 @@ const Navigation = ({ onButtonClick }) => {
                           >
                             <span className="d-flex align-items-center justify-content-center text-bg-light rounded-1 p-6">
                               <img
-                                src="./assets/assets/images/svgs/icon-tasks.svg"
+                                src="/assets/assets/images/svgs/icon-tasks.svg"
                                 alt="modernize-img"
                                 width={24}
                                 height={24}
                               />
                             </span>
                             <div className="w-100 ps-3">
-                              <h6 className="mb-1 fs-3 fw-semibold lh-base">
+                              <h6 className="mb-1 fw-semibold lh-base">
                                 My Task
                               </h6>
-                              <span className="fs-2 d-block text-body-secondary">
+                              <span className=" d-block text-body-secondary">
                                 To-do and Daily Tasks
                               </span>
                             </div>
                           </Link>
                         </div>
-                        <div className="d-grid py-4 px-7 pt-8">
+                        <div className="d-grid py-4 px-4 pt-5">
                           <div className="upgrade-plan bg-primary-subtle position-relative overflow-hidden rounded-4 p-4 mb-9">
                             <div className="row"></div>
                           </div>
                           <Link
-                            to="../dark/authentication-login.html"
+                            to="./dark/authentication-login.html"
                             className="btn btn-outline-primary"
                           >
                             Log Out
@@ -1381,31 +1383,31 @@ const Navigation = ({ onButtonClick }) => {
                     </Link>
                   </li>
                   <li className="sidebar-item">
-                    <Link to="../dark/index2.html" className="sidebar-link">
+                    <Link to="./dark/index2.html" className="sidebar-link">
                       <i className="ti ti-shopping-cart" />
                       <span className="hide-menu">eCommerce</span>
                     </Link>
                   </li>
                   <li className="sidebar-item">
-                    <Link to="../dark/index3.html" className="sidebar-link">
+                    <Link to="./dark/index3.html" className="sidebar-link">
                       <i className="ti ti-currency-dollar" />
                       <span className="hide-menu">NFT</span>
                     </Link>
                   </li>
                   <li className="sidebar-item">
-                    <Link to="../dark/index4.html" className="sidebar-link">
+                    <Link to="./dark/index4.html" className="sidebar-link">
                       <i className="ti ti-cpu" />
                       <span className="hide-menu">Crypto</span>
                     </Link>
                   </li>
                   <li className="sidebar-item">
-                    <Link to="../dark/index5.html" className="sidebar-link">
+                    <Link to="./dark/index5.html" className="sidebar-link">
                       <i className="ti ti-activity-heartbeat" />
                       <span className="hide-menu">General</span>
                     </Link>
                   </li>
                   <li className="sidebar-item">
-                    <Link to="../dark/index6.html" className="sidebar-link">
+                    <Link to="./dark/index6.html" className="sidebar-link">
                       <i className="ti ti-playlist" />
                       <span className="hide-menu">Music</span>
                     </Link>
@@ -1438,7 +1440,7 @@ const Navigation = ({ onButtonClick }) => {
                     </Link>
                   </li>
                   <li className="sidebar-item">
-                    <Link to="../dark/app-kanban.html" className="sidebar-link">
+                    <Link to="./dark/app-kanban.html" className="sidebar-link">
                       <i className="ti ti-layout-kanban" />
                       <span className="hide-menu">Kanban</span>
                     </Link>
@@ -1492,14 +1494,14 @@ const Navigation = ({ onButtonClick }) => {
                     </Link>
                   </li>
                   <li className="sidebar-item">
-                    <Link to="../dark/blog-posts.html" className="sidebar-link">
+                    <Link to="./dark/blog-posts.html" className="sidebar-link">
                       <i className="ti ti-article" />
                       <span className="hide-menu">Posts</span>
                     </Link>
                   </li>
                   <li className="sidebar-item">
                     <Link
-                      to="../dark/blog-detail.html"
+                      to="./dark/blog-detail.html"
                       className="sidebar-link"
                     >
                       <i className="ti ti-details" />
@@ -1507,14 +1509,14 @@ const Navigation = ({ onButtonClick }) => {
                     </Link>
                   </li>
                   <li className="sidebar-item">
-                    <Link to="../dark/eco-shop.html" className="sidebar-link">
+                    <Link to="./dark/eco-shop.html" className="sidebar-link">
                       <i className="ti ti-shopping-cart" />
                       <span className="hide-menu">Shop</span>
                     </Link>
                   </li>
                   <li className="sidebar-item">
                     <Link
-                      to="../dark/eco-shop-detail.html"
+                      to="./dark/eco-shop-detail.html"
                       className="sidebar-link"
                     >
                       <i className="ti ti-basket" />
@@ -1523,7 +1525,7 @@ const Navigation = ({ onButtonClick }) => {
                   </li>
                   <li className="sidebar-item">
                     <Link
-                      to="../dark/eco-product-list.html"
+                      to="./dark/eco-product-list.html"
                       className="sidebar-link"
                     >
                       <i className="ti ti-list-check" />
@@ -1532,7 +1534,7 @@ const Navigation = ({ onButtonClick }) => {
                   </li>
                   <li className="sidebar-item">
                     <Link
-                      to="../dark/eco-checkout.html"
+                      to="./dark/eco-checkout.html"
                       className="sidebar-link"
                     >
                       <i className="ti ti-brand-shopee" />
@@ -1542,7 +1544,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       className="sidebar-link"
-                      to="../dark/eco-add-product.html"
+                      to="./dark/eco-add-product.html"
                     >
                       <i className="ti ti-file-plus" />
                       <span className="hide-menu">Add Product</span>
@@ -1551,7 +1553,7 @@ const Navigation = ({ onButtonClick }) => {
                   <li className="sidebar-item">
                     <Link
                       className="sidebar-link"
-                      to="../dark/eco-edit-product.html"
+                      to="./dark/eco-edit-product.html"
                     >
                       <i className="ti ti-file-pencil" />
                       <span className="hide-menu">Edit Product</span>
@@ -1583,7 +1585,7 @@ const Navigation = ({ onButtonClick }) => {
                 <ul aria-expanded="false" className="collapse first-level">
                   <li className="sidebar-item">
                     <Link
-                      to="../dark/frontend-landingpage.html"
+                      to="./dark/frontend-landingpage.html"
                       className="sidebar-link"
                     >
                       <i className="ti ti-circle" />
@@ -1592,7 +1594,7 @@ const Navigation = ({ onButtonClick }) => {
                   </li>
                   <li className="sidebar-item">
                     <Link
-                      to="../dark/frontend-aboutpage.html"
+                      to="./dark/frontend-aboutpage.html"
                       className="sidebar-link"
                     >
                       <i className="ti ti-circle" />
@@ -1601,7 +1603,7 @@ const Navigation = ({ onButtonClick }) => {
                   </li>
                   <li className="sidebar-item">
                     <Link
-                      to="../dark/frontend-contactpage.html"
+                      to="./dark/frontend-contactpage.html"
                       className="sidebar-link"
                     >
                       <i className="ti ti-circle" />
@@ -1610,7 +1612,7 @@ const Navigation = ({ onButtonClick }) => {
                   </li>
                   <li className="sidebar-item">
                     <Link
-                      to="../dark/frontend-blogpage.html"
+                      to="./dark/frontend-blogpage.html"
                       className="sidebar-link"
                     >
                       <i className="ti ti-circle" />
@@ -1619,7 +1621,7 @@ const Navigation = ({ onButtonClick }) => {
                   </li>
                   <li className="sidebar-item">
                     <Link
-                      to="../dark/frontend-blogdetailpage.html"
+                      to="./dark/frontend-blogdetailpage.html"
                       className="sidebar-link"
                     >
                       <i className="ti ti-circle" />
@@ -1648,14 +1650,14 @@ const Navigation = ({ onButtonClick }) => {
                 </Link>
                 <ul aria-expanded="false" className="collapse first-level">
                   <li className="sidebar-item">
-                    <Link to="../dark/page-faq.html" className="sidebar-link">
+                    <Link to="./dark/page-faq.html" className="sidebar-link">
                       <i className="ti ti-help" />
                       <span className="hide-menu">FAQ</span>
                     </Link>
                   </li>
                   <li className="sidebar-item">
                     <Link
-                      to="../dark/page-account-settings.html"
+                      to="./dark/page-account-settings.html"
                       className="sidebar-link"
                     >
                       <i className="ti ti-user-circle" />
@@ -1664,7 +1666,7 @@ const Navigation = ({ onButtonClick }) => {
                   </li>
                   <li className="sidebar-item">
                     <Link
-                      to="../dark/page-pricing.html"
+                      to="./dark/page-pricing.html"
                       className="sidebar-link"
                     >
                       <i className="ti ti-currency-dollar" />
@@ -1673,7 +1675,7 @@ const Navigation = ({ onButtonClick }) => {
                   </li>
                   <li className="sidebar-item">
                     <Link
-                      to="../dark/widgets-cards.html"
+                      to="./dark/widgets-cards.html"
                       className="sidebar-link"
                     >
                       <i className="ti ti-cards" />
@@ -1682,7 +1684,7 @@ const Navigation = ({ onButtonClick }) => {
                   </li>
                   <li className="sidebar-item">
                     <Link
-                      to="../dark/widgets-banners.html"
+                      to="./dark/widgets-banners.html"
                       className="sidebar-link"
                     >
                       <i className="ti ti-ad" />
@@ -1691,7 +1693,7 @@ const Navigation = ({ onButtonClick }) => {
                   </li>
                   <li className="sidebar-item">
                     <Link
-                      to="../dark/widgets-charts.html"
+                      to="./dark/widgets-charts.html"
                       className="sidebar-link"
                     >
                       <i className="ti ti-chart-bar" />
@@ -1730,7 +1732,7 @@ const Navigation = ({ onButtonClick }) => {
                 <ul aria-expanded="false" className="collapse first-level">
                   <li className="sidebar-item">
                     <Link
-                      to="../dark/ui-accordian.html"
+                      to="./dark/ui-accordian.html"
                       className="sidebar-link"
                     >
                       <i className="ti ti-circle" />
@@ -1738,20 +1740,20 @@ const Navigation = ({ onButtonClick }) => {
                     </Link>
                   </li>
                   <li className="sidebar-item">
-                    <Link to="../dark/ui-badge.html" className="sidebar-link">
+                    <Link to="./dark/ui-badge.html" className="sidebar-link">
                       <i className="ti ti-circle" />
                       <span className="hide-menu">Badge</span>
                     </Link>
                   </li>
                   <li className="sidebar-item">
-                    <Link to="../dark/ui-buttons.html" className="sidebar-link">
+                    <Link to="./dark/ui-buttons.html" className="sidebar-link">
                       <i className="ti ti-circle" />
                       <span className="hide-menu">Buttons</span>
                     </Link>
                   </li>
                   <li className="sidebar-item">
                     <Link
-                      to="../dark/ui-dropdowns.html"
+                      to="./dark/ui-dropdowns.html"
                       className="sidebar-link"
                     >
                       <i className="ti ti-circle" />
@@ -1759,20 +1761,20 @@ const Navigation = ({ onButtonClick }) => {
                     </Link>
                   </li>
                   <li className="sidebar-item">
-                    <Link to="../dark/ui-modals.html" className="sidebar-link">
+                    <Link to="./dark/ui-modals.html" className="sidebar-link">
                       <i className="ti ti-circle" />
                       <span className="hide-menu">Modals</span>
                     </Link>
                   </li>
                   <li className="sidebar-item">
-                    <Link to="../dark/ui-tab.html" className="sidebar-link">
+                    <Link to="./dark/ui-tab.html" className="sidebar-link">
                       <i className="ti ti-circle" />
                       <span className="hide-menu">Tab</span>
                     </Link>
                   </li>
                   <li className="sidebar-item">
                     <Link
-                      to="../dark/ui-tooltip-popover.html"
+                      to="./dark/ui-tooltip-popover.html"
                       className="sidebar-link"
                     >
                       <i className="ti ti-circle" />
@@ -1781,7 +1783,7 @@ const Navigation = ({ onButtonClick }) => {
                   </li>
                   <li className="sidebar-item">
                     <Link
-                      to="../dark/ui-notification.html"
+                      to="./dark/ui-notification.html"
                       className="sidebar-link"
                     >
                       <i className="ti ti-circle" />
@@ -1790,7 +1792,7 @@ const Navigation = ({ onButtonClick }) => {
                   </li>
                   <li className="sidebar-item">
                     <Link
-                      to="../dark/ui-progressbar.html"
+                      to="./dark/ui-progressbar.html"
                       className="sidebar-link"
                     >
                       <i className="ti ti-circle" />
@@ -1799,7 +1801,7 @@ const Navigation = ({ onButtonClick }) => {
                   </li>
                   <li className="sidebar-item">
                     <Link
-                      to="../dark/ui-pagination.html"
+                      to="./dark/ui-pagination.html"
                       className="sidebar-link"
                     >
                       <i className="ti ti-circle" />
@@ -1808,7 +1810,7 @@ const Navigation = ({ onButtonClick }) => {
                   </li>
                   <li className="sidebar-item">
                     <Link
-                      to="../dark/ui-typography.html"
+                      to="./dark/ui-typography.html"
                       className="sidebar-link"
                     >
                       <i className="ti ti-circle" />
@@ -1817,7 +1819,7 @@ const Navigation = ({ onButtonClick }) => {
                   </li>
                   <li className="sidebar-item">
                     <Link
-                      to="../dark/ui-bootstrap-ui.html"
+                      to="./dark/ui-bootstrap-ui.html"
                       className="sidebar-link"
                     >
                       <i className="ti ti-circle" />
@@ -1826,7 +1828,7 @@ const Navigation = ({ onButtonClick }) => {
                   </li>
                   <li className="sidebar-item">
                     <Link
-                      to="../dark/ui-breadcrumb.html"
+                      to="./dark/ui-breadcrumb.html"
                       className="sidebar-link"
                     >
                       <i className="ti ti-circle" />
@@ -1835,7 +1837,7 @@ const Navigation = ({ onButtonClick }) => {
                   </li>
                   <li className="sidebar-item">
                     <Link
-                      to="../dark/ui-offcanvas.html"
+                      to="./dark/ui-offcanvas.html"
                       className="sidebar-link"
                     >
                       <i className="ti ti-circle" />
@@ -1843,20 +1845,20 @@ const Navigation = ({ onButtonClick }) => {
                     </Link>
                   </li>
                   <li className="sidebar-item">
-                    <Link to="../dark/ui-lists.html" className="sidebar-link">
+                    <Link to="./dark/ui-lists.html" className="sidebar-link">
                       <i className="ti ti-circle" />
                       <span className="hide-menu">Lists</span>
                     </Link>
                   </li>
                   <li className="sidebar-item">
-                    <Link to="../dark/ui-grid.html" className="sidebar-link">
+                    <Link to="./dark/ui-grid.html" className="sidebar-link">
                       <i className="ti ti-circle" />
                       <span className="hide-menu">Grid</span>
                     </Link>
                   </li>
                   <li className="sidebar-item">
                     <Link
-                      to="../dark/ui-carousel.html"
+                      to="./dark/ui-carousel.html"
                       className="sidebar-link"
                     >
                       <i className="ti ti-circle" />
@@ -1865,7 +1867,7 @@ const Navigation = ({ onButtonClick }) => {
                   </li>
                   <li className="sidebar-item">
                     <Link
-                      to="../dark/ui-scrollspy.html"
+                      to="./dark/ui-scrollspy.html"
                       className="sidebar-link"
                     >
                       <i className="ti ti-circle" />
@@ -1873,13 +1875,13 @@ const Navigation = ({ onButtonClick }) => {
                     </Link>
                   </li>
                   <li className="sidebar-item">
-                    <Link to="../dark/ui-spinner.html" className="sidebar-link">
+                    <Link to="./dark/ui-spinner.html" className="sidebar-link">
                       <i className="ti ti-circle" />
                       <span className="hide-menu">Spinner</span>
                     </Link>
                   </li>
                   <li className="sidebar-item">
-                    <Link to="../dark/ui-link.html" className="sidebar-link">
+                    <Link to="./dark/ui-link.html" className="sidebar-link">
                       <i className="ti ti-circle" />
                       <span className="hide-menu">Link</span>
                     </Link>
@@ -1911,7 +1913,7 @@ const Navigation = ({ onButtonClick }) => {
                   {/* form elements */}
                   <li className="sidebar-item">
                     <Link
-                      to="../dark/form-inputs.html"
+                      to="./dark/form-inputs.html"
                       className="sidebar-link"
                     >
                       <i className="ti ti-circle" />
@@ -1920,7 +1922,7 @@ const Navigation = ({ onButtonClick }) => {
                   </li>
                   <li className="sidebar-item">
                     <Link
-                      to="../dark/form-input-groups.html"
+                      to="./dark/form-input-groups.html"
                       className="sidebar-link"
                     >
                       <i className="ti ti-circle" />
@@ -1929,7 +1931,7 @@ const Navigation = ({ onButtonClick }) => {
                   </li>
                   <li className="sidebar-item">
                     <Link
-                      to="../dark/form-input-grid.html"
+                      to="./dark/form-input-grid.html"
                       className="sidebar-link"
                     >
                       <i className="ti ti-circle" />
@@ -1938,7 +1940,7 @@ const Navigation = ({ onButtonClick }) => {
                   </li>
                   <li className="sidebar-item">
                     <Link
-                      to="../dark/form-checkbox-radio.html"
+                      to="./dark/form-checkbox-radio.html"
                       className="sidebar-link"
                     >
                       <i className="ti ti-circle" />
@@ -1947,7 +1949,7 @@ const Navigation = ({ onButtonClick }) => {
                   </li>
                   <li className="sidebar-item">
                     <Link
-                      to="../dark/form-bootstrap-switch.html"
+                      to="./dark/form-bootstrap-switch.html"
                       className="sidebar-link"
                     >
                       <i className="ti ti-circle" />
@@ -1956,7 +1958,7 @@ const Navigation = ({ onButtonClick }) => {
                   </li>
                   <li className="sidebar-item">
                     <Link
-                      to="../dark/form-select2.html"
+                      to="./dark/form-select2.html"
                       className="sidebar-link"
                     >
                       <i className="ti ti-circle" />
@@ -1965,14 +1967,14 @@ const Navigation = ({ onButtonClick }) => {
                   </li>
                   {/* form inputs */}
                   <li className="sidebar-item">
-                    <Link to="../dark/form-basic.html" className="sidebar-link">
+                    <Link to="./dark/form-basic.html" className="sidebar-link">
                       <i className="ti ti-circle" />
                       <span className="hide-menu">Basic Form</span>
                     </Link>
                   </li>
                   <li className="sidebar-item">
                     <Link
-                      to="../dark/form-vertical.html"
+                      to="./dark/form-vertical.html"
                       className="sidebar-link"
                     >
                       <i className="ti ti-circle" />
@@ -1981,7 +1983,7 @@ const Navigation = ({ onButtonClick }) => {
                   </li>
                   <li className="sidebar-item">
                     <Link
-                      to="../dark/form-horizontal.html"
+                      to="./dark/form-horizontal.html"
                       className="sidebar-link"
                     >
                       <i className="ti ti-circle" />
@@ -1990,7 +1992,7 @@ const Navigation = ({ onButtonClick }) => {
                   </li>
                   <li className="sidebar-item">
                     <Link
-                      to="../dark/form-actions.html"
+                      to="./dark/form-actions.html"
                       className="sidebar-link"
                     >
                       <i className="ti ti-circle" />
@@ -1999,7 +2001,7 @@ const Navigation = ({ onButtonClick }) => {
                   </li>
                   <li className="sidebar-item">
                     <Link
-                      to="../dark/form-row-separator.html"
+                      to="./dark/form-row-separator.html"
                       className="sidebar-link"
                     >
                       <i className="ti ti-circle" />
@@ -2008,7 +2010,7 @@ const Navigation = ({ onButtonClick }) => {
                   </li>
                   <li className="sidebar-item">
                     <Link
-                      to="../dark/form-bordered.html"
+                      to="./dark/form-bordered.html"
                       className="sidebar-link"
                     >
                       <i className="ti ti-circle" />
@@ -2017,7 +2019,7 @@ const Navigation = ({ onButtonClick }) => {
                   </li>
                   <li className="sidebar-item">
                     <Link
-                      to="../dark/form-detail.html"
+                      to="./dark/form-detail.html"
                       className="sidebar-link"
                     >
                       <i className="ti ti-circle" />
@@ -2027,7 +2029,7 @@ const Navigation = ({ onButtonClick }) => {
                   {/* form wizard */}
                   <li className="sidebar-item">
                     <Link
-                      to="../dark/form-wizard.html"
+                      to="./dark/form-wizard.html"
                       className="sidebar-link"
                     >
                       <i className="ti ti-circle" />
@@ -2037,7 +2039,7 @@ const Navigation = ({ onButtonClick }) => {
                   {/* Quill Editor */}
                   <li className="sidebar-item">
                     <Link
-                      to="../dark/form-editor-quill.html"
+                      to="./dark/form-editor-quill.html"
                       className="sidebar-link"
                     >
                       <i className="ti ti-circle" />
@@ -2070,7 +2072,7 @@ const Navigation = ({ onButtonClick }) => {
                 <ul aria-expanded="false" className="collapse first-level">
                   <li className="sidebar-item">
                     <Link
-                      to="../dark/table-basic.html"
+                      to="./dark/table-basic.html"
                       className="sidebar-link"
                     >
                       <i className="ti ti-circle" />
@@ -2079,7 +2081,7 @@ const Navigation = ({ onButtonClick }) => {
                   </li>
                   <li className="sidebar-item">
                     <Link
-                      to="../dark/table-dark-basic.html"
+                      to="./dark/table-dark-basic.html"
                       className="sidebar-link"
                     >
                       <i className="ti ti-circle" />
@@ -2088,7 +2090,7 @@ const Navigation = ({ onButtonClick }) => {
                   </li>
                   <li className="sidebar-item">
                     <Link
-                      to="../dark/table-sizing.html"
+                      to="./dark/table-sizing.html"
                       className="sidebar-link"
                     >
                       <i className="ti ti-circle" />
@@ -2097,7 +2099,7 @@ const Navigation = ({ onButtonClick }) => {
                   </li>
                   <li className="sidebar-item">
                     <Link
-                      to="../dark/table-layout-coloured.html"
+                      to="./dark/table-layout-coloured.html"
                       className="sidebar-link"
                     >
                       <i className="ti ti-circle" />
@@ -2106,7 +2108,7 @@ const Navigation = ({ onButtonClick }) => {
                   </li>
                   <li className="sidebar-item">
                     <Link
-                      to="../dark/table-datatable-basic.html"
+                      to="./dark/table-datatable-basic.html"
                       className="sidebar-link"
                     >
                       <i className="ti ti-circle" />
@@ -2115,7 +2117,7 @@ const Navigation = ({ onButtonClick }) => {
                   </li>
                   <li className="sidebar-item">
                     <Link
-                      to="../dark/table-datatable-api.html"
+                      to="./dark/table-datatable-api.html"
                       className="sidebar-link"
                     >
                       <i className="ti ti-circle" />
@@ -2124,7 +2126,7 @@ const Navigation = ({ onButtonClick }) => {
                   </li>
                   <li className="sidebar-item">
                     <Link
-                      to="../dark/table-datatable-advanced.html"
+                      to="./dark/table-datatable-advanced.html"
                       className="sidebar-link"
                     >
                       <i className="ti ti-circle" />
@@ -2157,7 +2159,7 @@ const Navigation = ({ onButtonClick }) => {
                 <ul aria-expanded="false" className="collapse first-level">
                   <li className="sidebar-item">
                     <Link
-                      to="../dark/chart-apex-line.html"
+                      to="./dark/chart-apex-line.html"
                       className="sidebar-link"
                     >
                       <i className="ti ti-circle" />
@@ -2166,7 +2168,7 @@ const Navigation = ({ onButtonClick }) => {
                   </li>
                   <li className="sidebar-item">
                     <Link
-                      to="../dark/chart-apex-area.html"
+                      to="./dark/chart-apex-area.html"
                       className="sidebar-link"
                     >
                       <i className="ti ti-circle" />
@@ -2175,7 +2177,7 @@ const Navigation = ({ onButtonClick }) => {
                   </li>
                   <li className="sidebar-item">
                     <Link
-                      to="../dark/chart-apex-bar.html"
+                      to="./dark/chart-apex-bar.html"
                       className="sidebar-link"
                     >
                       <i className="ti ti-circle" />
@@ -2184,7 +2186,7 @@ const Navigation = ({ onButtonClick }) => {
                   </li>
                   <li className="sidebar-item">
                     <Link
-                      to="../dark/chart-apex-pie.html"
+                      to="./dark/chart-apex-pie.html"
                       className="sidebar-link"
                     >
                       <i className="ti ti-circle" />
@@ -2193,7 +2195,7 @@ const Navigation = ({ onButtonClick }) => {
                   </li>
                   <li className="sidebar-item">
                     <Link
-                      to="../dark/chart-apex-radial.html"
+                      to="./dark/chart-apex-radial.html"
                       className="sidebar-link"
                     >
                       <i className="ti ti-circle" />
@@ -2202,7 +2204,7 @@ const Navigation = ({ onButtonClick }) => {
                   </li>
                   <li className="sidebar-item">
                     <Link
-                      to="../dark/chart-apex-radar.html"
+                      to="./dark/chart-apex-radar.html"
                       className="sidebar-link"
                     >
                       <i className="ti ti-circle" />
@@ -2235,7 +2237,7 @@ const Navigation = ({ onButtonClick }) => {
                 <ul aria-expanded="false" className="collapse first-level">
                   <li className="sidebar-item">
                     <Link
-                      to="../dark/icon-tabler.html"
+                      to="./dark/icon-tabler.html"
                       className="sidebar-link"
                     >
                       <i className="ti ti-circle" />
@@ -2243,7 +2245,7 @@ const Navigation = ({ onButtonClick }) => {
                     </Link>
                   </li>
                   <li className="sidebar-item">
-                    <Link to="../dark/icon-solar.html" className="sidebar-link">
+                    <Link to="./dark/icon-solar.html" className="sidebar-link">
                       <i className="ti ti-circle" />
                       <span className="hide-menu">Solar Icon</span>
                     </Link>

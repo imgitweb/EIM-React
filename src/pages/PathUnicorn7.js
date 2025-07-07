@@ -111,174 +111,157 @@ const PathUnicorn7 = () => {
 };
 
   return (
-    <>
-      <div id="main-wrapper" className={isActive ? "show-sidebar" : ""}>
-        <LeftSidebar onButtonClick={ToggleEvent} />
-        <div className="page-wrapper">
-          <Navigation onButtonClick={ToggleEvent} />
-          <div className="body-wrapper">
-            <div className="container-fluid">
-              <div className="card bg-info-subtle shadow-none position-relative overflow-hidden mb-4">
-                <div className="card-body px-4 py-3">
-                  <div className="row align-items-center">
-                    <div className="col-9">
-                      <h4 className="fw-semibold mb-8">PRODUCT LISTING</h4>
-                      <nav aria-label="breadcrumb">
-                        <ol className="breadcrumb">
-                          <li className="breadcrumb-item">
-                            <a
-                              className="text-muted text-decoration-none"
-                              href="../dark/index.html">
-                              Home
-                            </a>
-                          </li>
-                          <li className="breadcrumb-item" aria-current="page">
-                            PRODUCT LISTING
-                          </li>
-                        </ol>
-                      </nav>
-                    </div>
-                    <div className="col-3">
-                      <div className="text-center mb-n5">
-                        <img
-                          src="./assets/assets/images/breadcrumb/ChatBc.png"
-                          alt="modernize-img"
-                          className="img-fluid mb-n4"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+<>
+  <div id="main-wrapper" className={isActive ? "show-sidebar" : ""}>
+    <LeftSidebar onButtonClick={ToggleEvent} />
 
-              {/* Layout */}
-              <div className="card" style={styles.card}>
-                <div className="row">
-                  {/* Sidebar Component */}
-                  <div className="col-md-2  col-12 sidebar-container">
-                    <Sidebar 
-                      style={styles.sidebarContainer}
-                      selectedSection="Product Listing"
-                      setSelectedSection={() => {}}
-                    />
-                  </div>
+    <div className="page-wrapper">
+      <Navigation onButtonClick={ToggleEvent} />
 
-                  {/* Main Content */}
-                  <div style={styles.mainContent} className="col-md-6 col-12">
-                    <h1
-                      style={{
-                        display: "flex",
-                        justifyContent: "space-between", // Pushes elements to both ends
-                        alignItems: "center", // Aligns items vertically
-                        fontSize: "28px",
-                        marginBottom: "20px",
-                        marginTop: "10px",
-                        // minHeight: "100%",
-
-                        width: "100%", // Ensures full width
-                      }}>
-                      <span
-                        style={{
-                          fontWeight: "bold", // Highlighted text styling
-                          // color: "#223662", // Adjust the color as needed
-                        }}>
+      <div className="body-wrapper">
+        <div className="container-fluid">
+          {/* Header */}
+          <div className="card bg-info-subtle shadow-none mb-4">
+            <div className="card-body px-4 py-3">
+              <div className="row align-items-center">
+                <div className="col-md-9 col-12">
+                  <h4 className="fw-semibold mb-2">PRODUCT LISTING</h4>
+                  <nav aria-label="breadcrumb">
+                    <ol className="breadcrumb">
+                      <li className="breadcrumb-item">
+                        <a className="text-muted text-decoration-none" href="../dark/index.html">
+                          Home
+                        </a>
+                      </li>
+                      <li className="breadcrumb-item active" aria-current="page">
                         PRODUCT LISTING
-                      </span>
-                      <Link
-                        to="/salesfunnel"
-                        className="text-end btn btn-lg bg-default"
-                        style={{
-                          backgroundColor: theme === "dark" ? "#4F73D9" : "#F5F5F5",
-                          color: theme === "dark" ? "#FFFFFF" : "#000000",
-                          padding: "10px 20px",
-                          borderRadius: "5px",
-                          textDecoration: "none",
-                          fontSize: "16px",
-                        }}>
-                        ← Back
-                      </Link>
-                    </h1>
-
-                    {/* Input Form */}
-                    <form style={styles.form} className="form-container">
-                      <input
-                        className="form-control"
-                        type="text"
-                        name="name"
-                        placeholder="Name"
-                        value={form.name}
-                        onChange={handleInputChange}
-                        style={styles.inputField}
-                      />
-                      <input
-                        className="form-control"
-                        type="text"
-                        name="category"
-                        placeholder="Category"
-                        value={form.category}
-                        onChange={handleInputChange}
-                        style={styles.inputField}
-                      />
-                      <input
-                        className="form-control"
-                        type="text"
-                        name="price"
-                        placeholder="Price"
-                        value={form.price}
-                        onChange={handleInputChange}
-                        style={styles.inputField}
-                      />
-                      <button
-                        onClick={addData}
-                        type="button"
-                        style={styles.saveButton}>
-                        Save
-                      </button>
-                    </form>
-
-                    {/* Product Listing Table */}
-                    <div
-                      style={styles.tableContainer}
-                      className="table-container">
-                      <table style={styles.table}>
-                        <thead>
-                          <tr>
-                            <th style={styles.tableHeader}>S.No.</th>
-                            <th style={styles.tableHeader}>Name</th>
-                            <th style={styles.tableHeader}>Category</th>
-                            <th style={styles.tableHeader}>Price</th>
-                            <th style={styles.tableHeader}>Action</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {productListing.map((item, index) => (
-                            <tr key={item.id}>
-                              <td style={styles.tableData}>{index + 1}</td>
-                              <td style={styles.tableData}>{item.name}</td>
-                              <td style={styles.tableData}>{item.category}</td>
-                              <td style={styles.tableData}>{item.price}</td>
-                              <td style={styles.tableData}>
-                                <button
-                                  onClick={() => deleteData(item.id)}
-                                  style={styles.deleteButton}>
-                                  Delete
-                                </button>
-                              </td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
+                      </li>
+                    </ol>
+                  </nav>
+                </div>
+                <div className="col-md-3 col-12 text-center mt-3 mt-md-0">
+                  <img
+                    src="./assets/assets/images/breadcrumb/ChatBc.png"
+                    alt="breadcrumb"
+                    className="img-fluid"
+                  />
                 </div>
               </div>
             </div>
           </div>
+
+          {/* Layout */}
+          <div className="card p-3">
+            <div className="row">
+              {/* Sidebar - visible on all devices now */}
+              <div className="col-lg-3 col-md-4 col-12 mb-3 mb-md-0">
+                <Sidebar
+                  style={styles.sidebarContainer}
+                  selectedSection="Product Listing"
+                  setSelectedSection={() => {}}
+                />
+              </div>
+
+              {/* Main Content */}
+              <div className="col-lg-9 col-md-8 col-12 px-3">
+                {/* Heading and Back Button */}
+                <div className="d-flex justify-content-between align-items-center flex-wrap mb-4">
+                  <h1 className="fw-bold fs-4 mb-2 mb-md-0">PRODUCT LISTING</h1>
+                  <Link
+                    to="/salesfunnel"
+                    className="btn btn-outline-primary btn-sm">
+                    ← Back
+                  </Link>
+                </div>
+
+                {/* Input Form */}
+                <form className="row g-3">
+                  <div className="col-md-4 col-12">
+                    <input
+                      type="text"
+                      name="name"
+                      placeholder="Name"
+                      value={form.name}
+                      onChange={handleInputChange}
+                      className="form-control"
+                    />
+                  </div>
+                  <div className="col-md-4 col-12">
+                    <input
+                      type="text"
+                      name="category"
+                      placeholder="Category"
+                      value={form.category}
+                      onChange={handleInputChange}
+                      className="form-control"
+                    />
+                  </div>
+                  <div className="col-md-4 col-12">
+                    <input
+                      type="text"
+                      name="price"
+                      placeholder="Price"
+                      value={form.price}
+                      onChange={handleInputChange}
+                      className="form-control"
+                    />
+                  </div>
+                  <div className="col-12 text-end">
+                    <button
+                      type="button"
+                      onClick={addData}
+                      className="btn btn-primary">
+                      Save
+                    </button>
+                  </div>
+                </form>
+
+                {/* Product Listing Table */}
+                <div className="table-responsive mt-4">
+                  <table className="table table-bordered">
+                    <thead className="table-light">
+                      <tr>
+                        <th>S.No.</th>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {productListing.map((item, index) => (
+                        <tr key={item.id}>
+                          <td>{index + 1}</td>
+                          <td>{item.name}</td>
+                          <td>{item.category}</td>
+                          <td>{item.price}</td>
+                          <td>
+                            <button
+                              onClick={() => deleteData(item.id)}
+                              className="btn btn-danger btn-sm">
+                              Delete
+                            </button>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
-        <SerchBar />
       </div>
-      <div className="dark-transparent sidebartoggler" />
-    </>
+    </div>
+
+    <SerchBar />
+  </div>
+
+  <div className="dark-transparent sidebartoggler" />
+</>
+
+
   );
 };
 
