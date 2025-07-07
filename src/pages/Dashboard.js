@@ -11,6 +11,8 @@ import StatCard from "../componant/NewDashboard/StatCard";
 import BarChart from "../componant/NewDashboard/BarChart";
 import TaskList from "../componant/NewDashboard/TaskList";
 import CustomDashboard from "../componant/NewDashboard/CustomDashboard";
+import SecondSidebar from "../componant/SecondSidebar";
+import InfoCard from "../componant/NewDashboard/InfoCard";
 
 const Dashboard = () => {
   const [selectedValue, setSelectedValue] = useState("option1");
@@ -60,19 +62,62 @@ const Dashboard = () => {
     }
   }, []);
 
+  const cardsData = [
+  {
+    title: "Idea Validation Score",
+    description: "78% - High potential",
+    icon: "ti ti-activity",
+    iconColor: "text-primary",
+    progress: 78,
+  },
+  {
+    title: "Startup Health Index",
+    description: "Moderate health",
+    icon: "ti ti-heartbeat",
+    iconColor: "text-primary",
+    progress: 60,
+  },
+  {
+    title: "MVP Status",
+    description: "In Development",
+    icon: "ti ti-rocket",
+    iconColor: "text-indigo",
+  },
+  {
+    title: "Investor Engagement",
+    description: "3 investors viewed your pitch",
+    icon: "ti ti-currency-dollar",
+    iconColor: "text-success",
+  },
+  {
+    title: "Co-founder Match",
+    description: "1 strong match found",
+    icon: "ti ti-users",
+    iconColor: "text-info",
+  },
+  {
+    title: "Milestone Tracker",
+    description: "42% progress towards launch",
+    icon: "ti ti-flag",
+    iconColor: "text-primary",
+    progress: 42,
+  },
+];
+
+
   return (
     <>
       <div id="main-wrapper" className={isActive ? "show-sidebar" : ""}>
         {/* Sidebar Start */}
-        <LeftSidebar onButtonClick={ToggleEvent} />
+        <SecondSidebar onButtonClick={ToggleEvent} />
 
         {/*  Sidebar End */}
-        <div className="page-wrapper">
+        <div className="page-wrapper bg-white">
           <Navigation onButtonClick={ToggleEvent} />
           <div className="body-wrapper">
             <div className="container-fluid pb-4  px-3">
       {/* Stat Cards */}
-   <div className="row g-3 mb-4">
+   {/* <div className="row g-3 mb-4">
   <div className="col-6 col-md-3">
     <StatCard icon={<FaBroadcastTower size={24} />} value="150GB" label="Bandwidth" color="warning" />
   </div>
@@ -85,7 +130,14 @@ const Dashboard = () => {
   <div className="col-6 col-md-3">
     <StatCard icon={<FaHeart size={24} />} value="+45K" label="Followers" color="primary" />
   </div>
-</div>
+</div> */}
+ <div className="row g-3 mb-3">
+      {cardsData.map((card, index) => (
+        <div className="col-12 col-sm-6 col-lg-4" key={index}>
+          <InfoCard {...card} />
+        </div>
+      ))}
+    </div>
 
 
       {/* User Charts */}
