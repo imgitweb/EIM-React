@@ -12,7 +12,11 @@ const Navigation = ({ onButtonClick }) => {
   return (
     <>
       {/*  Header Start */}
-      <header className="topbar bg-white">
+      <header
+      style={{
+        borderBottom: theme === "dark" ? "1px solid #333" : "1px solid #ccc",
+      }}
+      className="topbar bg-white">
         <div className="with-vertical">
           {/* ---------------------------------- */}
           {/* Start Vertical Layout Header */}

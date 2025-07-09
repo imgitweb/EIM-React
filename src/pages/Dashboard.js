@@ -13,6 +13,7 @@ import TaskList from "../componant/NewDashboard/TaskList";
 import CustomDashboard from "../componant/NewDashboard/CustomDashboard";
 import SecondSidebar from "../componant/SecondSidebar";
 import InfoCard from "../componant/NewDashboard/InfoCard";
+import { SkillCard } from "../componant/NewDashboard/SkillCard";
 
 const Dashboard = () => {
   const [selectedValue, setSelectedValue] = useState("option1");
@@ -62,47 +63,57 @@ const Dashboard = () => {
     }
   }, []);
 
-  const cardsData = [
+const cardsData = [
   {
     title: "Idea Validation Score",
-    description: "78% - High potential",
+    subTitle: "78% - High potential",
     icon: "ti ti-activity",
-    iconColor: "text-primary",
-    progress: 78,
+    color: "#3b82f6", // blue
+    current: "78%",
+    route: "/idea-validation",
   },
   {
     title: "Startup Health Index",
-    description: "Moderate health",
+    subTitle: "Moderate health",
     icon: "ti ti-heartbeat",
-    iconColor: "text-primary",
-    progress: 60,
+    color: "#3b82f6", // blue
+    current: "60%",
+    route: "/health-index",
   },
   {
     title: "MVP Status",
-    description: "In Development",
+    subTitle: "In Development",
     icon: "ti ti-rocket",
-    iconColor: "text-indigo",
+    color: "#6366f1", // indigo
+    current: "In Progress",
+    route: "/mvp-status",
   },
   {
     title: "Investor Engagement",
-    description: "3 investors viewed your pitch",
+    subTitle: "3 investors viewed your pitch",
     icon: "ti ti-currency-dollar",
-    iconColor: "text-success",
+    color: "#10b981", // green
+    current: "3 Views",
+    route: "/investor-engagement",
   },
   {
     title: "Co-founder Match",
-    description: "1 strong match found",
+    subTitle: "1 strong match found",
     icon: "ti ti-users",
-    iconColor: "text-info",
+    color: "#0ea5e9", // sky blue
+    current: "1 Match",
+    route: "/cofounder-match",
   },
   {
     title: "Milestone Tracker",
-    description: "42% progress towards launch",
+    subTitle: "42% progress towards launch",
     icon: "ti ti-flag",
-    iconColor: "text-primary",
-    progress: 42,
+    color: "#3b82f6", // blue
+    current: "42%",
+    route: "/milestone-tracker",
   },
 ];
+
 
 
   return (
@@ -131,13 +142,22 @@ const Dashboard = () => {
     <StatCard icon={<FaHeart size={24} />} value="+45K" label="Followers" color="primary" />
   </div>
 </div> */}
- <div className="row g-3 mb-3">
-      {cardsData.map((card, index) => (
-        <div className="col-12 col-sm-6 col-lg-4" key={index}>
-          <InfoCard {...card} />
-        </div>
-      ))}
+<div className="row g-3 mb-3">
+  {cardsData.map((card, index) => (
+    <div className="col-md-4 mb-2" key={index}>
+      <SkillCard
+        title={card.title}
+        subTitle={card.subTitle}
+        current={card.current}
+        color={card.color}
+        icon={card.icon}
+        // route={card.route}
+        filter={card.filter}
+      />
     </div>
+  ))}
+</div>
+
 
 
       {/* User Charts */}

@@ -5,27 +5,24 @@ const ThemeContext = createContext();
 const applyTheme = (theme) => {
   document.body.className = theme;
   document.documentElement.setAttribute("data-bs-theme", theme);
-  // document.documentElement.setAttribute('data-color-theme', "Aqua_Theme");
 };
 
 export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState("dark");
-  // On initial load
-  useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const initialTheme = savedTheme || (prefersDark ? "dark" : "light");
+  const [theme, setTheme] = useState("light");
 
-    setTheme(initialTheme);
+  // Always apply light theme on initial load
+  useEffect(() => {
+    setTheme("light");
   }, []);
 
-  // On theme change
+  // Apply and persist the theme
   useEffect(() => {
     applyTheme(theme);
     localStorage.setItem("theme", theme);
   }, [theme]);
 
   const toggleTheme = () => {
+    // If you want to keep the toggle, this will still allow switching manually
     setTheme((prev) => (prev === "light" ? "dark" : "light"));
   };
 

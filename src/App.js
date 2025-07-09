@@ -48,6 +48,7 @@ import CourseDetails from "./pages/CourseDetails";
 import LessonPlayerPage from "./pages/LessonPlayerPage";
 import CourseDetailsPage from "./pages/CourseDetails";
 import QuizPage from "./pages/QuizPage";
+import ImStartupSchool from "./pages/ImStratupSchool/ImStartupSchool";
 
 // Utility to parse tokens and store in localStorage
 function useTokenParser() {
@@ -88,6 +89,14 @@ function AppRoutes() {
         element={
           <PrivateRoute>
             <Dashboard />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/im-startup-school"
+        element={
+          <PrivateRoute>
+            <ImStartupSchool />
           </PrivateRoute>
         }
       />
