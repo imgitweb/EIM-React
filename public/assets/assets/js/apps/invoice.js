@@ -1,3 +1,7 @@
+import ApexCharts from "apexcharts";
+import $ from "jquery";
+import bootstrap from "bootstrap";
+import "owl.carousel";
 $(function () {
   $(".search-invoice").on("keyup", function () {
     var value = $(this).val().toLowerCase();

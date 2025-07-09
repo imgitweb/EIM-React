@@ -1,3 +1,6 @@
+import ApexCharts from "apexcharts";
+import $ from "jquery";
+import "owl.carousel";
 $(document).ready(function () {
   // Basic Area Chart -------> AREA CHART
   var options_area = {

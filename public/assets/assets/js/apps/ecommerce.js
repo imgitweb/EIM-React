@@ -1,3 +1,5 @@
+import $ from "jquery";
+import "owl.carousel";
 $(function () {
   // Checkout
   $(function () {
@@ -9,5 +11,3 @@ $(function () {
     });
   });
 });
-
-

@@ -1,3 +1,6 @@
+import ApexCharts from "apexcharts";
+import $ from "jquery";
+import "owl.carousel";
 $(document).ready(function () {
   // Simple Pie Chart -------> PIE CHART
   var options_simple = {

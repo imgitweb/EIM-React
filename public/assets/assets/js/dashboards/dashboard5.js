@@ -1,3 +1,7 @@
+import ApexCharts from "apexcharts";
+import $ from "jquery";
+import "bootstrap";
+import "owl.carousel";
 $(document).ready(function () {
   var chart = {
     series: [

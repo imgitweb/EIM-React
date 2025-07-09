@@ -5,6 +5,7 @@
 /*=================*/
 //  Calender Date variable
 /*=================*/
+
 var newDate = new Date();
 function getDynamicMonth() {
   getMonthValue = newDate.getMonth();
