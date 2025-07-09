@@ -26,10 +26,10 @@ const SecondSidebar = ({ onButtonClick }) => {
       icon: "ti ti-bulb",
       iconColor: "#2563EB",
       items: [
-        { name: "Submit Idea", path: "/idea/submit", icon: "ti ti-send", color: "#0EA5E9" },
-        { name: "Get AI-Powered Idea Score", path: "/idea/score", icon: "ti ti-robot", color: "#7C3AED" },
-        { name: "Feedback & Risks Analysis", path: "/idea/feedback", icon: "ti ti-message-report", color: "#F59E0B" },
-        { name: "Similar Market Case Studies", path: "/idea/case-studies", icon: "ti ti-chart-bar", color: "#10B981" },
+        { name: "Submit Idea", path: "/submit-idea", icon: "ti ti-send", color: "#0EA5E9" },
+        { name: "Get AI-Powered Idea Score", path: "/validate-ai-review", icon: "ti ti-robot", color: "#7C3AED" },
+        { name: "Feedback & Risks Analysis", path: "/feedback-risk", icon: "ti ti-message-report", color: "#F59E0B" },
+        { name: "Similar Market Case Studies", path: "/similer-market", icon: "ti ti-chart-bar", color: "#10B981" },
       ],
     },
     {

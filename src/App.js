@@ -49,6 +49,10 @@ import LessonPlayerPage from "./pages/LessonPlayerPage";
 import CourseDetailsPage from "./pages/CourseDetails";
 import QuizPage from "./pages/QuizPage";
 import ImStartupSchool from "./pages/ImStratupSchool/ImStartupSchool";
+import SubmitIdeaPage from "./pages/idea-validation/SubmitIdeaPage";
+import ValidateIdeaPage from "./pages/idea-validation/ValidateIdeaPage";
+import RiskFeedbackPage from "./pages/idea-validation/RiskFeedbackPage";
+import MarketCaseStudiesPage from "./pages/idea-validation/MarketCaseStudiesPage";
 
 // Utility to parse tokens and store in localStorage
 function useTokenParser() {
@@ -97,6 +101,38 @@ function AppRoutes() {
         element={
           <PrivateRoute>
             <ImStartupSchool />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/submit-idea"
+        element={
+          <PrivateRoute>
+            <SubmitIdeaPage />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/validate-ai-review"
+        element={
+          <PrivateRoute>
+            <ValidateIdeaPage />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/feedback-risk"
+        element={
+          <PrivateRoute>
+            <RiskFeedbackPage />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/similer-market"
+        element={
+          <PrivateRoute>
+            <MarketCaseStudiesPage />
           </PrivateRoute>
         }
       />
@@ -398,7 +434,7 @@ function App() {
   return (
     <>
       <Router>
-        <RouteWatcher />
+        {/* <RouteWatcher /> */}
         <AppRoutes />
       </Router>
     </>
