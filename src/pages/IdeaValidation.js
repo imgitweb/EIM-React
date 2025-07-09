@@ -167,6 +167,12 @@ const IdeaValidation = () => {
     setResult(getEvaluationResult(sum));
   };
 
+  // Calculate rowSpans for categories
+  const categoryRowSpans = evaluationQuestions.reduce((acc, q) => {
+    acc[q.category] = (acc[q.category] || 0) + 1;
+    return acc;
+  }, {});
+
   return (
     <>
       <div id="main-wrapper" className={isActive ? "show-sidebar" : ""}>
@@ -241,24 +247,32 @@ const IdeaValidation = () => {
                               </tr>
                             </thead>
                             <tbody>
-                              {evaluationQuestions.map((q, idx) => (
-                                <tr key={idx}>
-                                  <td>{q.category}</td>
-                                  <td>{q.question}</td>
-                                  <td>
-                                    <select
-                                      className="form-select"
-                                      value={scores[idx]}
-                                      onChange={e => handleScoreChange(idx, e.target.value)}
-                                    >
-                                      {q.options.map((opt, i) => (
-                                        <option key={i} value={opt.value}>{opt.label}</option>
-                                      ))}
-                                    </select>
-                                  </td>
-                                  <td className="text-center">{scores[idx]}</td>
-                                </tr>
-                              ))}
+                              {evaluationQuestions.map((q, idx) => {
+                                // Check if this is the first question of the category
+                                const isFirstOfCategory =
+                                  idx === 0 || evaluationQuestions[idx - 1].category !== q.category;
+                                return (
+                                  <tr key={idx}>
+                                    {isFirstOfCategory && (
+                                      <td rowSpan={categoryRowSpans[q.category]}>{q.category}</td>
+                                    )}
+                                    {/* Only render category cell for the first question in the group */}
+                                    <td>{q.question}</td>
+                                    <td>
+                                      <select
+                                        className="form-select"
+                                        value={scores[idx]}
+                                        onChange={e => handleScoreChange(idx, e.target.value)}
+                                      >
+                                        {q.options.map((opt, i) => (
+                                          <option key={i} value={opt.value}>{opt.label}</option>
+                                        ))}
+                                      </select>
+                                    </td>
+                                    <td className="text-center">{scores[idx]}</td>
+                                  </tr>
+                                );
+                              })}
                             </tbody>
                           </table>
                           <div className="text-center mt-3">
