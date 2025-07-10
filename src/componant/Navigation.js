@@ -78,7 +78,7 @@ const Navigation = ({ onButtonClick }) => {
               </li>
               <li className="nav-item nav-icon-hover-bg rounded w-auto dropdown d-none d-lg-block mx-0">
                 <div className="hover-dd">
-                  <Link className="nav-link" to="/app-profile">
+                  <Link className="nav-link" to="/im-startup-school">
                     IM Startup School
                   </Link>
                 </div>

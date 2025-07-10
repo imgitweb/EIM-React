@@ -53,14 +53,16 @@ const MarketCaseStudiesPage = () => {
         <SecondSidebar onButtonClick={ToggleEvent} />
         <div className="page-wrapper bg-white">
           <Navigation onButtonClick={ToggleEvent} />
-          <div className="body-wrapper px-3 px-md-4">
+          <div className="body-wrapper px-4">
             <div className="p-3 p-md-4 border rounded shadow-sm bg-light">
-              <h4 className="mb-4 fw-bold text-dark">Similar Market Case Studies</h4>
+              <h4 className="mb-4 fw-bold text-dark">
+                Similar Market Case Studies
+              </h4>
 
               {/* Input Section */}
               <div className="row g-3 mb-4">
                 <div className="col-md-6">
-                  <label className="form-label">Select Idea</label>
+                  <label className="form-label fw-semibold">Select Idea</label>
                   <select
                     className="form-select"
                     name="idea"
@@ -73,7 +75,7 @@ const MarketCaseStudiesPage = () => {
                   </select>
                 </div>
                 <div className="col-md-6">
-                  <label className="form-label">Sector</label>
+                  <label className="form-label fw-semibold">Sector</label>
                   <input
                     type="text"
                     className="form-control"
@@ -84,7 +86,7 @@ const MarketCaseStudiesPage = () => {
                   />
                 </div>
                 <div className="col-md-6">
-                  <label className="form-label">Problem</label>
+                  <label className="form-label fw-semibold">Problem</label>
                   <input
                     type="text"
                     className="form-control"
@@ -95,7 +97,7 @@ const MarketCaseStudiesPage = () => {
                   />
                 </div>
                 <div className="col-md-6">
-                  <label className="form-label">Solution</label>
+                  <label className="form-label fw-semibold">Solution</label>
                   <input
                     type="text"
                     className="form-control"
@@ -107,7 +109,7 @@ const MarketCaseStudiesPage = () => {
                 </div>
               </div>
 
-              <button className="btn btn-success" onClick={generateCaseStudies}>
+              <button className="btn btn-primary px-4" onClick={generateCaseStudies}>
                 Generate Case Studies
               </button>
 
@@ -146,7 +148,9 @@ const MarketCaseStudiesPage = () => {
 
                   {/* AI Insight Box */}
                   <div className="mt-4 p-3 bg-white border rounded shadow-sm">
-                    <h6 className="fw-bold mb-2">What can you learn from these cases?</h6>
+                    <h6 className="fw-bold mb-2">
+                      What can you learn from these cases?
+                    </h6>
                     <p className="mb-0 text-muted">{output.insight}</p>
                   </div>
 
@@ -159,7 +163,7 @@ const MarketCaseStudiesPage = () => {
                       ← Back to Risk Analysis
                     </button>
                     <button
-                      className="btn btn-primary"
+                      className="btn btn-success"
                       onClick={() => navigate("/submit-idea")}
                     >
                       Compare With My Idea →

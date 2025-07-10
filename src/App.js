@@ -44,9 +44,8 @@ import Banking_Template from "./startup_resources/TemplateComponent/Banking_Temp
 import Hr_Employee_agreements from "./startup_resources/TemplateComponent/Hr_Employee_Agreement";
 import Accounting_Document from "./startup_resources/TemplateComponent/Accounting_Document";
 import RouteWatcher from "./reloadDashboard/RouteWatcher";
-import CourseDetails from "./pages/CourseDetails";
 import LessonPlayerPage from "./pages/LessonPlayerPage";
-import CourseDetailsPage from "./pages/CourseDetails";
+import CourseDetailsPage from "./pages/ImStratupSchool/CourseDetails"
 import QuizPage from "./pages/QuizPage";
 import ImStartupSchool from "./pages/ImStratupSchool/ImStartupSchool";
 import SubmitIdeaPage from "./pages/idea-validation/SubmitIdeaPage";
