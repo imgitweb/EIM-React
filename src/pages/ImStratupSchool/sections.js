@@ -27,6 +27,7 @@ const sections = [
           ],
         },
         duration: "15 minutes",
+        videoUrl : "https://www.youtube.com/embed/pw9rAZeYf3g?si=CP7roX2hLqrExQcE",
         description: "An introduction to Design Thinking & Innovation Frameworks for building user-centric products.",
       },
       {

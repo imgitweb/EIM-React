@@ -73,7 +73,11 @@ export const SkillCard = ({
           >
             <i className={`${icon} text-white`} style={{ fontSize: "1.1rem" }} />
           </div>
-          <div className="flex-grow-1">
+          <div 
+          style={{
+              marginLeft: "0.3rem",
+          }}
+          className="flex-grow-1 text-truncate">
             <div
               className="fw-semibold"
               style={{
@@ -81,6 +85,7 @@ export const SkillCard = ({
                 color: "#1f2937",
                 whiteSpace: "normal",
                 wordBreak: "break-word",
+              
               }}
             >
               {title}

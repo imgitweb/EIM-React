@@ -77,10 +77,16 @@ const LessonPlayerPage = () => {
       >
         {/* Mobile close button */}
         <div className="d-flex justify-content-between align-items-center mb-3 d-md-none">
-          <h6 className="text-primary fw-semibold mb-0">📚 Course Content</h6>
+          <h6
+          style={{
+            color: "#0CA89D"
+                  }}
+           className="fw-semibold mb-0">📚 Course Content</h6>
           <button className="btn-close" onClick={() => setSidebarOpen(false)} />
         </div>
-                  <h6 className="text-primary fw-semibold mb-4 d-none d-md-block">
+                  <h6 style={{
+            color: "#0CA89D"
+                  }} className=" fw-semibold mb-4 d-none d-md-block">
   📚 Course Content
 </h6>
 
@@ -94,18 +100,28 @@ const LessonPlayerPage = () => {
             <ul className="list-unstyled">
               {section.lessons.map((lesson) => (
                 <li
-                  key={lesson.id}
-                  onClick={() => handleLessonClick(lesson.id)}
-                  className={`py-2 px-3 rounded small d-flex justify-content-between align-items-center mb-1 ${
-                    lesson.id.toString() === lessonId
-                      ? "bg-primary text-white"
-                      : "bg-light text-dark"
-                  }`}
-                  style={{ cursor: "pointer" }}
-                >
-                  <span className="text-truncate">{lesson.title}</span>
-                  <FaPlayCircle className="ms-2" />
-                </li>
+  key={lesson.id}
+  onClick={() => handleLessonClick(lesson.id)}
+  className={`py-2 px-3 rounded small d-flex justify-content-between align-items-center mb-1 ${
+    lesson.id.toString() === lessonId
+      ? "text-white"
+      : "bg-light text-dark"
+  }`}
+  style={{
+    cursor: "pointer",
+    backgroundColor: lesson.id.toString() === lessonId ? "#0CA89D" : undefined,
+  }}
+>
+  <span
+  style={{
+    color: lesson.id.toString() === lessonId ? "#fff" : "#000",
+    textDecoration: lesson.id.toString() === lessonId ? "underline" : "none",
+    fontSize: "0.8rem",
+  }}
+  className="text-truncate ">{lesson.title}</span>
+  <FaPlayCircle className="ms-2" />
+</li>
+
               ))}
             </ul>
           </div>
@@ -130,14 +146,18 @@ const LessonPlayerPage = () => {
         }}
       >
         <div className="d-flex justify-content-between align-items-center mb-4">
-          <h4 className="fw-semibold text-primary mb-0">
+          <h4 style={
+            {
+              color:"#157347"
+            }
+          } className="fw-semibold mb-0">
             🎥 Lesson: {selectedLesson.title}
           </h4>
           <button
             className="btn btn-outline-secondary"
             onClick={() => navigate("/dashboard")}
           >
-            <FaArrowLeft className="me-2" />
+            {/* <FaArrowLeft className="me- d-none d-md-block" /> */}
             Back
           </button>
         </div>
@@ -147,18 +167,18 @@ const LessonPlayerPage = () => {
           className="rounded shadow-sm mb-4 bg-light border"
           style={{ height: "60vh" }}
         >
-          {selectedLesson.videoUrl ? (
-            <iframe
-              src={selectedLesson.videoUrl}
-              title={selectedLesson.title}
-              allowFullScreen
-              className="w-100 h-100 border-0 rounded"
-            ></iframe>
-          ) : (
-            <div className="d-flex justify-content-center align-items-center h-100">
-              <p className="text-muted">⚠ Video Not Available</p>
-            </div>
-          )}
+      {selectedLesson.videoUrl?.includes("embed") ? (
+  <iframe
+    src={selectedLesson.videoUrl}
+    title={selectedLesson.title}
+    allowFullScreen
+    className="w-100 h-100 border-0 rounded"
+  ></iframe>
+) : (
+  <div className="d-flex justify-content-center align-items-center h-100">
+    <p className="text-muted">⚠ Invalid or Un-embeddable Video URL</p>
+  </div>
+)}
         </div>
 
         {/* Lesson Info */}
