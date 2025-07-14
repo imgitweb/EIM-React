@@ -170,14 +170,7 @@ const AppProfile = () => {
 
   return (
     <>
-      <div id="main-wrapper" className={isActive ? "show-sidebar" : ""}>
-        {/* Sidebar Start */}
-        <LeftSidebar onButtonClick={ToggleEvent} />
-        {/*  Sidebar End */}
-        <div className="page-wrapper">
-          <Navigation onButtonClick={ToggleEvent} />
-          <div className="body-wrapper">
-            <div className="container-fluid">
+    <div className="container-fluid">
               <div className="card bg-info-subtle shadow-none position-relative overflow-hidden mb-4">
                 <div className="card-body px-4 py-3">
                   <div className="row align-items-center">
@@ -1220,11 +1213,6 @@ const AppProfile = () => {
                 <StartupDocument />
               </div>
             </div>
-          </div>
-        </div>
-        <SerchBar />
-      </div>
-      <div className="dark-transparent sidebartoggler" />
     </>
   );
 };

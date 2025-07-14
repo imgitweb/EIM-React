@@ -1,0 +1,26 @@
+/* Sidebar.css */
+.sidebar a.nav-link-hover:hover {
+  background-color: #f1f5f9; /* Light hover background */
+  color: #1d4ed8 !important; /* Change text color on hover */
+  transition: background-color 0.2s ease;
+}
+
+/* Sidebar.css */
+.sidebar-link {
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.sidebar-link:hover {
+ background-color: #F8F9FA;
+  color: #6a90fa !important;
+}
+
+.sidebar-section-btn{
+  transition: background-color 0.2s ease, color 0.2s ease;
+  background-color: transparent;
+}
+
+.sidebar-section-btn:hover {
+  background-color: #F8F9FA;
+
+}

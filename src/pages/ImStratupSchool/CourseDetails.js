@@ -39,12 +39,7 @@ const CourseDetailsPage = () => {
 
   return (
     <>
-      <div id="main-wrapper" className={isActive ? "show-sidebar" : ""}>
-        <SecondSidebar onButtonClick={ToggleEvent} />
-        <div className="page-wrapper">
-          <Navigation onButtonClick={ToggleEvent} />
-          <div className="body-wrapper">
-            <div className="container-fluid px-3">
+                 <div className="container-fluid px-3">
   <div className="card bg-white text-dark border-0 rounded-3 shadow-sm overflow-hidden p-0">
     <div className="position-relative">
       <img
@@ -160,12 +155,6 @@ const CourseDetailsPage = () => {
     </div>
   </div>
 </div>
-
-          </div>
-        </div>
-        <SerchBar />
-      </div>
-      <div className="dark-transparent sidebartoggler" />
     </>
   );
 };

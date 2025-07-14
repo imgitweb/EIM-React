@@ -83,52 +83,6 @@ const Navigation = ({ onButtonClick }) => {
                   </Link>
                 </div>
               </li>
-              {/* ------------------------------- */}
-              {/* end apps Dropdown */}
-              {/* ------------------------------- */}
-              {/* <li className="nav-item nav-icon-hover-bg rounded w-auto dropdown d-none d-lg-block mx-0">
-                <div className="hover-dd">
-                    <Link className="nav-link" to="/rivarly-insights">
-                  Rivalry Insight
-                </Link>
-                </div>
-              </li> */}
-              {/* <li className="nav-item dropdown-hover d-none d-lg-block">
-                <Link className="nav-link" to="/calendar">
-                  Calendar
-                </Link>
-              </li> */}
-              {/* <li className="nav-item dropdown-hover d-none d-lg-block">
-                <Link className="nav-link" to="/projection">
-                  Projections
-                </Link>
-              </li> */}
-              {/* <li className="nav-item nav-icon-hover-bg rounded w-auto dropdown d-none d-lg-block mx-0">
-                <div className="hover-dd">
-                   <Link className="nav-link" to="/business">
-                  Business Model
-                </Link>
-                </div>
-              </li>
-               <li className="nav-item nav-icon-hover-bg rounded w-auto dropdown d-none d-lg-block mx-0">
-                <div className="hover-dd">
-                  <Link className="nav-link" to="/pitch-deck">
-                  Pitch Deck
-                </Link>
-                </div>
-              </li>
-               <li className="nav-item nav-icon-hover-bg rounded w-auto dropdown d-none d-lg-block mx-0">
-                <div className="hover-dd">
-                 <Link className="nav-link" to="/idea-validation">
-                  Idea Validation
-                </Link>
-                </div>
-              </li>
-              <li className="nav-item dropdown-hover d-none d-lg-block">
-                <Link className="nav-link" to="/market-research">
-                  Market Research
-                </Link>
-              </li> */}
             </ul>
             <div className="d-block d-lg-none py-4">
               <Link href="#0" className="text-nowrap logo-img">
@@ -170,21 +124,6 @@ const Navigation = ({ onButtonClick }) => {
 
                   {/* ------------------------------- */}
                   {/* start theme Dropdown */}
-                  {/* <li className="nav-item nav-icon-hover-bg rounded-circle dropdown">
-                    <Link
-                      className="nav-link position-relative"
-                      href="/#"
-                      id="drop2"
-                      aria-expanded="false"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        toggleTheme();
-                      }}
-                    >
-                      <i className={`ti ${theme === 'light' ? 'ti-sun' : 'ti-moon'}`} />
-                    </Link>
-
-                  </li> */}
 
                   {/* ------------------------------- */}
                   {/* start language Dropdown */}

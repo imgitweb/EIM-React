@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Navigation from "../../componant/Navigation";
-import SerchBar from "../../componant/SearchBar";
 import { useTheme } from "../../context/ThemeContext";
 import axios from "axios";
+import { FaChartLine, FaPlayCircle, FaTasks, FaComments } from "react-icons/fa";
 import API_URI from "../../componant/config";
-import SecondSidebar from "../../componant/SecondSidebar";
 import ReusableDashboard from "../../componant/NewDashboard/ReusableDashboard";
 import {
   FaLightbulb,
@@ -13,10 +11,10 @@ import {
   FaUsers,
   FaBullhorn,
   FaMoneyBillWave,
-  FaChartLine,
   FaUserTie,
 } from "react-icons/fa";
-import { SkillCard } from "../../componant/NewDashboard/SkillCard";
+import { SkillCard } from "../../componant/components/SkillCard";
+
 
 const ImStartupSchool = () => {
   const [isActive, setActive] = useState(false);
@@ -49,36 +47,37 @@ const ImStartupSchool = () => {
   }, [capitalizedPlan]);
 
   // Dashboard metric data
-  const metrics = [
-    {
-      title: "Course Completion",
-      subTitle: "45% of modules completed",
-      current: "45%",
-      color: "#6366F1",
-      icon: "fas fa-chart-line",
-    },
-    {
-      title: "Active Sessions",
-      subTitle: "Currently enrolled classes",
-      current: "12",
-      color: "#10B981",
-      icon: "fas fa-play-circle",
-    },
-    {
-      title: "Upcoming Tasks",
-      subTitle: "Deadlines this week",
-      current: "3",
-      color: "#F59E0B",
-      icon: "fas fa-tasks",
-    },
-    {
-      title: "Feedback Requests",
-      subTitle: "Pending reviews",
-      current: "1",
-      color: "#3B82F6",
-      icon: "fas fa-comments",
-    },
-  ];
+ const metrics = [
+  {
+    title: "Course Completion",
+    subTitle: "45% of modules completed",
+    current: "45%",
+    color: "#6366F1",
+    icon: <FaChartLine size={16} color="#fff" />,
+  },
+  {
+    title: "Active Sessions",
+    subTitle: "Currently enrolled classes",
+    current: "12",
+    color: "#10B981",
+    icon: <FaPlayCircle size={16} color="#fff" />,
+  },
+  {
+    title: "Upcoming Tasks",
+    subTitle: "Deadlines this week",
+    current: "3",
+    color: "#F59E0B",
+    icon: <FaTasks size={16} color="#fff" />,
+  },
+  {
+    title: "Feedback Requests",
+    subTitle: "Pending reviews",
+    current: "1",
+    color: "#3B82F6",
+    icon: <FaComments size={16} color="#fff" />,
+  },
+];
+
 
   const tabs = [
     {
@@ -397,12 +396,7 @@ const startupCourses = [
 
 
   return (
-    <div id="main-wrapper" className={isActive ? "show-sidebar" : ""}>
-      <SecondSidebar onButtonClick={ToggleEvent} />
-      <div className="page-wrapper bg-white">
-        <Navigation onButtonClick={ToggleEvent} />
-        <div className="body-wrapper">
-          <div className="container-fluid px-3 pb-4">
+    <div className="container-fluid ">
             {/* SkillCard-based Metric Cards */}
             <div className="row g-3 mb-4">
               {metrics.map((metric, index) => (
@@ -419,7 +413,16 @@ const startupCourses = [
             </div>
 
             {/* Main Dashboard Card */}
-            <div className="card p-4 shadow-sm">
+            <div 
+              style={{
+    backgroundColor: isDark ? "#1F2937" : "#FBFBFB",
+    padding: "20px",
+    width: "75vw",
+    maxWidth: "100%", // prevents overflow
+    borderRadius: "12px",
+  }}
+            //  className="card p-4 shadow-sm overflow-hidden mb-4 w"
+            >
               <h4 className="fw-bold mb-1">IM Startup School</h4>
               <p className="text-muted mb-3">
                 Explore key startup growth modules across every stage—from ideation to scaling.
@@ -428,11 +431,6 @@ const startupCourses = [
               <ReusableDashboard tabs={tabs} data={startupCourses} />
             </div>
           </div>
-        </div>
-      </div>
-      <SerchBar />
-      <div className="dark-transparent sidebartoggler" />
-    </div>
   );
 };
 

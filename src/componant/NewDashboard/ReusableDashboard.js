@@ -1,12 +1,13 @@
 import React, { useRef, useState } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import theme from "../NewDashboard/styles/styles"; // Make sure the path is correct
 
 const ReusableDashboard = ({ tabs = [], data = [] }) => {
   const [activeTab, setActiveTab] = useState(tabs[0]?.name || "");
   const [activeSubCategory, setActiveSubCategory] = useState(null);
   const navigate = useNavigate();
-    const scrollRef = useRef(null);
+  const scrollRef = useRef(null);
 
   const currentTab = tabs.find((t) => t.name === activeTab);
   const subCategories = currentTab?.subCategories || [];
@@ -22,7 +23,7 @@ const ReusableDashboard = ({ tabs = [], data = [] }) => {
     ? `${activeSubCategory}`
     : `${activeTab}`;
 
-      const scrollTabs = (direction) => {
+  const scrollTabs = (direction) => {
     if (scrollRef.current) {
       scrollRef.current.scrollBy({
         left: direction === "left" ? -90 : 100,
@@ -32,18 +33,20 @@ const ReusableDashboard = ({ tabs = [], data = [] }) => {
   };
 
   return (
-    <div className="container-fluid py-4">
-    <div className="mb-3 d-flex align-items-center position-relative">
+    <div className="container-fluid py-4" style={{ overflowX: "hidden" }}>
+      {/* Tab Scroll Section */}
+      <div className="mb-3 position-relative" style={{ overflow: "hidden" }}>
         <button
           onClick={() => scrollTabs("left")}
-          className="btn btn-light btn-sm me-1"
+          className="btn btn-light btn-sm"
           style={{
             position: "absolute",
             left: 0,
+            top: 0,
+            bottom: 0,
             zIndex: 2,
-            height: "100%",
-            backgroundColor: "#f8f9fa",
-            borderRight: "1px solid #d1d5db",
+            backgroundColor: theme.backgroundColor.white,
+            borderRight: `1px solid ${theme.backgroundColor.border}`,
           }}
         >
           <FaChevronLeft />
@@ -51,14 +54,13 @@ const ReusableDashboard = ({ tabs = [], data = [] }) => {
 
         <div
           ref={scrollRef}
-          className="d-flex overflow-auto custom-scrollbar px-5"
+          className="d-flex overflow-auto custom-scrollbar"
           style={{
             scrollBehavior: "smooth",
             whiteSpace: "nowrap",
-            width: "100%",
-            backgroundColor: "#F8F9FA",
+            backgroundColor: theme.backgroundColor.white,
             borderRadius: "2px",
-            // border: "1px solid #cde4eb",
+            margin: "0 2.5rem",
           }}
         >
           {tabs.map((tab, index) => {
@@ -68,15 +70,21 @@ const ReusableDashboard = ({ tabs = [], data = [] }) => {
                 key={index}
                 className="px-4 py-2 border-0"
                 style={{
-                  backgroundColor: isActive ? "#e9f4f9" : "#F8F9FA",
+                  backgroundColor: isActive
+                    ? theme.backgroundColor.primary
+                    : theme.backgroundColor.white,
                   borderBottom: isActive
-                    ? "3px solid #4dd0e1"
+                    ? `3px solid ${theme.backgroundColor.primary}`
                     : "3px solid transparent",
-                  color: "#1f2937",
+                  color: isActive
+                    ? theme.textColor.light
+                    : theme.textColor.primary,
                   fontWeight: isActive ? "600" : "500",
                   fontSize: "0.90rem",
                   borderRight:
-                    index !== tabs.length - 1 ? "1px solid #cde4eb" : "none",
+                    index !== tabs.length - 1
+                      ? `1px solid ${theme.backgroundColor.border}`
+                      : "none",
                   flex: "1 0 auto",
                   whiteSpace: "nowrap",
                 }}
@@ -93,14 +101,14 @@ const ReusableDashboard = ({ tabs = [], data = [] }) => {
 
         <button
           onClick={() => scrollTabs("right")}
-          className="btn btn-light btn-sm ms-1"
+          className="btn btn-light btn-sm"
           style={{
             position: "absolute",
             right: 0,
+            top: 0,
+            bottom: 0,
             zIndex: 2,
-            height: "100%",
-            backgroundColor: "#f8f9fa",
-            // borderLeft: "1px solid #d1d5db",
+            backgroundColor: theme.backgroundColor.white,
           }}
         >
           <FaChevronRight />
@@ -114,8 +122,8 @@ const ReusableDashboard = ({ tabs = [], data = [] }) => {
           <div
             className="p-2 border rounded"
             style={{
-              backgroundColor: "#f7fafc",
-              border: "1px solid #dbe4ea",
+              backgroundColor: theme.backgroundColor.white,
+              border: `1px solid ${theme.backgroundColor.border}`,
               borderRadius: "10px",
             }}
           >
@@ -126,26 +134,37 @@ const ReusableDashboard = ({ tabs = [], data = [] }) => {
                   key={i}
                   className="btn btn-sm w-100 text-start mb-2 d-flex align-items-center justify-content-between"
                   style={{
-                    backgroundColor: isActive ? "#e1e9f7" : "#ffffff",
-                    color: isActive ? "#2d3436" : "#444",
+                    backgroundColor: isActive
+                      ? theme.backgroundColor.softSkills
+                      : theme.backgroundColor.white,
+                    color: isActive
+                      ? theme.textColor.light
+                      : theme.textColor.primary,
                     fontWeight: isActive ? "600" : "500",
                     fontSize: "0.85rem",
-                    border: "1px solid",
-                    borderColor: isActive ? "#4dd0e1" : "#d6dee3",
+                    border: `1px solid ${
+                      isActive
+                        ? theme.backgroundColor.primary
+                        : theme.backgroundColor.border
+                    }`,
                     borderRadius: "6px",
                     transition: "all 0.2s ease-in-out",
                     padding: "10px 12px",
                   }}
                   onMouseEnter={(e) => {
                     if (!isActive) {
-                      e.currentTarget.style.backgroundColor = "#f0f4f8";
-                      e.currentTarget.style.borderColor = "#c0d3dd";
+                      e.currentTarget.style.backgroundColor =
+                        theme.backgroundColor.sidebar;
+                      e.currentTarget.style.borderColor =
+                        theme.backgroundColor.border;
                     }
                   }}
                   onMouseLeave={(e) => {
                     if (!isActive) {
-                      e.currentTarget.style.backgroundColor = "#ffffff";
-                      e.currentTarget.style.borderColor = "#d6dee3";
+                      e.currentTarget.style.backgroundColor =
+                        theme.backgroundColor.white;
+                      e.currentTarget.style.borderColor =
+                        theme.backgroundColor.border;
                     }
                   }}
                   onClick={() => setActiveSubCategory(sub.label)}
@@ -154,7 +173,6 @@ const ReusableDashboard = ({ tabs = [], data = [] }) => {
                     {sub.icon}
                     {sub.label}
                   </span>
-                  {/* <FaChevronRight size={14} className="text-muted" /> */}
                 </button>
               );
             })}
@@ -164,9 +182,13 @@ const ReusableDashboard = ({ tabs = [], data = [] }) => {
         {/* Courses Display */}
         <div
           className="col-12 col-md-9 p-3 rounded shadow-sm border"
-          style={{ backgroundColor: "#F8F9FA" }}
+          style={{   backgroundColor: theme.backgroundColor.white,
+              border: `1px solid ${theme.backgroundColor.border}`, }}
         >
-          <h6 className="mb-2" style={{ fontSize: "1rem", color: "#111827" }}>
+          <h6
+            className="mb-2"
+            style={{ fontSize: "1rem", color: theme.textColor.primary }}
+          >
             {recommendedTitle}
           </h6>
 
@@ -176,15 +198,15 @@ const ReusableDashboard = ({ tabs = [], data = [] }) => {
                 key={idx}
                 className="d-flex flex-column flex-md-row align-items-start align-items-md-center rounded p-3 mb-3"
                 style={{
-                  backgroundColor: "#ffffff",
-                  border: "1px solid #ddd",
+                  backgroundColor: theme.backgroundColor.white,
+                  border: `1px solid ${theme.backgroundColor.border}`,
                   transition: "transform 0.3s ease, box-shadow 0.3s ease",
                   cursor: "pointer",
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = "scale(1.02)";
                   e.currentTarget.style.boxShadow =
-                    "0 0 10px rgba(108, 92, 231, 0.15)";
+                    "0 0 10px rgba(139, 92, 246, 0.15)";
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = "scale(1)";
@@ -203,12 +225,12 @@ const ReusableDashboard = ({ tabs = [], data = [] }) => {
                   className="me-md-3 mb-2 mb-md-0"
                 />
                 <div className="flex-grow-1 small">
-                  <strong style={{ fontSize: "0.9rem", color: "#1f2937" }}>
+                  <strong style={{ fontSize: "0.9rem", color: theme.textColor.primary }}>
                     {course.title}
                   </strong>
                   <div className="text-muted" style={{ fontSize: "0.75rem" }}>
-                    Category: {course.category} | Language: {course.language} |
-                    Level: {course.level}
+                    Category: {course.category} | Language: {course.language} | Level:{" "}
+                    {course.level}
                   </div>
                 </div>
                 <div className="ms-md-3 mt-2 mt-md-0">
@@ -216,8 +238,8 @@ const ReusableDashboard = ({ tabs = [], data = [] }) => {
                     className="btn btn-sm"
                     onClick={() => navigate("/coursedetails/1")}
                     style={{
-                      backgroundColor: "#6c5ce7",
-                      color: "#fff",
+                      backgroundColor: theme.backgroundColor.primary,
+                      color: theme.textColor.light,
                       border: "none",
                       fontSize: "0.8rem",
                     }}
@@ -235,16 +257,18 @@ const ReusableDashboard = ({ tabs = [], data = [] }) => {
         </div>
       </div>
 
-      {/* Add custom scrollbar styles globally or in your main CSS */}
+      {/* Scrollbar hiding */}
       <style>{`
-  .custom-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
-  .custom-scrollbar {
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-
+        .custom-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+        .custom-scrollbar {
+          scrollbar-width: none;
+          -ms-overflow-style: none;
+        }
+        body {
+          overflow-x: hidden;
+        }
       `}</style>
     </div>
   );

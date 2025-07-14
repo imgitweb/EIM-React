@@ -1,0 +1,24 @@
+/* NewDashboard/styles/Header.css */
+.nav-link-custom {
+  color: #212529; /* fallback for 'text-dark' */
+  text-decoration: none;
+  padding: 10px 15px;
+  transition: all 0.2s ease-in-out;
+  font-weight: 500;
+  font-size: .8rem;
+}
+
+.nav-link-custom:hover {
+  background-color: #F8F9FA;
+  color: #6a90fa !important;
+  padding: 10px 15px;
+  border-radius: 5px;
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+}
+
+.nav-link-active {
+  background-color: #F8F9FA;
+  color: #6a90fa !important;
+  padding: 10px 15px;
+  border-radius: 5px;
+}

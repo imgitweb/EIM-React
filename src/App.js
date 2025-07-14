@@ -52,6 +52,8 @@ import SubmitIdeaPage from "./pages/idea-validation/SubmitIdeaPage";
 import ValidateIdeaPage from "./pages/idea-validation/ValidateIdeaPage";
 import RiskFeedbackPage from "./pages/idea-validation/RiskFeedbackPage";
 import MarketCaseStudiesPage from "./pages/idea-validation/MarketCaseStudiesPage";
+import NewDashboard from "./pages/newDashboard/NewDashoboard";
+import Layout from "./componant/NewDashboard/Layout";
 
 // Utility to parse tokens and store in localStorage
 function useTokenParser() {
@@ -85,347 +87,64 @@ function AppRoutes() {
   useTokenParser();
 
   return (
-    <Routes>
+        <Routes>
+      {/* Public Routes */}
       <Route path="/" element={<Login />} />
-      <Route
-        path="/dashboard"
-        element={
-          <PrivateRoute>
-            <Dashboard />
-          </PrivateRoute>
-        }
-      />
-      <Route
-        path="/im-startup-school"
-        element={
-          <PrivateRoute>
-            <ImStartupSchool />
-          </PrivateRoute>
-        }
-      />
-      <Route
-        path="/submit-idea"
-        element={
-          <PrivateRoute>
-            <SubmitIdeaPage />
-          </PrivateRoute>
-        }
-      />
-      <Route
-        path="/validate-ai-review"
-        element={
-          <PrivateRoute>
-            <ValidateIdeaPage />
-          </PrivateRoute>
-        }
-      />
-      <Route
-        path="/feedback-risk"
-        element={
-          <PrivateRoute>
-            <RiskFeedbackPage />
-          </PrivateRoute>
-        }
-      />
-      <Route
-        path="/similer-market"
-        element={
-          <PrivateRoute>
-            <MarketCaseStudiesPage />
-          </PrivateRoute>
-        }
-      />
-      <Route
-        path="/hiring-assist"
-        element={
-          <PrivateRoute>
-            <HiringAssist />
-          </PrivateRoute>
-        }
-      />
-      <Route
-        path="/invester-pool"
-        element={
-          <PrivateRoute>
-            <InvesterPool />
-          </PrivateRoute>
-        }
-      />
-      <Route
-        path="/my-mentor"
-        element={
-          <PrivateRoute>
-            <MyMentor />
-          </PrivateRoute>
-        }
-      />
-      <Route
-        path="/path-unicorn"
-        element={
-          <PrivateRoute>
-            <PathUnicorn />
-          </PrivateRoute>
-        }
-      />
-      <Route
-        path="/path-unicorn2"
-        element={
-          <PrivateRoute>
-            <PathUnicorn2 />
-          </PrivateRoute>
-        }
-      />
-      <Route
-        path="/path-unicorn3"
-        element={
-          <PrivateRoute>
-            <PathUnicorn3 />
-          </PrivateRoute>
-        }
-      />
-      <Route
-        path="/path-unicorn4"
-        element={
-          <PrivateRoute>
-            <PathUnicorn4 />
-          </PrivateRoute>
-        }
-      />
-      <Route
-        path="/product-listing"
-        element={
-          <PrivateRoute>
-            <PathUnicorn7 />
-          </PrivateRoute>
-        }i
-      />
-      <Route
-        path="/client-persona"
-        element={
-          <PrivateRoute>
-            <PathUnicorn8 />
-          </PrivateRoute>
-        }
-      />
-      <Route
-        path="/marketing-funnel"
-        element={
-          <PrivateRoute>
-            <PathUnicorn9 />
-          </PrivateRoute>
-        }
-      />
-      <Route
-        path="/product-pricing"
-        element={
-          <PrivateRoute>
-            <PathUnicorn10 />
-          </PrivateRoute>
-        }
-      />
-      <Route
-        path="/sales-funnel"
-        element={
-          <PrivateRoute>
-            <PathUnicorn11 />
-          </PrivateRoute>
-        }
-      />
-      <Route
-        path="/revenu-trac"
-        element={
-          <PrivateRoute>
-            <RevenueTracker />
-          </PrivateRoute>
-        }
-      />
-      <Route
-        path="/salesfunnel"
-        element={
-          <PrivateRoute>
-            <SalesFunnel />
-          </PrivateRoute>
-        }
-      />
-      <Route
-        path="/upgrade-beta"
-        element={
-          <PrivateRoute>
-            <UpgradeBeta />
-          </PrivateRoute>
-        }
-      />
-      <Route
-        path="/my-task"
-        element={
-          <PrivateRoute>
-            <MyTask />
-          </PrivateRoute>
-        }
-      />
-      <Route
-        path="/rivarly-insights"
-        element={
-          <PrivateRoute>
-            <RivarlyInsight />
-          </PrivateRoute>
-        }
-      />
-      <Route
-        path="/projection"
-        element={
-          <PrivateRoute>
-            <Projection />
-          </PrivateRoute>
-        }
-      />
-      <Route
-        path="/app-profile"
-        element={
-          <PrivateRoute>
-            <AppProfile />
-          </PrivateRoute>
-        }
-      />
-      <Route
-        path="/business"
-        element={
-          <PrivateRoute>
-            <BusinessModel />
-          </PrivateRoute>
-        }
-      />
-      <Route
-        path="/pitch-deck"
-        element={
-          <PrivateRoute>
-            <PitchDeck />
-          </PrivateRoute>
-        }
-      />
-      <Route
-        path="/logout"
-        element={
-          <PrivateRoute>
-            <Logout />
-          </PrivateRoute>
-        }
-      />
-      <Route
-        path="/meta-verse"
-        element={
-          <PrivateRoute>
-            <MetaVerse />
-          </PrivateRoute>
-        }
-      />
-      <Route
-        path="/tools"
-        element={
-          <PrivateRoute>
-            <Tools />
-          </PrivateRoute>
-        }
-      />
-      <Route
-        path="/template"
-        element={
-          <PrivateRoute>
-            <Template />
-          </PrivateRoute>
-        }
-      />
-
-      <Route
-        path="/coursedetails/:courseId"
-        element={
-          <PrivateRoute>
-          <CourseDetailsPage/>
-          </PrivateRoute>
-        }
-      />
-      <Route
-        path="/lesson/:lessonId"
-        element={
-          <PrivateRoute>
-          <LessonPlayerPage/>
-          </PrivateRoute>
-        }
-      />
-      <Route
-        path="/lesson/:lessonId/quiz"
-        element={
-          <PrivateRoute>
-          <QuizPage/>
-          </PrivateRoute>
-        }
-      />
-      <Route
-        path="/training-videos"
-        element={
-          <PrivateRoute>
-            <TrainingVideos />
-          </PrivateRoute>
-        }
-      />
-      <Route
-        path="/idea-validation"
-        element={
-          <PrivateRoute>
-            <IdeaValidation />
-          </PrivateRoute>
-        }
-      />
-      <Route
-        path="/market-research"
-        element={
-          <PrivateRoute>
-            <Market_Research />
-          </PrivateRoute>
-        }
-      />
-      <Route
-        path="/pitching-and-fund-rasing"
-        element={
-          <PrivateRoute>
-            <Pitching_And_Fundraising />
-          </PrivateRoute>
-        }
-      />
-      <Route
-        path="/legal-and-compliance-doc"
-        element={
-          <PrivateRoute>
-            <Compliance_Document />
-          </PrivateRoute>
-        }
-      />
-      <Route
-        path="/formation-and-banking-temp"
-        element={
-          <PrivateRoute>
-            <Banking_Template />
-          </PrivateRoute>
-        }
-      />
-      <Route
-        path="/hr-and-employee-agreement"
-        element={
-          <PrivateRoute>
-            <Hr_Employee_agreements />
-          </PrivateRoute>
-        }
-      />
-      <Route
-        path="/financial-and-accounting-docs"
-        element={
-          <PrivateRoute>
-            <Accounting_Document />
-          </PrivateRoute>
-        }
-      />
       <Route path="*" element={<NotFund />} />
+
+      {/* Protected Routes with Layout */}
+      <Route
+        element={
+          <PrivateRoute>
+            <Layout />
+          </PrivateRoute>
+        }
+      >
+        <Route path="/dashboard" element={<NewDashboard />} />
+        <Route path="/im-startup-school" element={<ImStartupSchool />} />
+        <Route path="/submit-idea" element={<SubmitIdeaPage />} />
+        <Route path="/validate-ai-review" element={<ValidateIdeaPage />} />
+        <Route path="/feedback-risk" element={<RiskFeedbackPage />} />
+        <Route path="/similer-market" element={<MarketCaseStudiesPage />} />
+        <Route path="/hiring-assist" element={<HiringAssist />} />
+        <Route path="/invester-pool" element={<InvesterPool />} />
+        <Route path="/my-mentor" element={<MyMentor />} />
+        <Route path="/path-unicorn" element={<PathUnicorn />} />
+        <Route path="/path-unicorn2" element={<PathUnicorn2 />} />
+        <Route path="/path-unicorn3" element={<PathUnicorn3 />} />
+        <Route path="/path-unicorn4" element={<PathUnicorn4 />} />
+        <Route path="/product-listing" element={<PathUnicorn7 />} />
+        <Route path="/client-persona" element={<PathUnicorn8 />} />
+        <Route path="/marketing-funnel" element={<PathUnicorn9 />} />
+        <Route path="/product-pricing" element={<PathUnicorn10 />} />
+        <Route path="/sales-funnel" element={<PathUnicorn11 />} />
+        <Route path="/revenu-trac" element={<RevenueTracker />} />
+        <Route path="/salesfunnel" element={<SalesFunnel />} />
+        <Route path="/upgrade-beta" element={<UpgradeBeta />} />
+        <Route path="/my-task" element={<MyTask />} />
+        <Route path="/rivarly-insights" element={<RivarlyInsight />} />
+        <Route path="/projection" element={<Projection />} />
+        <Route path="/app-profile" element={<AppProfile />} />
+        <Route path="/business" element={<BusinessModel />} />
+        <Route path="/pitch-deck" element={<PitchDeck />} />
+        <Route path="/logout" element={<Logout />} />
+        <Route path="/meta-verse" element={<MetaVerse />} />
+        <Route path="/tools" element={<Tools />} />
+        <Route path="/template" element={<Template />} />
+        <Route path="/training-videos" element={<TrainingVideos />} />
+        <Route path="/idea-validation" element={<IdeaValidation />} />
+        <Route path="/market-research" element={<Market_Research />} />
+        <Route path="/pitching-and-fund-rasing" element={<Pitching_And_Fundraising />} />
+        <Route path="/legal-and-compliance-doc" element={<Compliance_Document />} />
+        <Route path="/formation-and-banking-temp" element={<Banking_Template />} />
+        <Route path="/hr-and-employee-agreement" element={<Hr_Employee_agreements />} />
+        <Route path="/financial-and-accounting-docs" element={<Accounting_Document />} />
+        <Route path="/coursedetails/:courseId" element={<CourseDetailsPage />} />
+      </Route>
+        <Route path="/lesson/:lessonId" element={<LessonPlayerPage />} />
+        <Route path="/lesson/:lessonId/quiz" element={<QuizPage />} />
     </Routes>
+
   );
 }
 

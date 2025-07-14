@@ -46,13 +46,7 @@ const SubmitIdeaPage = () => {
 
   return (
     <>
-      <div id="main-wrapper" className={isActive ? "show-sidebar" : ""}>
-        <SecondSidebar onButtonClick={ToggleEvent} />
-        <div className="page-wrapper bg-white">
-          <Navigation onButtonClick={ToggleEvent} />
-
-          <div className="body-wrapper px-4">
-            <div className="p-4 border rounded shadow-sm mb-3" style={{ background: "#f8f9fa" }}>
+       <div className="p-4 border rounded shadow-sm mb-3" style={{ background: "#f8f9fa" }}>
               <h4 className="mb-4 fw-bold text-dark">Submit Your Startup Idea</h4>
 
               <form onSubmit={handleSubmit}>
@@ -174,10 +168,6 @@ const SubmitIdeaPage = () => {
                 </div>
               </form>
             </div>
-          </div>
-        </div>
-        <SerchBar />
-      </div>
 
       <div className="dark-transparent sidebartoggler" />
 

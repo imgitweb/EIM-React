@@ -36,14 +36,7 @@ const ValidateIdeaPage = () => {
 
   return (
     <>
-      <div id="main-wrapper" className={isActive ? "show-sidebar" : ""}>
-        <SecondSidebar onButtonClick={ToggleEvent} />
-
-        <div className="page-wrapper bg-white">
-          <Navigation onButtonClick={ToggleEvent} />
-
-          <div className="body-wrapper px-4">
-            <div className="p-4 border rounded shadow-sm bg-light">
+       <div className="p-4 border rounded shadow-sm bg-light">
               <h4 className="mb-4 fw-bold text-dark">Validate Your Startup Idea</h4>
 
               <div className="row g-3">
@@ -176,11 +169,6 @@ const ValidateIdeaPage = () => {
                 </div>
               )}
             </div>
-          </div>
-        </div>
-        <SerchBar />
-      </div>
-      <div className="dark-transparent sidebartoggler" />
     </>
   );
 };

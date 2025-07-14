@@ -127,20 +127,7 @@ const Dashboard = () => {
           <div className="body-wrapper">
             <div className="container-fluid pb-4  px-3">
               {/* Stat Cards */}
-              {/* <div className="row g-3 mb-4">
-  <div className="col-6 col-md-3">
-    <StatCard icon={<FaBroadcastTower size={24} />} value="150GB" label="Bandwidth" color="warning" />
-  </div>
-  <div className="col-6 col-md-3">
-    <StatCard icon={<FaBullhorn size={24} />} value="$1,345" label="Revenue" color="success" />
-  </div>
-  <div className="col-6 col-md-3">
-    <StatCard icon={<FaBug size={24} />} value="23" label="Errors" color="danger" />
-  </div>
-  <div className="col-6 col-md-3">
-    <StatCard icon={<FaHeart size={24} />} value="+45K" label="Followers" color="primary" />
-  </div>
-</div> */}
+
               <div className="row g-3 mb-3">
                 {cardsData.map((card, index) => (
                   <div className="col-md-4 mb-2" key={index}>
