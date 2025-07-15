@@ -1,193 +1,198 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import theme from "../NewDashboard/styles/styles"; // Make sure the path is correct
+import theme from "../NewDashboard/styles/styles";
 
 const ReusableDashboard = ({ tabs = [], data = [] }) => {
   const [activeTab, setActiveTab] = useState(tabs[0]?.name || "");
   const [activeSubCategory, setActiveSubCategory] = useState(null);
   const navigate = useNavigate();
   const scrollRef = useRef(null);
+  const [showLeftArrow, setShowLeftArrow] = useState(false);
+  const [showRightArrow, setShowRightArrow] = useState(false);
 
   const currentTab = tabs.find((t) => t.name === activeTab);
   const subCategories = currentTab?.subCategories || [];
 
-  const filteredCourses = data.filter((course) => {
-    return (
-      course.category === activeTab &&
-      (!activeSubCategory || course.subCategory === activeSubCategory)
-    );
-  });
+const filteredCourses = data.filter((course) => {
+  const courseCategory = course.category?.trim().toLowerCase();
+  const courseSubCategory = course.subCategory?.trim().toLowerCase();
+  const tabCategory = activeTab?.trim().toLowerCase();
+  const subCategoryFilter = activeSubCategory?.trim().toLowerCase();
 
-  const recommendedTitle = activeSubCategory
-    ? `${activeSubCategory}`
-    : `${activeTab}`;
+  return (
+    courseCategory === tabCategory &&
+    (!subCategoryFilter || courseSubCategory === subCategoryFilter)
+  );
+});
+
+  const recommendedTitle = activeSubCategory || activeTab;
+
+  const checkScroll = () => {
+    const el = scrollRef.current;
+    if (!el) return;
+    setShowLeftArrow(el.scrollLeft > 0);
+    setShowRightArrow(el.scrollLeft + el.clientWidth < el.scrollWidth);
+  };
+
+  useEffect(() => {
+    checkScroll();
+    const el = scrollRef.current;
+    if (el) {
+      el.addEventListener("scroll", checkScroll);
+    }
+    return () => {
+      if (el) {
+        el.removeEventListener("scroll", checkScroll);
+      }
+    };
+  }, []);
 
   const scrollTabs = (direction) => {
     if (scrollRef.current) {
       scrollRef.current.scrollBy({
-        left: direction === "left" ? -90 : 100,
+        left: direction === "left" ? -150 : 150,
         behavior: "smooth",
       });
     }
   };
 
   return (
-    <div className="container-fluid py-4" style={{ overflowX: "hidden" }}>
-      {/* Tab Scroll Section */}
-      <div className="mb-3 position-relative" style={{ overflow: "hidden" }}>
-        <button
-          onClick={() => scrollTabs("left")}
-          className="btn btn-light btn-sm"
-          style={{
-            position: "absolute",
-            left: 0,
-            top: 0,
-            bottom: 0,
-            zIndex: 2,
-            backgroundColor: theme.backgroundColor.white,
-            borderRight: `1px solid ${theme.backgroundColor.border}`,
-          }}
-        >
-          <FaChevronLeft />
-        </button>
+    <div className="container-fluid py-4">
+    {/* Tabs */}
+<div className="position-relative mb-4">
+  {showLeftArrow && (
+    <button
+      onClick={() => scrollTabs("left")}
+      className="btn btn-sm position-absolute"
+      style={{
+        left: 0,
+        top: 0,
+        bottom: 0,
+        zIndex: 2,
+        borderRight: `1px solid ${theme.backgroundColor.border}`,
+        backgroundColor: theme.backgroundColor.white,
+        color: theme.textColor.primary,
+      }}
+    >
+      <FaChevronLeft />
+    </button>
+  )}
 
+  <div
+    ref={scrollRef}
+    className="d-flex overflow-auto custom-scrollbar px-5"
+    style={{
+      scrollBehavior: "smooth",
+      whiteSpace: "nowrap",
+      gap: "1.5rem",
+      backgroundColor: theme.backgroundColor.white,
+      borderBottom: `1px solid ${theme.backgroundColor.border}`,
+    }}
+  >
+    {tabs.map((tab, index) => {
+      const isActive = activeTab === tab.name;
+      return (
         <div
-          ref={scrollRef}
-          className="d-flex overflow-auto custom-scrollbar"
+          key={index}
+          onClick={() => {
+            setActiveTab(tab.name);
+            setActiveSubCategory(null);
+          }}
           style={{
-            scrollBehavior: "smooth",
-            whiteSpace: "nowrap",
-            backgroundColor: theme.backgroundColor.white,
-            borderRadius: "2px",
-            margin: "0 2.5rem",
+            cursor: "pointer",
+            padding: "0.75rem 0",
+            fontWeight: isActive ? "600" : "500",
+            color: isActive ? theme.textColor.primary : "#888",
+            borderBottom: isActive
+              ? `3px solid ${theme.backgroundColor.primary}`
+              : "3px solid transparent",
+            transition: "all 0.2s ease",
+            fontSize: "0.95rem",
           }}
         >
-          {tabs.map((tab, index) => {
-            const isActive = activeTab === tab.name;
-            return (
-              <button
-                key={index}
-                className="px-4 py-2 border-0"
-                style={{
-                  backgroundColor: isActive
-                    ? theme.backgroundColor.primary
-                    : theme.backgroundColor.white,
-                  borderBottom: isActive
-                    ? `3px solid ${theme.backgroundColor.primary}`
-                    : "3px solid transparent",
-                  color: isActive
-                    ? theme.textColor.light
-                    : theme.textColor.primary,
-                  fontWeight: isActive ? "600" : "500",
-                  fontSize: "0.90rem",
-                  borderRight:
-                    index !== tabs.length - 1
-                      ? `1px solid ${theme.backgroundColor.border}`
-                      : "none",
-                  flex: "1 0 auto",
-                  whiteSpace: "nowrap",
-                }}
-                onClick={() => {
-                  setActiveTab(tab.name);
-                  setActiveSubCategory(null);
-                }}
-              >
-                {tab.name}
-              </button>
-            );
-          })}
+          {tab.name}
         </div>
+      );
+    })}
+  </div>
 
-        <button
-          onClick={() => scrollTabs("right")}
-          className="btn btn-light btn-sm"
-          style={{
-            position: "absolute",
-            right: 0,
-            top: 0,
-            bottom: 0,
-            zIndex: 2,
-            backgroundColor: theme.backgroundColor.white,
-          }}
-        >
-          <FaChevronRight />
-        </button>
-      </div>
+  {showRightArrow && (
+    <button
+      onClick={() => scrollTabs("right")}
+      className="btn btn-sm position-absolute"
+      style={{
+        right: 0,
+        top: 0,
+        bottom: 0,
+        zIndex: 2,
+        backgroundColor: theme.backgroundColor.white,
+        color: theme.textColor.primary,
+      }}
+    >
+      <FaChevronRight />
+    </button>
+  )}
+</div>
 
-      {/* Subcategory and Course Display */}
+
       <div className="row">
-        {/* Subcategory Sidebar */}
+        {/* Sidebar */}
         <div className="col-12 col-md-3 mb-4">
           <div
-            className="p-2 border rounded"
+            className="p-3 border rounded"
             style={{
               backgroundColor: theme.backgroundColor.white,
               border: `1px solid ${theme.backgroundColor.border}`,
               borderRadius: "10px",
             }}
           >
-            {subCategories.map((sub, i) => {
-              const isActive = activeSubCategory === sub.label;
-              return (
-                <button
-                  key={i}
-                  className="btn btn-sm w-100 text-start mb-2 d-flex align-items-center justify-content-between"
-                  style={{
-                    backgroundColor: isActive
-                      ? theme.backgroundColor.softSkills
-                      : theme.backgroundColor.white,
-                    color: isActive
-                      ? theme.textColor.light
-                      : theme.textColor.primary,
-                    fontWeight: isActive ? "600" : "500",
-                    fontSize: "0.85rem",
-                    border: `1px solid ${
-                      isActive
-                        ? theme.backgroundColor.primary
-                        : theme.backgroundColor.border
-                    }`,
-                    borderRadius: "6px",
-                    transition: "all 0.2s ease-in-out",
-                    padding: "10px 12px",
-                  }}
-                  onMouseEnter={(e) => {
-                    if (!isActive) {
-                      e.currentTarget.style.backgroundColor =
-                        theme.backgroundColor.sidebar;
-                      e.currentTarget.style.borderColor =
-                        theme.backgroundColor.border;
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    if (!isActive) {
-                      e.currentTarget.style.backgroundColor =
-                        theme.backgroundColor.white;
-                      e.currentTarget.style.borderColor =
-                        theme.backgroundColor.border;
-                    }
-                  }}
-                  onClick={() => setActiveSubCategory(sub.label)}
-                >
-                  <span className="d-flex align-items-center gap-2">
-                    {sub.icon}
-                    {sub.label}
-                  </span>
-                </button>
-              );
-            })}
+             {subCategories.map((sub, i) => {
+      const isActive = activeSubCategory === sub.label;
+      return (
+        <div
+          key={i}
+          className="d-flex align-items-center cursor-pointer"
+          onClick={() => setActiveSubCategory(sub.label)}
+          style={{
+            fontWeight: isActive ? "600" : "500",
+            color: isActive ? theme.textColor.primary : "#ccc",
+            fontSize: "0.88rem",
+            padding: "8px 12px",
+            backgroundColor: "transparent",
+            borderLeft: isActive
+              ? `3px solid ${theme.backgroundColor.primary}`
+              : "3px solid transparent",
+            transition: "all 0.2s ease",
+            cursor: "pointer",
+          }}
+        >
+          <span className="d-flex align-items-center gap-2">
+            {sub.icon}
+            {sub.label}
+          </span>
+        </div>
+      );
+    })}
+
           </div>
         </div>
 
-        {/* Courses Display */}
+        {/* Courses */}
         <div
           className="col-12 col-md-9 p-3 rounded shadow-sm border"
-          style={{   backgroundColor: theme.backgroundColor.white,
-              border: `1px solid ${theme.backgroundColor.border}`, }}
+          style={{
+            backgroundColor: theme.backgroundColor.white,
+            border: `1px solid ${theme.backgroundColor.border}`,
+          }}
         >
           <h6
-            className="mb-2"
-            style={{ fontSize: "1rem", color: theme.textColor.primary }}
+            className="mb-3"
+            style={{
+              fontSize: "1rem",
+              fontWeight: "600",
+              color: theme.textColor.primary,
+            }}
           >
             {recommendedTitle}
           </h6>
@@ -204,9 +209,9 @@ const ReusableDashboard = ({ tabs = [], data = [] }) => {
                   cursor: "pointer",
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = "scale(1.02)";
+                  e.currentTarget.style.transform = "scale(1.015)";
                   e.currentTarget.style.boxShadow =
-                    "0 0 10px rgba(139, 92, 246, 0.15)";
+                    "0 4px 16px rgba(0,0,0,0.06)";
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = "scale(1)";
@@ -216,16 +221,21 @@ const ReusableDashboard = ({ tabs = [], data = [] }) => {
                 <img
                   src={course.image}
                   alt="course"
+                  className="me-md-3 mb-2 mb-md-0"
                   style={{
                     width: "70px",
                     height: "60px",
                     objectFit: "cover",
                     borderRadius: "8px",
                   }}
-                  className="me-md-3 mb-2 mb-md-0"
                 />
                 <div className="flex-grow-1 small">
-                  <strong style={{ fontSize: "0.9rem", color: theme.textColor.primary }}>
+                  <strong
+                    style={{
+                      fontSize: "0.9rem",
+                      color: theme.textColor.primary,
+                    }}
+                  >
                     {course.title}
                   </strong>
                   <div className="text-muted" style={{ fontSize: "0.75rem" }}>
@@ -236,12 +246,12 @@ const ReusableDashboard = ({ tabs = [], data = [] }) => {
                 <div className="ms-md-3 mt-2 mt-md-0">
                   <button
                     className="btn btn-sm"
-                    onClick={() => navigate("/coursedetails/1")}
+                    onClick={() => navigate(`/coursedetails/${course.id}`)}
                     style={{
                       backgroundColor: theme.backgroundColor.primary,
                       color: theme.textColor.light,
-                      border: "none",
                       fontSize: "0.8rem",
+                      border: "none",
                     }}
                   >
                     Continue Learning
@@ -250,14 +260,14 @@ const ReusableDashboard = ({ tabs = [], data = [] }) => {
               </div>
             ))
           ) : (
-            <p className="text-muted" style={{ fontSize: "0.85rem" }}>
+            <div className="text-muted" style={{ fontSize: "0.85rem" }}>
               No courses available for this selection.
-            </p>
+            </div>
           )}
         </div>
       </div>
 
-      {/* Scrollbar hiding */}
+      {/* Hide scrollbar */}
       <style>{`
         .custom-scrollbar::-webkit-scrollbar {
           display: none;
@@ -265,9 +275,6 @@ const ReusableDashboard = ({ tabs = [], data = [] }) => {
         .custom-scrollbar {
           scrollbar-width: none;
           -ms-overflow-style: none;
-        }
-        body {
-          overflow-x: hidden;
         }
       `}</style>
     </div>

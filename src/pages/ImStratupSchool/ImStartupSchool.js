@@ -79,326 +79,331 @@ const ImStartupSchool = () => {
 ];
 
 
-  const tabs = [
-    {
-      name: "Ideation & Validation",
-      icon: <FaLightbulb />,
-      subCategories: [
-        { label: "Identifying Problems Worth Solving" },
-        { label: "Design Thinking & Innovation Frameworks" },
-        { label: "Market Research Methods (Primary & Secondary)" },
-        { label: "TAM, SAM, SOM – Market Sizing Techniques" },
-        { label: "Competitor & Industry Analysis" },
-        { label: "Customer Persona Development" },
-        { label: "Value Proposition Design" },
-        { label: "Validation Methods (Surveys, Interviews, MVP Testing)" },
-        { label: "Business Model Design (Lean Canvas, BMC)" },
-      ],
-    },
-    {
-      name: "Product Development",
-      icon: <FaTools />,
-      subCategories: [
-        { label: "MVP Planning & Rapid Prototyping" },
-        { label: "UI/UX Design for Startups" },
-        { label: "Choosing Your Tech Stack (Frontend, Backend, Mobile)" },
-        { label: "No-Code/Low-Code Tools for Founders" },
-        { label: "DevOps Basics & CI/CD for Startups" },
-        { label: "Scalable Architecture & Cloud Setup" },
-        { label: "Agile & Scrum for Startup Teams" },
-        { label: "AI/ML for Startups (Use Cases + Tools)" },
-        { label: "Product-Market Fit: Metrics & Iteration Loops" },
-        { label: "Cybersecurity & Data Privacy (GDPR, CCPA, etc.)" },
-      ],
-    },
-    {
-      name: "Business Setup",
-      icon: <FaBriefcase />,
-      subCategories: [
-        { label: "Global Company Formation (US C-Corp, Indian Pvt Ltd, etc.)" },
-        { label: "Legal Entity Types (LLC, C-Corp, LLP, etc.)" },
-        { label: "Founder Agreements, Cap Table & Vesting" },
-        { label: "Standard Operating Procedures (SOPs)" },
-        { label: "Financial Planning: Runway, Burn Rate, Budgeting" },
-        { label: "Legal & Regulatory Compliance (by region)" },
-        { label: "IP, Trademarks, Copyrights & Licensing" },
-        { label: "Insurance & Risk Mitigation for Startups" },
-        { label: "Contract Management (NDAs, SLAs, MSAs)" },
-        { label: "Audit Readiness & Bookkeeping Systems" },
-      ],
-    },
-    {
-      name: "Talent & Culture",
-      icon: <FaUsers />,
-      subCategories: [
-        { label: "Hiring Cofounders vs First Employees" },
-        { label: "Hiring Processes & Global HR Best Practices" },
-        { label: "Talent Acquisition (Freelancers, Interns, Full-Time)" },
-        { label: "Remote & Hybrid Team Management" },
-        { label: "Organizational Design for Startups" },
-        { label: "Compensation & Equity Structuring (ESOPs)" },
-        { label: "Onboarding & Training Systems" },
-        { label: "Building Company Culture & Values" },
-        { label: "Leadership & Team Dynamics" },
-        { label: "HR Systems, Payroll, and Compliance (US, EU, India, etc.)" },
-      ],
-    },
-    {
-      name: "Sales & Marketing",
-      icon: <FaBullhorn />,
-      subCategories: [
-        { label: "Crafting Your Go-To-Market (GTM) Strategy" },
-        { label: "Sales Funnel Design (B2B, B2C, D2C, SaaS)" },
-        { label: "How to Get Your First 10 Customers" },
-        { label: "Outbound vs Inbound Sales Strategies" },
-        { label: "Building a Sales Team & CRM Systems" },
-        { label: "Marketing Strategy (Digital + Traditional)" },
-        { label: "Social Media & Influencer Marketing" },
-        { label: "Paid Ads (Meta, Google, LinkedIn, etc.)" },
-        { label: "Email, Content & SEO" },
-        { label: "Partnerships, Referrals & Community Growth" },
-        { label: "Conversion Optimization & A/B Testing" },
-        { label: "Retention, NPS, and Customer Success" },
-      ],
-    },
-    {
-      name: "Funding",
-      icon: <FaMoneyBillWave />,
-      subCategories: [
-        { label: "Startup Fundraising 101 (Bootstrapping to Series D)" },
-        { label: "Funding Instruments (SAFE, Convertible Notes, Equity)" },
-        { label: "How to Build a Killer Pitch Deck" },
-        { label: "Valuation Techniques & Financial Modelling" },
-        { label: "Investor Outreach & Management (Angels, VCs, Corporates)" },
-        { label: "Due Diligence & Term Sheet Negotiation" },
-        { label: "Cap Table Management Tools & Best Practices" },
-        { label: "Grant & Non-Equity Funding Sources" },
-        { label: "Crowdfunding & Alternative Capital" },
-        { label: "Investor Relations & Board Reporting" },
-      ],
-    },
-    {
-      name: "Scaling",
-      icon: <FaChartLine />,
-      subCategories: [
-        { label: "Scaling Operations & Infrastructure" },
-        { label: "Growth Metrics & Dashboards (North Star, LTV/CAC)" },
-        { label: "Scaling Customer Support & Success" },
-        { label: "International Market Entry (Localization, Legal, GTM)" },
-        { label: "Cultural & Regulatory Adaptation" },
-        { label: "Cross-Border Taxation & Legal Concerns" },
-        { label: "M&A Strategy & Preparation" },
-        { label: "IPO Readiness & Governance" },
-        { label: "Exit Planning (Acquisition, IPO, SPAC, Secondary Sales)" },
-        { label: "Legacy Building & Founder Succession" },
-      ],
-    },
-    {
-      name: "Founder Excellence",
-      icon: <FaUserTie />,
-      subCategories: [
-        { label: "Founder Psychology & Stress Management" },
-        { label: "Time Management & Decision-Making" },
-        { label: "Communication & Negotiation Skills" },
-        { label: "Public Speaking & Investor Pitching" },
-        { label: "Personal Branding & Thought Leadership" },
-        { label: "Networking for Founders (VCs, Accelerators, Mentors)" },
-        { label: "Advisory Boards & Mentorship" },
-        { label: "Conflict Resolution & Crisis Management" },
-        { label: "Ethics & Impact-Driven Leadership" },
-      ],
-    },
-  ];
+ const tabs = [
+  {
+    name: "Ideation & Validation",
+    icon: <FaLightbulb />,
+    subCategories: [
+      { label: "Problem Discovery" },
+      { label: "Design Thinking" },
+      { label: "Market Research" },
+      { label: "Market Sizing (TAM/SAM/SOM)" },
+      { label: "Competitor Analysis" },
+      { label: "Customer Persona" },
+      { label: "Value Proposition" },
+      { label: "Validation Methods" },
+      { label: "Business Model" },
+    ],
+  },
+  {
+    name: "Product Development",
+    icon: <FaTools />,
+    subCategories: [
+      { label: "MVP & Prototyping" },
+      { label: "Startup UI/UX" },
+      { label: "Tech Stack" },
+      { label: "No-Code Tools" },
+      { label: "DevOps & CI/CD" },
+      { label: "Cloud Architecture" },
+      { label: "Agile & Scrum" },
+      { label: "AI/ML Tools" },
+      { label: "Product-Market Fit" },
+      { label: "Cybersecurity" },
+    ],
+  },
+  {
+    name: "Business Setup",
+    icon: <FaBriefcase />,
+    subCategories: [
+      { label: "Company Formation" },
+      { label: "Entity Types" },
+      { label: "Founder Agreements" },
+      { label: "SOPs" },
+      { label: "Financial Planning" },
+      { label: "Compliance" },
+      { label: "IP & Licensing" },
+      { label: "Startup Insurance" },
+      { label: "Contract Mgmt" },
+      { label: "Bookkeeping" },
+    ],
+  },
+  {
+    name: "Talent & Culture",
+    icon: <FaUsers />,
+    subCategories: [
+      { label: "Cofounder Hiring" },
+      { label: "HR Best Practices" },
+      { label: "Talent Acquisition" },
+      { label: "Remote Teams" },
+      { label: "Org Design" },
+      { label: "Equity & ESOPs" },
+      { label: "Onboarding" },
+      { label: "Company Culture" },
+      { label: "Team Dynamics" },
+      { label: "Payroll & Compliance" },
+    ],
+  },
+  {
+    name: "Sales & Marketing",
+    icon: <FaBullhorn />,
+    subCategories: [
+      { label: "GTM Strategy" },
+      { label: "Sales Funnel" },
+      { label: "First Customers" },
+      { label: "Sales Strategy" },
+      { label: "Sales Team & CRM" },
+      { label: "Marketing Strategy" },
+      { label: "Social & Influencer" },
+      { label: "Paid Ads" },
+      { label: "SEO & Content" },
+      { label: "Partnerships" },
+      { label: "A/B Testing" },
+      { label: "Customer Success" },
+    ],
+  },
+  {
+    name: "Funding",
+    icon: <FaMoneyBillWave />,
+    subCategories: [
+      { label: "Fundraising 101" },
+      { label: "Funding Instruments" },
+      { label: "Pitch Deck" },
+      { label: "Valuation & Models" },
+      { label: "Investor Outreach" },
+      { label: "Term Sheets" },
+      { label: "Cap Table Tools" },
+      { label: "Grants & Non-Equity" },
+      { label: "Crowdfunding" },
+      { label: "Investor Relations" },
+    ],
+  },
+  {
+    name: "Scaling",
+    icon: <FaChartLine />,
+    subCategories: [
+      { label: "Ops & Infra Scaling" },
+      { label: "Growth Metrics" },
+      { label: "Customer Support" },
+      { label: "Intl Expansion" },
+      { label: "Localization" },
+      { label: "Cross-Border Legal" },
+      { label: "M&A Strategy" },
+      { label: "IPO Readiness" },
+      { label: "Exit Planning" },
+      { label: "Legacy & Succession" },
+    ],
+  },
+  {
+    name: "Founder Excellence",
+    icon: <FaUserTie />,
+    subCategories: [
+      { label: "Founder Psychology" },
+      { label: "Time & Decisions" },
+      { label: "Communication Skills" },
+      { label: "Pitching & Speaking" },
+      { label: "Personal Branding" },
+      { label: "Networking" },
+      { label: "Advisors & Mentors" },
+      { label: "Crisis Management" },
+      { label: "Ethics & Impact" },
+    ],
+  },
+];
+
 const startupCourses = [
   {
     id: 1,
     title: "Design Thinking for Startups",
     category: "Ideation & Validation",
-    subCategory: "Design Thinking & Innovation Frameworks",
+    subCategory: "Design Thinking", // 🛠 Fixed
     language: "English",
     level: "Beginner",
-    image: "https://cdn.prod.website-files.com/629b1dcd203ede574e478a11/62f0fe8ca7006e8573b8bf75_JordenSky_9Benefits%20of%20startupindia.jpg",
+    image: "https://cdn.prod.website-files.com/629b1dcd203ede574e478a11/62f0fe8ca7006e8573b8bf75_JordenSky_9Benefits%20of%20startupindia.jpg"
   },
   {
     id: 2,
     title: "Market Research Mastery",
     category: "Ideation & Validation",
-    subCategory: "Market Research Methods (Primary & Secondary)",
+    subCategory: "Market Research", // 🛠 Fixed
     language: "English",
     level: "Intermediate",
-    image: "https://cdn.prod.website-files.com/629b1dcd203ede574e478a11/62f0fe8ca7006e8573b8bf75_JordenSky_9Benefits%20of%20startupindia.jpg",
+    image: "https://cdn.prod.website-files.com/629b1dcd203ede574e478a11/62f0fe8ca7006e8573b8bf75_JordenSky_9Benefits%20of%20startupindia.jpg"
   },
   {
     id: 3,
     title: "Lean Canvas in Action",
     category: "Ideation & Validation",
-    subCategory: "Business Model Design (Lean Canvas, BMC)",
+    subCategory: "Business Model", // 🛠 Fixed
     language: "English",
     level: "Beginner",
-    image: "https://cdn.prod.website-files.com/629b1dcd203ede574e478a11/62f0fe8ca7006e8573b8bf75_JordenSky_9Benefits%20of%20startupindia.jpg",
+    image: "https://cdn.prod.website-files.com/629b1dcd203ede574e478a11/62f0fe8ca7006e8573b8bf75_JordenSky_9Benefits%20of%20startupindia.jpg"
   },
   {
     id: 4,
     title: "UI/UX Design for Founders",
     category: "Product Development",
-    subCategory: "UI/UX Design for Startups",
+    subCategory: "Startup UI/UX", // 🛠 Fixed
     language: "English",
     level: "Intermediate",
-    image: "https://cdn.prod.website-files.com/629b1dcd203ede574e478a11/62f0fe8ca7006e8573b8bf75_JordenSky_9Benefits%20of%20startupindia.jpg",
+    image: "https://cdn.prod.website-files.com/629b1dcd203ede574e478a11/62f0fe8ca7006e8573b8bf75_JordenSky_9Benefits%20of%20startupindia.jpg"
   },
   {
     id: 5,
     title: "Building MVPs with No-Code Tools",
     category: "Product Development",
-    subCategory: "No-Code/Low-Code Tools for Founders",
+    subCategory: "No-Code Tools", // 🛠 Fixed
     language: "English",
     level: "Beginner",
-    image: "https://cdn.prod.website-files.com/629b1dcd203ede574e478a11/62f0fe8ca7006e8573b8bf75_JordenSky_9Benefits%20of%20startupindia.jpg",
+    image: "https://cdn.prod.website-files.com/629b1dcd203ede574e478a11/62f0fe8ca7006e8573b8bf75_JordenSky_9Benefits%20of%20startupindia.jpg"
   },
   {
     id: 6,
     title: "DevOps for Startups: CI/CD Basics",
     category: "Product Development",
-    subCategory: "DevOps Basics & CI/CD for Startups",
+    subCategory: "DevOps & CI/CD", // 🛠 Fixed
     language: "English",
     level: "Intermediate",
-    image: "https://cdn.prod.website-files.com/629b1dcd203ede574e478a11/62f0fe8ca7006e8573b8bf75_JordenSky_9Benefits%20of%20startupindia.jpg",
+    image: "https://cdn.prod.website-files.com/629b1dcd203ede574e478a11/62f0fe8ca7006e8573b8bf75_JordenSky_9Benefits%20of%20startupindia.jpg"
   },
   {
     id: 7,
     title: "Register Your Startup Globally",
     category: "Business Setup",
-    subCategory: "Global Company Formation (US C-Corp, Indian Pvt Ltd, etc.)",
+    subCategory: "Company Formation", // ✅ Already matches
     language: "English",
     level: "Beginner",
-    image: "https://cdn.prod.website-files.com/629b1dcd203ede574e478a11/62f0fe8ca7006e8573b8bf75_JordenSky_9Benefits%20of%20startupindia.jpg",
+    image: "https://cdn.prod.website-files.com/629b1dcd203ede574e478a11/62f0fe8ca7006e8573b8bf75_JordenSky_9Benefits%20of%20startupindia.jpg"
   },
   {
     id: 8,
     title: "Financial Planning for Founders",
     category: "Business Setup",
-    subCategory: "Financial Planning: Runway, Burn Rate, Budgeting",
+    subCategory: "Financial Planning", // ✅
     language: "English",
     level: "Intermediate",
-    image: "https://cdn.prod.website-files.com/629b1dcd203ede574e478a11/62f0fe8ca7006e8573b8bf75_JordenSky_9Benefits%20of%20startupindia.jpg",
+    image: "https://cdn.prod.website-files.com/629b1dcd203ede574e478a11/62f0fe8ca7006e8573b8bf75_JordenSky_9Benefits%20of%20startupindia.jpg"
   },
   {
     id: 9,
     title: "Legal Compliance 101",
     category: "Business Setup",
-    subCategory: "Legal & Regulatory Compliance (by region)",
+    subCategory: "Compliance", // 🛠 Renamed from full description
     language: "English",
     level: "Beginner",
-    image: "https://cdn.prod.website-files.com/629b1dcd203ede574e478a11/62f0fe8ca7006e8573b8bf75_JordenSky_9Benefits%20of%20startupindia.jpg",
+    image: "https://cdn.prod.website-files.com/629b1dcd203ede574e478a11/62f0fe8ca7006e8573b8bf75_JordenSky_9Benefits%20of%20startupindia.jpg"
   },
   {
     id: 10,
     title: "Hiring Your First Team",
     category: "Talent & Culture",
-    subCategory: "Hiring Cofounders vs First Employees",
+    subCategory: "Cofounder Hiring", // 🛠 Matched to closest
     language: "English",
     level: "Beginner",
-    image: "https://cdn.prod.website-files.com/629b1dcd203ede574e478a11/62f0fe8ca7006e8573b8bf75_JordenSky_9Benefits%20of%20startupindia.jpg",
+    image: "https://cdn.prod.website-files.com/629b1dcd203ede574e478a11/62f0fe8ca7006e8573b8bf75_JordenSky_9Benefits%20of%20startupindia.jpg"
   },
   {
     id: 11,
     title: "Designing ESOPs for Startups",
     category: "Talent & Culture",
-    subCategory: "Compensation & Equity Structuring (ESOPs)",
+    subCategory: "Equity & ESOPs", // ✅
     language: "English",
     level: "Intermediate",
-    image: "https://cdn.prod.website-files.com/629b1dcd203ede574e478a11/62f0fe8ca7006e8573b8bf75_JordenSky_9Benefits%20of%20startupindia.jpg",
+    image: "https://cdn.prod.website-files.com/629b1dcd203ede574e478a11/62f0fe8ca7006e8573b8bf75_JordenSky_9Benefits%20of%20startupindia.jpg"
   },
   {
     id: 12,
     title: "Company Culture Bootcamp",
     category: "Talent & Culture",
-    subCategory: "Building Company Culture & Values",
+    subCategory: "Company Culture", // ✅
     language: "English",
     level: "All Levels",
-    image: "https://cdn.prod.website-files.com/629b1dcd203ede574e478a11/62f0fe8ca7006e8573b8bf75_JordenSky_9Benefits%20of%20startupindia.jpg",
+    image: "https://cdn.prod.website-files.com/629b1dcd203ede574e478a11/62f0fe8ca7006e8573b8bf75_JordenSky_9Benefits%20of%20startupindia.jpg"
   },
   {
     id: 13,
     title: "Craft Your GTM Strategy",
     category: "Sales & Marketing",
-    subCategory: "Crafting Your Go-To-Market (GTM) Strategy",
+    subCategory: "GTM Strategy", // ✅
     language: "English",
     level: "Intermediate",
-    image: "https://cdn.prod.website-files.com/629b1dcd203ede574e478a11/62f0fe8ca7006e8573b8bf75_JordenSky_9Benefits%20of%20startupindia.jpg",
+    image: "https://cdn.prod.website-files.com/629b1dcd203ede574e478a11/62f0fe8ca7006e8573b8bf75_JordenSky_9Benefits%20of%20startupindia.jpg"
   },
   {
     id: 14,
     title: "How to Get Your First 10 Customers",
     category: "Sales & Marketing",
-    subCategory: "How to Get Your First 10 Customers",
+    subCategory: "First Customers", // ✅
     language: "English",
     level: "Beginner",
-    image: "https://cdn.prod.website-files.com/629b1dcd203ede574e478a11/62f0fe8ca7006e8573b8bf75_JordenSky_9Benefits%20of%20startupindia.jpg",
+    image: "https://cdn.prod.website-files.com/629b1dcd203ede574e478a11/62f0fe8ca7006e8573b8bf75_JordenSky_9Benefits%20of%20startupindia.jpg"
   },
   {
     id: 15,
     title: "Digital Marketing Mastery",
     category: "Sales & Marketing",
-    subCategory: "Marketing Strategy (Digital + Traditional)",
+    subCategory: "Marketing Strategy", // ✅
     language: "English",
     level: "Intermediate",
-    image: "https://cdn.prod.website-files.com/629b1dcd203ede574e478a11/62f0fe8ca7006e8573b8bf75_JordenSky_9Benefits%20of%20startupindia.jpg",
+    image: "https://cdn.prod.website-files.com/629b1dcd203ede574e478a11/62f0fe8ca7006e8573b8bf75_JordenSky_9Benefits%20of%20startupindia.jpg"
   },
   {
     id: 16,
     title: "Startup Fundraising Essentials",
     category: "Funding",
-    subCategory: "Startup Fundraising 101 (Bootstrapping to Series D)",
+    subCategory: "Fundraising 101", // 🛠 Fixed
     language: "English",
     level: "Beginner",
-    image: "https://cdn.prod.website-files.com/629b1dcd203ede574e478a11/62f0fe8ca7006e8573b8bf75_JordenSky_9Benefits%20of%20startupindia.jpg",
+    image: "https://cdn.prod.website-files.com/629b1dcd203ede574e478a11/62f0fe8ca7006e8573b8bf75_JordenSky_9Benefits%20of%20startupindia.jpg"
   },
   {
     id: 17,
     title: "Build a Killer Pitch Deck",
     category: "Funding",
-    subCategory: "How to Build a Killer Pitch Deck",
+    subCategory: "Pitch Deck", // ✅
     language: "English",
     level: "Intermediate",
-    image: "https://cdn.prod.website-files.com/629b1dcd203ede574e478a11/62f0fe8ca7006e8573b8bf75_JordenSky_9Benefits%20of%20startupindia.jpg",
+    image: "https://cdn.prod.website-files.com/629b1dcd203ede574e478a11/62f0fe8ca7006e8573b8bf75_JordenSky_9Benefits%20of%20startupindia.jpg"
   },
   {
     id: 18,
     title: "Investor Negotiation & Term Sheets",
     category: "Funding",
-    subCategory: "Due Diligence & Term Sheet Negotiation",
+    subCategory: "Term Sheets", // 🛠 Closest match
     language: "English",
     level: "Advanced",
-    image: "https://cdn.prod.website-files.com/629b1dcd203ede574e478a11/62f0fe8ca7006e8573b8bf75_JordenSky_9Benefits%20of%20startupindia.jpg",
+    image: "https://cdn.prod.website-files.com/629b1dcd203ede574e478a11/62f0fe8ca7006e8573b8bf75_JordenSky_9Benefits%20of%20startupindia.jpg"
   },
   {
     id: 19,
     title: "Scaling to New Markets",
     category: "Scaling",
-    subCategory: "International Market Entry (Localization, Legal, GTM)",
+    subCategory: "Intl Expansion", // 🛠 Fixed
     language: "English",
     level: "Advanced",
-    image: "https://cdn.prod.website-files.com/629b1dcd203ede574e478a11/62f0fe8ca7006e8573b8bf75_JordenSky_9Benefits%20of%20startupindia.jpg",
+    image: "https://cdn.prod.website-files.com/629b1dcd203ede574e478a11/62f0fe8ca7006e8573b8bf75_JordenSky_9Benefits%20of%20startupindia.jpg"
   },
   {
     id: 20,
     title: "Founder Mindset & Wellness",
     category: "Founder Excellence",
-    subCategory: "Founder Psychology & Stress Management",
+    subCategory: "Founder Psychology", // 🛠 Fixed
     language: "English",
     level: "All Levels",
-    image: "https://cdn.prod.website-files.com/629b1dcd203ede574e478a11/62f0fe8ca7006e8573b8bf75_JordenSky_9Benefits%20of%20startupindia.jpg",
+    image: "https://cdn.prod.website-files.com/629b1dcd203ede574e478a11/62f0fe8ca7006e8573b8bf75_JordenSky_9Benefits%20of%20startupindia.jpg"
   },
 ];
 
 
 
 
+
   return (
-    <div className="container-fluid ">
+    <div className="container-fluid">
             {/* SkillCard-based Metric Cards */}
-            <div className="row g-3 mb-4 mt-2">
+          <div
+  className={`row g-3 mb-4 bg-white ${window.innerWidth >= 768 ? 'sticky-top' : ''}`}
+  style={window.innerWidth >= 740 ? { top: '-17px', zIndex: 1020 } : {}}
+>
               {metrics.map((metric, index) => (
                 <div className="col-sm-6 col-md-3" key={index}>
                   <SkillCard
@@ -417,7 +422,7 @@ const startupCourses = [
               style={{
     backgroundColor: isDark ? "#1F2937" : "#FBFBFB",
     padding: "20px",
-    width: "75vw",
+    width: window.innerWidth >= 740 ? "75vw" : "85vw",
     maxWidth: "100%", // prevents overflow
     borderRadius: "12px",
   }}
