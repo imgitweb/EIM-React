@@ -88,19 +88,19 @@ const styles = {
   },
 };
 
-  useEffect(() => {
-    setLoading(true);
-    axios
-      .get("http://localhost:5000/api/sales-funnel") 
-      .then((response) => {
-        setFunnelData(response.data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error("Error fetching funnel data:", error);
-        setLoading(false);
-      });
-  }, []);
+  // useEffect(() => {
+  //   setLoading(true);
+  //   axios
+  //     .get("http://localhost:5000/api/sales-funnel") 
+  //     .then((response) => {
+  //       setFunnelData(response.data);
+  //       setLoading(false);
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error fetching funnel data:", error);
+  //       setLoading(false);
+  //     });
+  // }, []);
 
   return (
     <>
@@ -148,7 +148,7 @@ const styles = {
               {/* Funnel Data Display */}
               <div className="card mb-4">
                 <div className="card-header">
-                  <h5 className="card-title mb-0">Funnel Data from MongoDB</h5>
+                  <h5 className="card-title mb-0">Funnel Data</h5>
                 </div>
                 <div className="card-body">
                   {loading ? (

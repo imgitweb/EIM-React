@@ -145,11 +145,41 @@ const getEvaluationResult = (score) => {
   return "Not viable – consider dropping idea";
 };
 
+const inputTypes = [
+  { label: "Select", value: "select" },
+  { label: "Radio", value: "radio" },
+  { label: "Text", value: "text" },
+];
+
+// Icon mapping for categories
+
+const categoryIcons = {
+  "Problem & Solution": <Heart style={{ color: "#F06292" }} />,
+  "Market & Demand": <DollarSign style={{ color: "#00BFAE" }} />,
+  "Business Model": <Star style={{ color: "#FFD600" }} />,
+  "Competition & USP": <Target style={{ color: "#223662" }} />,
+  "Team & Execution": <CheckCircle style={{ color: "#4CAF50" }} />,
+  "Legal & Feasibility": <CheckCircle style={{ color: "#607D8B" }} />,
+};
+
+const categoryColors = {
+  "Problem & Solution": "#111",
+  "Market & Demand": "#111",
+  "Business Model": "#111",
+  "Competition & USP": "#111",
+  "Team & Execution": "#111",
+  "Legal & Feasibility": "#111",
+};
+
 const IdeaValidation = () => {
   const [isActive, setActive] = useState(false);
-  const [scores, setScores] = useState(Array(evaluationQuestions.length).fill(4));
-  const [totalScore, setTotalScore] = useState(evaluationQuestions.length * 4);
-  const [result, setResult] = useState(getEvaluationResult(evaluationQuestions.length * 4));
+  const [scores, setScores] = useState(
+    Array(evaluationQuestions.length).fill(null)
+  );
+  const [totalScore, setTotalScore] = useState(0);
+  const [result, setResult] = useState("");
+  const [currentStep, setCurrentStep] = useState(0); // Step index for categories
+  const [showResult, setShowResult] = useState(false);
 
   const ToggleEvent = () => {
     setActive((prevState) => !prevState);
@@ -157,21 +187,35 @@ const IdeaValidation = () => {
 
   const handleScoreChange = (idx, value) => {
     const newScores = [...scores];
-    newScores[idx] = parseInt(value);
+    newScores[idx] = value === "" ? null : parseInt(value);
     setScores(newScores);
   };
 
   const calculateScore = () => {
-    const sum = scores.reduce((a, b) => a + b, 0);
+    const sum = scores.reduce((total, score) => total + (score || 0), 0);
     setTotalScore(sum);
     setResult(getEvaluationResult(sum));
+    setShowResult(true);
   };
 
-  // Calculate rowSpans for categories
-  const categoryRowSpans = evaluationQuestions.reduce((acc, q) => {
-    acc[q.category] = (acc[q.category] || 0) + 1;
+  // Group questions by category
+  const questionsByCategory = evaluationQuestions.reduce((acc, q, idx) => {
+    if (!acc[q.category]) acc[q.category] = [];
+    acc[q.category].push({ ...q, idx });
     return acc;
   }, {});
+
+  // Array of unique categories for step navigation
+  const categories = Object.keys(questionsByCategory);
+  const isLastStep = currentStep === categories.length - 1;
+  const isFirstStep = currentStep === 0;
+  const currentCategory = categories[currentStep];
+  const currentQuestions = questionsByCategory[currentCategory];
+
+  // Progress calculation for current step
+  const currentAnswered = currentQuestions.filter(
+    (q) => scores[q.idx] !== null
+  ).length;
 
   return (
     <>
@@ -188,18 +232,31 @@ const IdeaValidation = () => {
                   <div className="row align-items-center">
                     <div className="col-9">
                       <h4 className="fw-semibold mb-8">Idea Validation</h4>
+                      <h3></h3>
                       <nav aria-label="breadcrumb">
                         <ol className="breadcrumb">
                           <li className="breadcrumb-item">
                             <a
                               className="text-muted text-decoration-none"
-                              href="#0">
+                              href="#0"
+                            >
                               Home
                             </a>
                           </li>
-                          <li className="breadcrumb-item" aria-current="page">
+                          <li
+                            className="breadcrumb-item mb-3"
+                            aria-current="page"
+                          >
                             Idea Validation
                           </li>
+                          <h1 className="display-4 text-center mb-2 ">
+                            Evaluate your startup idea
+                          </h1>
+
+                          <p className="text-center mb-8 ">
+                            Use the DVF framework to prioritize and select your
+                            ventures
+                          </p>
                         </ol>
                       </nav>
                     </div>
@@ -221,336 +278,186 @@ const IdeaValidation = () => {
                 <div className="card-header">Idea Validation</div>
                 <div className="">
                   <div className="container p-4">
-                    {/* Title */}
-                    <h1 className="display-4 text-center mb-2 ">
-                      Evaluate your startup idea
-                    </h1>
-                    <p className="text-center mb-8">
-                      Use the DVF framework to prioritize and select your
-                      ventures
-                    </p>
-
-                    {/* Startup Idea Evaluation Table */}
+                    {/* Step Progress Bar */}
                     <div className="container-fluid mt-4">
-                      <div className="card mb-4">
-                        <div className="card-header" style={{ backgroundColor: "#223662", color: "#fff" }}>
-                          <h3 className="mb-0">Startup Idea Evaluation Table</h3>
+                      <div className="mb-4">
+                        <h5 className="mb-2">Overall Progress</h5>
+                        <div className="d-flex justify-content-between align-items-center mb-2">
+                          <span>
+                            Answered:{" "}
+                            <b>
+                              {scores.filter((s) => s !== null).length} /{" "}
+                              {scores.length}
+                            </b>
+                          </span>
+                          <span>
+                            Completion:{" "}
+                            <b>
+                              {Math.round(
+                                (scores.filter((s) => s !== null).length /
+                                  scores.length) *
+                                  100
+                              )}
+                              %
+                            </b>
+                          </span>
+                          <span>
+                            Score:{" "}
+                            <b>
+                              {scores.reduce((acc, s) => acc + (s || 0), 0)} /{" "}
+                              {evaluationQuestions.length * 4}
+                            </b>
+                          </span>
                         </div>
-                        <div className="card-body table-responsive">
-                          <table className="table table-bordered align-middle">
-                            <thead>
-                              <tr style={{ backgroundColor: "#e3eafc" }}>
-                                <th>Category</th>
-                                <th>Question</th>
-                                <th>Options</th>
-                                <th>Score (1–4)</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              {evaluationQuestions.map((q, idx) => {
-                                // Check if this is the first question of the category
-                                const isFirstOfCategory =
-                                  idx === 0 || evaluationQuestions[idx - 1].category !== q.category;
-                                return (
-                                  <tr key={idx}>
-                                    {isFirstOfCategory && (
-                                      <td rowSpan={categoryRowSpans[q.category]}>{q.category}</td>
-                                    )}
-                                    {/* Only render category cell for the first question in the group */}
-                                    <td>{q.question}</td>
-                                    <td>
-                                      <select
-                                        className="form-select"
-                                        value={scores[idx]}
-                                        onChange={e => handleScoreChange(idx, e.target.value)}
-                                      >
-                                        {q.options.map((opt, i) => (
-                                          <option key={i} value={opt.value}>{opt.label}</option>
-                                        ))}
-                                      </select>
-                                    </td>
-                                    <td className="text-center">{scores[idx]}</td>
-                                  </tr>
-                                );
-                              })}
-                            </tbody>
-                          </table>
-                          <div className="text-center mt-3">
-                            <button className="btn btn-success" onClick={calculateScore}>
-                              Calculate Score
-                            </button>
-                          </div>
-                          <div className="text-center mt-3">
-                            <h5>Total Score: {totalScore}</h5>
-                            <div>Evaluation Result: <b>{result}</b></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Circles Section */}
-                    <div className="row mb-12 justify-content-center ">
-                      {/* Circle 1 */}
-                      <div className="col-md-2 d-flex flex-column align-items-center">
-                        <div
-                          className="position-relative mb-2 "
-                          style={{
-                            width: "100px",
-                            height: "100px",
-                            backgroundColor: "#FBB6CE",
-                            borderRadius: "50%",
-                            display: "flex",
-                            justifyContent: "center",
-                            alignItems: "center",
-                            opacity: 0.7,
-                          }}>
-                          <Heart style={{ width: "40px", height: "40px" }} />
-                        </div>
-                        <div className="text-center ">
-                          <h5>Solution viability</h5>
-                          <p className="small">
-                            Do customers / users want this?
-                          </p>
-                        </div>
-                      </div>
-
-                      {/* Circle 2 */}
-                      <div className="col-md-2 d-flex flex-column align-items-center">
-                        <div
-                          className="position-relative mb-2"
-                          style={{
-                            width: "100px",
-                            height: "100px",
-                            backgroundColor: "#A0F5D7",
-                            borderRadius: "50%",
-                            display: "flex",
-                            justifyContent: "center",
-                            alignItems: "center",
-                            opacity: 0.7,
-                          }}>
-                          <CheckCircle
-                            style={{ width: "40px", height: "40px" }}
+                        <div className="progress" style={{ height: "12px" }}>
+                          <div
+                            className="progress-bar bg-info"
+                            role="progressbar"
+                            style={{
+                              width: `${
+                                (scores.filter((s) => s !== null).length /
+                                  scores.length) *
+                                100
+                              }%`,
+                            }}
+                            aria-valuenow={
+                              scores.filter((s) => s !== null).length
+                            }
+                            aria-valuemin="0"
+                            aria-valuemax={scores.length}
                           />
                         </div>
-                        <div className="text-center ">
-                          <h5>Evidence gathering</h5>
-                          <p className="small">Can we do this?</p>
-                        </div>
                       </div>
 
-                      {/* Circle 3 */}
-                      <div className="col-md-2 d-flex flex-column align-items-center">
-                        <div
-                          className="position-relative mb-2"
-                          style={{
-                            width: "100px",
-                            height: "100px",
-                            backgroundColor: "#A2D8E7",
-                            borderRadius: "50%",
-                            display: "flex",
-                            justifyContent: "center",
-                            alignItems: "center",
-                            opacity: 0.7,
-                          }}>
-                          <DollarSign
-                            style={{ width: "40px", height: "40px" }}
-                          />
-                        </div>
-                        <div className="text-center ">
-                          <h5>Level of demand</h5>
-                          <p className="small">Can this survive and thrive?</p>
-                        </div>
-                      </div>
-
-                      {/* Circle 4 */}
-                      <div className="col-md-2 d-flex flex-column align-items-center">
-                        <div
-                          className="position-relative mb-2"
-                          style={{
-                            width: "100px",
-                            height: "100px",
-                            backgroundColor: "#FFEB3B",
-                            borderRadius: "50%",
-                            display: "flex",
-                            justifyContent: "center",
-                            alignItems: "center",
-                            opacity: 0.7,
-                          }}>
-                          <Star style={{ width: "40px", height: "40px" }} />
-                        </div>
-                        <div className="text-center ">
-                          <h5>Efficiency, Client focus</h5>
-                          <p className="small">
-                            How new and innovative is the idea?
-                          </p>
-                        </div>
-                      </div>
-
-                      {/* Circle 5 */}
-                      <div className="col-md-2 d-flex flex-column align-items-center">
-                        <div
-                          className="position-relative mb-2"
-                          style={{
-                            width: "100px",
-                            height: "100px",
-                            backgroundColor: "#223662",
-                            borderRadius: "50%",
-                            display: "flex",
-                            justifyContent: "center",
-                            alignItems: "center",
-                            opacity: 0.7,
-                          }}>
-                          <Target style={{ width: "40px", height: "40px" }} />
-                        </div>
-                        <div className="text-center ">
-                          <h5>Team alignment</h5>
-                          <p className="small">Who is the target audience?</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Framework Grid */}
-                    <div className="row mb-8">
-                      {/* Desirability Column */}
-                      <div className="col-md-4 card">
-                        <div className="border p-3">
-                          <h3 className="font-weight-bold text-xl mb-4">
-                            Desirability
-                          </h3>
+                      {/* Only show current category's questions */}
+                      <div className="row g-4 justify-content-center">
+                        <div className="col-12 col-md-8 w-100">
                           <div
-                            className="bg-pink-100 p-2 mb-4"
-                            style={{ backgroundColor: "#223662" }}>
-                            "Do people want this?"{" "}
+                            className="card h-100  shadow-sm border-0 question-card"
+                            style={{
+                              borderRadius: "18px",
+                              transition: "box-shadow 0.2s",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              className="card-header d-flex align-items-center"
+                              style={{
+                                background:
+                                  categoryColors[currentCategory] || "#f5f5f5",
+                                borderTopLeftRadius: "18px",
+                                borderTopRightRadius: "18px",
+                                border: "none",
+                                minHeight: "56px",
+                              }}
+                            >
+                              <span
+                                className="me-2"
+                                style={{ fontSize: "1.5rem" }}
+                              >
+                                {categoryIcons[currentCategory]}
+                              </span>
+                              <span className="fw-bold">{currentCategory}</span>
+                            </div>
+                            <div className="card-body">
+                              {currentQuestions.map((q, qidx) => (
+                                <div
+                                  key={qidx}
+                                  className="mb-4 pb-2 border-bottom"
+                                  style={{ borderColor: "#eee" }}
+                                >
+                                  <div
+                                    className="mb-2"
+                                    style={{
+                                      fontWeight: 500,
+                                      fontSize: "1.1rem",
+                                    }}
+                                  >
+                                    {q.question}
+                                  </div>
+                                  <div className="d-flex align-items-center mb-2 flex-wrap">
+                                    <select
+                                      className="form-select form-select-sm w-auto mb-1"
+                                      style={{
+                                        minWidth: 160,
+                                        borderRadius: 8,
+                                        boxShadow: "0 1px 2px #0001",
+                                      }}
+                                      value={scores[q.idx] ?? ""}
+                                      onChange={(e) =>
+                                        handleScoreChange(q.idx, e.target.value)
+                                      }
+                                    >
+                                      <option value="">Select an option</option>
+                                      {q.options.map((opt, i) => (
+                                        <option key={i} value={opt.value}>
+                                          {opt.label}
+                                        </option>
+                                      ))}
+                                    </select>
+                                  </div>
+                                  <div className="mt-2">
+                                    <span
+                                      className="badge bg-primary"
+                                      style={{
+                                        fontSize: "1rem",
+                                        borderRadius: "8px",
+                                      }}
+                                    >
+                                      Score:{" "}
+                                      {scores[q.idx] !== null
+                                        ? scores[q.idx]
+                                        : "-"}
+                                    </span>
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
                           </div>
-                          <p className="font-weight-bold mb-2">Focus</p>
-                          <p className="mb-4">User Needs and Desires</p>
-                          <p className="font-weight-bold mb-2">
-                            Considerations
-                          </p>
-                          <ul className="list-unstyled">
-                            <li>User research and empathy mapping</li>
-                            <li>User interviews and surveys</li>
-                            <li>Proof of concept and validating questions</li>
-                          </ul>
                         </div>
                       </div>
-
-                      {/* Viability Column */}
-                      <div className="col-md-4 card">
-                        <div className="border p-3">
-                          <h3 className="font-weight-bold text-xl mb-4">
-                            Viability
-                          </h3>
-                          <div
-                            className="bg-cyan-100 p-2 mb-4"
-                            style={{ backgroundColor: "#223662" }}>
-                            {" "}
-                            "Can we make this profitable?"{" "}
-                          </div>
-                          <p className="font-weight-bold mb-2">Focus</p>
-                          <p className="mb-4">
-                            Business Model and Sustainability
-                          </p>
-                          <p className="font-weight-bold mb-2">
-                            Considerations
-                          </p>
-                          <ul className="list-unstyled">
-                            <li>Market analysis and surveying competition</li>
-                            <li>
-                              Financials, revenue streams and cost structure
-                            </li>
-                            <li>Financial projections / forecasting</li>
-                          </ul>
-                        </div>
+                      {/* Navigation Buttons */}
+                      <div className="text-center mt-4">
+                        <button
+                          className="btn btn-secondary px-4 py-2 me-2"
+                          style={{ borderRadius: 12 }}
+                          onClick={() => setCurrentStep(currentStep - 1)}
+                          disabled={isFirstStep}
+                        >
+                          Previous
+                        </button>
+                        {!isLastStep && (
+                          <button
+                            className="btn btn-primary px-4 py-2"
+                            style={{ borderRadius: 12 }}
+                            onClick={() => setCurrentStep(currentStep + 1)}
+                          >
+                            Next
+                          </button>
+                        )}
+                        {isLastStep && (
+                          <button
+                            className="btn btn-success px-4 py-2 fs-5 shadow"
+                            style={{ borderRadius: 12 }}
+                            onClick={calculateScore}
+                          >
+                            Calculate Score
+                          </button>
+                        )}
                       </div>
-
-                      {/* Feasibility Column */}
-                      <div className="col-md-4 card">
-                        <div className="border p-3">
-                          <h3 className="font-weight-bold text-xl mb-4">
-                            Feasibility
-                          </h3>
-                          <div
-                            className="bg-green-100 p-2 mb-4"
-                            style={{ backgroundColor: "#223662" }}>
-                            {" "}
-                            "Can we actually build and deliver this?"{" "}
+                      {/* Show result only after last step and Calculate Score is clicked */}
+                      {showResult && (
+                        <div className="text-center mt-3">
+                          <h5>Total Score: {totalScore}</h5>
+                          <div>
+                            Evaluation Result: <b>{result}</b>
                           </div>
-                          <p className="font-weight-bold mb-2">Focus</p>
-                          <p className="mb-4">
-                            Technical and Operational Capabilities
-                          </p>
-                          <p className="font-weight-bold mb-2">
-                            Considerations
-                          </p>
-                          <ul className="list-unstyled">
-                            <li>Technical capabilities and infrastructure</li>
-                            <li>
-                              Resources available (team, time, budget, etc.)
-                            </li>
-                            <li>Operational processes and logistics</li>
-                          </ul>
                         </div>
-                      </div>
-                    </div>
-
-                    {/* Scoring Table */}
-                    <div
-                      border="1 1px soiled black"
-                      className="border table-responsive p-3"
-                      style={{ color: "#D3D3D3" }}>
-                      <h3 className="font-weight-bold mb-4">
-                        Sample Scoring
-                      </h3>
-                      <table className="table table table-bordered">
-                        <thead>
-                          <tr>
-                            <th>Ideas</th>
-                            <th
-                              className="p-2"
-                              >
-                              Desirability
-                            </th>
-                            <th
-                              className="p-2"
-                              >
-                              Viability
-                            </th>
-                            <th
-                              className="p-2"
-                              >
-                              Feasibility
-                            </th>
-                            <th>Total</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td className="p-2">Idea 1</td>
-                            <td className="text-center">4</td>
-                            <td className="text-center">3</td>
-                            <td className="text-center">2</td>
-                            <td className="text-center">9</td>
-                          </tr>
-                          <tr>
-                            <td className="p-2">Idea 2</td>
-                            <td className="text-center">4</td>
-                            <td className="text-center">5</td>
-                            <td className="text-center">3</td>
-                            <td className="text-center">11</td>
-                          </tr>
-                          <tr>
-                            <td className="p-2">Idea 3</td>
-                            <td className="text-center">2</td>
-                            <td className="text-center">3</td>
-                            <td className="text-center">3</td>
-                            <td className="text-center">8</td>
-                          </tr>
-                        </tbody>
-                      </table>
+                      )}
                     </div>
                   </div>
                 </div>
+
                 <div className="card-footer"></div>
               </div>
             </div>
@@ -564,3 +471,198 @@ const IdeaValidation = () => {
 };
 
 export default IdeaValidation;
+
+{
+  /* Circles Section and Framework Grid*/
+}
+// <div className="row mb-12 justify-content-center mb-2">
+//   {/* Circle 1 */}
+//   <div className="col-md-2 d-flex flex-column align-items-center">
+//     <div
+//       className="position-relative mb-2 "
+//       style={{
+//         width: "100px",
+//         height: "100px",
+//         backgroundColor: "#FBB6CE",
+//         borderRadius: "50%",
+//         display: "flex",
+//         justifyContent: "center",
+//         alignItems: "center",
+//         opacity: 0.7,
+//       }}
+//     >
+//       <Heart style={{ width: "40px", height: "40px" }} />
+//     </div>
+//     <div className="text-center text-white">
+//       <h5>Solution viability</h5>
+//       <p className="small">Do customers / users want this?</p>
+//     </div>
+//   </div>
+
+//   {/* Circle 2 */}
+//   <div className="col-md-2 d-flex flex-column align-items-center">
+//     <div
+//       className="position-relative mb-2"
+//       style={{
+//         width: "100px",
+//         height: "100px",
+//         backgroundColor: "#A0F5D7",
+//         borderRadius: "50%",
+//         display: "flex",
+//         justifyContent: "center",
+//         alignItems: "center",
+//         opacity: 0.7,
+//       }}
+//     >
+//       <CheckCircle style={{ width: "40px", height: "40px" }} />
+//     </div>
+//     <div className="text-center text-white">
+//       <h5>Evidence gathering</h5>
+//       <p className="small">Can we do this?</p>
+//     </div>
+//   </div>
+
+//   {/* Circle 3 */}
+//   <div className="col-md-2 d-flex flex-column align-items-center">
+//     <div
+//       className="position-relative mb-2"
+//       style={{
+//         width: "100px",
+//         height: "100px",
+//         backgroundColor: "#A2D8E7",
+//         borderRadius: "50%",
+//         display: "flex",
+//         justifyContent: "center",
+//         alignItems: "center",
+//         opacity: 0.7,
+//       }}
+//     >
+//       <DollarSign style={{ width: "40px", height: "40px" }} />
+//     </div>
+//     <div className="text-center text-white">
+//       <h5>Level of demand</h5>
+//       <p className="small">Can this survive and thrive?</p>
+//     </div>
+//   </div>
+
+//   {/* Circle 4 */}
+//   <div className="col-md-2 d-flex flex-column align-items-center">
+//     <div
+//       className="position-relative mb-2"
+//       style={{
+//         width: "100px",
+//         height: "100px",
+//         backgroundColor: "#FFEB3B",
+//         borderRadius: "50%",
+//         display: "flex",
+//         justifyContent: "center",
+//         alignItems: "center",
+//         opacity: 0.7,
+//       }}
+//     >
+//       <Star style={{ width: "40px", height: "40px" }} />
+//     </div>
+//     <div className="text-center text-white">
+//       <h5>Efficiency, Client focus</h5>
+//       <p className="small">How new and innovative is the idea?</p>
+//     </div>
+//   </div>
+
+//   {/* Circle 5 */}
+//   <div className="col-md-2 d-flex flex-column align-items-center">
+//     <div
+//       className="position-relative mb-2"
+//       style={{
+//         width: "100px",
+//         height: "100px",
+//         backgroundColor: "#223662",
+//         borderRadius: "50%",
+//         display: "flex",
+//         justifyContent: "center",
+//         alignItems: "center",
+//         opacity: 0.7,
+//       }}
+//     >
+//       <Target style={{ width: "40px", height: "40px" }} />
+//     </div>
+//     <div className="text-center text-white">
+//       <h5>Team alignment</h5>
+//       <p className="small">Who is the target audience?</p>
+//     </div>
+//   </div>
+//   Framework Grid
+//   <div className="row mb-8 mt-4 ">
+//     {/* Desirability Column */}
+//     <div className="col-md-4 card">
+//       <div className="border p-3">
+//         <h3 className="font-weight-bold text-xl mb-4 text-white">
+//           Desirability
+//         </h3>
+//         <div
+//           className="bg-pink-100 p-2 mb-4"
+//           style={{ backgroundColor: "#223662" }}
+//         >
+//           "Do people want this?"{" "}
+//         </div>
+//         <p className="font-weight-bold mb-2">Focus</p>
+//         <p className="mb-4">User Needs and Desires</p>
+//         <p className="font-weight-bold mb-2">Considerations</p>
+//         <ul className="list-unstyled">
+//           <li>User research and empathy mapping</li>
+//           <li>User interviews and surveys</li>
+//           <li>Proof of concept and validating questions</li>
+//         </ul>
+//       </div>
+//     </div>
+
+//     {/* Viability Column */}
+//     <div className="col-md-4 card ">
+//       <div className="border p-3">
+//         <h3 className="font-weight-bold text-xl mb-4 text-white">
+//           Viability
+//         </h3>
+//         <div
+//           className="bg-cyan-100 p-2 mb-4"
+//           style={{ backgroundColor: "#223662" }}
+//         >
+//           {" "}
+//           "Can we make this profitable?"{" "}
+//         </div>
+//         <p className="font-weight-bold mb-2">Focus</p>
+//         <p className="mb-4">Business Model and Sustainability</p>
+//         <p className="font-weight-bold mb-2">Considerations</p>
+//         <ul className="list-unstyled">
+//           <li>Market analysis and surveying competition</li>
+//           <li>Financials, revenue streams and cost structure</li>
+//           <li>Financial projections / forecasting</li>
+//         </ul>
+//       </div>
+//     </div>
+
+//     {/* Feasibility Column */}
+//     <div className="col-md-4 card">
+//       <div className="border p-3">
+//         <h3 className="font-weight-bold text-xl mb-4 text-white">
+//           Feasibility
+//         </h3>
+//         <div
+//           className="bg-green-100 p-2 mb-4"
+//           style={{ backgroundColor: "#223662" }}
+//         >
+//           {" "}
+//           "Can we actually build and deliver this?"{" "}
+//         </div>
+//         <p className="font-weight-bold mb-2">Focus</p>
+//         <p className="mb-4">
+//           Technical and Operational Capabilities
+//         </p>
+//         <p className="font-weight-bold mb-2">Considerations</p>
+//         <ul className="list-unstyled">
+//           <li>Technical capabilities and infrastructure</li>
+//           <li>Resources available (team, time, budget, etc.)</li>
+//           <li>Operational processes and logistics</li>
+//         </ul>
+//       </div>
+//     </div>
+//   </div>
+// </div>
