@@ -11,7 +11,7 @@ export const ModernCard = ({ children, className = "", style = {}, onClick }) =>
         background: "#FFFFFF",
         borderRadius: "12px",
         padding: "1rem",
-        boxShadow: "0 2px 12px rgba(0, 0, 0, 0.05)",
+        boxShadow: "0 2px 12px rgba(0, 0, 0, 0.2)",
         border: "1px solid #eee",
         transition: "transform 0.2s ease, box-shadow 0.2s ease",
         cursor: "pointer",
@@ -26,8 +26,8 @@ export const ModernCard = ({ children, className = "", style = {}, onClick }) =>
     <style>
       {`
         .modern-card:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+          transform: translateY(-4px);
+          box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
         }
       `}
     </style>

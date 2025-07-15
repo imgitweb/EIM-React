@@ -398,7 +398,7 @@ const startupCourses = [
   return (
     <div className="container-fluid ">
             {/* SkillCard-based Metric Cards */}
-            <div className="row g-3 mb-4">
+            <div className="row g-3 mb-4 mt-2">
               {metrics.map((metric, index) => (
                 <div className="col-sm-6 col-md-3" key={index}>
                   <SkillCard
