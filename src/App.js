@@ -141,9 +141,9 @@ function AppRoutes() {
         <Route path="/hr-and-employee-agreement" element={<Hr_Employee_agreements />} />
         <Route path="/financial-and-accounting-docs" element={<Accounting_Document />} />
         <Route path="/coursedetails/:courseId" element={<CourseDetailsPage />} />
+        <Route path="/lesson/:lessonId/quiz" element={<QuizPage />} />
       </Route>
         <Route path="/lesson/:lessonId" element={<LessonPlayerPage />} />
-        <Route path="/lesson/:lessonId/quiz" element={<QuizPage />} />
     </Routes>
 
   );

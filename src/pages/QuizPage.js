@@ -2,15 +2,20 @@ import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import {
   FaArrowLeft,
-  FaCheck,
-  FaRedo,
-  FaTimes,
   FaInfoCircle,
   FaListOl,
 } from "react-icons/fa";
+import {
+  BsClipboardCheck,
+  BsPencil,
+  BsCheckCircle,
+  BsXCircle,
+} from "react-icons/bs";
+
 import sections from "../../src/pages/ImStratupSchool/sections";
 import QuizResultChart from "./ImStratupSchool/QuizResultChart";
-import { SkillCard } from "../componant/NewDashboard/SkillCard";
+import { SkillCard } from "../componant/components/SkillCard";
+
 
 const QuizPage = () => {
   const { lessonId } = useParams();
@@ -75,121 +80,48 @@ const QuizPage = () => {
     );
   };
 
-  const quizStats = [
-    {
-      title: "Total Questions",
-      subTitle: "Total Questions in Quiz",
-      current: totalQuestions,
-      color: "#0d6efd",
-      icon: "bi bi-clipboard-check",
-    },
-    {
-      title: "Attempted",
-      subTitle: "Questions Attempted",
-      current: attempted,
-      color: "#ffc107",
-      icon: "bi bi-pencil",
-    },
-    {
-      title: "Correct",
-      subTitle: "Questions Answered Correctly",
-      current: correctAnswers,
-      color: "#198754",
-      icon: "bi bi-check-circle",
-    },
-    {
-      title: "Incorrect",
-      current: wrongAnswers,
-      subTitle: "Questions Answered Incorrectly",
-      color: "#dc3545",
-      icon: "bi bi-x-circle",
-    },
-  ];
+ const quizStats = [
+  {
+    title: "Total Questions",
+    subTitle: "Total Questions in Quiz",
+    current: totalQuestions,
+    color: "#0d6efd",
+    icon: <BsClipboardCheck size={18} color="#ffffff" />,
+  },
+  {
+    title: "Attempted",
+    subTitle: "Questions Attempted",
+    current: attempted,
+    color: "#ffc107",
+    icon: <BsPencil size={18} color="#ffffff" />,
+  },
+  {
+    title: "Correct",
+    subTitle: "Questions Answered Correctly",
+    current: correctAnswers,
+    color: "#198754",
+    icon: <BsCheckCircle size={18} color="#ffffff" />,
+  },
+  {
+    title: "Incorrect",
+    subTitle: "Questions Answered Incorrectly",
+    current: wrongAnswers,
+    color: "#dc3545",
+    icon: <BsXCircle size={18} color="#ffffff" />,
+  },
+];
+
 
   return (
-    <div
-      style={{
-        backgroundColor: "#F8F9FA",
-        minHeight: "100vh",
-        minWidth: "100vw",
-        padding: "20px",
-      }}
-      className="container"
-    >
-      <div className="row">
-        {/* Sidebar */}
-        <div className="col-lg-3 mb-4">
-          <div className="card shadow-sm border-0 sticky-top">
-            <div className="card-body">
-              <h6 className="text-primary fw-semibold mb-3">📋 Questions</h6>
-              <ul className="list-group list-group-flush">
-                {quiz.questions.map((q, index) => {
-                  const answered = answers[index] !== undefined;
-                  const active = currentQIndex === index;
-                  const correct =
-                    submitted && answers[index] === quiz.questions[index].answer;
-                  const isUnlocked = index <= currentQIndex || submitted;
-
-                  let classNames =
-                    "list-group-item d-flex justify-content-between align-items-center";
-                  if (submitted) {
-                    classNames += correct
-                      ? " list-group-item-success"
-                      : " list-group-item-danger";
-                  } else if (active) {
-                    classNames += " active text-white";
-                  } else if (answered) {
-                    classNames += " list-group-item-warning text-dark";
-                  } else {
-                    classNames += " bg-light text-muted";
-                  }
-
-                  return (
-                    <li
-                      key={index}
-                      className={classNames}
-                      style={{ cursor: isUnlocked ? "pointer" : "not-allowed" }}
-                      onClick={() => {
-                        if (isUnlocked) setCurrentQIndex(index);
-                      }}
-                    >
-                      <span>
-                        Q{index + 1}.{" "}
-                        {q.question.length > 32
-                          ? q.question.slice(0, 32) + "..."
-                          : q.question}
-                      </span>
-                      <span>
-                        {submitted ? (
-                          correct ? (
-                            <i className="text-white fw-bold">✔</i>
-                          ) : (
-                            <i className="text-white fw-bold">✘</i>
-                          )
-                        ) : !isUnlocked ? (
-                          <i className="bi bi-lock-fill text-muted"></i>
-                        ) : answered ? (
-                          <i className="bi bi-check-circle-fill text-success"></i>
-                        ) : (
-                          <i className="bi bi-circle text-muted"></i>
-                        )}
-                      </span>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          </div>
-        </div>
-
+   <div className="row g-4">
         {/* Main Content */}
         <div
-          className="col-lg-9"
+          className="col-12 col-md-12 mx-auto my-4"
           style={{
-            backgroundColor: "#FFFFFF",
-            borderRadius: "8px",
+            // backgroundColor: "#FFFFFF",
+            // borderRadius: "8px",
             padding: "20px",
-            boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+            // boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
           }}
         >
           <div className="d-flex justify-content-between align-items-center mb-4">
@@ -323,7 +255,6 @@ const QuizPage = () => {
           )}
         </div>
       </div>
-    </div>
   );
 };
 
