@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import API_BASE_URL from "./../componant/config";
-export default function StartupDocument() {
-  const [startupDoc, setStartupDoc] = useState("");
+import API_BASE_URL from "../../componant/config";
+
+export default function StartupDocument({ activeTab }) {
+  const [startupDoc, setStartupDoc] = useState([]);
   const [startupId, setStartupId] = useState("");
   const [companyRegistration, setCompanyRegistration] = useState(null);
   const [aadharCard, setAadharCard] = useState(null);
@@ -12,7 +13,6 @@ export default function StartupDocument() {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  // Automatically retrieve startupId from localStorage on component mount
   useEffect(() => {
     const token = localStorage.getItem("userId");
     if (token) {
@@ -47,63 +47,52 @@ export default function StartupDocument() {
     if (dpiit) formData.append("dpiit", dpiit);
 
     try {
-      const response = await axios.post(
-        `${API_BASE_URL}/api/document/upload`,
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+      await axios.post(`${API_BASE_URL}/api/document/upload`, formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
       setMessage("Files uploaded successfully.");
-      setError("");
+      fetchDocuments(); // Refresh document list
     } catch (error) {
       console.error("Error uploading files:", error);
       setError("Failed to upload files. Please try again.");
-      setMessage("");
     } finally {
       setIsLoading(false);
     }
   };
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const startup_id = localStorage.getItem("userId");
-        const response = await axios.get(
-          `${API_BASE_URL}/api/document/get_document/${startup_id}`
-        );
-        console.log(response.data); // Log to inspect the response
-        // Ensure the response is an array before setting it
-        if (Array.isArray(response.data)) {
-          setStartupDoc(response.data);
-        } else {
-          setStartupDoc([response.data]); // If it's not an array, wrap it in an array
-        }
-      } catch (error) {
-        console.error("Error while fetching data:", error);
+  const fetchDocuments = async () => {
+    try {
+      const startup_id = localStorage.getItem("userId");
+      const response = await axios.get(
+        `${API_BASE_URL}/api/document/get_document/${startup_id}`
+      );
+      if (Array.isArray(response.data)) {
+        setStartupDoc(response.data);
+      } else {
+        setStartupDoc([response.data]);
       }
-    };
-    fetchData();
+    } catch (error) {
+      console.error("Error while fetching documents:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchDocuments();
   }, []);
 
-  return (
-    <div
-      className="tab-pane fade"
-      id="pills-gallery"
-      role="tabpanel"
-      aria-labelledby="pills-gallery-tab"
-      tabIndex={0}
-    >
-      <div className="row">
-        <div className="col-md-6">
-          <div className="card">
-            <div className="card-header"></div>
-            <div className="card-body">
-              <h3 className="mb-4">Upload Company Files</h3>
+  if (activeTab !== "documents") return null;
 
-              {message && <div className="alert alert-success">{message}</div>}
+  return (
+    <div className="tab-pane fade show active">
+      <div className="row mt-3">
+        {/* Upload Form */}
+        <div className="col-md-6">
+             <div className="card">
+          <div className="card-header">
+            <h3>Upload documnets</h3>
+          </div>
+          <div className="card-body">
+            {message && <div className="alert alert-success">{message}</div>}
               {error && <div className="alert alert-danger">{error}</div>}
 
               <form onSubmit={handleSubmit}>
@@ -178,51 +167,62 @@ export default function StartupDocument() {
                   {isLoading ? "Uploading..." : "Upload"}
                 </button>
               </form>
-            </div>
           </div>
         </div>
+        </div>
+
+        {/* Documents Table */}
         <div className="col-md-6">
           {Array.isArray(startupDoc) && startupDoc.length > 0 ? (
             startupDoc.map((documentData, index) => (
-              <table className="table table-bordered" key={index}>
-                <tr>
-                  <td>Company Registration</td>
-                  <td>
-                    <button className="btn btn-warning">
-                      <i className="fa fa-download"> </i>
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Aadhar Card</td>
-                  <td>
-                    <button className="btn btn-warning">
-                      <i className="fa fa-download"> </i>
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>PAN Card</td>
-                  <td>
-                    {" "}
-                    <button className="btn btn-warning">
-                      <i className="fa fa-download"> </i>
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>DPIIT</td>
-                  <td>
-                    {" "}
-                    <button className="btn btn-warning">
-                      <i className="fa fa-download"> </i>
-                    </button>
-                  </td>
-                </tr>
-              </table>
+              <div className="card">
+          <div className="card-header">
+            <h3>Download Documnets</h3>
+          </div>
+          <div className="card-body">
+            <div className="table-responsive" key={index}>
+                <table className="table table-bordered">
+                  <tbody>
+                    <tr>
+                      <td>Company Registration</td>
+                      <td>
+                        <button className="btn btn-warning">
+                          <i className="fa fa-download"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Aadhar Card</td>
+                      <td>
+                        <button className="btn btn-warning">
+                          <i className="fa fa-download"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>PAN Card</td>
+                      <td>
+                        <button className="btn btn-warning">
+                          <i className="fa fa-download"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>DPIIT</td>
+                      <td>
+                        <button className="btn btn-warning">
+                          <i className="fa fa-download"></i>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+          </div>
+        </div>
             ))
           ) : (
-            <p>No documents available.</p> // Message when no data is available
+            <p>No documents available.</p>
           )}
         </div>
       </div>

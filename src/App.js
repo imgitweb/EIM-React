@@ -54,6 +54,7 @@ import RiskFeedbackPage from "./pages/idea-validation/RiskFeedbackPage";
 import MarketCaseStudiesPage from "./pages/idea-validation/MarketCaseStudiesPage";
 import NewDashboard from "./pages/newDashboard/NewDashoboard";
 import Layout from "./componant/NewDashboard/Layout";
+import ProfilePage from "./pages/profile/ProfilePage";
 
 // Utility to parse tokens and store in localStorage
 function useTokenParser() {
@@ -124,7 +125,7 @@ function AppRoutes() {
         <Route path="/my-task" element={<MyTask />} />
         <Route path="/rivarly-insights" element={<RivarlyInsight />} />
         <Route path="/projection" element={<Projection />} />
-        <Route path="/app-profile" element={<AppProfile />} />
+        <Route path="/app-profile" element={<ProfilePage />} />
         <Route path="/business" element={<BusinessModel />} />
         <Route path="/pitch-deck" element={<PitchDeck />} />
         <Route path="/logout" element={<Logout />} />

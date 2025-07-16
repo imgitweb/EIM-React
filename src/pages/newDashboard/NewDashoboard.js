@@ -13,6 +13,7 @@ import {
   FaUsers,
   FaFlag,
 } from "react-icons/fa";
+import WelcomeSection from "./WelcomeSection";
 
 const cardsData = [
   {
@@ -66,11 +67,15 @@ const cardsData = [
 
 const NewDashboard = () => {
   return (
-    <div className="container-fluid py-3 px-0
+    <div className="container-fluid px-0
 
     "
     // style={{ backgroundColor: "#f8fafc" }}
     >
+
+<WelcomeSection/>
+
+
      {/* Stat Cards */}
 <div className="row g-3 mb-5">
   {cardsData.map((card, index) => (

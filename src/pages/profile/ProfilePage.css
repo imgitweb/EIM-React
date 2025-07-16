@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+.profile-font {
+  font-family: 'Poppins', sans-serif;
+}
+
+.profile-header {
+  background: linear-gradient(to right, #7928CA, #7f36c8);
+  height: 160px;
+  position: relative;
+}
+
+.avatar-container {
+  width: 96px;
+  height: 96px;
+  background: white;
+  border-radius: 50%;
+  padding: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.avatar-content {
+  background-color: #7928CA;
+  color: white;
+  font-weight: 600;
+  font-size: 28px;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.edit-button {
+  border: 1px solid white;
+  color: white;
+  font-weight: 500;
+}
+
+.edit-button:hover {
+  background-color: white;
+  color: #7928CA;
+}
+
+.nav{
+  border-radius: 0px;
+  /* background-color: #ae3838; */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-tabs .nav-link {
+  color: #555;
+  font-weight: 500;
+  border: none;
+  /* border-bottom: 2px solid transparent; */
+  padding: 10px 16px;
+  transition: 0.3s;
+}
+
+.nav-tabs .nav-link.active {
+  color: #7928CA;
+  border-bottom: 2px solid #7928CA;
+  background-color: transparent;
+  border-radius: 0px;
+}
+
+.tab-icon {
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+.text-purple {
+  color: #7928CA;
+}
+
+.icon-purple {
+  color: #7928CA;
+}
+.tabs-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.nav-tabs {
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  overflow-x: auto;
+  border-bottom: 2px solid #420cb0;
+}
+
+.nav-tabs .nav-link {
+  min-width: max-content;
+  padding: 10px 12px;
+  font-weight: 400;
+  color: #555;
+  border: none;
+  border-bottom: 2px solid transparent;
+  background: none;
+  transition: all 0.3s;
+}
+
+.nav-tabs .nav-link.active {
+  color: #7928CA;
+  border-bottom: 2px solid #7928CA;
+}
+
+.tab-icon {
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+.edit-button {
+  border: 1px solid rgb(0, 0, 0);
+  font-weight: 400;
+  background-color: transparent;
+  transition: all 0.3s;
+}
+
+.edit-button:hover {
+  background-color: white;
+  color: #7928CA !important;
+  border-color:#7928CA ;
+}
+

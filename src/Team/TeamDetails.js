@@ -4,6 +4,7 @@ import "datatables.net-dt";
 import axios from "axios";
 import UpdateTeam from "./UpdateTeam";
 import API_BASE_URL from "./../componant/config";
+import AddTeam from "./AddTeam";
 
 export default function TeamDetails() {
   const tableRef = useRef(null);
@@ -56,12 +57,15 @@ export default function TeamDetails() {
 
   return (
     <div>
-      <div className="row">
+      <div className="row mt-4">
         <div className="col-md-12">
           <div className="datatables">
             <div className="card">
               <div className="card-body">
-                <h4 className="card-title text-center pb-3">Team Details</h4>
+                <h4 className="card-title text-center pb-3 uderline">Team Details</h4>
+                 <div className="d-sm-flex align-items-center justify-content-between mt-3 mb-4">
+                                    <AddTeam />
+                                  </div>
                 <div className="row">
                   {Array.isArray(team) &&
                     team.map((teamMember, index) => (
