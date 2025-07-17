@@ -43,6 +43,9 @@ import Compliance_Document from "./startup_resources/TemplateComponent/Complianc
 import Banking_Template from "./startup_resources/TemplateComponent/Banking_Template";
 import Hr_Employee_agreements from "./startup_resources/TemplateComponent/Hr_Employee_Agreement";
 import Accounting_Document from "./startup_resources/TemplateComponent/Accounting_Document";
+import U_Deshboard from "./componant/UniversityDeshboardUIM/UniversityDeshboardUIM/U_Deshboard";
+import UimRegister from "./componant/UniversityDeshboardUIM/UniversityDeshboardUIM/UimRegister"
+import Step2UnicornIdea from "./componant/UniversityDeshboardUIM/UniversityDeshboardUIM/Step2UnicornIdea"
 import RouteWatcher from "./reloadDashboard/RouteWatcher";
 import LessonPlayerPage from "./pages/LessonPlayerPage";
 import CourseDetailsPage from "./pages/ImStratupSchool/CourseDetails"
@@ -142,6 +145,10 @@ function AppRoutes() {
         <Route path="/financial-and-accounting-docs" element={<Accounting_Document />} />
         <Route path="/coursedetails/:courseId" element={<CourseDetailsPage />} />
         <Route path="/lesson/:lessonId/quiz" element={<QuizPage />} />
+        <Route path="uim-deshboard" element={<U_Deshboard/>}/>
+        <Route path ="uim-register" element={<UimRegister/>}/>
+        <Route path ="uim-step2UnicornIdea" element={<Step2UnicornIdea/>}/>
+        
       </Route>
         <Route path="/lesson/:lessonId" element={<LessonPlayerPage />} />
     </Routes>

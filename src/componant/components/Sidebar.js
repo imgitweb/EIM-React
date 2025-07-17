@@ -110,6 +110,18 @@ const sidebarItems = [
       { name: "Export to PDF/Excel", path: "/metrics/export", icon: "ti ti-file-export", color: "#A855F7" },
     ],
   },
+
+  {
+    title: "UIM",
+    icon: "ti ti-chart-line",
+    iconColor: "#3B82F6",
+    items: [
+      { name: "U-Deshboard", path: "/uim-deshboard", icon: "ti ti-calculator", color: "#F59E0B" },
+      { name: "UimRegister", path: "/uim-register", icon: "ti ti-calculator", color: "#F59E0B" },
+      { name: "Step2Unicorn", path: "/uim-step2UnicornIdea", icon: "ti ti-calculator", color: "#F59E0B" },
+
+    ],
+  },
 ];
 
 const Sidebar = ({ onClose }) => {
