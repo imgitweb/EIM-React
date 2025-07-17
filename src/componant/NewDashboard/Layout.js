@@ -2,28 +2,25 @@
 import React, { useState, useEffect } from 'react';
 import Sidebar from '../components/Sidebar';
 import Header from '../components/Header';
-import { FaBars } from 'react-icons/fa';
-import { MdMenuOpen } from 'react-icons/md';
 import { Outlet } from 'react-router-dom';
 import theme from '../NewDashboard/styles/styles';
 
 const SIDEBAR_WIDTH = 280;
 
 const Layout = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true); // default open
   const [isHeaderMenuOpen, setIsHeaderMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
-  const toggleSidebar = () => setIsSidebarOpen((prev) => !prev);
-  const toggleHeaderMenu = () => setIsHeaderMenuOpen((prev) => !prev);
+  const toggleSidebar = () => setIsSidebarOpen(prev => !prev);
+  const toggleHeaderMenu = () => setIsHeaderMenuOpen(prev => !prev);
 
   useEffect(() => {
     const handleResize = () => {
       const nowMobile = window.innerWidth < 768;
       setIsMobile(nowMobile);
-      if (!nowMobile) {
-        setIsSidebarOpen(false);
-        setIsHeaderMenuOpen(false);
+      if (nowMobile) {
+        setIsSidebarOpen(false); // auto-hide sidebar on mobile
       }
     };
 
@@ -42,7 +39,7 @@ const Layout = () => {
       }}
     >
       {/* Sidebar */}
-      {(isSidebarOpen || !isMobile) && (
+      {isSidebarOpen && (
         <div
           className="position-fixed top-0 start-0 h-100"
           style={{
@@ -50,29 +47,32 @@ const Layout = () => {
             zIndex: 1040,
             backgroundColor: theme.backgroundColor.white,
             borderRight: `1px solid ${theme.backgroundColor.border}`,
+            transition: 'all 0.3s ease-in-out',
           }}
         >
-          <Sidebar onClose={isMobile ? toggleSidebar : null} />
+          <Sidebar onClose={toggleSidebar} />
         </div>
       )}
 
-      {/* Content Area */}
+      {/* Main Content */}
       <div
         className="flex-grow-1 d-flex flex-column"
         style={{
-          marginLeft: !isMobile ? SIDEBAR_WIDTH : 0,
+          marginLeft: isSidebarOpen ? SIDEBAR_WIDTH : 0,
           transition: 'margin-left 0.3s ease-in-out',
           width: '100%',
         }}
       >
-       
-        {/* Header with menu toggle */}
-        <Header showMobileMenu={isMobile && isHeaderMenuOpen} isMobile={isMobile} toggleHeaderMenu={toggleHeaderMenu}  toggleSidebar={toggleSidebar} />
+        <Header
+          showMobileMenu={isMobile && isHeaderMenuOpen}
+          isMobile={isMobile}
+          toggleHeaderMenu={toggleHeaderMenu}
+          toggleSidebar={toggleSidebar}
+        />
 
-        {/* Main Content */}
         <main
           className="flex-grow-1 overflow-auto p-3"
-          style={{ backgroundColor: theme.backgroundColor.light , overflow: 'hidden' }}
+          style={{ backgroundColor: theme.backgroundColor.light }}
         >
           <Outlet />
         </main>

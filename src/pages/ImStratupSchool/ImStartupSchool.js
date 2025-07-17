@@ -400,7 +400,7 @@ const startupCourses = [
   return (
     <div className="container-fluid">
             {/* SkillCard-based Metric Cards */}
-          <div
+          {/* <div
   className={`row g-3 mb-4 bg-white ${window.innerWidth >= 768 ? 'sticky-top' : ''}`}
   style={window.innerWidth >= 740 ? { top: '-17px', zIndex: 1020 } : {}}
 >
@@ -415,12 +415,12 @@ const startupCourses = [
                   />
                 </div>
               ))}
-            </div>
+            </div> */}
 
             {/* Main Dashboard Card */}
             <div 
               style={{
-    backgroundColor: isDark ? "#1F2937" : "#FBFBFB",
+    backgroundColor: isDark ? "#1F2937" : "#FFFFFF",
     padding: "20px",
     width: window.innerWidth >= 740 ? "75vw" : "85vw",
     maxWidth: "100%", // prevents overflow
@@ -428,10 +428,17 @@ const startupCourses = [
   }}
             //  className="card p-4 shadow-sm overflow-hidden mb-4 w"
             >
-              <h4 className="fw-bold mb-1">IM Startup School</h4>
-              <p className="text-muted mb-3">
-                Explore key startup growth modules across every stage—from ideation to scaling.
-              </p>
+              {/* Replace Heading with Logo */}
+  <img
+    src="/assets/startuplog.png" // ⬅️ Update path based on your actual file
+    alt="IM Startup School Logo"
+    style={{ height: "120px", objectFit: 'cover',  }}
+  />
+
+  {/* Replace Description */}
+  <p className="text-muted mb-3" style={{ fontSize: '.95rem' }}>
+    Learn from curated modules designed to build your startup, step-by-step.
+  </p>
 
               <ReusableDashboard tabs={tabs} data={startupCourses} />
             </div>

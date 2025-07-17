@@ -135,6 +135,24 @@ const filteredCourses = data.filter((course) => {
   )}
 </div>
 
+<div
+  className="d-flex justify-content-end align-items-center mb-3"
+  style={{ flexWrap: "wrap" }}
+>
+  {/* Left Side - Heading */}
+  {/* <h1 className="mb-0">shjs</h1> */}
+
+  {/* Right Side - Search Box */}
+  <div>
+    <input
+      type="text"
+      placeholder="Search..."
+      className="form-control"
+      style={{ maxWidth: "250px" }}
+    />
+  </div>
+</div>
+
 
       <div className="row">
         {/* Sidebar */}
