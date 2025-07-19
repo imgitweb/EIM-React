@@ -140,33 +140,36 @@ const U_Deshboard = () => {
       <div className="row mt-2 g-3 px-3">
         <div className="col-md-8">
           <div className="card p-4 shadow-sm h-100">
-            <div className="d-flex justify-content-between align-items-center mb-3 gap-2 flex-wrap">
-              <h6 className="fw-bold mb-1">Career Readiness</h6>
-              <div className="btn-group px-2 rounded-5">
-                {["Weekly", "Monthly", "Quarterly"].map((label) => (
-                  <button
-                    key={label}
-                    className={`btn btn-sm ${
-                      timeRange === label ? "btn-dark" : "btn-outline-secondary"
-                    }`}
-                    onClick={() => setTimeRange(label)}
-                  >
-                    {label}
-                  </button>
-                ))}
+            <div className="d-flex justify-content-between align-items-center mb-3 gap-3 flex-wrap">
+              <h6 className="fw-semibold mb-1 text-dark">Career Readiness</h6>
 
-                <div className="px-2">
-                  <select
-                    className="form-select form-select-sm  w-auto"
-                    value={dateFilter}
-                    onChange={(e) => setDateFilter(e.target.value)}
-                  >
-                    <option>All Dates</option>
-                    <option>Last 7 Days</option>
-                    <option>Last Month</option>
-                    <option>Last Quarter</option>
-                  </select>
+              <div className="d-flex align-items-center gap-2 flex-wrap">
+                <div className="btn-group gap-1">
+                  {["Weekly", "Monthly", "Quarterly"].map((label) => (
+                    <button
+                      key={label}
+                      className={`btn btn-sm px-3 py-1 rounded-4 ${
+                        timeRange === label
+                          ? "btn-secondary text-white"
+                          : "btn-outline-secondary"
+                      }`}
+                      onClick={() => setTimeRange(label)}
+                    >
+                      {label}
+                    </button>
+                  ))}
                 </div>
+
+                <select
+                  className="form-select form-select-sm w-auto rounded-4 border shadow-sm"
+                  value={dateFilter}
+                  onChange={(e) => setDateFilter(e.target.value)}
+                >
+                  <option>All Dates</option>
+                  <option>Last 7 Days</option>
+                  <option>Last Month</option>
+                  <option>Last Quarter</option>
+                </select>
               </div>
             </div>
 

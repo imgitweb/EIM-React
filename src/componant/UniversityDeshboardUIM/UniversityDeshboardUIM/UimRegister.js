@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -25,9 +26,18 @@ const UimRegister = () => {
   });
 
   const sectorsList = [
-    "HealthTech", "FinTech", "AgriTech", "EdTech", "CleanTech",
-    "EV & Mobility", "AI/ML", "DeepTech", "MSME Enablers", "SaaS",
-    "SpaceTech", "Web3"
+    "HealthTech",
+    "FinTech",
+    "AgriTech",
+    "EdTech",
+    "CleanTech",
+    "EV & Mobility",
+    "AI/ML",
+    "DeepTech",
+    "MSME Enablers",
+    "SaaS",
+    "SpaceTech",
+    "Web3",
   ];
 
   const focusList = [
@@ -44,7 +54,7 @@ const UimRegister = () => {
     "Choose Sector",
     "Define Your Focus",
     "Select Market",
-    "Tell Us About You"
+    "Tell Us About You",
   ];
 
   const toggleSector = (sector) => {
@@ -72,7 +82,7 @@ const UimRegister = () => {
       case 2:
         return formData.market.trim() !== "";
       case 3:
-        return formData.interest.trim() && formData.skills.trim();
+        return formData.interest.trim() !== "" && formData.skills.trim() !== "";
       default:
         return false;
     }
@@ -83,30 +93,47 @@ const UimRegister = () => {
       alert("Please complete this step before continuing.");
       return;
     }
-    if (step < 3) setStep(step + 1);
+    setStep((prev) => prev + 1);
   };
 
   const handleBack = () => {
-    if (step > 0) setStep(step - 1);
+    setStep((prev) => prev - 1);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (!validateStep()) {
-      alert("Please complete all fields before submitting.");
+      alert("Please fill all required fields before submitting.");
       return;
     }
-    console.log("Form Submitted:", formData);
-   navigate("/uim-step2UnicornIdea", { state: formData });
+
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/api/uim/register",
+        formData
+      );
+
+      if (response.status === 200) {
+        alert("Submitted successfully!");
+        navigate("/uim-step2UnicornIdea", { state: formData });
+      } else {
+        alert("Submission failed: " + response.data.message);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      if (error.response) {
+        alert("Server Error: " + error.response.data.message);
+      } else {
+        alert("Network Error or Server Not Running");
+      }
+    }
   };
 
   return (
     <div
       className="container py-2"
-      style={{
-        fontFamily: "Inter",
-        minHeight: "100vh",
-      }}
+      style={{ fontFamily: "Inter", minHeight: "80vh", overflow: "hidden" }}
     >
       <div className="row justify-content-center mt-2">
         <div className="col-12 col-lg-10">
@@ -119,7 +146,10 @@ const UimRegister = () => {
             </h2>
 
             {/* Stepper */}
-            <div className="d-flex justify-content-between align-items-center position-relative mb-5 flex-wrap" style={{ fontFamily: "Poppins" }}>
+            <div
+              className="d-flex justify-content-between align-items-center position-relative mb-5 flex-wrap"
+              style={{ fontFamily: "Poppins" }}
+            >
               {stepTitles.map((label, index) => (
                 <div
                   className="text-center position-relative flex-fill mb-3 mb-sm-0"
@@ -127,7 +157,9 @@ const UimRegister = () => {
                 >
                   <div
                     className={`rounded-circle mx-auto d-flex align-items-center justify-content-center shadow-sm ${
-                      step >= index ? "bg-primary text-white" : "bg-light text-muted"
+                      step >= index
+                        ? "bg-primary text-white"
+                        : "bg-light text-muted"
                     }`}
                     style={{
                       width: 45,
@@ -175,6 +207,7 @@ const UimRegister = () => {
               >
                 <h5 className="mb-4 fw-bold text-dark">{stepHeadings[step]}</h5>
 
+                {/* Step 0 - Sector */}
                 {step === 0 && (
                   <div className="row">
                     {sectorsList.map((sector, idx) => (
@@ -196,90 +229,97 @@ const UimRegister = () => {
                   </div>
                 )}
 
-                {step === 1 && (
-                  <>
-                    {focusList.map((item, idx) => (
-                      <div className="form-check mb-2" key={idx}>
-                        <input
-                          className="form-check-input"
-                          type="radio"
-                          name="focus"
-                          id={`focus-${idx}`}
-                          value={item}
-                          checked={formData.focus === item}
-                          onChange={handleChange}
-                        />
-                        <label className="form-check-label" htmlFor={`focus-${idx}`}>
-                          {item}
-                        </label>
-                      </div>
-                    ))}
-                  </>
-                )}
+                {/* Step 1 - Focus */}
+                {step === 1 &&
+                  focusList.map((item, idx) => (
+                    <div className="form-check mb-2" key={idx}>
+                      <input
+                        className="form-check-input"
+                        type="radio"
+                        name="focus"
+                        id={`focus-${idx}`}
+                        value={item}
+                        checked={formData.focus === item}
+                        onChange={handleChange}
+                      />
+                      <label
+                        className="form-check-label"
+                        htmlFor={`focus-${idx}`}
+                      >
+                        {item}
+                      </label>
+                    </div>
+                  ))}
 
-                {step === 2 && (
-                  <>
-                    {marketList.map((item, idx) => (
-                      <div className="form-check mb-2" key={idx}>
-                        <input
-                          className="form-check-input"
-                          type="radio"
-                          name="market"
-                          id={`market-${idx}`}
-                          value={item}
-                          checked={formData.market === item}
-                          onChange={handleChange}
-                        />
-                        <label className="form-check-label" htmlFor={`market-${idx}`}>
-                          {item}
-                        </label>
-                      </div>
-                    ))}
-                  </>
-                )}
+                {/* Step 2 - Market */}
+                {step === 2 &&
+                  marketList.map((item, idx) => (
+                    <div className="form-check mb-2" key={idx}>
+                      <input
+                        className="form-check-input"
+                        type="radio"
+                        name="market"
+                        id={`market-${idx}`}
+                        value={item}
+                        checked={formData.market === item}
+                        onChange={handleChange}
+                      />
+                      <label
+                        className="form-check-label"
+                        htmlFor={`market-${idx}`}
+                      >
+                        {item}
+                      </label>
+                    </div>
+                  ))}
 
+                {/* Step 3 - About You */}
                 {step === 3 && (
                   <>
-                    <div className="mb-1">
+                    <div className="mb-2">
                       <label className="form-label fw-semibold">
                         What interests you the most?
                       </label>
                       <textarea
                         className="form-control"
-                        rows="3"
+                        rows="4"
                         name="interest"
                         value={formData.interest}
                         onChange={handleChange}
                         placeholder="E.g., solving education problems..."
+                        style={{ resize: "none" }}
                       />
                     </div>
-                    <div className="mb-1">
+                    <div className="mb-2">
                       <label className="form-label fw-semibold">
                         Your skills or domain knowledge
                       </label>
                       <textarea
                         className="form-control"
-                        rows="3"
+                        rows="4"
                         name="skills"
                         value={formData.skills}
                         onChange={handleChange}
                         placeholder="E.g., React.js, Supply Chain..."
+                        style={{ resize: "none" }}
                       />
                     </div>
                   </>
                 )}
               </div>
 
-              {/* Fixed Navigation Buttons */}
-              <div className="d-flex justify-content-between align-items-center mt-2 px-2" style={{ minHeight: "50px" }}>
+              {/* Navigation Buttons */}
+              <div
+                className="d-flex justify-content-between align-items-center mt-2 px-2"
+                style={{ minHeight: "50px" }}
+              >
                 <button
                   type="button"
                   className="btn btn-outline-secondary px-4"
                   onClick={handleBack}
                   disabled={step === 0}
                 >
-                  <FontAwesomeIcon icon={faArrowLeft} className="me-2" />
-                  Back
+                  <FontAwesomeIcon icon={faArrowLeft} className="me-2" /> Back
                 </button>
 
                 {step < 3 ? (
@@ -288,12 +328,12 @@ const UimRegister = () => {
                     className="btn btn-primary px-4"
                     onClick={handleNext}
                   >
-                    Next
+                    Next{" "}
                     <FontAwesomeIcon icon={faArrowRight} className="ms-2" />
                   </button>
                 ) : (
                   <button type="submit" className="btn btn-success px-4">
-                    <FontAwesomeIcon icon={faPaperPlane} className="me-2" />
+                    <FontAwesomeIcon icon={faPaperPlane} className="me-2" />{" "}
                     Submit
                   </button>
                 )}

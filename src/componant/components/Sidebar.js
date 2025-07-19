@@ -113,12 +113,12 @@ const sidebarItems = [
 
   {
     title: "UIM",
-    icon: "ti ti-chart-line",
+    icon: "ti ti-chart-bar",
     iconColor: "#3B82F6",
     items: [
-      { name: "U-Deshboard", path: "/uim-deshboard", icon: "ti ti-calculator", color: "#F59E0B" },
-      { name: "UimRegister", path: "/uim-register", icon: "ti ti-calculator", color: "#F59E0B" },
-      { name: "Step2Unicorn", path: "/uim-step2UnicornIdea", icon: "ti ti-calculator", color: "#F59E0B" },
+      { name: "U-Deshboard", path: "/uim-deshboard", icon: "ti ti-building", color: "#F52E0B" },
+      { name: "UimRegister", path: "/uim-register", icon: "ti ti-user-check", color: "#F57E0B" },
+      { name: "Unicorn", path: "/uim-step2UnicornIdea", icon: "ti ti-calculator", color: "#F59E0B" },
 
     ],
   },
